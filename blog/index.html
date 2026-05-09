@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pool Care Guides: Chemistry &amp; Maintenance Tips — PoolChem Tracker</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta name="description" content="Solve pool problems fast. Guides for fixing cloudy water, balancing pH and chlorine, understanding LSI, and maintaining your pool — written for real pool owners.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-S8JT1DELF6');
+</script>
+<link rel="canonical" href="https://www.poolchemtracker.com/blog/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pool Care Guides — PoolChem Tracker">
+<meta property="og:description" content="Solve pool problems fast. Guides for fixing cloudy water, balancing pH and chlorine, understanding LSI, and maintaining your pool.">
+<meta property="og:url" content="https://www.poolchemtracker.com/blog/">
+<meta property="og:site_name" content="PoolChem Tracker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Pool Care Guides — PoolChem Tracker">
+<meta name="twitter:description" content="Solve pool problems fast. Guides for fixing cloudy water, balancing pH and chlorine, understanding LSI, and maintaining your pool.">
+<meta property="og:image" content="https://www.poolchemtracker.com/Screenshots/Dashboard%20Screenshot.png">
+<meta name="twitter:image" content="https://www.poolchemtracker.com/Screenshots/Dashboard%20Screenshot.png">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a1628;
+    --bg2: #0d1f3c;
+    --card: #0f1e38;
+    --accent: #4facfe;
+    --accent2: #00f2fe;
+    --text: #e8edf5;
+    --muted: #8899aa;
+    --good: #2ed573;
+    --warn: #ffa502;
+    --fix: #ff6b6b;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  body {
+    font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  header {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  header .header-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .logo h1 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .logo h1 span { color: var(--accent); }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .header-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--accent);
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+
+  .header-link:hover {
+    background: var(--accent);
+    color: #000;
+  }
+
+  .header-badge { display: inline-flex; }
+  .header-badge img { height: 36px; }
+
+  /* Page header */
+  .page-header {
+    padding: 4rem 0 2rem;
+    text-align: center;
+  }
+
+  .page-header h2 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+
+  .page-header h2 .gradient {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .page-header p {
+    color: var(--muted);
+    font-size: 1.1rem;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* Category sections */
+  .category {
+    padding: 2.5rem 0 1rem;
+  }
+
+  .category:first-child {
+    padding-top: 1rem;
+  }
+
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .category-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .category-icon.fix { background: rgba(255,107,107,0.12); }
+  .category-icon.balance { background: rgba(79,172,254,0.12); }
+  .category-icon.maintain { background: rgba(46,213,115,0.12); }
+
+  .category-header h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .category-desc {
+    color: var(--muted);
+    font-size: 0.88rem;
+    margin-bottom: 1.25rem;
+    padding-left: 3rem;
+  }
+
+  /* Article cards */
+  .article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .article-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .article-card:hover {
+    border-color: rgba(79,172,254,0.3);
+    transform: translateY(-2px);
+  }
+
+  .article-card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+
+  .article-card p {
+    font-size: 0.84rem;
+    color: var(--muted);
+    line-height: 1.5;
+    flex: 1;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .article-meta .read-time {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .article-meta .read-link {
+    font-size: 0.78rem;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* App CTA banner */
+  .app-banner {
+    margin: 3rem 0 1rem;
+    background: linear-gradient(135deg, rgba(79,172,254,0.08), rgba(0,242,254,0.05));
+    border: 1px solid rgba(79,172,254,0.2);
+    border-radius: 14px;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .app-banner h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .app-banner p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    max-width: 480px;
+    margin: 0 auto 1.25rem;
+  }
+
+  .app-banner .badge img { height: 44px; }
+  .app-banner .badge { display: inline-block; transition: opacity 0.2s; }
+  .app-banner .badge:hover { opacity: 0.85; }
+
+  .app-features {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .app-feature {
+    font-size: 0.82rem;
+    color: var(--text);
+    font-weight: 600;
+    opacity: 0.85;
+  }
+
+  .app-feature::before {
+    content: "\2713 ";
+    color: var(--good);
+    font-weight: 700;
+  }
+
+  /* Footer */
+  footer {
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  footer a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  footer a:hover { color: var(--text); }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 640px) {
+    .page-header { padding: 3rem 0 1.5rem; }
+    .header-badge { display: none; }
+    .header-link { font-size: 0.8rem; padding: 0.35rem 0.75rem; }
+    .header-right { gap: 0.75rem; }
+    .article-grid { grid-template-columns: 1fr; }
+    .category-desc { padding-left: 0; }
+    .app-features { gap: 0.5rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../" class="logo">
+      <div class="logo-icon"><img src="../Logo/logo-96.webp" alt="PoolChem Tracker" width="96" height="96"></div>
+      <h1>Pool<span>Chem</span> Tracker</h1>
+    </a>
+    <div class="header-right">
+      <a href="../features.html" class="header-link">Features</a>
+      <a href="../about.html" class="header-link">About</a>
+      <a href="https://apps.apple.com/app/id6762652630" class="app-store-badge header-badge"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40"></a>
+    </div>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="container">
+    <h2>Pool care <span class="gradient">guides</span></h2>
+    <p>Find your problem, follow the steps, fix your water. No chemistry degree required.</p>
+  </div>
+</section>
+
+<section class="articles">
+  <div class="container">
+
+    <!-- Fix a Problem -->
+    <div class="category">
+      <div class="category-header">
+        <div class="category-icon fix">&#x1F6A8;</div>
+        <h3>Fix a Problem</h3>
+      </div>
+      <p class="category-desc">Something's wrong with your water? Start here. Each guide walks you through diagnosis and the exact fix.</p>
+      <div class="article-grid">
+        <a href="why-is-my-pool-water-cloudy.html" class="article-card">
+          <h4>Why Is My Pool Water Cloudy? (And How to Fix It)</h4>
+          <p>5 common causes: low chlorine, high pH, high alkalinity, poor filtration, or high calcium. Diagnose and fix it.</p>
+          <div class="article-meta">
+            <span class="read-time">5 min</span>
+            <span class="read-link">Read guide &rarr;</span>
+          </div>
+        </a>
+        <a href="pool-water-green-but-chlorine-is-high.html" class="article-card">
+          <h4>Pool Water Green but Chlorine Is High?</h4>
+          <p>Green water despite good chlorine? The cause is usually high CYA, metals, or a false reading. Here's how to find it.</p>
+          <div class="article-meta">
+            <span class="read-time">5 min</span>
+            <span class="read-link">Read guide &rarr;</span>
+          </div>
+        </a>
+        <a href="pool-ph-too-high.html" class="article-card">
+          <h4>Pool pH Too High? Here's How to Fix It</h4>
+          <p>Above 7.8 means weak chlorine, cloudy water, and scale buildup. Here's why it drifts and how to bring it down.</p>
+          <div class="article-meta">
+            <span class="read-time">4 min</span>
+            <span class="read-link">Read guide &rarr;</span>
+          </div>
+        </a>
+        <a href="how-to-lower-pool-alkalinity.html" class="article-card">
+          <h4>How to Lower Alkalinity (Without Wrecking pH)</h4>
+          <p>High alkalinity makes pH impossible to control. Lower it with muriatic acid or dry acid — the right way.</p>
+          <div class="article-meta">
+            <span class="read-time">5 min</span>
+            <span class="read-link">Read guide &rarr;</span>
+          </div>
+        </a>
+        <a href="pool-chlorine-too-low.html" class="article-card">
+          <h4>Pool Chlorine Too Low? Causes and How to Fix It</h4>
+          <p>FC below target means algae, bacteria, and cloudy water. 6 common causes and the step-by-step fix.</p>
+          <div class="article-meta">
+            <span class="read-time">5 min</span>
+            <span class="read-link">Read guide &rarr;</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Balance Your Chemistry -->
+    <div class="category">
+      <div class="category-header">
+        <div class="category-icon balance">&#x2696;&#xFE0F;</div>
+        <h3>Balance Your Chemistry</h3>
+      </div>
+      <p class="category-desc">Understand what your test results mean and how to get every number into the right range.</p>
+      <div class="article-grid">
+        <a href="pool-chemistry-beginners.html" class="article-card">
+          <h4>Pool Chemistry for Beginners: The 5 Numbers That Matter</h4>
+          <p>New pool owner? These are the only five readings you need — what each does and what range to aim for.</p>
+          <div class="article-meta">
+            <span class="read-time">6 min</span>
+            <span class="read-link">Read guide &rarr;</span>
+          </div>
+        </a>
+        <a href="how-to-balance-pool-water.html" class="article-card">
+          <h4>How to Balance Pool Water in 4 Steps</h4>
+          <p>Fix alkalinity, then pH, then chlorine — and your water balances in one pass instead of three.</p>
+          <div class="article-meta">
+            <span class="read-time">5 min</span>
+            <span class="read-link">Read guide &rarr;</span>
+          </div>
+        </a>
+        <a href="pool-chlorine-levels-chart.html" class="article-card">
+          <h4>Pool Chlorine Levels Chart</h4>
+          <p>Clear reference for FC, TC, and CC readings. What range to aim for, what's too high, and when to act.</p>
+          <div class="article-meta">
+            <span class="read-time">5 min</span>
+            <span class="read-link">Read guide &rarr;</span>
+          </div>
+        </a>
+        <a href="free-chlorine-vs-total-chlorine.html" class="article-card">
+          <h4>Free Chlorine vs Total Chlorine</h4>
+          <p>Your test kit gives two chlorine numbers. The gap between them is a warning sign most pool owners miss.</p>
+          <div class="article-meta">
+            <span class="read-time">4 min</span>
+            <span class="read-link">Read guide &rarr;</span>
+          </div>
+        </a>
+        <a href="what-is-lsi.html" class="article-card">
+          <h4>What Is LSI and Why Does Your Pool Need It?</h4>
+          <p>Your pH can look perfect while your water silently corrodes your pool. LSI tells the whole story.</p>
+          <div class="article-meta">
+            <span class="read-time">5 min</span>
+            <span class="read-link">Read guide &rarr;</span>
+          </div>
+        </a>
+        <a href="how-to-raise-pool-chlorine.html" class="article-card">
+          <h4>How to Raise Pool Chlorine Safely</h4>
+          <p>Liquid, granular, or tablets — each works differently. The right method and dose based on your CYA level.</p>
+          <div class="article-meta">
+            <span class="read-time">5 min</span>
+            <span class="read-link">Read guide &rarr;</span>
+          </div>
+        </a>
+        <a href="baking-soda-vs-soda-ash.html" class="article-card">
+          <h4>Baking Soda vs Soda Ash: Which Do You Need?</h4>
+          <p>Both are white powders that raise something. Using the wrong one makes the problem worse. Here's when to use each.</p>
+          <div class="article-meta">
+            <span class="read-time">5 min</span>
+            <span class="read-link">Read guide &rarr;</span>
+          </div>
+        </a>
+        <a href="pool-chemistry-cheat-sheet.html" class="article-card">
+          <h4>Pool Chemistry Cheat Sheet: Every Number You Need</h4>
+          <p>One page with every target range, every chemical dose, and every quick fix. Bookmark this.</p>
+          <div class="article-meta">
+            <span class="read-time">5 min</span>
+            <span class="read-link">Read guide &rarr;</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Setup & Maintenance -->
+    <div class="category">
+      <div class="category-header">
+        <div class="category-icon maintain">&#x1F527;</div>
+        <h3>Setup &amp; Maintenance</h3>
+      </div>
+      <p class="category-desc">Choose the right setup for your pool and build a testing routine that actually works.</p>
+      <div class="article-grid">
+        <a href="how-often-to-test-pool-water.html" class="article-card">
+          <h4>How Often Should You Test Your Pool Water?</h4>
+          <p>A realistic schedule based on what actually changes and how fast. Weekly, monthly, and when to test more.</p>
+          <div class="article-meta">
+            <span class="read-time">4 min</span>
+            <span class="read-link">Read guide &rarr;</span>
+          </div>
+        </a>
+        <a href="liquid-chlorine-vs-tablets.html" class="article-card">
+          <h4>Liquid Chlorine vs Tablets: Pros and Cons</h4>
+          <p>Both sanitize, but they affect your water differently. The CYA buildup from tablets is what most owners miss.</p>
+          <div class="article-meta">
+            <span class="read-time">5 min</span>
+            <span class="read-link">Read guide &rarr;</span>
+          </div>
+        </a>
+        <a href="saltwater-vs-chlorine-pools.html" class="article-card">
+          <h4>Saltwater vs Chlorine Pools</h4>
+          <p>Both use chlorine — the difference is delivery. Compare costs, chemistry, maintenance, and which fits you.</p>
+          <div class="article-meta">
+            <span class="read-time">6 min</span>
+            <span class="read-link">Read guide &rarr;</span>
+          </div>
+        </a>
+        <a href="test-strips-vs-liquid-test-kits.html" class="article-card">
+          <h4>Test Strips vs Liquid Test Kits</h4>
+          <p>Both work, but accuracy varies. When strips are fine, when you need a liquid kit, and why logging matters more.</p>
+          <div class="article-meta">
+            <span class="read-time">5 min</span>
+            <span class="read-link">Read guide &rarr;</span>
+          </div>
+        </a>
+        <a href="opening-pool-for-summer.html" class="article-card">
+          <h4>Opening Your Pool for Summer: Chemical Checklist</h4>
+          <p>Get the chemistry right from day one. Step-by-step chemical order, target ranges, and the first-week routine.</p>
+          <div class="article-meta">
+            <span class="read-time">6 min</span>
+            <span class="read-link">Read guide &rarr;</span>
+          </div>
+        </a>
+        <a href="pool-startup-chemicals-checklist.html" class="article-card">
+          <h4>Pool Startup Chemicals Checklist: Everything You Need</h4>
+          <p>The complete list of chemicals for pool startup — what each does, how much to buy, and the order to add them.</p>
+          <div class="article-meta">
+            <span class="read-time">7 min</span>
+            <span class="read-link">Read guide &rarr;</span>
+          </div>
+        </a>
+        <a href="how-to-test-pool-water-at-home.html" class="article-card">
+          <h4>How to Test Pool Water at Home: Step-by-Step</h4>
+          <p>Test strips vs liquid kits, how to collect a good sample, what to test for, and common mistakes that give bad readings.</p>
+          <div class="article-meta">
+            <span class="read-time">8 min</span>
+            <span class="read-link">Read guide &rarr;</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- App CTA -->
+    <div class="app-banner">
+      <h3>Put these guides into action</h3>
+      <p>PoolChem Tracker calculates exact dosing, tracks your chemistry over time, and tells you when your water needs attention.</p>
+      <div class="app-features">
+        <span class="app-feature">Exact dosing</span>
+        <span class="app-feature">LSI analysis</span>
+        <span class="app-feature">Trend charts</span>
+        <span class="app-feature">Works offline</span>
+      </div>
+      <a href="https://apps.apple.com/app/id6762652630" class="badge"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40"></a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="../">Home</a>
+      <a href="mailto:support@poolchemtracker.com">Support</a>
+      <a href="../privacy.html">Privacy Policy</a>
+      <a href="../terms.html">Terms of Service</a>
+      <a href="https://bsky.app/profile/poolchemtracker.com" style="display:inline-flex;align-items:center;gap:0.35rem;"><svg width="14" height="13" viewBox="0 0 568 501" fill="currentColor" aria-hidden="true"><path d="M123.121 33.664C188.241 82.553 258.281 181.68 284 234.873c25.719-53.192 95.759-152.32 160.879-201.21C491.866-1.611 568-28.906 568 57.947c0 17.346-9.945 145.713-15.778 166.555-20.275 72.453-94.155 90.933-159.875 79.748C507.222 323.8 536.444 388.56 473.333 453.32c-119.86 122.992-172.272-30.859-185.702-70.281-2.462-7.227-3.614-10.608-3.631-7.733-.017-2.875-1.169.506-3.631 7.733-13.43 39.422-65.842 193.273-185.702 70.281-63.111-64.76-33.889-129.52 80.986-149.071-65.72 11.185-139.6-7.295-159.875-79.748C9.945 203.659 0 75.291 0 57.946 0-28.906 76.135-1.612 123.121 33.664Z"/></svg> Bluesky</a>
+    </div>
+    <p>&copy; 2026 PoolChem Tracker. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

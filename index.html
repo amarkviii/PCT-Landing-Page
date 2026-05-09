@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PoolChem Tracker — Pool Chemistry &amp; Dosing for iOS</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="description" content="Stop guessing your pool chemistry. Get exact dosing recommendations, LSI balance analysis, and trend tracking — all private and offline on iPhone and iPad.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-S8JT1DELF6');
+</script>
+<link rel="canonical" href="https://www.poolchemtracker.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PoolChem Tracker — Smart Pool Chemistry for iOS">
+<meta property="og:description" content="Stop guessing your pool chemistry. Get exact dosing recommendations, LSI balance analysis, and trend tracking — all private and offline on iPhone and iPad.">
+<meta property="og:url" content="https://www.poolchemtracker.com/">
+<meta property="og:image" content="https://www.poolchemtracker.com/Screenshots/Dashboard%20Screenshot.png">
+<meta property="og:site_name" content="PoolChem Tracker">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PoolChem Tracker — Smart Pool Chemistry for iOS">
+<meta name="twitter:description" content="Stop guessing your pool chemistry. Get exact dosing recommendations, LSI balance analysis, and trend tracking — all private and offline on iPhone and iPad.">
+<meta name="twitter:image" content="https://www.poolchemtracker.com/Screenshots/Dashboard%20Screenshot.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"PoolChem Tracker","url":"https://www.poolchemtracker.com/","description":"Stop guessing your pool chemistry. Get exact dosing recommendations, LSI balance analysis, and trend tracking — all private and offline on iPhone and iPad."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"PoolChem Tracker","url":"https://www.poolchemtracker.com","logo":"https://www.poolchemtracker.com/Logo/logo-256.webp","sameAs":["https://apps.apple.com/app/id6762652630","https://bsky.app/profile/poolchemtracker.com"],"contactPoint":{"@type":"ContactPoint","email":"support@poolchemtracker.com","contactType":"customer support"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"PoolChem Tracker","operatingSystem":"iOS","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","ratingCount":"1"},"description":"Track pool chemistry, get dosing recommendations, monitor LSI balance, and view trends — all offline on iPhone and iPad.","image":"https://www.poolchemtracker.com/Screenshots/Dashboard%20Screenshot.png","url":"https://apps.apple.com/app/id6762652630"}
+</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a1628;
+    --bg2: #0d1f3c;
+    --card: #0f1e38;
+    --accent: #4facfe;
+    --accent2: #00f2fe;
+    --text: #e8edf5;
+    --muted: #8899aa;
+    --good: #2ed573;
+    --warn: #ffa502;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  body {
+    font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Header */
+  header {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .logo h1 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .logo h1 span { color: var(--accent); }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .header-blog-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--accent);
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+
+  .header-blog-link:hover {
+    background: var(--accent);
+    color: #000;
+  }
+
+  .header-badge { display: inline-flex; }
+
+  .app-store-badge {
+    display: inline-block;
+    transition: opacity 0.2s;
+  }
+
+  .app-store-badge:hover { opacity: 0.85; }
+
+  .app-store-badge img { height: 54px; }
+
+  /* Hero */
+  .hero {
+    padding: 5rem 0 3rem;
+    text-align: center;
+  }
+
+  .hero h2 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero h2 .gradient {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero .subtitle {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 580px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .hero-note {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  /* Trust badges */
+  .trust-strip {
+    padding: 2rem 0 1rem;
+  }
+
+  .trust-badges {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.25rem 2rem;
+  }
+
+  .trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+    opacity: 0.85;
+  }
+
+  .trust-badge .badge-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(79,172,254,0.1);
+    border: 1px solid rgba(79,172,254,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  /* Screenshots */
+  .screenshots {
+    padding: 3rem 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .screenshots-inner {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    padding: 0 1rem;
+  }
+
+  .screenshot-figure {
+    flex-shrink: 0;
+    text-align: center;
+    width: 220px;
+  }
+
+  .screenshot-figure img {
+    width: 220px;
+    height: auto;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    display: block;
+  }
+
+  .screenshot-caption {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: -0.01em;
+  }
+
+  /* Problem section */
+  .problem {
+    padding: 4rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .problem h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .problem > .container > p {
+    text-align: center;
+    color: var(--muted);
+    max-width: 560px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+  }
+
+  .problem-card {
+    background: rgba(255,165,2,0.04);
+    border: 1px solid rgba(255,165,2,0.15);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .problem-card .p-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .problem-card h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+    color: var(--warn);
+  }
+
+  .problem-card p {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .solution-intro {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .solution-intro h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .solution-intro h4 .gradient {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .solution-intro p {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .solution-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .solution-card {
+    background: rgba(46,213,115,0.04);
+    border: 1px solid rgba(46,213,115,0.15);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .solution-card .s-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .solution-card h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+    color: var(--good);
+  }
+
+  .solution-card p {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* Features */
+  .features {
+    padding: 4rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .features h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    letter-spacing: -0.02em;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .feature-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+  }
+
+  .feature-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .feature-card h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-card p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* How it works */
+  .how-it-works {
+    padding: 4rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .how-it-works h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    letter-spacing: -0.02em;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .step-number {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #000;
+    font-weight: 800;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+  }
+
+  .steps h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+
+  .steps p {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  /* Demo */
+  .demo {
+    padding: 4rem 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+
+  .demo h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  .demo p {
+    color: var(--muted);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .phone-frame {
+    display: inline-block;
+    width: 375px;
+    height: 720px;
+    border-radius: 40px;
+    border: 4px solid rgba(255,255,255,0.15);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05);
+    background: #000;
+    position: relative;
+  }
+
+  .phone-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 36px;
+  }
+
+  .demo-note {
+    margin-top: 1.25rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  /* Differentiator */
+  .differentiator {
+    padding: 4rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .differentiator h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .differentiator > .container > p {
+    text-align: center;
+    color: var(--muted);
+    max-width: 560px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .compare-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .compare-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .compare-card h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .compare-card ul {
+    list-style: none;
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  .compare-card ul li::before {
+    content: "✕ ";
+    color: #ff4757;
+    font-weight: 700;
+  }
+
+  .compare-card.ours ul li::before {
+    content: "✓ ";
+    color: var(--good);
+    font-weight: 700;
+  }
+
+  .compare-card.ours {
+    border-color: rgba(79,172,254,0.3);
+    background: rgba(79,172,254,0.04);
+  }
+
+  .compare-card.ours h4 {
+    color: var(--accent);
+  }
+
+  /* Pricing */
+  .pricing {
+    padding: 4rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .pricing h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  .pricing > .container > p {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 680px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .pricing-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+
+  .pricing-card.featured {
+    border-color: rgba(79,172,254,0.4);
+    background: rgba(79,172,254,0.04);
+    position: relative;
+  }
+
+  .pricing-label {
+    position: absolute;
+    top: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.25rem 1rem;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .pricing-card h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .pricing-price {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+  }
+
+  .pricing-price-note {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .pricing-features {
+    list-style: none;
+    text-align: left;
+    font-size: 0.88rem;
+    line-height: 2;
+  }
+
+  .pricing-features li {
+    color: var(--muted);
+  }
+
+  .pricing-features li::before {
+    content: "✓ ";
+    color: var(--good);
+    font-weight: 700;
+  }
+
+  .pricing-features li.disabled {
+    opacity: 0.4;
+  }
+
+  .pricing-features li.disabled::before {
+    content: "— ";
+    color: var(--muted);
+  }
+
+  .pricing-cta {
+    text-align: center;
+  }
+
+  /* FAQ */
+  .faq {
+    padding: 4rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .faq h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .faq-item h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-item p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* Final CTA */
+  .cta {
+    padding: 5rem 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+
+  .cta h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  .cta p {
+    color: var(--muted);
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+  }
+
+  /* Footer */
+  footer {
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  footer a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  footer a:hover { color: var(--text); }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    .hero { padding: 3rem 0 2rem; }
+    .features, .how-it-works, .faq, .problem, .differentiator, .pricing { padding: 3rem 0; }
+    .header-badge { display: none; }
+    .header-blog-link { font-size: 0.78rem; padding: 0.3rem 0.65rem; }
+    .header-right { gap: 0.75rem; }
+    .screenshots-inner { justify-content: flex-start; }
+    .trust-badges { gap: 0.75rem 1.25rem; }
+    .trust-badge { font-size: 0.78rem; }
+    .trust-badge .badge-icon { width: 28px; height: 28px; font-size: 0.85rem; }
+    .phone-frame {
+      width: 100%;
+      max-width: 340px;
+      height: 620px;
+      border-radius: 30px;
+    }
+    .phone-frame iframe {
+      border-radius: 26px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="logo">
+      <div class="logo-icon"><img src="Logo/logo-96.webp" alt="PoolChem Tracker" width="96" height="96"></div>
+      <h1>Pool<span>Chem</span> Tracker</h1>
+    </div>
+    <div class="header-right">
+      <a href="features.html" class="header-blog-link">Features</a>
+      <a href="blog/" class="header-blog-link">Guides</a>
+      <a href="about.html" class="header-blog-link">About</a>
+      <a href="https://apps.apple.com/app/id6762652630" class="app-store-badge header-badge"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40"></a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <h2>Stop guessing your <span class="gradient">pool chemistry</span></h2>
+    <p class="subtitle">Get exact dosing recommendations, LSI balance analysis, and trend tracking — all private and offline on iPhone and iPad.</p>
+    <a href="https://apps.apple.com/app/id6762652630" class="app-store-badge"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40"></a>
+    <div class="hero-note">Free to start. Pro upgrade for $4.99 (one-time, no subscription).</div>
+  </div>
+</section>
+
+<!-- Trust badges -->
+<section class="trust-strip">
+  <div class="container">
+    <div class="trust-badges">
+      <div class="trust-badge"><div class="badge-icon">&#x1F512;</div> 100% Private</div>
+      <div class="trust-badge"><div class="badge-icon">&#x1F4F6;</div> Works Offline</div>
+      <div class="trust-badge"><div class="badge-icon">&#x1F6AB;</div> No Account Required</div>
+      <div class="trust-badge"><div class="badge-icon">&#x1F9EA;</div> Accurate LSI</div>
+      <div class="trust-badge"><div class="badge-icon">&#x1F4F1;</div> iPhone + iPad</div>
+    </div>
+  </div>
+</section>
+
+<!-- Screenshots -->
+<section class="screenshots">
+  <div class="screenshots-inner">
+    <figure class="screenshot-figure">
+      <img src="Screenshots/dashboard.webp" alt="PoolChem Dashboard showing health score and water parameters" width="345" height="750">
+      <figcaption class="screenshot-caption">Your pool's health, at a glance</figcaption>
+    </figure>
+    <figure class="screenshot-figure">
+      <img src="Screenshots/graphs.webp" loading="lazy" alt="PoolChem trend graphs tracking pool chemistry over time" width="345" height="750">
+      <figcaption class="screenshot-caption">Track chemistry trends over time</figcaption>
+    </figure>
+    <figure class="screenshot-figure">
+      <img src="Screenshots/lsi-good.webp" loading="lazy" alt="PoolChem LSI water balance calculator" width="345" height="750">
+      <figcaption class="screenshot-caption">Prevent costly damage before it starts</figcaption>
+    </figure>
+    <figure class="screenshot-figure">
+      <img src="Screenshots/trends.webp" loading="lazy" alt="PoolChem trend charts tracking pool chemistry over time" width="345" height="750">
+      <figcaption class="screenshot-caption">Spot problems before they get expensive</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- Problem → Solution -->
+<section class="problem">
+  <div class="container">
+    <h3>Sound familiar?</h3>
+    <p>Most pool owners deal with the same frustrations — and waste money because of them.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="p-icon">&#x1F4A8;</div>
+        <h4>Cloudy water again</h4>
+        <p>You added chemicals last week but something's still off and you're not sure what.</p>
+      </div>
+      <div class="problem-card">
+        <div class="p-icon">&#x1F4B8;</div>
+        <h4>Expensive guesswork</h4>
+        <p>The pool store says buy more chemicals. You're spending hundreds and still chasing problems.</p>
+      </div>
+      <div class="problem-card">
+        <div class="p-icon">&#x1F9EA;</div>
+        <h4>Confusing chemistry</h4>
+        <p>pH, alkalinity, CYA, LSI — you know they matter but don't know how they're connected.</p>
+      </div>
+      <div class="problem-card">
+        <div class="p-icon">&#x1F6A8;</div>
+        <h4>Hidden damage</h4>
+        <p>Corrosion and scale buildup happen slowly. By the time you see it, the damage is done.</p>
+      </div>
+    </div>
+
+    <div class="solution-intro">
+      <h4>PoolChem Tracker gives you <span class="gradient">clarity</span></h4>
+      <p>Log your readings once and get everything you need to keep your water balanced.</p>
+    </div>
+    <div class="solution-grid">
+      <div class="solution-card">
+        <div class="s-icon">&#x2705;</div>
+        <h4>Exact dosing</h4>
+        <p>Know exactly what to add and how much — based on your pool, not generic charts.</p>
+      </div>
+      <div class="solution-card">
+        <div class="s-icon">&#x2705;</div>
+        <h4>LSI balance analysis</h4>
+        <p>Automatically detect corrosive or scale-forming water before it causes damage.</p>
+      </div>
+      <div class="solution-card">
+        <div class="s-icon">&#x2705;</div>
+        <h4>Trend tracking</h4>
+        <p>See how your chemistry changes over time and spot patterns before they become costly.</p>
+      </div>
+      <div class="solution-card">
+        <div class="s-icon">&#x2705;</div>
+        <h4>Health score</h4>
+        <p>One number, 0–100, that tells you instantly if your water is balanced or needs attention.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="features">
+  <div class="container">
+    <h3>Everything you need to keep your pool balanced</h3>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F4CA;</div>
+        <h4>Health Score</h4>
+        <p>Get an instant 0–100 score based on five key parameters. Know at a glance if your water is balanced.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x2696;&#xFE0F;</div>
+        <h4>LSI Calculator</h4>
+        <p>Langelier Saturation Index tells you if your water is corrosive or scale-forming. We calculate it automatically.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F48A;</div>
+        <h4>Dosing Recommendations</h4>
+        <p>Exact chemical amounts based on your pool size and current readings. No more guessing or Googling.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F4C8;</div>
+        <h4>Trend Tracking</h4>
+        <p>See how your chemistry changes over time with interactive charts. Spot patterns before they become problems.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F514;</div>
+        <h4>Smart Reminders</h4>
+        <p>Set reminders for water tests, filter cleaning, SWG cell maintenance, and chemical inventory checks.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F512;</div>
+        <h4>Private &amp; Offline</h4>
+        <p>All data stays on your device. No account required, no cloud, no tracking. Works without an internet connection.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="how-it-works">
+  <div class="container">
+    <h3>How it works</h3>
+    <div class="steps">
+      <div>
+        <div class="step-number">1</div>
+        <h4>Test your water</h4>
+        <p>Use your existing test kit or strips as usual.</p>
+      </div>
+      <div>
+        <div class="step-number">2</div>
+        <h4>Log your readings</h4>
+        <p>Enter your results — FC, pH, alkalinity, and more.</p>
+      </div>
+      <div>
+        <div class="step-number">3</div>
+        <h4>Get recommendations</h4>
+        <p>See exactly what to add and how much, tailored to your pool.</p>
+      </div>
+      <div>
+        <div class="step-number">4</div>
+        <h4>Track over time</h4>
+        <p>Watch your water improve with trends and health scores.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Interactive demo -->
+<section class="demo">
+  <div class="container">
+    <h3>Try it yourself</h3>
+    <p>Explore the live demo with sample pool data — or enter your own readings.</p>
+    <div class="phone-frame">
+      <iframe src="demo/" title="PoolChem Tracker interactive demo" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Why PoolChem -->
+<section class="differentiator">
+  <div class="container">
+    <h3>Why PoolChem Tracker?</h3>
+    <p>Unlike generic apps or pool store advice, PoolChem Tracker is built for pool owners who want to understand their water.</p>
+    <div class="compare-grid">
+      <div class="compare-card">
+        <h4>&#x1F4DD; Spreadsheets</h4>
+        <ul>
+          <li>No dosing calculations</li>
+          <li>No LSI analysis</li>
+          <li>No recommendations</li>
+          <li>Manual chart-making</li>
+        </ul>
+      </div>
+      <div class="compare-card">
+        <h4>&#x1F3EA; Pool store testing</h4>
+        <ul>
+          <li>Upsells on chemicals you may not need</li>
+          <li>No trend history</li>
+          <li>Requires a trip every time</li>
+          <li>Results vary by store</li>
+        </ul>
+      </div>
+      <div class="compare-card ours">
+        <h4>&#x1F4F1; PoolChem Tracker</h4>
+        <ul>
+          <li>Exact dosing for your pool size</li>
+          <li>Automatic LSI balance analysis</li>
+          <li>Trend charts and health scoring</li>
+          <li>Works offline, 100% private</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="pricing">
+  <div class="container">
+    <h3>Simple pricing</h3>
+    <p>Start free. Upgrade once, keep it forever. No subscriptions.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h4>Free</h4>
+        <div class="pricing-price">$0</div>
+        <div class="pricing-price-note">Everything you need to get started</div>
+        <ul class="pricing-features">
+          <li>Log up to 5 readings</li>
+          <li>Dosing recommendations</li>
+          <li>Health score</li>
+          <li>Chemical inventory</li>
+          <li>Reference guides</li>
+          <li class="disabled">Unlimited history</li>
+          <li class="disabled">Trend charts &amp; insights</li>
+          <li class="disabled">CSV export</li>
+          <li class="disabled">Advanced LSI tools</li>
+          <li class="disabled">All reminders</li>
+        </ul>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-label">Best Value</div>
+        <h4>Pro</h4>
+        <div class="pricing-price">$4.99</div>
+        <div class="pricing-price-note">One-time purchase. No subscription.</div>
+        <ul class="pricing-features">
+          <li>Unlimited reading history</li>
+          <li>Dosing recommendations</li>
+          <li>Health score</li>
+          <li>Chemical inventory</li>
+          <li>Reference guides</li>
+          <li>Trend charts &amp; detailed insights</li>
+          <li>CSV export &amp; import</li>
+          <li>Advanced LSI tools</li>
+          <li>All smart reminders</li>
+          <li>Priority support</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pricing-cta">
+      <a href="https://apps.apple.com/app/id6762652630" class="app-store-badge"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40"></a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <h3>Frequently asked questions</h3>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h4>Do I need WiFi to use the app?</h4>
+        <p>No. PoolChem Tracker works completely offline. All data is stored locally on your device.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Is my data private?</h4>
+        <p>Yes. We don't collect any data, require an account, or use analytics. Your readings never leave your device.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What pool types are supported?</h4>
+        <p>All pool types — chlorine, salt water (SWG), and more. Configure your pool settings and get tailored recommendations.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What is LSI?</h4>
+        <p>The Langelier Saturation Index measures water balance. It tells you if your water will corrode surfaces or form scale — both can cause expensive damage.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Can I try it before buying Pro?</h4>
+        <p>Absolutely. The free version includes dosing recommendations, health scores, and up to 5 readings. Upgrade only when you need unlimited history and charts.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Does it work on iPad?</h4>
+        <p>Yes. PoolChem Tracker runs on iPhone and iPad with iOS 26 or later.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="cta">
+  <div class="container">
+    <h3>Your pool deserves better chemistry</h3>
+    <p>Join pool owners who've stopped guessing and started tracking.</p>
+    <a href="https://apps.apple.com/app/id6762652630" class="app-store-badge"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40"></a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="features.html">Features</a>
+      <a href="blog/">Guides</a>
+      <a href="about.html">About</a>
+      <a href="mailto:support@poolchemtracker.com">Support</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="https://bsky.app/profile/poolchemtracker.com" style="display:inline-flex;align-items:center;gap:0.35rem;"><svg width="14" height="13" viewBox="0 0 568 501" fill="currentColor" aria-hidden="true"><path d="M123.121 33.664C188.241 82.553 258.281 181.68 284 234.873c25.719-53.192 95.759-152.32 160.879-201.21C491.866-1.611 568-28.906 568 57.947c0 17.346-9.945 145.713-15.778 166.555-20.275 72.453-94.155 90.933-159.875 79.748C507.222 323.8 536.444 388.56 473.333 453.32c-119.86 122.992-172.272-30.859-185.702-70.281-2.462-7.227-3.614-10.608-3.631-7.733-.017-2.875-1.169.506-3.631 7.733-13.43 39.422-65.842 193.273-185.702 70.281-63.111-64.76-33.889-129.52 80.986-149.071-65.72 11.185-139.6-7.295-159.875-79.748C9.945 203.659 0 75.291 0 57.946 0-28.906 76.135-1.612 123.121 33.664Z"/></svg> Bluesky</a>
+    </div>
+    <p>&copy; 2026 PoolChem Tracker. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
