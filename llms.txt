@@ -16,6 +16,7 @@ PoolChem Tracker helps residential pool owners monitor and balance their water c
 
 ## Blog
 
+- [What Chemicals Do I Need for a Pool](https://www.poolchemtracker.com/blog/what-chemicals-do-i-need-for-a-pool.html): Essential pool chemicals, what each does, and what to skip
 - [Pool Chemistry for Beginners](https://www.poolchemtracker.com/blog/pool-chemistry-beginners.html): Introduction to pool water chemistry basics
 - [How to Balance Pool Water](https://www.poolchemtracker.com/blog/how-to-balance-pool-water.html): Step-by-step guide to balancing pool chemistry
 - [How to Raise Pool Chlorine](https://www.poolchemtracker.com/blog/how-to-raise-pool-chlorine.html): Methods for increasing chlorine levels
