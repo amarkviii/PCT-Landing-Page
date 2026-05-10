@@ -7,38 +7,38 @@ PoolChem Tracker helps residential pool owners monitor and balance their water c
 ## Pages
 
 - [Home](https://www.poolchemtracker.com/): Landing page and app overview
-- [Features](https://www.poolchemtracker.com/features.html): Detailed feature list with screenshots
-- [About](https://www.poolchemtracker.com/about.html): About the app and developer
+- [Features](https://www.poolchemtracker.com/features): Detailed feature list with screenshots
+- [About](https://www.poolchemtracker.com/about): About the app and developer
 - [Demo](https://www.poolchemtracker.com/demo/): Interactive demo of the app dashboard
-- [Privacy Policy](https://www.poolchemtracker.com/privacy.html): Privacy policy
-- [Terms of Service](https://www.poolchemtracker.com/terms.html): Terms of service
+- [Privacy Policy](https://www.poolchemtracker.com/privacy): Privacy policy
+- [Terms of Service](https://www.poolchemtracker.com/terms): Terms of service
 - [App Store](https://apps.apple.com/app/id6762652630): Download on the App Store
 
 ## Blog
 
-- [What Chemicals Do I Need for a Pool](https://www.poolchemtracker.com/blog/what-chemicals-do-i-need-for-a-pool.html): Essential pool chemicals, what each does, and what to skip
-- [Pool Chemistry for Beginners](https://www.poolchemtracker.com/blog/pool-chemistry-beginners.html): Introduction to pool water chemistry basics
-- [How to Balance Pool Water](https://www.poolchemtracker.com/blog/how-to-balance-pool-water.html): Step-by-step guide to balancing pool chemistry
-- [How to Raise Pool Chlorine](https://www.poolchemtracker.com/blog/how-to-raise-pool-chlorine.html): Methods for increasing chlorine levels
-- [How to Lower Pool Alkalinity](https://www.poolchemtracker.com/blog/how-to-lower-pool-alkalinity.html): Guide to reducing total alkalinity
-- [Pool Chlorine Too Low](https://www.poolchemtracker.com/blog/pool-chlorine-too-low.html): Troubleshooting low chlorine levels
-- [Pool pH Too High](https://www.poolchemtracker.com/blog/pool-ph-too-high.html): Causes and fixes for high pH
-- [Why Is My Pool Water Cloudy](https://www.poolchemtracker.com/blog/why-is-my-pool-water-cloudy.html): Diagnosing and fixing cloudy water
-- [Pool Water Green but Chlorine Is High](https://www.poolchemtracker.com/blog/pool-water-green-but-chlorine-is-high.html): Why green water persists despite chlorine
-- [Best Time to Test Pool Water](https://www.poolchemtracker.com/blog/best-time-to-test-pool-water.html): Why morning testing gives the most accurate results
-- [How Often to Test Pool Water](https://www.poolchemtracker.com/blog/how-often-to-test-pool-water.html): Testing frequency guide by parameter
-- [FC/CYA Chart: How Much Chlorine You Need](https://www.poolchemtracker.com/blog/fc-cya-chart-chlorine-levels.html): Chlorine targets based on CYA level, with minimum FC, target FC, and shock levels
-- [Pool Chlorine Levels Chart](https://www.poolchemtracker.com/blog/pool-chlorine-levels-chart.html): Quick reference chart for chlorine ranges
-- [Pool Chemistry Cheat Sheet](https://www.poolchemtracker.com/blog/pool-chemistry-cheat-sheet.html): One-page reference for all pool chemistry ranges
-- [What Is LSI](https://www.poolchemtracker.com/blog/what-is-lsi.html): Langelier Saturation Index explained
-- [Free Chlorine vs Total Chlorine](https://www.poolchemtracker.com/blog/free-chlorine-vs-total-chlorine.html): Difference between FC, TC, and combined chlorine
-- [Liquid Chlorine vs Tablets](https://www.poolchemtracker.com/blog/liquid-chlorine-vs-tablets.html): Pros and cons of each chlorine type
-- [Test Strips vs Liquid Test Kits](https://www.poolchemtracker.com/blog/test-strips-vs-liquid-test-kits.html): Comparing pool water testing methods
-- [Baking Soda vs Soda Ash](https://www.poolchemtracker.com/blog/baking-soda-vs-soda-ash.html): When to use each for pool chemistry
-- [Saltwater vs Chlorine Pools](https://www.poolchemtracker.com/blog/saltwater-vs-chlorine-pools.html): Comparing pool sanitizer systems
-- [Opening Pool for Summer](https://www.poolchemtracker.com/blog/opening-pool-for-summer.html): Spring opening checklist and steps
-- [Pool Startup Chemicals Checklist](https://www.poolchemtracker.com/blog/pool-startup-chemicals-checklist.html): Complete list of chemicals needed for pool startup
-- [How to Test Pool Water at Home](https://www.poolchemtracker.com/blog/how-to-test-pool-water-at-home.html): Step-by-step guide to testing pool water
+- [What Chemicals Do I Need for a Pool](https://www.poolchemtracker.com/blog/what-chemicals-do-i-need-for-a-pool): Essential pool chemicals, what each does, and what to skip
+- [Pool Chemistry for Beginners](https://www.poolchemtracker.com/blog/pool-chemistry-beginners): Introduction to pool water chemistry basics
+- [How to Balance Pool Water](https://www.poolchemtracker.com/blog/how-to-balance-pool-water): Step-by-step guide to balancing pool chemistry
+- [How to Raise Pool Chlorine](https://www.poolchemtracker.com/blog/how-to-raise-pool-chlorine): Methods for increasing chlorine levels
+- [How to Lower Pool Alkalinity](https://www.poolchemtracker.com/blog/how-to-lower-pool-alkalinity): Guide to reducing total alkalinity
+- [Pool Chlorine Too Low](https://www.poolchemtracker.com/blog/pool-chlorine-too-low): Troubleshooting low chlorine levels
+- [Pool pH Too High](https://www.poolchemtracker.com/blog/pool-ph-too-high): Causes and fixes for high pH
+- [Why Is My Pool Water Cloudy](https://www.poolchemtracker.com/blog/why-is-my-pool-water-cloudy): Diagnosing and fixing cloudy water
+- [Pool Water Green but Chlorine Is High](https://www.poolchemtracker.com/blog/pool-water-green-but-chlorine-is-high): Why green water persists despite chlorine
+- [Best Time to Test Pool Water](https://www.poolchemtracker.com/blog/best-time-to-test-pool-water): Why morning testing gives the most accurate results
+- [How Often to Test Pool Water](https://www.poolchemtracker.com/blog/how-often-to-test-pool-water): Testing frequency guide by parameter
+- [FC/CYA Chart: How Much Chlorine You Need](https://www.poolchemtracker.com/blog/fc-cya-chart-chlorine-levels): Chlorine targets based on CYA level, with minimum FC, target FC, and shock levels
+- [Pool Chlorine Levels Chart](https://www.poolchemtracker.com/blog/pool-chlorine-levels-chart): Quick reference chart for chlorine ranges
+- [Pool Chemistry Cheat Sheet](https://www.poolchemtracker.com/blog/pool-chemistry-cheat-sheet): One-page reference for all pool chemistry ranges
+- [What Is LSI](https://www.poolchemtracker.com/blog/what-is-lsi): Langelier Saturation Index explained
+- [Free Chlorine vs Total Chlorine](https://www.poolchemtracker.com/blog/free-chlorine-vs-total-chlorine): Difference between FC, TC, and combined chlorine
+- [Liquid Chlorine vs Tablets](https://www.poolchemtracker.com/blog/liquid-chlorine-vs-tablets): Pros and cons of each chlorine type
+- [Test Strips vs Liquid Test Kits](https://www.poolchemtracker.com/blog/test-strips-vs-liquid-test-kits): Comparing pool water testing methods
+- [Baking Soda vs Soda Ash](https://www.poolchemtracker.com/blog/baking-soda-vs-soda-ash): When to use each for pool chemistry
+- [Saltwater vs Chlorine Pools](https://www.poolchemtracker.com/blog/saltwater-vs-chlorine-pools): Comparing pool sanitizer systems
+- [Opening Pool for Summer](https://www.poolchemtracker.com/blog/opening-pool-for-summer): Spring opening checklist and steps
+- [Pool Startup Chemicals Checklist](https://www.poolchemtracker.com/blog/pool-startup-chemicals-checklist): Complete list of chemicals needed for pool startup
+- [How to Test Pool Water at Home](https://www.poolchemtracker.com/blog/how-to-test-pool-water-at-home): Step-by-step guide to testing pool water
 
 ## Contact
 
