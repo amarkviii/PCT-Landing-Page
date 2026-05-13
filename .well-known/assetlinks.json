@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.poolchemtracker.app",
+        "sha256_cert_fingerprints": ["66:7C:62:D7:37:50:32:8E:73:43:22:15:9D:39:BE:33:E8:AE:F0:45:04:71:43:17:63:3E:58:C9:46:BE:37:42"]
+      }
+    }]
