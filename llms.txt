@@ -7,6 +7,7 @@ PoolChem Tracker helps residential pool owners monitor and balance their water c
 ## Pages
 
 - [Home](https://www.poolchemtracker.com/): Landing page and app overview
+- [Download](https://www.poolchemtracker.com/download): Download the app for iOS (Android coming soon)
 - [Features](https://www.poolchemtracker.com/features): Detailed feature list with screenshots
 - [About](https://www.poolchemtracker.com/about): About the app and developer
 - [Demo](https://www.poolchemtracker.com/demo/): Interactive demo of the app dashboard
