@@ -3,4 +3,3 @@ Allow: /
 Disallow: /demo/
 
 Sitemap: https://www.poolchemtracker.com/sitemap.xml
-RSS: https://www.poolchemtracker.com/feed.xml
