@@ -41,6 +41,7 @@ PoolChem Tracker helps residential pool owners monitor and balance their water c
 - [Pool Startup Chemicals Checklist](https://www.poolchemtracker.com/blog/pool-startup-chemicals-checklist): Complete list of chemicals needed for pool startup
 - [How to Test Pool Water at Home](https://www.poolchemtracker.com/blog/how-to-test-pool-water-at-home): Step-by-step guide to testing pool water
 - [Pool Cloudy After Shocking](https://www.poolchemtracker.com/blog/pool-cloudy-after-shocking): Why your pool is still cloudy after shocking and how to fix it
+- [Does Liquid Chlorine Raise CYA?](https://www.poolchemtracker.com/blog/does-liquid-chlorine-raise-cya): No — only stabilized chlorine (trichlor, dichlor) raises CYA
 
 ## Contact
 
