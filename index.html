@@ -39,7 +39,7 @@ gtag('config','G-S8JT1DELF6');
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"PoolChem Tracker","operatingSystem":"iOS","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","ratingCount":"1"},"description":"Track pool chemistry, get dosing recommendations, monitor LSI balance, and view trends — all offline on iPhone and iPad.","image":"https://www.poolchemtracker.com/Screenshots/social-card.png","url":"https://apps.apple.com/app/id6762652630"}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need WiFi to use the app?","acceptedAnswer":{"@type":"Answer","text":"No. PoolChem Tracker works completely offline. All data is stored locally on your device."}},{"@type":"Question","name":"Is my data private?","acceptedAnswer":{"@type":"Answer","text":"Yes. We don't collect any data, require an account, or use analytics. Your readings never leave your device."}},{"@type":"Question","name":"What pool types are supported?","acceptedAnswer":{"@type":"Answer","text":"All pool types — chlorine, salt water (SWG), and more. Configure your pool settings and get tailored recommendations."}},{"@type":"Question","name":"What is LSI?","acceptedAnswer":{"@type":"Answer","text":"The Langelier Saturation Index measures water balance — whether your water will corrode surfaces or form scale. Most calculators use a simplified formula. PoolChem Tracker uses the full equation with CYA-corrected alkalinity for accurate results."}},{"@type":"Question","name":"Does liquid chlorine raise CYA?","acceptedAnswer":{"@type":"Answer","text":"No. Liquid chlorine (sodium hypochlorite) does not contain cyanuric acid. Chlorine tablets (trichlor) and granular dichlor do add CYA with every dose, which can cause CYA to creep up over time. If your CYA is already high, switch to liquid chlorine."}},{"@type":"Question","name":"Why is my free chlorine low?","acceptedAnswer":{"@type":"Answer","text":"Common causes: not enough chlorine being added, low CYA (sun burns off unprotected chlorine in hours), high bather load, or algae consuming it. Check your CYA level first — without adequate CYA, chlorine won't hold no matter how much you add."}},{"@type":"Question","name":"How do I bring up the chlorine level in my pool?","acceptedAnswer":{"@type":"Answer","text":"Add liquid chlorine (sodium hypochlorite) based on your pool size and current FC reading. The amount depends on your target — which is determined by your CYA level. PoolChem Tracker calculates the exact dose for your pool automatically."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need WiFi to use the app?","acceptedAnswer":{"@type":"Answer","text":"No. PoolChem Tracker works completely offline. All data is stored locally on your device."}},{"@type":"Question","name":"Is my data private?","acceptedAnswer":{"@type":"Answer","text":"Yes. We don't collect any data, require an account, or use analytics. Your readings never leave your device."}},{"@type":"Question","name":"What pool types are supported?","acceptedAnswer":{"@type":"Answer","text":"All pool types — chlorine, salt water (SWG), and more. Configure your pool settings and get tailored recommendations."}},{"@type":"Question","name":"What is LSI?","acceptedAnswer":{"@type":"Answer","text":"The Langelier Saturation Index measures water balance — whether your water will corrode surfaces or form scale. Most calculators use a simplified formula. PoolChem Tracker uses the full equation with CYA-corrected alkalinity for accurate results."}},{"@type":"Question","name":"Can I try it before buying Pro?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. The free version includes dosing recommendations, health scores, and up to 5 readings. Upgrade only when you need unlimited history and charts."}},{"@type":"Question","name":"Does it work on iPad?","acceptedAnswer":{"@type":"Answer","text":"Yes. PoolChem Tracker runs on iPhone and iPad with iOS 26 or later."}},{"@type":"Question","name":"What should free chlorine be in a pool?","acceptedAnswer":{"@type":"Answer","text":"The ideal free chlorine (FC) level depends on your cyanuric acid (CYA). At CYA 30, aim for 2–4 ppm. At CYA 50, aim for 4–6 ppm. The rule of thumb is FC should be at least 7.5% of your CYA level."}},{"@type":"Question","name":"What should total chlorine be?","acceptedAnswer":{"@type":"Answer","text":"Total chlorine (TC) should be very close to your free chlorine reading. The difference between TC and FC is combined chlorine (chloramines). If TC is more than 0.5 ppm above FC, it's time to shock."}},{"@type":"Question","name":"Can total chlorine be lower than free chlorine?","acceptedAnswer":{"@type":"Answer","text":"No — total chlorine is free chlorine plus combined chlorine, so TC should always be equal to or higher than FC. If your test shows TC below FC, the reading is a testing error. Try retesting with fresh reagents or a different kit."}},{"@type":"Question","name":"Why is my pool chlorine high but still cloudy?","acceptedAnswer":{"@type":"Answer","text":"High chlorine with cloudy water usually means high CYA is locking up your chlorine, or high pH/alkalinity is causing minerals to precipitate. Your FC reading looks fine, but the effective chlorine may be too low. Check CYA first."}},{"@type":"Question","name":"Does shocking lower combined chlorine?","acceptedAnswer":{"@type":"Answer","text":"Yes — that's exactly what shocking does. By raising FC high enough to reach breakpoint chlorination (roughly 10x your combined chlorine level), you destroy chloramines and reset CC to zero. Use liquid chlorine for the cleanest shock."}},{"@type":"Question","name":"How often should I test free chlorine?","acceptedAnswer":{"@type":"Answer","text":"2–3 times per week during swim season, weekly in the off-season. Test in the morning for the most accurate baseline — UV breaks down chlorine throughout the day. Always test after heavy rain, pool parties, or adding chemicals."}}]}
 </script>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -710,6 +710,14 @@ gtag('config','G-S8JT1DELF6');
     line-height: 1.5;
   }
 
+  .faq-item a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .faq-item a:hover { text-decoration: underline; }
+
   /* Common Problems */
   .problems-section { padding: 5rem 0; border-top: 1px solid var(--border); }
   .problems-grid {
@@ -1162,6 +1170,39 @@ gtag('config','G-S8JT1DELF6');
       <div class="faq-item">
         <h4>Does it work on iPad?</h4>
         <p>Yes. PoolChem Tracker runs on iPhone and iPad with iOS 26 or later.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Chemistry FAQ -->
+<section class="faq">
+  <div class="container">
+    <h3>Pool chemistry FAQ</h3>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h4>What should free chlorine be in a pool?</h4>
+        <p>The ideal free chlorine (FC) level depends on your cyanuric acid (CYA). At CYA 30, aim for 2–4 ppm. At CYA 50, aim for 4–6 ppm. The rule of thumb is FC should be at least 7.5% of your CYA level. <a href="blog/fc-cya-chart-chlorine-levels">See the full FC/CYA chart &rarr;</a></p>
+      </div>
+      <div class="faq-item">
+        <h4>What should total chlorine be?</h4>
+        <p>Total chlorine (TC) should be very close to your free chlorine reading. The difference between TC and FC is combined chlorine (chloramines). If TC is more than 0.5 ppm above FC, it's time to shock. <a href="blog/free-chlorine-vs-total-chlorine">Free chlorine vs total chlorine explained &rarr;</a></p>
+      </div>
+      <div class="faq-item">
+        <h4>Can total chlorine be lower than free chlorine?</h4>
+        <p>No — total chlorine is free chlorine plus combined chlorine, so TC should always be equal to or higher than FC. If your test shows TC below FC, the reading is a testing error. Try retesting with fresh reagents or a different kit. <a href="blog/free-chlorine-vs-total-chlorine">Learn more about chlorine types &rarr;</a></p>
+      </div>
+      <div class="faq-item">
+        <h4>Why is my pool chlorine high but still cloudy?</h4>
+        <p>High chlorine with cloudy water usually means high CYA is locking up your chlorine, or high pH/alkalinity is causing minerals to precipitate. Your FC reading looks fine, but the effective chlorine may be too low. Check CYA first. <a href="blog/why-is-my-pool-water-cloudy">Diagnose cloudy pool water &rarr;</a></p>
+      </div>
+      <div class="faq-item">
+        <h4>Does shocking lower combined chlorine?</h4>
+        <p>Yes — that's exactly what shocking does. By raising FC high enough to reach breakpoint chlorination (roughly 10x your combined chlorine level), you destroy chloramines and reset CC to zero. Use liquid chlorine for the cleanest shock. <a href="blog/pool-cloudy-after-shocking">What to do after shocking &rarr;</a></p>
+      </div>
+      <div class="faq-item">
+        <h4>How often should I test free chlorine?</h4>
+        <p>2–3 times per week during swim season, weekly in the off-season. Test in the morning for the most accurate baseline — UV breaks down chlorine throughout the day. Always test after heavy rain, pool parties, or adding chemicals. <a href="blog/how-often-to-test-pool-water">Full testing schedule &rarr;</a></p>
       </div>
     </div>
   </div>
