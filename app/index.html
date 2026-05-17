@@ -3,13 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PoolChem Tracker</title>
-<meta name="theme-color" content="#0a1628">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="PoolChem">
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="appicon-72.png">
+<title>Pool Chemistry Tracker</title>
 <script src="chart.umd.min.js"></script>
 <style>
   /* Using system fonts: SF Pro and SF Mono */
@@ -334,9 +328,10 @@
     align-items: flex-start;
     gap: 0.75rem;
     margin-bottom: 0.75rem;
+    overflow: hidden;
   }
   .rec-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
-  .rec-body {}
+  .rec-body { min-width: 0; overflow-wrap: break-word; word-break: break-word; }
   .rec-treatment { font-weight: 700; font-size: 0.9rem; margin-bottom: 0.2rem; }
   .rec-amount { font-family: var(--sans); color: var(--accent); font-size: 0.95rem; font-weight: 600; }
   .rec-note { font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem; }
@@ -438,8 +433,6 @@
     padding: 0.75rem 1rem;
     font-size: 0.82rem;
     margin-bottom: 1rem;
-    display: flex;
-    gap: 0.5rem;
   }
   .range-guide { display: flex; flex-direction: column; gap: 0.4rem; }
   .range-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0.75rem; border-radius: 8px; background: var(--bg2); font-size: 0.82rem; gap: 0.75rem; }
@@ -454,7 +447,7 @@
     <div class="logo-icon"><img src="appicon-72.png" alt="PoolChem"></div>
     <div>
       <h1>Pool<span>Chem</span></h1>
-      <div style="font-family:var(--mono);font-size:0.6rem;color:var(--muted);margin-top:-0.15rem">v1.8 web</div>
+      <div style="font-family:var(--mono);font-size:0.6rem;color:var(--muted);margin-top:-0.15rem">v1.10</div>
     </div>
   </div>
   <button onclick="navTo('log')" style="background:var(--accent);color:var(--bg);border:none;border-radius:8px;padding:0.4rem 0.75rem;font-size:0.72rem;font-weight:700;font-family:var(--sans);cursor:pointer;white-space:nowrap;flex-shrink:0">+ Log Reading</button>
@@ -1221,7 +1214,7 @@
       </div>
     </div>
 
-    <div class="card" style="grid-column:1/-1;border-color:rgba(162,155,254,0.3);background:rgba(162,155,254,0.04);display:none">
+    <div class="card" style="grid-column:1/-1;border-color:rgba(162,155,254,0.3);background:rgba(162,155,254,0.04)">
       <div class="card-title" style="color:#a29bfe">Developer Tools</div>
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
         <div>
@@ -1360,8 +1353,7 @@ function showUpgradePrompt() {
         <button class="btn" style="width:100%;margin-bottom:0.5rem;background:rgba(162,155,254,0.2);border-color:rgba(162,155,254,0.4);color:#a29bfe;font-weight:700" onclick="window.webkit.messageHandlers.purchasePro.postMessage('');this.textContent='Processing...';this.disabled=true">Unlock Pro — $4.99</button>
         <button class="btn btn-secondary" style="width:100%;font-size:0.78rem;margin-bottom:0.3rem" onclick="window.webkit.messageHandlers.restorePurchases.postMessage('');this.textContent='Restoring...';this.disabled=true">Restore Purchase</button>
       ` : `
-        <div style="font-size:0.82rem;color:var(--muted);line-height:1.5;margin-bottom:0.5rem">Pro features are available in the iOS app.</div>
-        <button class="btn" style="width:100%;margin-bottom:0.5rem;background:rgba(162,155,254,0.2);border-color:rgba(162,155,254,0.4);color:#a29bfe;font-weight:700" onclick="window.open('https://apps.apple.com/app/poolchem-tracker/id6744396899','_blank')">Get iOS App — $4.99</button>
+        <button class="btn" style="width:100%;margin-bottom:0.5rem;background:rgba(162,155,254,0.2);border-color:rgba(162,155,254,0.4);color:#a29bfe;font-weight:700" onclick="document.getElementById('upgrade-modal').remove()">Coming Soon</button>
       `}
       <button class="btn btn-secondary" style="width:100%;font-size:0.78rem" onclick="document.getElementById('upgrade-modal').remove()">Maybe Later</button>
     </div>`;
@@ -1572,7 +1564,7 @@ function restoreFromSettings(btn) {
     btn.disabled = true;
     window.webkit.messageHandlers.restorePurchases.postMessage('');
   } else {
-    alert('Restore purchases is only available in the iOS app.');
+    alert('Restore is only available when running on a device.');
   }
 }
 
@@ -2392,13 +2384,17 @@ function buildRecs(r) {
   // 3. CYA — before chlorine (protects chlorine from UV)
   const cyaR = R('cya');
   const cyaTarget = Math.round((cyaR.min + cyaR.max) / 2);
-  if (r.cya != null && r.cya < cyaR.min) {
+  const cyaLow = r.cya != null && r.cya < cyaR.min;
+  if (cyaLow) {
     const oz = Math.round(((cyaTarget - r.cya) / 10) * 16 * SCALE);
-    issues.push({ order:3, icon:'⬆️', priority:'medium', treatment:'CYA / Stabilizer',
+    const fcAlsoLow = r.fc != null && r.fc < fcMin;
+    issues.push({ order:3, icon:'⬆️', priority: fcAlsoLow ? 'critical' : 'medium', treatment:'CYA / Stabilizer',
       amount:`~${fmtOz(oz)}`,
       context:`Based on: CYA ${r.cya} → target ${cyaTarget} ppm. ${fmtPoolCtx(GALLON)}`,
       effect:`Raises CYA by ~${cyaTarget - r.cya} ppm.`,
-      note:'Add in skimmer sock, run pump 24 hrs. Retest CYA before adjusting chlorine.',
+      note: fcAlsoLow
+        ? 'Fix CYA before adding chlorine — your FC target depends on CYA. Add in skimmer sock, run pump 24 hrs, then retest and adjust chlorine.'
+        : 'Add in skimmer sock, run pump 24 hrs. Retest CYA before adjusting chlorine.',
       why:'CYA protects chlorine from UV breakdown. Without adequate CYA, chlorine dissipates rapidly in sunlight.' });
   }
   if (r.cya != null && r.cya > cyaR.max + 10) {
@@ -2412,16 +2408,15 @@ function buildRecs(r) {
       why:'High CYA reduces chlorine effectiveness — "chlorine lock".' });
   }
 
-  // 4. Chlorine — target 1–3 ppm
+  // 4. Chlorine — target 1–3 ppm (downgrade if CYA needs fixing first)
   if (r.fc != null && r.fc < fcMin) {
     const needed = (fcTarget - r.fc) * GALLON / 10000;
-    const cyaLow = r.cya && r.cya < cyaR.min;
     const ozNeeded = needed * 128 / 10;
     issues.push({ order:4, icon:'🧴', priority:'critical', treatment:'Liquid Chlorine (10%)',
       amount:`~${fmtLiquid(ozNeeded)}`,
       context:`Based on: FC ${r.fc} ppm → target ${fcTarget} ppm. ${fmtPoolCtx(GALLON)}`,
       effect:`Raises FC by ~${(fcTarget - r.fc).toFixed(1)} ppm.`,
-      note: cyaLow ? `Raise CYA first (step above) — your FC target may change once CYA is corrected.` : `Minimum FC is ${fcMin} ppm. Add in evening, run pump 4+ hrs.`,
+      note: cyaLow ? `Fix CYA first (step above) — your FC target will change once CYA is corrected.` : `Minimum FC is ${fcMin} ppm. Add in evening, run pump 4+ hrs.`,
       why:'FC below 1 ppm cannot effectively sanitize the pool.' });
   }
 
@@ -2446,14 +2441,22 @@ function buildRecs(r) {
       note:'Add slowly with pump running. Does not significantly affect pH.',
       why:'Low calcium causes water to leach calcium from plaster and equipment.' });
   }
-  if (r.ch != null && r.ch > chR.max) {
+  const lsiR = R('lsi');
+  if (r.ch != null && r.ch > chR.max && r.lsi != null && r.lsi > lsiR.max) {
     const drainGal = Math.round(GALLON * 0.2 / 100) * 100;
     issues.push({ order:5, icon:'💧', priority:'medium', treatment:'Partial Drain & Refill (for CH)',
       amount:fmtDrain(drainGal, 20),
-      context:`Based on: CH ${r.ch} ppm, target ${chR.min}–${chR.max} ppm.`,
+      context:`Based on: CH ${r.ch} ppm, target ${chR.min}–${chR.max} ppm. LSI ${r.lsi >= 0 ? '+' : ''}${r.lsi.toFixed(2)} (scale-forming).`,
       effect:'Dilutes CH by ~20% — may need multiple cycles.',
       note:'Only way to lower calcium hardness. Drain and refill with fresh water, then retest.',
-      why:'High calcium causes scale buildup on surfaces, tiles, heater elements, and plumbing.' });
+      why:'High calcium with scale-forming LSI causes deposits on surfaces, tiles, heater elements, and plumbing.' });
+  } else if (r.ch != null && r.ch > chR.max && (r.lsi == null || r.lsi <= lsiR.max)) {
+    issues.push({ order:5, icon:'ℹ️', priority:'low', treatment:'Monitor Calcium Hardness',
+      amount:'No action needed now',
+      context:`Based on: CH ${r.ch} ppm (above ${chR.max} range)${r.lsi != null ? `, but LSI is ${r.lsi >= 0 ? '+' : ''}${r.lsi.toFixed(2)} (balanced)` : ''}.`,
+      effect:'CH is above the typical range but your LSI is balanced — no scale risk currently.',
+      note:'Keep an eye on CH over time. If LSI trends above +0.3 or you notice scale deposits, a partial drain may be needed.',
+      why:'Calcium hardness above range is only a concern when LSI indicates scale-forming conditions.' });
   }
   if (r.salt != null && r.salt < 2700 && poolSettings.swg) {
     const lbs = Math.round(((3200 - r.salt) / 100) * 23 * SCALE);
@@ -3916,10 +3919,6 @@ renderRefDosingGuide();
 renderLSIGuide();
 showDisclaimerIfNeeded();
 renderDashboard();
-
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').catch(() => {});
-}
 </script>
 </body>
 </html>

@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pool Chemistry Tracker</title>
-<link rel="canonical" href="https://www.poolchemtracker.com/demo/">
 <script src="chart.umd.min.js"></script>
 <style>
   /* Using system fonts: SF Pro and SF Mono */
@@ -89,7 +88,6 @@
     -webkit-backdrop-filter: blur(20px);
     border-top: 1px solid var(--border);
     padding: 0.4rem 0 calc(0.4rem + env(safe-area-inset-bottom));
-    bottom: 60px;
   }
   .tab {
     display: flex;
@@ -117,7 +115,7 @@
   }
 
   /* ── MAIN ── */
-  main { padding: 2rem; padding-bottom: 10rem; max-width: 1200px; margin: 0 auto; }
+  main { padding: 2rem; padding-bottom: 6rem; max-width: 1200px; margin: 0 auto; }
 
   .page { display: none; animation: fadeIn 0.3s ease; }
   .page.active { display: block; }
@@ -330,9 +328,10 @@
     align-items: flex-start;
     gap: 0.75rem;
     margin-bottom: 0.75rem;
+    overflow: hidden;
   }
   .rec-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
-  .rec-body {}
+  .rec-body { min-width: 0; overflow-wrap: break-word; word-break: break-word; }
   .rec-treatment { font-weight: 700; font-size: 0.9rem; margin-bottom: 0.2rem; }
   .rec-amount { font-family: var(--sans); color: var(--accent); font-size: 0.95rem; font-weight: 600; }
   .rec-note { font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem; }
@@ -434,8 +433,6 @@
     padding: 0.75rem 1rem;
     font-size: 0.82rem;
     margin-bottom: 1rem;
-    display: flex;
-    gap: 0.5rem;
   }
   .range-guide { display: flex; flex-direction: column; gap: 0.4rem; }
   .range-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0.75rem; border-radius: 8px; background: var(--bg2); font-size: 0.82rem; gap: 0.75rem; }
@@ -445,20 +442,12 @@
 </head>
 <body>
 
-<div id="demo-banner" style="position:sticky;top:0;z-index:1000;background:linear-gradient(135deg,#4facfe,#00f2fe);color:#000;text-align:center;padding:0.5rem 1rem;font-size:0.82rem;font-weight:700">
-  Interactive Demo — <a href="https://apps.apple.com/app/id6762652630" target="_blank" style="color:#000;text-decoration:underline">Download the app</a> to track your own pool
-</div>
-
-<div style="position:fixed;bottom:0;left:0;right:0;z-index:1000;background:var(--bg);border-top:1px solid var(--border);padding:0.6rem 1rem;text-align:center">
-  <a href="https://apps.apple.com/app/id6762652630" target="_blank" style="display:inline-block"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" style="height:44px"></a>
-</div>
-
 <header>
   <div class="logo">
     <div class="logo-icon"><img src="appicon-72.png" alt="PoolChem"></div>
     <div>
       <h1>Pool<span>Chem</span></h1>
-      <div style="font-family:var(--mono);font-size:0.6rem;color:var(--muted);margin-top:-0.15rem">v1.6</div>
+      <div style="font-family:var(--mono);font-size:0.6rem;color:var(--muted);margin-top:-0.15rem">v1.10</div>
     </div>
   </div>
   <button onclick="navTo('log')" style="background:var(--accent);color:var(--bg);border:none;border-radius:8px;padding:0.4rem 0.75rem;font-size:0.72rem;font-weight:700;font-family:var(--sans);cursor:pointer;white-space:nowrap;flex-shrink:0">+ Log Reading</button>
@@ -541,7 +530,7 @@
 <!-- ══════════════ LOG READING ══════════════ -->
 <div class="page" id="page-log">
   <div class="card">
-    <div class="card-title">New Water Test Entry</div>
+    <div class="card-title" id="log-title">New Water Test Entry</div>
     <div class="field">
       <label>Date</label>
       <input type="date" id="log-date" style="max-width:100%;-webkit-appearance:none;appearance:none">
@@ -615,8 +604,9 @@
       <textarea id="log-notes" rows="2" placeholder="e.g. Added 2 lbs baking soda, shocked, cleaned filter..."></textarea>
     </div>
     <div class="mt-2 flex-gap">
-      <button class="btn btn-primary" onclick="saveReading()">💾 Save Reading</button>
+      <button class="btn btn-primary" onclick="saveReading()"><span id="save-btn-text">💾 Save Reading</span></button>
       <button class="btn btn-secondary" onclick="clearForm()">Clear</button>
+      <button class="btn btn-secondary" id="cancel-edit-btn" style="display:none" onclick="cancelEdit()">Cancel Edit</button>
     </div>
     <div id="validation-warnings" style="display:none;margin-top:1rem"></div>
     <div style="font-size:0.72rem;color:var(--muted);font-style:italic;margin-top:0.75rem;padding-top:0.5rem;border-top:1px solid var(--border)"><sup>†</sup> Required for LSI (Langelier Saturation Index) calculation — not required to save a reading. LSI uses Temp, pH, TA, CH, and CYA to determine water balance. Salt/TDS is optional but improves accuracy.<br>Salt range varies by SWG manufacturer. Always check your owner's manual for the recommended salt level for your specific unit.</div>
@@ -734,6 +724,7 @@
         <option value="lsi">LSI</option>
         <option value="temp">Temperature</option>
         <option value="phos">Phosphates</option>
+        <option value="health">Health Score</option>
       </select>
     </div>
     <!-- Date range controls -->
@@ -841,8 +832,13 @@
             <div style="margin-top:0.4rem;font-size:0.75rem;line-height:1.6">
               <strong style="color:var(--text)">Weekly:</strong> Free Chlorine, pH, Total Alkalinity<br>
               <strong style="color:var(--text)">Monthly:</strong> CYA, Calcium Hardness, Salt<br>
-              <strong style="color:var(--text)">As needed:</strong> Phosphates, Iron, Copper, Total Chlorine<br>
+              <strong style="color:var(--text)">As needed:</strong> Phosphates, Iron, Copper<br>
               At minimum, <strong style="color:var(--text)">Free Chlorine and pH</strong> will give you a health score and recommendations.
+            </div>
+            <div style="margin-top:0.5rem;font-size:0.75rem;line-height:1.6">
+              <strong style="color:var(--text)">Chlorine fields:</strong> Enter <strong style="color:var(--text)">FC</strong> plus either <strong style="color:var(--text)">TC</strong> (from a pool store report) or <strong style="color:var(--text)">CC</strong> (from a DPD drop test) — the app calculates the other automatically. If your DPD test shows no CC, enter 0.<br>
+              <strong style="color:var(--text)">Better recommendations:</strong> Adding <strong style="color:var(--text)">CYA</strong> along with FC gives you an accurate chlorine target range. Entering both <strong style="color:var(--text)">pH and TA</strong> together ensures the correct treatment order. The app will remind you if these are missing when you save.<br>
+              <strong style="color:var(--text)">Log often:</strong> The more readings you log, the better the app can detect trends, spot patterns, and refine your health score. Weekly testing is ideal during pool season.
             </div>
           </div>
         </div>
@@ -947,8 +943,9 @@
         <div style="display:flex;gap:0.75rem;align-items:flex-start">
           <span style="font-size:1.1rem;flex-shrink:0">📋</span>
           <div><strong style="color:var(--text)">CSV Format</strong><br>Two layouts are supported:<br>
-            <strong style="color:var(--text)">Column layout</strong> — Header row with columns like <span style="font-family:var(--mono);font-size:0.75rem;color:var(--text)">Date, FC, TC, pH, TA, CH, CYA, Salt, Temp, Phosphates, Iron, Copper, Notes</span>. Only Date is required — other columns are optional. Blank rows above the header are OK.<br>
-            <strong style="color:var(--text)">Spreadsheet layout</strong> — Dates across the top row with parameters down the first column (the format used by many pool spreadsheets).<br>
+            <strong style="color:var(--text)">Column layout</strong> — Header row with columns like <span style="font-family:var(--mono);font-size:0.75rem;color:var(--text)">Date, FC, TC, pH, TA, CH, CYA, Salt, Temp, Phosphates, Iron, Copper, Notes</span>. Only Date is required — other columns are optional.<br>
+            <strong style="color:var(--text)">Spreadsheet layout</strong> — Dates across the top row with parameters down the first column (the format used by many pool spreadsheets). Extra columns (like "Range") are ignored.<br>
+            <strong style="color:var(--text)">Recognized labels</strong> — The app matches common names: <span style="font-family:var(--mono);font-size:0.75rem;color:var(--text)">Free Chlorine, Total Chlorine, pH, Total Alkalinity, Alkalinity, Calcium Hardness, CYA, Stabilizer, Cyanuric Acid, Salt, Phosphates, Iron, Copper, Water Temp, Temperature, Notes</span>. Calculation rows (like Temp Factor or LSI) are ignored.<br>
             Dates can be <span style="font-family:var(--mono);font-size:0.75rem;color:var(--text)">M/D/YYYY</span>, <span style="font-family:var(--mono);font-size:0.75rem;color:var(--text)">M/D/YY</span>, or <span style="font-family:var(--mono);font-size:0.75rem;color:var(--text)">YYYY-MM-DD</span>.</div>
         </div>
         <div style="display:flex;gap:0.75rem;align-items:flex-start">
@@ -1208,7 +1205,7 @@
       <div style="font-size:0.82rem;color:var(--muted);line-height:1.8">
         <div style="display:flex;align-items:center;gap:0.5rem">
           <span>🌐</span>
-          <a href="https://www.poolchemtracker.com" target="_blank" style="color:var(--accent);text-decoration:none">poolchemtracker.com</a>
+          <a href="https://poolchemtracker.com" target="_blank" style="color:var(--accent);text-decoration:none">poolchemtracker.com</a>
         </div>
         <div style="display:flex;align-items:center;gap:0.5rem">
           <span>📧</span>
@@ -1247,78 +1244,10 @@
 </main>
 
 <script>
-// ── DEMO MODE SEED ──
-(function seedDemo() {
-  const DEMO_KEY = 'pool_demo_seeded_v5';
-  const existing = JSON.parse(localStorage.getItem('pool_readings') || '[]');
-  const lastDate = existing.length ? existing[existing.length - 1].date : null;
-  const isStale = lastDate && lastDate < new Date().toISOString().split('T')[0];
-  if (localStorage.getItem(DEMO_KEY) && !isStale) return;
-
-  const today = new Date();
-  const d = (daysAgo) => {
-    const dt = new Date(today);
-    dt.setDate(dt.getDate() - daysAgo);
-    return dt.toISOString().split('T')[0];
-  };
-
-  const demoReadings = [
-    { id:1, date:d(28), temp:74, fc:0.8, tc:1.5, ph:7.9, ta:120, ch:350, cya:30, salt:2900, phos:200, iron:null, copper:null, notes:'Need to add chlorine' },
-    { id:2, date:d(21), temp:76, fc:2.0, tc:2.2, ph:7.5, ta:100, ch:320, cya:35, salt:3100, phos:120, iron:null, copper:null, notes:'' },
-    { id:3, date:d(14), temp:78, fc:1.2, tc:1.8, ph:7.8, ta:110, ch:280, cya:38, salt:3000, phos:150, iron:0.1,  copper:null, notes:'pH drifting high' },
-    { id:4, date:d(7),  temp:80, fc:3.2, tc:3.4, ph:7.3, ta:85,  ch:290, cya:40, salt:3200, phos:90,  iron:null, copper:null, notes:'After shock treatment' },
-    { id:5, date:d(3),  temp:84, fc:1.8, tc:2.0, ph:7.6, ta:95,  ch:310, cya:42, salt:3100, phos:100, iron:null, copper:null, notes:'' },
-    { id:6, date:d(0),  temp:82, fc:2.5, tc:2.7, ph:7.4, ta:90,  ch:300, cya:45, salt:3200, phos:80,  iron:null, copper:null, notes:'Looking clear' },
-  ];
-
-  localStorage.setItem('pool_readings', JSON.stringify(demoReadings));
-  localStorage.setItem('pool_settings', JSON.stringify({
-    name: 'My Pool',
-    gallons: 18000,
-    swg: 'swg',
-    units: 'imperial',
-    climateZone: 'hot_humid',
-    reminders: {
-      waterTest:      { enabled: true,  days: 7 },
-      inventoryCheck: { enabled: false, days: 14 },
-      swgCell:        { enabled: false, days: 90 },
-      filterClean:    { enabled: false, days: 30 },
-    }
-  }));
-  localStorage.setItem('pool_disclaimer_seen', '1');
-  localStorage.setItem('pool_pro', 'false');
-  localStorage.setItem(DEMO_KEY, '1');
-})();
-
-// Stub native bridge so WKWebView calls don't error in browser
-if (!window.webkit) {
-  window.webkit = { messageHandlers: {
-    purchasePro: { postMessage() { window.open('https://apps.apple.com/app/id6762652630', '_blank'); } },
-    restorePurchases: { postMessage() { window.open('https://apps.apple.com/app/id6762652630', '_blank'); } },
-    requestReview: { postMessage() {} },
-    readingSaved: { postMessage() {} },
-    exportCSV: { postMessage() {} },
-    scheduleReminder: { postMessage() {} },
-    cancelReminder: { postMessage() {} },
-  }};
-}
-
 // ── STATE ──
 let readings = JSON.parse(localStorage.getItem('pool_readings') || '[]');
 // Migrate old 'cc' field to 'tc' (Total Chlorine)
 readings.forEach(r => { if (r.cc !== undefined && r.tc === undefined) { r.tc = r.cc; delete r.cc; } });
-// Backfill LSI for demo readings that were seeded without it
-readings.forEach(r => {
-  if (r.lsi == null && r.ph && r.temp && r.ta && r.ch) {
-    const corrTA = Math.max(r.ta - ((r.cya || 0) / 3), 1);
-    const tf = -0.00001316 * r.temp * r.temp + 0.00453862 * r.temp - 0.07390709;
-    const tdsF = (r.salt > 0) ? 0.012 * Math.log10(r.salt) : 0;
-    const caF = (r.ch - 0.4 > 0) ? Math.log10(r.ch - 0.4) : 0;
-    const alkF = Math.log10(corrTA);
-    const lsi = r.ph + tf + tdsF + caF + alkF - 12.1;
-    r.lsi = isNaN(lsi) ? null : Math.round(lsi * 100) / 100;
-  }
-});
 let inventory = JSON.parse(localStorage.getItem('pool_inventory') || JSON.stringify([
   { name: 'Liquid Chlorine', qty: '', notes: '' },
   { name: 'Chlorine Tablets', qty: '', notes: '' },
@@ -1364,7 +1293,7 @@ let mainChartInst = null;
 let radarChartInst = null;
 
 // ── SUBSCRIPTION STATE ──
-let _proStatus = localStorage.getItem('pool_pro') === 'true';
+let _proStatus = false;
 
 function isPro() {
   return _proStatus;
@@ -1521,10 +1450,13 @@ function onUnitSystemChange() {
 }
 
 // ── FC / CYA RANGE ──
+const FC_OFFSET = { cold:2, temperate:3, mountain:3, coastal:3, tropical:4, desert:4 };
 function fcRange(cya) {
   if (cya == null || cya < 20) return { min: 1, max: 3, target: 2 };
+  const climateKey = isPro() ? (poolSettings.climate || 'temperate') : 'temperate';
+  const offset = FC_OFFSET[climateKey] || 3;
   const min = Math.round(cya * 0.075 * 10) / 10;
-  const max = Math.round((min + 2) * 10) / 10;
+  const max = Math.round((min + offset) * 10) / 10;
   const target = Math.round((min + max) / 2 * 10) / 10;
   return { min, max, target };
 }
@@ -2233,6 +2165,44 @@ function runWhatIf() {
   document.getElementById('lsi-whatif-delta').textContent = delta === 0 ? 'No change from current' : `${delta > 0 ? '+' : ''}${delta.toFixed(2)} from current (${(base.currentLSI >= 0 ? '+' : '') + base.currentLSI.toFixed(2)})`;
 }
 
+// ── EDIT READING ──
+let editingId = null;
+
+function editReading(id) {
+  const r = readings.find(r => r.id === id);
+  if (!r) return;
+  clearForm();
+  editingId = id;
+  document.getElementById('log-date').value = r.date || '';
+  if (r.temp != null) document.getElementById('log-temp').value = isCelsius() ? fToC(r.temp) : r.temp;
+  if (r.fc != null)     document.getElementById('log-fc').value = r.fc;
+  if (r.tc != null)     document.getElementById('log-cc').value = r.tc;
+  if (r.ph != null)     document.getElementById('log-ph').value = r.ph;
+  if (r.ta != null)     document.getElementById('log-ta').value = r.ta;
+  if (r.ch != null)     document.getElementById('log-ch').value = r.ch;
+  if (r.cya != null)    document.getElementById('log-cya').value = r.cya;
+  if (r.salt != null)   document.getElementById('log-salt').value = r.salt;
+  if (r.phos != null)   document.getElementById('log-phos').value = r.phos;
+  if (r.iron != null)   document.getElementById('log-iron').value = r.iron;
+  if (r.copper != null) document.getElementById('log-copper').value = r.copper;
+  if (r.notes)          document.getElementById('log-notes').value = r.notes;
+  if (r.fc != null && r.tc != null) calcChlorineField('tc');
+  document.getElementById('log-title').textContent = 'Edit Reading';
+  document.getElementById('save-btn-text').textContent = '💾 Update Reading';
+  document.getElementById('cancel-edit-btn').style.display = '';
+  showPage('log', document.querySelectorAll('.tab')[1]);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function cancelEdit() {
+  editingId = null;
+  clearForm();
+  document.getElementById('log-title').textContent = 'New Water Test Entry';
+  document.getElementById('save-btn-text').textContent = '💾 Save Reading';
+  document.getElementById('cancel-edit-btn').style.display = 'none';
+  showPage('history', document.querySelectorAll('.tab')[3]);
+}
+
 // ── SAVE READING ──
 function saveReading() {
   if (!validateForm()) return;
@@ -2267,7 +2237,18 @@ function saveReadingConfirmed() {
     r.lsi = (lsi != null && !isNaN(lsi)) ? lsi : null;
   }
 
-  readings.push(r);
+  const isEdit = editingId != null;
+  if (isEdit) {
+    r.id = editingId;
+    const idx = readings.findIndex(rd => rd.id === editingId);
+    if (idx !== -1) readings[idx] = r;
+    editingId = null;
+    document.getElementById('log-title').textContent = 'New Water Test Entry';
+    document.getElementById('save-btn-text').textContent = '💾 Save Reading';
+    document.getElementById('cancel-edit-btn').style.display = 'none';
+  } else {
+    readings.push(r);
+  }
   readings.sort((a, b) => a.date.localeCompare(b.date));
   save();
 
@@ -2281,7 +2262,7 @@ function saveReadingConfirmed() {
 
   // Show save confirmation toast
   const toast = document.createElement('div');
-  toast.textContent = '✓ Reading saved!';
+  toast.textContent = isEdit ? '✓ Reading updated!' : '✓ Reading saved!';
   toast.style.cssText = 'position:fixed;top:5rem;left:50%;transform:translateX(-50%);background:var(--good);color:var(--bg);padding:0.6rem 1.5rem;border-radius:10px;font-weight:700;font-size:0.85rem;z-index:999;animation:fadeIn 0.3s ease';
   document.body.appendChild(toast);
   setTimeout(() => { toast.style.opacity = '0'; toast.style.transition = 'opacity 0.3s'; }, 2000);
@@ -2307,9 +2288,13 @@ function clearForm() {
     el.style.color = '';
   });
   _ccAutoSource = null;
+  editingId = null;
   document.getElementById('log-date').value = todayStr();
   document.getElementById('recs-card').style.display = 'none';
   document.getElementById('validation-warnings').style.display = 'none';
+  document.getElementById('log-title').textContent = 'New Water Test Entry';
+  document.getElementById('save-btn-text').textContent = '💾 Save Reading';
+  document.getElementById('cancel-edit-btn').style.display = 'none';
 }
 
 // ── RECOMMENDATIONS ──
@@ -2327,12 +2312,12 @@ function buildRecs(r) {
 
   // 0. SHOCK — always first
   if (cc !== null && cc > 0.5) {
-    const shockTarget = Math.round((r.cya != null ? r.cya : 40) * 0.1 + 5);
-    issues.push({ order:0, icon:'🚨', priority:'critical', treatment:'Shock Treatment (SLAM — Shock Level and Maintain)',
+    const shockTarget = Math.round((r.cya != null ? r.cya : 40) * 0.4);
+    issues.push({ order:0, icon:'🚨', priority:'critical', treatment:'Shock & Maintain',
       amount:`Raise FC to ${shockTarget} ppm`,
       context:`Based on: CC = ${cc} ppm (TC − FC). ${fmtPoolCtx(GALLON)}`,
       effect:'Eliminates chloramines at breakpoint chlorination.',
-      note:`CC > 0.5 ppm — active chloramine buildup. Do not add other chemicals until FC reaches ${shockTarget} ppm and CC drops below 0.2.`,
+      note:`CC > 0.5 ppm — active chloramine buildup. Raise FC to ${shockTarget} ppm and maintain that level — retest and re-dose every few hours. Continue until CC drops below 0.5 ppm and FC holds overnight (loses less than 1 ppm). Do not add other chemicals until complete.`,
       why:'Combined chlorine above 0.5 ppm causes eye/skin irritation and blocks sanitizer effectiveness.' });
   } else if (cc !== null && cc > 0.2) {
     issues.push({ order:0, icon:'⚡', priority:'critical', treatment:'Boost Chlorine',
@@ -2399,13 +2384,17 @@ function buildRecs(r) {
   // 3. CYA — before chlorine (protects chlorine from UV)
   const cyaR = R('cya');
   const cyaTarget = Math.round((cyaR.min + cyaR.max) / 2);
-  if (r.cya != null && r.cya < cyaR.min) {
+  const cyaLow = r.cya != null && r.cya < cyaR.min;
+  if (cyaLow) {
     const oz = Math.round(((cyaTarget - r.cya) / 10) * 16 * SCALE);
-    issues.push({ order:3, icon:'⬆️', priority:'medium', treatment:'CYA / Stabilizer',
+    const fcAlsoLow = r.fc != null && r.fc < fcMin;
+    issues.push({ order:3, icon:'⬆️', priority: fcAlsoLow ? 'critical' : 'medium', treatment:'CYA / Stabilizer',
       amount:`~${fmtOz(oz)}`,
       context:`Based on: CYA ${r.cya} → target ${cyaTarget} ppm. ${fmtPoolCtx(GALLON)}`,
       effect:`Raises CYA by ~${cyaTarget - r.cya} ppm.`,
-      note:'Add in skimmer sock, run pump 24 hrs. Retest CYA before adjusting chlorine.',
+      note: fcAlsoLow
+        ? 'Fix CYA before adding chlorine — your FC target depends on CYA. Add in skimmer sock, run pump 24 hrs, then retest and adjust chlorine.'
+        : 'Add in skimmer sock, run pump 24 hrs. Retest CYA before adjusting chlorine.',
       why:'CYA protects chlorine from UV breakdown. Without adequate CYA, chlorine dissipates rapidly in sunlight.' });
   }
   if (r.cya != null && r.cya > cyaR.max + 10) {
@@ -2415,20 +2404,19 @@ function buildRecs(r) {
       amount:fmtDrain(drainGal, drainPct),
       context:`Based on: CYA ${r.cya} ppm, target ${cyaR.min}–${cyaR.max} ppm. ${fmtPoolCtx(GALLON)}`,
       effect:`Dilutes CYA by ~${drainPct}% — may need multiple cycles.`,
-      note:'Only way to reduce CYA. Refill with fresh water and retest.',
+      note:'Only way to reduce CYA. Refill with fresh water and retest. If you use chlorine tablets (trichlor), switch to liquid chlorine — tabs add CYA with every dose.',
       why:'High CYA reduces chlorine effectiveness — "chlorine lock".' });
   }
 
-  // 4. Chlorine — target 1–3 ppm
+  // 4. Chlorine — target 1–3 ppm (downgrade if CYA needs fixing first)
   if (r.fc != null && r.fc < fcMin) {
     const needed = (fcTarget - r.fc) * GALLON / 10000;
-    const cyaLow = r.cya && r.cya < cyaR.min;
     const ozNeeded = needed * 128 / 10;
     issues.push({ order:4, icon:'🧴', priority:'critical', treatment:'Liquid Chlorine (10%)',
       amount:`~${fmtLiquid(ozNeeded)}`,
       context:`Based on: FC ${r.fc} ppm → target ${fcTarget} ppm. ${fmtPoolCtx(GALLON)}`,
       effect:`Raises FC by ~${(fcTarget - r.fc).toFixed(1)} ppm.`,
-      note: cyaLow ? `Raise CYA first (step above) — your FC target may change once CYA is corrected.` : `Minimum FC is ${fcMin} ppm. Add in evening, run pump 4+ hrs.`,
+      note: cyaLow ? `Fix CYA first (step above) — your FC target will change once CYA is corrected.` : `Minimum FC is ${fcMin} ppm. Add in evening, run pump 4+ hrs.`,
       why:'FC below 1 ppm cannot effectively sanitize the pool.' });
   }
 
@@ -2453,14 +2441,22 @@ function buildRecs(r) {
       note:'Add slowly with pump running. Does not significantly affect pH.',
       why:'Low calcium causes water to leach calcium from plaster and equipment.' });
   }
-  if (r.ch != null && r.ch > chR.max) {
+  const lsiR = R('lsi');
+  if (r.ch != null && r.ch > chR.max && r.lsi != null && r.lsi > lsiR.max) {
     const drainGal = Math.round(GALLON * 0.2 / 100) * 100;
     issues.push({ order:5, icon:'💧', priority:'medium', treatment:'Partial Drain & Refill (for CH)',
       amount:fmtDrain(drainGal, 20),
-      context:`Based on: CH ${r.ch} ppm, target ${chR.min}–${chR.max} ppm.`,
+      context:`Based on: CH ${r.ch} ppm, target ${chR.min}–${chR.max} ppm. LSI ${r.lsi >= 0 ? '+' : ''}${r.lsi.toFixed(2)} (scale-forming).`,
       effect:'Dilutes CH by ~20% — may need multiple cycles.',
       note:'Only way to lower calcium hardness. Drain and refill with fresh water, then retest.',
-      why:'High calcium causes scale buildup on surfaces, tiles, heater elements, and plumbing.' });
+      why:'High calcium with scale-forming LSI causes deposits on surfaces, tiles, heater elements, and plumbing.' });
+  } else if (r.ch != null && r.ch > chR.max && (r.lsi == null || r.lsi <= lsiR.max)) {
+    issues.push({ order:5, icon:'ℹ️', priority:'low', treatment:'Monitor Calcium Hardness',
+      amount:'No action needed now',
+      context:`Based on: CH ${r.ch} ppm (above ${chR.max} range)${r.lsi != null ? `, but LSI is ${r.lsi >= 0 ? '+' : ''}${r.lsi.toFixed(2)} (balanced)` : ''}.`,
+      effect:'CH is above the typical range but your LSI is balanced — no scale risk currently.',
+      note:'Keep an eye on CH over time. If LSI trends above +0.3 or you notice scale deposits, a partial drain may be needed.',
+      why:'Calcium hardness above range is only a concern when LSI indicates scale-forming conditions.' });
   }
   if (r.salt != null && r.salt < 2700 && poolSettings.swg) {
     const lbs = Math.round(((3200 - r.salt) / 100) * 23 * SCALE);
@@ -2810,9 +2806,10 @@ function buildInsights() {
   const cyaVals = recent.map(r => r.cya).filter(v => v != null);
   if (cyaVals.length >= 3) {
     const cyaDrift = cyaVals[cyaVals.length-1] - cyaVals[0];
+    const cyaMax = R('cya').max;
     if (cyaDrift > 10) insights.push({ icon:'⚠️', type:'warn',
       title:'CYA trending higher',
-      msg:`CYA has risen ~${Math.round(cyaDrift)} ppm over recent readings. High CYA reduces chlorine effectiveness. If CYA exceeds 50 ppm, a partial drain and refill will be needed.` });
+      msg:`CYA has risen ~${Math.round(cyaDrift)} ppm over recent readings. High CYA reduces chlorine effectiveness. If CYA exceeds ${cyaMax} ppm, a partial drain and refill is the only fix. Common cause: chlorine tablets (trichlor) add CYA with every dose — consider switching to liquid chlorine.` });
   }
 
   // FC stability
@@ -3317,7 +3314,20 @@ function renderCharts() {
   if (!allFiltered.length) return;
   const param = document.getElementById('chart-param').value;
   const labels = allFiltered.map(r => fmtDate(r.date));
-  const data = allFiltered.map(r => (param === 'temp' && r[param] != null && isCelsius()) ? fToC(r[param]) : r[param]);
+  const rawData = allFiltered.map(r => {
+    if (param === 'health') { const hs = calcHealthScore(r); return hs ? hs.total : null; }
+    if (param === 'temp' && r[param] != null && isCelsius()) return fToC(r[param]);
+    return r[param] != null ? r[param] : null;
+  });
+  const isGap = rawData.map(v => v == null);
+  const data = rawData.slice();
+  for (let i = 0; i < data.length; i++) {
+    if (data[i] != null) continue;
+    let prev = -1, next = -1;
+    for (let p = i - 1; p >= 0; p--) { if (data[p] != null) { prev = p; break; } }
+    for (let n = i + 1; n < data.length; n++) { if (rawData[n] != null) { next = n; break; } }
+    if (prev >= 0 && next >= 0) data[i] = data[prev] + (rawData[next] - data[prev]) * ((i - prev) / (next - prev));
+  }
 
   const paramMeta = {
     fc:     { label:'Free Chlorine (FC) ppm', min:fcRange(allFiltered.length ? allFiltered[allFiltered.length-1].cya : null).min, max:fcRange(allFiltered.length ? allFiltered[allFiltered.length-1].cya : null).max, color:'#00d4ff' },
@@ -3331,10 +3341,19 @@ function renderCharts() {
     lsi:    { label:'LSI', min:R('lsi').min, max:R('lsi').max, color:'#fdcb6e' },
     temp:   { label:'Temperature (' + tempUnit() + ')', min: isCelsius() ? 26 : 78, max: isCelsius() ? 28 : 82, color:'#e17055' },
     phos:   { label:'Phosphates (ppb)', min:0, max:200, color:'#a29bfe' },
+    health: { label:'Health Score', min:85, max:100, color:'#2ed573' },
   };
   const meta = paramMeta[param];
 
-  const units = param === 'ph' ? '' : param === 'lsi' ? '' : param === 'phos' ? ' ppb' : param === 'temp' ? tempUnit() : ' ppm';
+  const units = param === 'ph' ? '' : param === 'lsi' ? '' : param === 'health' ? '' : param === 'phos' ? ' ppb' : param === 'temp' ? tempUnit() : ' ppm';
+
+  // Build dashed bridge data: only includes gap points + their real neighbors
+  const dashData = data.map((v, i) => {
+    if (isGap[i]) return v;
+    if (i > 0 && isGap[i - 1]) return v;
+    if (i < data.length - 1 && isGap[i + 1]) return v;
+    return null;
+  });
 
   if (mainChartInst) mainChartInst.destroy();
 
@@ -3346,26 +3365,42 @@ function renderCharts() {
       datasets: [
         {
           label: meta.label,
-          data,
+          data: rawData,
           borderColor: meta.color,
           backgroundColor: meta.color + '15',
           tension: 0.35,
-          pointBackgroundColor: data.map((v, i) => {
+          pointBackgroundColor: rawData.map((v, i) => {
             if (v == null) return 'transparent';
+            if (param === 'health') return v >= 85 ? '#2ed573' : v >= 65 ? '#ffd700' : v >= 40 ? '#ffaa00' : '#ff4757';
             const lo = param === 'fc' ? fcRange(allFiltered[i].cya).min : meta.min;
             const hi = param === 'fc' ? fcRange(allFiltered[i].cya).max : meta.max;
             return (v < lo || v > hi) ? '#ff4757' : meta.color;
           }),
-          pointBorderColor: data.map((v, i) => {
+          pointBorderColor: rawData.map((v, i) => {
             if (v == null) return 'transparent';
+            if (param === 'health') return v >= 85 ? '#2ed573' : v >= 65 ? '#ffd700' : v >= 40 ? '#ffaa00' : '#ff4757';
             const lo = param === 'fc' ? fcRange(allFiltered[i].cya).min : meta.min;
             const hi = param === 'fc' ? fcRange(allFiltered[i].cya).max : meta.max;
             return (v < lo || v > hi) ? '#ff4757' : meta.color;
           }),
-          pointRadius: data.map(v => v == null ? 0 : 4),
+          pointRadius: rawData.map(v => v == null ? 0 : 4),
           pointHoverRadius: 7,
           fill: false,
+          spanGaps: false,
           order: 1,
+        },
+        {
+          label: '▼ gap',
+          data: dashData,
+          borderColor: meta.color + '80',
+          borderDash: [5, 3],
+          borderWidth: 1.5,
+          tension: 0.35,
+          pointRadius: 0,
+          pointHoverRadius: 0,
+          fill: false,
+          spanGaps: false,
+          order: 2,
         },
         {
           label: param === 'fc' ? `Ideal Range (CYA-based)` : `Ideal Range (${meta.min}${units} – ${meta.max}${units})`,
@@ -3400,6 +3435,7 @@ function renderCharts() {
             afterBody: ctx => {
               const v = ctx[0]?.raw;
               if (v == null) return '';
+              if (param === 'health') return healthScoreLabel(v);
               if (v < meta.min) return `⚠ Below target (${meta.min})`;
               if (v > meta.max) return `⚠ Above target (${meta.max})`;
               return `✓ In target range`;
@@ -3409,7 +3445,7 @@ function renderCharts() {
       },
       scales: {
         x: { ticks:{ color:'#7a9bb5', font:{family:'DM Mono',size:10}, maxRotation:45 }, grid:{ color:'rgba(30,58,95,0.6)' } },
-        y: { ticks:{ color:'#7a9bb5', font:{family:'DM Mono',size:10} }, grid:{ color:'rgba(30,58,95,0.6)' } },
+        y: { ticks:{ color:'#7a9bb5', font:{family:'DM Mono',size:10} }, grid:{ color:'rgba(30,58,95,0.6)' }, ...(param === 'health' ? { min:0, max:100 } : {}) },
       }
     }
   });
@@ -3429,9 +3465,14 @@ function renderCharts() {
 
   function normalize(val, min, max) {
     if (val == null) return 0;
-    const mid = (min + max) / 2;
     const range = max - min;
-    return Math.max(0, Math.min(100, 50 + ((val - mid) / range) * 100));
+    if (val >= min && val <= max) {
+      return 40 + ((val - min) / range) * 20;
+    } else if (val < min) {
+      return Math.max(0, 40 - ((min - val) / range) * 40);
+    } else {
+      return Math.min(100, 60 + ((val - max) / range) * 40);
+    }
   }
 
   const ctx2 = document.getElementById('radar-chart').getContext('2d');
@@ -3455,10 +3496,19 @@ function renderCharts() {
           pointBackgroundColor: '#00d4ff',
         },
         {
-          label: 'Ideal (center)',
-          data: [50, 50, 50, 50, 50, 50],
-          borderColor: 'rgba(46,213,115,0.4)',
+          label: 'Ideal range',
+          data: [60, 60, 60, 60, 60, 60],
+          borderColor: 'rgba(46,213,115,0.35)',
           backgroundColor: 'rgba(46,213,115,0.06)',
+          pointRadius: 0,
+          borderDash: [4, 4],
+          fill: '+1',
+        },
+        {
+          label: 'Ideal min',
+          data: [40, 40, 40, 40, 40, 40],
+          borderColor: 'rgba(46,213,115,0.35)',
+          backgroundColor: 'transparent',
           pointRadius: 0,
           borderDash: [4, 4],
         }
@@ -3467,11 +3517,11 @@ function renderCharts() {
     options: {
       responsive: true, maintainAspectRatio: false,
       plugins: {
-        legend: { labels:{ color:'#7a9bb5', font:{family:'DM Mono'} } },
+        legend: { labels:{ color:'#7a9bb5', font:{family:'DM Mono'}, filter: item => item.text !== 'Ideal min' } },
         tooltip: {
           callbacks: {
             label: function(context) {
-              if (context.dataset.label === 'Ideal (center)') return null;
+              if (context.dataset.label === 'Ideal range' || context.dataset.label === 'Ideal min') return null;
               const params = [
                 { key:'fc',   label:'FC', min:fcRange(radarReading.cya).min, max:fcRange(radarReading.cya).max, unit:' ppm' },
                 { key:'ph',   label:'pH',             min:R('ph').min,  max:R('ph').max,  unit:'' },
@@ -3537,7 +3587,7 @@ function renderHistoryTable() {
         <td style="color:${statusColor(paramStatus(r.temp,78,82))}">${r.temp!=null?displayTemp(r.temp)+'°':'—'}</td>
         <td style="color:${r.lsi!=null?(r.lsi<R('lsi').min?'var(--danger)':r.lsi>R('lsi').max?'var(--warn)':'var(--good)'):'var(--muted)'}">${r.lsi!=null?((r.lsi>=0?'+':'')+r.lsi.toFixed(2)):'—'}</td>
         <td class="text-muted">${r.notes||''}</td>
-        <td><button class="del-btn" onclick="deleteReading(${r.id})">✕</button></td>
+        <td style="white-space:nowrap"><button class="del-btn" onclick="editReading(${r.id})" title="Edit" style="margin-right:0.3rem">✎</button><button class="del-btn" onclick="deleteReading(${r.id})" title="Delete">✕</button></td>
       </tr>`).join('')}
     </tbody>
   </table></div>${hiddenCount > 0 ? `
@@ -3648,12 +3698,12 @@ function importCSV(event) {
 
     // Parameter name aliases for fuzzy matching
     const aliases = {
-      temp:   ['temp','tempf','tempc','temp f','temp c','temperature','watertemp','water temp'],
+      temp:   ['temp','tempf','tempc','temp f','temp c','temperature','watertemp','water temp','water temperature'],
       fc:     ['fc','fac','freechlorine','free chlorine','fc free chlorine','fac free chlorine','chlorine'],
       tc:     ['tc','cc','totalchlorine','total chlorine','combinedchlorine','combined chlorine','combined cl'],
       ph:     ['ph'],
-      ta:     ['ta','totalalkalinity','total alkalinity','alkalinity'],
-      ch:     ['ch','calciumhardness','calcium hardness','calcium','cg'],
+      ta:     ['ta','totalalkalinity','total alkalinity','alkalinity','total alklinity','alk'],
+      ch:     ['ch','calciumhardness','calcium hardness','calcium','cg','hardness'],
       cya:    ['cya','stabilizer','cyanuricacid','cyanuric acid'],
       salt:   ['salt','saltppm','salt ppm'],
       phos:   ['phos','phosphates','phosphate'],
@@ -3664,14 +3714,14 @@ function importCSV(event) {
     };
 
     const matchField = raw => {
-      const clean = raw.toLowerCase().replace(/[^a-z0-9 ]/g,'').trim();
+      const clean = raw.toLowerCase().replace(/[^a-z0-9 ]/g,'').replace(/\s+/g,' ').trim();
       // First pass: exact matches only
       for (const [field, names] of Object.entries(aliases)) {
         if (names.some(n => clean === n)) return field;
       }
-      // Second pass: startsWith but only if alias is 3+ chars (avoids 'ph' matching 'phosphates')
+      // Second pass: startsWith but alias must cover at least 70% of the label
       for (const [field, names] of Object.entries(aliases)) {
-        if (names.some(n => n.length >= 3 && clean.startsWith(n))) return field;
+        if (names.some(n => n.length >= 3 && clean.startsWith(n) && n.length / clean.length >= 0.7)) return field;
       }
       return null;
     };
@@ -3686,7 +3736,7 @@ function importCSV(event) {
     const newReadings = {};
 
     if (isTransposed) {
-      const dates = headerRow.slice(1).map(d => d ? normaliseDate(d) : null);
+      const dates = headerRow.slice(1).map(d => (d && looksLikeDate(d)) ? normaliseDate(d) : null);
       dates.forEach(d => { if (d) newReadings[d] = newReadings[d] || { date: d }; });
 
       grid.slice(1).forEach((row) => {
