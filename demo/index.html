@@ -779,19 +779,26 @@
     <div class="grid-3">
       <div class="field">
         <label>Chemical Name</label>
-        <select id="inv-name">
-          <option value="">— Select Chemical —</option>
-          <option value="Liquid Chlorine">Liquid Chlorine</option>
-          <option value="Chlorine Tablets">Chlorine Tablets</option>
-          <option value="Shock Packets">Shock Packets</option>
-          <option value="Muriatic Acid">Muriatic Acid</option>
-          <option value="Baking Soda (TA+)">Baking Soda (TA+)</option>
-          <option value="pH Up (Sodium Carbonate)">pH Up (Sodium Carbonate)</option>
-          <option value="CYA / Stabilizer">CYA / Stabilizer</option>
-          <option value="Calcium Hardness Plus">Calcium Hardness Plus</option>
-          <option value="Pool Salt">Pool Salt</option>
-          <option value="Phosphate Remover">Phosphate Remover</option>
-        </select>
+        <input type="text" id="inv-name" list="inv-name-options" placeholder="Select or type any chemical" autocomplete="off">
+        <datalist id="inv-name-options">
+          <option value="Liquid Chlorine"></option>
+          <option value="Chlorine Tablets"></option>
+          <option value="Shock Packets"></option>
+          <option value="Muriatic Acid"></option>
+          <option value="Baking Soda (TA+)"></option>
+          <option value="pH Up (Sodium Carbonate)"></option>
+          <option value="CYA / Stabilizer"></option>
+          <option value="Calcium Hardness Plus"></option>
+          <option value="Pool Salt"></option>
+          <option value="Phosphate Remover"></option>
+          <option value="Algaecide"></option>
+          <option value="Clarifier"></option>
+          <option value="Metal Remover / Sequestrant"></option>
+          <option value="Stain &amp; Scale Remover"></option>
+          <option value="Enzyme Treatment"></option>
+          <option value="Filter Cleaner"></option>
+          <option value="Pool Flocculant"></option>
+        </datalist>
       </div>
       <div class="field">
         <label>Quantity on Hand</label>
@@ -3853,7 +3860,7 @@ function addInventory() {
   const name = document.getElementById('inv-name').value.trim();
   const qty = document.getElementById('inv-qty').value.trim();
   const notes = document.getElementById('inv-notes').value.trim();
-  if (!name) { alert('Select a chemical.'); return; }
+  if (!name) { alert('Enter or select a chemical.'); return; }
   const updated = new Date().toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
   const existing = inventory.findIndex(i => i.name.toLowerCase() === name.toLowerCase());
   if (existing >= 0) {
