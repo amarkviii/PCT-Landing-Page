@@ -333,6 +333,20 @@ gtag('config','G-S8JT1DELF6');
   .series-block a { color: var(--accent); text-decoration: none; }
   .series-block a:hover { text-decoration: underline; }
 
+  .series-block li.coming-soon { color: var(--muted); }
+  .series-block li.coming-soon .badge-soon {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--muted);
+    background: rgba(255,255,255,0.05);
+    padding: 0.1rem 0.5rem;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
   .dont-list {
     background: rgba(255,107,107,0.05);
     border: 1px solid rgba(255,107,107,0.2);
@@ -514,11 +528,11 @@ gtag('config','G-S8JT1DELF6');
     <div class="series-block">
       <h4>Cloudy &amp; Green Pool Series</h4>
       <ul>
-        <li class="pillar"><a href="why-is-my-pool-water-cloudy">Why is my pool water cloudy? (pillar)</a></li>
+        <li class="pillar"><a href="why-is-my-pool-water-cloudy">Why is my pool water cloudy? (start here)</a></li>
         <li><a href="pool-cloudy-after-shocking">Cloudy after shocking — is that normal?</a></li>
         <li class="current">How to clear a cloudy pool fast</li>
-        <li><a href="pool-turned-green-overnight">Pool turned green overnight</a></li>
-        <li><a href="dead-algae-still-cloudy">Dead algae but water still cloudy</a></li>
+        <li class="coming-soon">Pool turned green overnight <span class="badge-soon">Coming soon</span></li>
+        <li class="coming-soon">Dead algae but water still cloudy <span class="badge-soon">Coming soon</span></li>
         <li><a href="pool-water-green-but-chlorine-is-high">Green water with high chlorine</a></li>
       </ul>
     </div>

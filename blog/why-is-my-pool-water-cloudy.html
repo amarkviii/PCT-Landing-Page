@@ -389,6 +389,22 @@ gtag('config','G-S8JT1DELF6');
 
   .series-block a:hover { text-decoration: underline; }
 
+  .series-block li.coming-soon { color: var(--muted); }
+  .series-block li.coming-soon .badge-soon {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--muted);
+    background: rgba(255,255,255,0.05);
+    padding: 0.1rem 0.5rem;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .quick-diagnosis .soon { color: var(--muted); font-style: italic; }
+
   footer {
     padding: 2rem 0;
     border-top: 1px solid var(--border);
@@ -450,8 +466,8 @@ gtag('config','G-S8JT1DELF6');
       <h4>Quick diagnosis — jump to your situation</h4>
       <ul>
         <li><span class="symptom">Cloudy right after I shocked the pool</span><span class="arrow">&rarr;</span><a href="pool-cloudy-after-shocking">Cloudy after shocking — is that normal?</a></li>
-        <li><span class="symptom">Pool turned green overnight</span><span class="arrow">&rarr;</span><a href="pool-turned-green-overnight">Pool green overnight — emergency guide</a></li>
-        <li><span class="symptom">I killed the algae but water is still cloudy</span><span class="arrow">&rarr;</span><a href="dead-algae-still-cloudy">Dead algae &amp; cloudy water</a></li>
+        <li><span class="symptom">Pool turned green overnight</span><span class="arrow">&rarr;</span><span class="soon">Guide coming soon</span></li>
+        <li><span class="symptom">I killed the algae but water is still cloudy</span><span class="arrow">&rarr;</span><span class="soon">Guide coming soon</span></li>
         <li><span class="symptom">I need it clear FAST (party tomorrow)</span><span class="arrow">&rarr;</span><a href="how-to-clear-cloudy-pool-fast">Clear a cloudy pool fast</a></li>
         <li><span class="symptom">High chlorine but water is still green</span><span class="arrow">&rarr;</span><a href="pool-water-green-but-chlorine-is-high">Green water with high chlorine</a></li>
         <li><span class="symptom">None of the above — start with the basics</span><span class="arrow">&rarr;</span><a href="#diagnose">Diagnose by testing your water</a></li>
@@ -568,11 +584,11 @@ gtag('config','G-S8JT1DELF6');
     <div class="series-block">
       <h4>Cloudy &amp; Green Pool Series</h4>
       <ul>
-        <li class="pillar current">Why is my pool water cloudy? (pillar)</li>
+        <li class="pillar current">Why is my pool water cloudy? (start here)</li>
         <li><a href="pool-cloudy-after-shocking">Cloudy after shocking — is that normal?</a></li>
         <li><a href="how-to-clear-cloudy-pool-fast">How to clear a cloudy pool fast</a></li>
-        <li><a href="pool-turned-green-overnight">Pool turned green overnight</a></li>
-        <li><a href="dead-algae-still-cloudy">Dead algae but water still cloudy</a></li>
+        <li class="coming-soon">Pool turned green overnight <span class="badge-soon">Coming soon</span></li>
+        <li class="coming-soon">Dead algae but water still cloudy <span class="badge-soon">Coming soon</span></li>
         <li><a href="pool-water-green-but-chlorine-is-high">Green water with high chlorine</a></li>
       </ul>
     </div>
