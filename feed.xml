@@ -5,13 +5,29 @@
 <link>https://www.poolchemtracker.com/blog/</link>
 <description>Pool chemistry guides, tips, and maintenance advice from PoolChem Tracker.</description>
 <language>en-us</language>
-<lastBuildDate>Tue, 20 May 2026 00:00:00 +0000</lastBuildDate>
+<lastBuildDate>Wed, 21 May 2026 00:00:00 +0000</lastBuildDate>
 <atom:link href="https://www.poolchemtracker.com/feed.xml" rel="self" type="application/rss+xml"/>
 <image>
 <url>https://www.poolchemtracker.com/Logo/logo-256.webp</url>
 <title>PoolChem Tracker Blog</title>
 <link>https://www.poolchemtracker.com/blog/</link>
 </image>
+
+<item>
+<title>Dead Algae but Pool Still Cloudy? Here's How to Clear It</title>
+<link>https://www.poolchemtracker.com/blog/dead-algae-still-cloudy</link>
+<guid>https://www.poolchemtracker.com/blog/dead-algae-still-cloudy</guid>
+<pubDate>Wed, 21 May 2026 13:00:00 +0000</pubDate>
+<description>Dead algae but pool still cloudy? Run the pump 24/7, clean the filter every 8–12 hours, add clarifier (or floc as last resort), and pass the OCLT before stopping.</description>
+</item>
+
+<item>
+<title>Pool Turned Green Overnight? Emergency Triage Guide</title>
+<link>https://www.poolchemtracker.com/blog/pool-turned-green-overnight</link>
+<guid>https://www.poolchemtracker.com/blog/pool-turned-green-overnight</guid>
+<pubDate>Wed, 21 May 2026 12:00:00 +0000</pubDate>
+<description>Pool turned green overnight? It's a fresh algae bloom from chlorine dropping below your CYA minimum. Triage in 5 minutes, then SLAM to clear in 3–7 days.</description>
+</item>
 
 <item>
 <title>What Is the Ideal Pool pH Level? (Target Ranges Explained)</title>
