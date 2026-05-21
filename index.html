@@ -753,6 +753,54 @@ gtag('config','G-S8JT1DELF6');
     font-weight: 600;
   }
 
+  .hub-callout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    background: linear-gradient(135deg, rgba(79,172,254,0.12), rgba(0,242,254,0.06));
+    border: 1px solid rgba(79,172,254,0.3);
+    border-radius: 14px;
+    padding: 1.5rem 2rem;
+    margin: 2rem 0 0;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .hub-callout:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .hub-callout-text { flex: 1; }
+  .hub-callout-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+  }
+  .hub-callout h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+  }
+  .hub-callout p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin: 0;
+  }
+  .hub-callout .arrow {
+    font-size: 1.5rem;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  @media (max-width: 640px) {
+    .hub-callout { flex-direction: column; align-items: flex-start; padding: 1.25rem 1.5rem; gap: 1rem; }
+    .hub-callout .arrow { font-size: 1.25rem; }
+  }
+
   /* Final CTA */
   .cta {
     padding: 5rem 0;
@@ -1096,6 +1144,16 @@ gtag('config','G-S8JT1DELF6');
   <div class="container">
     <h3>Common pool chemistry problems</h3>
     <p>Quick answers to the questions pool owners search for most — with links to the full guides.</p>
+
+    <a href="blog/why-is-my-pool-water-cloudy" class="hub-callout">
+      <div class="hub-callout-text">
+        <span class="hub-callout-label">Featured guide series</span>
+        <h4>Troubleshooting cloudy or green water? Start here</h4>
+        <p>The complete Cloudy &amp; Green Pool Series &mdash; diagnose your symptoms, then follow the step-by-step fix.</p>
+      </div>
+      <span class="arrow">&rarr;</span>
+    </a>
+
     <div class="problems-grid">
       <a href="blog/free-chlorine-vs-total-chlorine" class="problem-link-card">
         <h4>Why is total chlorine higher than free chlorine?</h4>
