@@ -9,6 +9,10 @@
 # Blog index
 /blog/index.html /blog/ 301
 
+# Pool Chemistry Explained
+/explained/index.html /explained/ 301
+/explained/cyanuric-acid.html /explained/cyanuric-acid 301
+
 # Blog posts
 /blog/baking-soda-vs-soda-ash.html /blog/baking-soda-vs-soda-ash 301
 /blog/best-time-to-test-pool-water.html /blog/best-time-to-test-pool-water 301
