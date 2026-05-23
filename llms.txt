@@ -42,6 +42,19 @@ PoolChem Tracker helps residential pool owners monitor and balance their water c
 - [How to Test Pool Water at Home](https://www.poolchemtracker.com/blog/how-to-test-pool-water-at-home): Step-by-step guide to testing pool water
 - [Pool Cloudy After Shocking](https://www.poolchemtracker.com/blog/pool-cloudy-after-shocking): Why your pool is still cloudy after shocking and how to fix it
 - [Does Liquid Chlorine Raise CYA?](https://www.poolchemtracker.com/blog/does-liquid-chlorine-raise-cya): No — only stabilized chlorine (trichlor, dichlor) raises CYA
+- [How to Clear a Cloudy Pool Fast](https://www.poolchemtracker.com/blog/how-to-clear-cloudy-pool-fast): 5-step 24-hour plan: balance pH, shock to CYA level, brush, clean filter, run pump 24/7
+- [Dead Algae but Pool Still Cloudy](https://www.poolchemtracker.com/blog/dead-algae-still-cloudy): Run pump 24/7, clean filter every 8–12 hours, use clarifier (floc as last resort), pass OCLT before stopping
+- [Pool Turned Green Overnight](https://www.poolchemtracker.com/blog/pool-turned-green-overnight): Fresh algae bloom from chlorine dropping below CYA minimum — triage in 5 minutes, SLAM to clear in 3–7 days
+- [Why Won't Chlorine Stay in My Pool](https://www.poolchemtracker.com/blog/why-wont-chlorine-stay-in-pool): 7 most common causes of chlorine loss — low CYA, high CYA, algae, organics, chloramines, underdosing, heat
+- [Ideal Pool pH Level](https://www.poolchemtracker.com/blog/ideal-pool-ph-level): Ideal pool pH is 7.4–7.8 (7.5–7.6 sweet spot) — why pH matters, how to test, how to adjust safely
+
+## Explained (Pool Chemistry Reference)
+
+- [Pool Chemistry Explained](https://www.poolchemtracker.com/explained/): Plain-language reference for every pool chemistry term — what each means, target ranges, why it matters
+- [Free Chlorine](https://www.poolchemtracker.com/explained/free-chlorine): Free chlorine (FC) is the active sanitizer; target depends on CYA level, not a single fixed number
+- [Cyanuric Acid](https://www.poolchemtracker.com/explained/cyanuric-acid): CYA protects chlorine from UV; target 30–50 (60–80 for SWG); too much CYA causes most pool problems
+- [Chloramines](https://www.poolchemtracker.com/explained/chloramines): Spent chlorine compounds from sweat/urine/oils that cause 'pool smell' and red eyes — fix is more chlorine, not less
+- [Langelier Saturation Index (LSI)](https://www.poolchemtracker.com/explained/lsi): Single number indicating if water will corrode, scale, or stay balanced; target -0.3 to +0.3
 
 ## Contact
 
