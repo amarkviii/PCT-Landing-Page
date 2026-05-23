@@ -753,16 +753,20 @@ gtag('config','G-S8JT1DELF6');
     font-weight: 600;
   }
 
+  .hub-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 2rem 0 0;
+  }
   .hub-callout {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
+    align-items: flex-start;
+    gap: 1rem;
     background: linear-gradient(135deg, rgba(79,172,254,0.12), rgba(0,242,254,0.06));
     border: 1px solid rgba(79,172,254,0.3);
     border-radius: 14px;
-    padding: 1.5rem 2rem;
-    margin: 2rem 0 0;
+    padding: 1.5rem 1.75rem;
     text-decoration: none;
     color: var(--text);
     transition: border-color 0.2s, transform 0.2s;
@@ -771,7 +775,14 @@ gtag('config','G-S8JT1DELF6');
     border-color: var(--accent);
     transform: translateY(-2px);
   }
-  .hub-callout-text { flex: 1; }
+  .hub-callout.reference {
+    background: linear-gradient(135deg, rgba(46,213,115,0.08), rgba(79,172,254,0.04));
+    border-color: rgba(46,213,115,0.25);
+  }
+  .hub-callout.reference:hover { border-color: var(--good); }
+  .hub-callout.reference .hub-callout-label { color: var(--good); }
+  .hub-callout.reference .arrow { color: var(--good); }
+  .hub-callout-text { flex: 1; min-width: 0; }
   .hub-callout-label {
     display: inline-block;
     font-size: 0.7rem;
@@ -782,23 +793,27 @@ gtag('config','G-S8JT1DELF6');
     margin-bottom: 0.4rem;
   }
   .hub-callout h4 {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     font-weight: 700;
     margin-bottom: 0.35rem;
+    line-height: 1.3;
   }
   .hub-callout p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--muted);
     margin: 0;
+    line-height: 1.5;
   }
   .hub-callout .arrow {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     color: var(--accent);
     flex-shrink: 0;
+    line-height: 1;
+    padding-top: 0.2rem;
   }
-  @media (max-width: 640px) {
-    .hub-callout { flex-direction: column; align-items: flex-start; padding: 1.25rem 1.5rem; gap: 1rem; }
-    .hub-callout .arrow { font-size: 1.25rem; }
+  @media (max-width: 720px) {
+    .hub-grid { grid-template-columns: 1fr; }
+    .hub-callout { padding: 1.25rem 1.5rem; }
   }
 
   /* Final CTA */
@@ -1145,23 +1160,43 @@ gtag('config','G-S8JT1DELF6');
     <h3>Common pool chemistry problems</h3>
     <p>Quick answers to the questions pool owners search for most — with links to the full guides.</p>
 
-    <a href="blog/why-is-my-pool-water-cloudy" class="hub-callout">
-      <div class="hub-callout-text">
-        <span class="hub-callout-label">Featured guide series</span>
-        <h4>Troubleshooting cloudy or green water? Start here</h4>
-        <p>The complete Cloudy &amp; Green Pool Series &mdash; diagnose your symptoms, then follow the step-by-step fix.</p>
-      </div>
-      <span class="arrow">&rarr;</span>
-    </a>
+    <div class="hub-grid">
+      <a href="blog/why-is-my-pool-water-cloudy" class="hub-callout">
+        <div class="hub-callout-text">
+          <span class="hub-callout-label">Guide series</span>
+          <h4>Cloudy or green water?</h4>
+          <p>Diagnose your symptoms, then follow the step-by-step fix.</p>
+        </div>
+        <span class="arrow">&rarr;</span>
+      </a>
 
-    <a href="blog/pool-chlorine-levels-chart" class="hub-callout">
-      <div class="hub-callout-text">
-        <span class="hub-callout-label">Featured guide series</span>
-        <h4>Confused about chlorine levels? Start here</h4>
-        <p>The complete Pool Chlorine Series &mdash; what your FC, TC, and CC readings mean, how much to add, and why chlorine doesn't always stay where you want.</p>
-      </div>
-      <span class="arrow">&rarr;</span>
-    </a>
+      <a href="blog/pool-chlorine-levels-chart" class="hub-callout">
+        <div class="hub-callout-text">
+          <span class="hub-callout-label">Guide series</span>
+          <h4>Chlorine levels &amp; problems</h4>
+          <p>What FC, TC, and CC readings mean, how much to add, and why chlorine drops.</p>
+        </div>
+        <span class="arrow">&rarr;</span>
+      </a>
+
+      <a href="blog/pool-chemistry-beginners" class="hub-callout">
+        <div class="hub-callout-text">
+          <span class="hub-callout-label">Guide series</span>
+          <h4>Pool chemistry basics</h4>
+          <p>The 5 numbers that matter, how to balance them, and the chemicals you actually need.</p>
+        </div>
+        <span class="arrow">&rarr;</span>
+      </a>
+
+      <a href="explained/" class="hub-callout reference">
+        <div class="hub-callout-text">
+          <span class="hub-callout-label">Reference</span>
+          <h4>Pool Chemistry Explained</h4>
+          <p>Plain-language definitions for every pool chemistry term. CYA, LSI, chloramines, free chlorine, and more.</p>
+        </div>
+        <span class="arrow">&rarr;</span>
+      </a>
+    </div>
 
     <div class="problems-grid">
       <a href="blog/free-chlorine-vs-total-chlorine" class="problem-link-card">
