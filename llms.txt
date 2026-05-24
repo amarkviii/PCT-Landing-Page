@@ -18,28 +18,28 @@ PoolChem Tracker helps residential pool owners monitor and balance their water c
 ## Blog
 
 - [What Chemicals Do I Need for a Pool](https://www.poolchemtracker.com/blog/what-chemicals-do-i-need-for-a-pool): Essential pool chemicals, what each does, and what to skip
-- [Pool Chemistry for Beginners](https://www.poolchemtracker.com/blog/pool-chemistry-beginners): Introduction to pool water chemistry basics
-- [How to Balance Pool Water](https://www.poolchemtracker.com/blog/how-to-balance-pool-water): Step-by-step guide to balancing pool chemistry
-- [How to Raise Pool Chlorine](https://www.poolchemtracker.com/blog/how-to-raise-pool-chlorine): Methods for increasing chlorine levels
-- [How to Lower Pool Alkalinity](https://www.poolchemtracker.com/blog/how-to-lower-pool-alkalinity): Guide to reducing total alkalinity
-- [Pool Chlorine Too Low](https://www.poolchemtracker.com/blog/pool-chlorine-too-low): Troubleshooting low chlorine levels
-- [Pool pH Too High](https://www.poolchemtracker.com/blog/pool-ph-too-high): Causes and fixes for high pH
-- [Why Is My Pool Water Cloudy](https://www.poolchemtracker.com/blog/why-is-my-pool-water-cloudy): Diagnosing and fixing cloudy water
-- [Pool Water Green but Chlorine Is High](https://www.poolchemtracker.com/blog/pool-water-green-but-chlorine-is-high): Why green water persists despite chlorine
-- [Best Time to Test Pool Water](https://www.poolchemtracker.com/blog/best-time-to-test-pool-water): Why morning testing gives the most accurate results
-- [How Often to Test Pool Water](https://www.poolchemtracker.com/blog/how-often-to-test-pool-water): Testing frequency guide by parameter
+- [Pool Chemistry for Beginners](https://www.poolchemtracker.com/blog/pool-chemistry-beginners): The 5 numbers every pool owner should know — FC, pH, TA, CH, CYA — with target ranges and why each matters
+- [How to Balance Pool Water](https://www.poolchemtracker.com/blog/how-to-balance-pool-water): 4-step order — alkalinity first, then pH, then calcium, then chlorine — and why doing it out of order wastes chemicals
+- [How to Raise Pool Chlorine](https://www.poolchemtracker.com/blog/how-to-raise-pool-chlorine): Liquid chlorine vs cal-hypo vs tablets, dose math by pool size, and why CYA changes the target you need to hit
+- [How to Lower Pool Alkalinity](https://www.poolchemtracker.com/blog/how-to-lower-pool-alkalinity): Muriatic acid method to drop TA without crashing pH; includes aeration step and how much acid to add
+- [Pool Chlorine Too Low](https://www.poolchemtracker.com/blog/pool-chlorine-too-low): Why chlorine reads zero or near zero — usually low CYA, high demand from organics, or under-dosing — and how to recover
+- [Pool pH Too High](https://www.poolchemtracker.com/blog/pool-ph-too-high): Causes (high TA, fresh plaster, aeration) and fixes — muriatic acid dosing chart and how to keep pH from rebounding
+- [Why Is My Pool Water Cloudy](https://www.poolchemtracker.com/blog/why-is-my-pool-water-cloudy): Pillar guide — 8 causes (algae, chemistry, filtration, calcium) with a quick diagnosis chart and which to address first
+- [Pool Water Green but Chlorine Is High](https://www.poolchemtracker.com/blog/pool-water-green-but-chlorine-is-high): Usually metals (copper/iron) rather than algae — how to tell the difference and use sequestrant to clear it
+- [Best Time to Test Pool Water](https://www.poolchemtracker.com/blog/best-time-to-test-pool-water): Test in the morning before sun hits the pool — UV and bather load skew afternoon FC and pH readings
+- [How Often to Test Pool Water](https://www.poolchemtracker.com/blog/how-often-to-test-pool-water): FC/pH 2–3x per week, TA/CH weekly, CYA monthly — adjusted for SWG, heavy use, and after rain
 - [FC/CYA Chart: How Much Chlorine You Need](https://www.poolchemtracker.com/blog/fc-cya-chart-chlorine-levels): Chlorine targets based on CYA level, with minimum FC, target FC, and shock levels
-- [Pool Chlorine Levels Chart](https://www.poolchemtracker.com/blog/pool-chlorine-levels-chart): Quick reference chart for chlorine ranges
+- [Pool Chlorine Levels Chart](https://www.poolchemtracker.com/blog/pool-chlorine-levels-chart): At-a-glance FC ranges — minimum, target, and shock — for CYA 0 through 100 ppm
 - [Pool Chemistry Cheat Sheet](https://www.poolchemtracker.com/blog/pool-chemistry-cheat-sheet): One-page reference for all pool chemistry ranges
-- [What Is LSI](https://www.poolchemtracker.com/blog/what-is-lsi): Langelier Saturation Index explained
-- [Free Chlorine vs Total Chlorine](https://www.poolchemtracker.com/blog/free-chlorine-vs-total-chlorine): Difference between FC, TC, and combined chlorine
-- [Liquid Chlorine vs Tablets](https://www.poolchemtracker.com/blog/liquid-chlorine-vs-tablets): Pros and cons of each chlorine type
-- [Test Strips vs Liquid Test Kits](https://www.poolchemtracker.com/blog/test-strips-vs-liquid-test-kits): Comparing pool water testing methods
-- [Baking Soda vs Soda Ash](https://www.poolchemtracker.com/blog/baking-soda-vs-soda-ash): When to use each for pool chemistry
-- [Saltwater vs Chlorine Pools](https://www.poolchemtracker.com/blog/saltwater-vs-chlorine-pools): Comparing pool sanitizer systems
-- [Opening Pool for Summer](https://www.poolchemtracker.com/blog/opening-pool-for-summer): Spring opening checklist and steps
-- [Pool Startup Chemicals Checklist](https://www.poolchemtracker.com/blog/pool-startup-chemicals-checklist): Complete list of chemicals needed for pool startup
-- [How to Test Pool Water at Home](https://www.poolchemtracker.com/blog/how-to-test-pool-water-at-home): Step-by-step guide to testing pool water
+- [What Is LSI](https://www.poolchemtracker.com/blog/what-is-lsi): Langelier Saturation Index explained — how pH, TA, CH, CYA, and temperature combine into one number that predicts scale or corrosion; target -0.3 to +0.3
+- [Free Chlorine vs Total Chlorine](https://www.poolchemtracker.com/blog/free-chlorine-vs-total-chlorine): FC is active sanitizer, TC is everything; combined chlorine (TC minus FC) is what causes pool smell and red eyes
+- [Liquid Chlorine vs Tablets](https://www.poolchemtracker.com/blog/liquid-chlorine-vs-tablets): Liquid (sodium hypochlorite) doesn't raise CYA; tablets (trichlor) add CYA every dose and cause stabilizer lock — pick based on existing CYA level
+- [Test Strips vs Liquid Test Kits](https://www.poolchemtracker.com/blog/test-strips-vs-liquid-test-kits): Strips are fast but imprecise; FAS-DPD drop kits (Taylor K-2006) are the standard for accurate FC and CC readings
+- [Baking Soda vs Soda Ash](https://www.poolchemtracker.com/blog/baking-soda-vs-soda-ash): Baking soda raises alkalinity, soda ash raises pH — using the wrong one for low pH makes chemistry worse
+- [Saltwater vs Chlorine Pools](https://www.poolchemtracker.com/blog/saltwater-vs-chlorine-pools): SWG pools still use chlorine (generated from salt) — cost, maintenance, and chemistry differences vs traditional chlorine pools
+- [Opening Pool for Summer](https://www.poolchemtracker.com/blog/opening-pool-for-summer): Spring opening checklist — uncover, top off, equipment check, test, balance, then shock; what to do in what order
+- [Pool Startup Chemicals Checklist](https://www.poolchemtracker.com/blog/pool-startup-chemicals-checklist): The 6 chemicals you need on hand for a fresh fill or seasonal opening, with dose estimates by pool size and above-ground notes
+- [How to Test Pool Water at Home](https://www.poolchemtracker.com/blog/how-to-test-pool-water-at-home): Sampling technique (elbow-deep, away from returns), what each test measures, and how to read results without misinterpreting them
 - [Pool Cloudy After Shocking](https://www.poolchemtracker.com/blog/pool-cloudy-after-shocking): Why your pool is still cloudy after shocking and how to fix it
 - [Does Liquid Chlorine Raise CYA?](https://www.poolchemtracker.com/blog/does-liquid-chlorine-raise-cya): No — only stabilized chlorine (trichlor, dichlor) raises CYA
 - [How to Clear a Cloudy Pool Fast](https://www.poolchemtracker.com/blog/how-to-clear-cloudy-pool-fast): 5-step 24-hour plan: balance pH, shock to CYA level, brush, clean filter, run pump 24/7
