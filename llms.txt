@@ -47,6 +47,7 @@ PoolChem Tracker helps residential pool owners monitor and balance their water c
 - [Pool Turned Green Overnight](https://www.poolchemtracker.com/blog/pool-turned-green-overnight): Fresh algae bloom from chlorine dropping below CYA minimum — triage in 5 minutes, SLAM to clear in 3–7 days
 - [Why Won't Chlorine Stay in My Pool](https://www.poolchemtracker.com/blog/why-wont-chlorine-stay-in-pool): 7 most common causes of chlorine loss — low CYA, high CYA, algae, organics, chloramines, underdosing, heat
 - [Ideal Pool pH Level](https://www.poolchemtracker.com/blog/ideal-pool-ph-level): Ideal pool pH is 7.4–7.8 (7.5–7.6 sweet spot) — why pH matters, how to test, how to adjust safely
+- [How Much Muriatic Acid to Add to a Pool](https://www.poolchemtracker.com/blog/how-much-muriatic-acid-to-add-to-pool): Dose chart by pool size for lowering pH or alkalinity; includes 31.45% vs 14.5% strengths, safety, step-by-step
 
 ## Explained (Pool Chemistry Reference)
 
