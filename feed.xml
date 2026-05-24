@@ -5,13 +5,21 @@
 <link>https://www.poolchemtracker.com/blog/</link>
 <description>Pool chemistry guides, tips, and maintenance advice from PoolChem Tracker.</description>
 <language>en-us</language>
-<lastBuildDate>Sat, 23 May 2026 00:00:00 +0000</lastBuildDate>
+<lastBuildDate>Sun, 24 May 2026 00:00:00 +0000</lastBuildDate>
 <atom:link href="https://www.poolchemtracker.com/feed.xml" rel="self" type="application/rss+xml"/>
 <image>
 <url>https://www.poolchemtracker.com/Logo/logo-256.webp</url>
 <title>PoolChem Tracker Blog</title>
 <link>https://www.poolchemtracker.com/blog/</link>
 </image>
+
+<item>
+<title>What Causes High Combined Chlorine in a Pool?</title>
+<link>https://www.poolchemtracker.com/blog/what-causes-high-combined-chlorine</link>
+<guid>https://www.poolchemtracker.com/blog/what-causes-high-combined-chlorine</guid>
+<pubDate>Sun, 24 May 2026 12:00:00 +0000</pubDate>
+<description>High combined chlorine comes from chloramines — chlorine that's reacted with sweat, urine, sunscreen, and organic debris. 6 main causes and how to fix it with breakpoint chlorination.</description>
+</item>
 
 <item>
 <title>How Much Muriatic Acid to Add to a Pool (Dose Chart)</title>
