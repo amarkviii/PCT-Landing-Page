@@ -43,6 +43,7 @@ PoolChem Tracker helps residential pool owners monitor and balance their water c
 - [Opening Pool for Summer](https://www.poolchemtracker.com/blog/opening-pool-for-summer): Spring opening checklist — uncover, top off, equipment check, test, balance, then shock; what to do in what order
 - [Pool Startup Chemicals Checklist](https://www.poolchemtracker.com/blog/pool-startup-chemicals-checklist): The 6 chemicals you need on hand for a fresh fill or seasonal opening, with dose estimates by pool size and above-ground notes
 - [How to Test Pool Water at Home](https://www.poolchemtracker.com/blog/how-to-test-pool-water-at-home): Sampling technique (elbow-deep, away from returns), what each test measures, and how to read results without misinterpreting them
+- [Why Track Pool Chemistry Over Time](https://www.poolchemtracker.com/blog/why-track-pool-chemistry-over-time): Single tests answer "what now," trend data answers "why" — chlorine demand, pH drift triggers, slow CYA climb, equipment aging, and seasonal drift only visible across many readings
 - [Pool Cloudy After Shocking](https://www.poolchemtracker.com/blog/pool-cloudy-after-shocking): Why your pool is still cloudy after shocking and how to fix it
 - [Does Liquid Chlorine Raise CYA?](https://www.poolchemtracker.com/blog/does-liquid-chlorine-raise-cya): No — only stabilized chlorine (trichlor, dichlor) raises CYA
 - [How to Clear a Cloudy Pool Fast](https://www.poolchemtracker.com/blog/how-to-clear-cloudy-pool-fast): 5-step 24-hour plan: balance pH, shock to CYA level, brush, clean filter, run pump 24/7

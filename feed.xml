@@ -5,13 +5,21 @@
 <link>https://www.poolchemtracker.com/blog/</link>
 <description>Pool chemistry guides, tips, and maintenance advice from PoolChem Tracker.</description>
 <language>en-us</language>
-<lastBuildDate>Sun, 24 May 2026 00:00:00 +0000</lastBuildDate>
+<lastBuildDate>Mon, 25 May 2026 00:00:00 +0000</lastBuildDate>
 <atom:link href="https://www.poolchemtracker.com/feed.xml" rel="self" type="application/rss+xml"/>
 <image>
 <url>https://www.poolchemtracker.com/Logo/logo-256.webp</url>
 <title>PoolChem Tracker Blog</title>
 <link>https://www.poolchemtracker.com/blog/</link>
 </image>
+
+<item>
+<title>Why You Should Track Pool Chemistry Over Time</title>
+<link>https://www.poolchemtracker.com/blog/why-track-pool-chemistry-over-time</link>
+<guid>https://www.poolchemtracker.com/blog/why-track-pool-chemistry-over-time</guid>
+<pubDate>Mon, 25 May 2026 12:00:00 +0000</pubDate>
+<description>A single pool test tells you today's water. Thirty tests tell you the pool itself — chlorine demand, pH drift triggers, CYA climb, equipment aging. The patterns you only see over time and why they matter.</description>
+</item>
 
 <item>
 <title>Pool pH Keeps Rising? Here's Why (and How to Stop It)</title>
