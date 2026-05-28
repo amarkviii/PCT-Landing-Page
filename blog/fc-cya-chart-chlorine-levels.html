@@ -27,7 +27,7 @@ gtag('config','G-S8JT1DELF6');
 <meta name="twitter:description" content="Free chlorine targets depend on your CYA level. Use this FC/CYA chart to find the right chlorine minimum for your pool and avoid algae problems.">
 <meta name="twitter:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"FC/CYA Chart: How Much Chlorine You Need","description":"Free chlorine targets depend on your CYA level. Use this FC/CYA chart to find the right chlorine minimum for your pool and avoid algae problems.","datePublished":"2026-05-09","dateModified":"2026-05-21","author":{"@type":"Organization","name":"PoolChem Tracker"},"publisher":{"@type":"Organization","name":"PoolChem Tracker","logo":{"@type":"ImageObject","url":"https://www.poolchemtracker.com/Logo/logo-256.webp"}},"image":"https://www.poolchemtracker.com/Screenshots/social-card.png","mainEntityOfPage":"https://www.poolchemtracker.com/blog/fc-cya-chart-chlorine-levels"}
+{"@context":"https://schema.org","@type":"Article","headline":"FC/CYA Chart: How Much Chlorine You Need","description":"Free chlorine targets depend on your CYA level. Use this FC/CYA chart to find the right chlorine minimum for your pool and avoid algae problems.","datePublished":"2026-05-09","dateModified":"2026-05-27","author":{"@type":"Organization","name":"PoolChem Tracker"},"publisher":{"@type":"Organization","name":"PoolChem Tracker","logo":{"@type":"ImageObject","url":"https://www.poolchemtracker.com/Logo/logo-256.webp"}},"image":"https://www.poolchemtracker.com/Screenshots/social-card.png","mainEntityOfPage":"https://www.poolchemtracker.com/blog/fc-cya-chart-chlorine-levels"}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.poolchemtracker.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://www.poolchemtracker.com/blog/"},{"@type":"ListItem","position":3,"name":"Pool Chlorine Series","item":"https://www.poolchemtracker.com/blog/pool-chlorine-levels-chart"},{"@type":"ListItem","position":4,"name":"FC/CYA Chart"}]}
@@ -344,6 +344,33 @@ gtag('config','G-S8JT1DELF6');
     margin-bottom: 1rem;
   }
 
+  .chart-figure {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .chart-figure svg { width: 100%; height: auto; display: block; }
+
+  .chart-figure figcaption {
+    margin-top: 1rem;
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .comparison-table th .hint {
+    display: block;
+    font-weight: 400;
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-transform: none;
+    letter-spacing: 0;
+    margin-top: 2px;
+  }
+
   @media (max-width: 640px) {
     article { padding: 2rem 0 3rem; }
     .header-badge { display: none; }
@@ -391,22 +418,143 @@ gtag('config','G-S8JT1DELF6');
 
     <h3>The chart</h3>
 
+    <figure class="chart-figure">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" role="img"
+           aria-labelledby="fcCyaTitle fcCyaDesc">
+        <title id="fcCyaTitle">Free chlorine targets by cyanuric acid level</title>
+        <desc id="fcCyaDesc">As cyanuric acid (CYA) increases, the free chlorine needed to sanitize the pool also increases. The chart shows minimum FC for regular chlorine, minimum FC for saltwater (SWG) pools, the target FC range, and the shock level.</desc>
+
+        <line x1="130" y1="40"  x2="130" y2="380" stroke="#cdd6e0" stroke-width="1.25"/>
+        <line x1="130" y1="380" x2="650" y2="380" stroke="#cdd6e0" stroke-width="1.25"/>
+
+        <g stroke="rgba(255,255,255,0.08)" stroke-width="1">
+          <line x1="130" y1="312" x2="650" y2="312"/>
+          <line x1="130" y1="244" x2="650" y2="244"/>
+          <line x1="130" y1="176" x2="650" y2="176"/>
+          <line x1="130" y1="108" x2="650" y2="108"/>
+          <line x1="130" y1="40"  x2="650" y2="40"/>
+        </g>
+
+        <g font-family="-apple-system, system-ui, sans-serif" font-size="12" fill="#8899aa" text-anchor="end">
+          <text x="122" y="384">0</text>
+          <text x="122" y="316">10</text>
+          <text x="122" y="248">20</text>
+          <text x="122" y="180">30</text>
+          <text x="122" y="112">40</text>
+          <text x="122" y="44">50</text>
+        </g>
+        <text x="40" y="210" font-family="-apple-system, system-ui, sans-serif"
+              font-size="13" fill="#e8edf5" transform="rotate(-90 40 210)" text-anchor="middle">
+          Free Chlorine (ppm)
+        </text>
+
+        <g font-family="-apple-system, system-ui, sans-serif" font-size="12" fill="#8899aa" text-anchor="middle">
+          <text x="130" y="400">20</text>
+          <text x="195" y="400">30</text>
+          <text x="260" y="400">40</text>
+          <text x="325" y="400">50</text>
+          <text x="390" y="400">60</text>
+          <text x="455" y="400">70</text>
+          <text x="520" y="400">80</text>
+          <text x="585" y="400">90</text>
+          <text x="650" y="400">100</text>
+        </g>
+        <text x="390" y="430" font-family="-apple-system, system-ui, sans-serif"
+              font-size="13" fill="#e8edf5" text-anchor="middle">
+          Cyanuric Acid — CYA (ppm)
+        </text>
+
+        <path d="
+          M 130,370 L 195,366 L 260,360 L 325,353 L 390,346 L 455,346 L 520,339 L 585,332 L 650,326
+          L 650,312 L 585,312 L 520,319 L 455,326 L 390,326 L 325,332 L 260,339 L 195,346 L 130,353 Z"
+          fill="#2ed573" fill-opacity="0.18" stroke="none"/>
+
+        <polyline points="130,370 195,366 260,360 325,353"
+                  fill="none" stroke="#2ed573" stroke-width="2.5"/>
+        <polyline points="325,353 390,346 455,346 520,339"
+                  fill="none" stroke="#ffd700" stroke-width="2.5"/>
+        <polyline points="520,339 585,332 650,326"
+                  fill="none" stroke="#ff6b6b" stroke-width="2.5"/>
+
+        <polyline points="130,353 195,346 260,339 325,332 390,326 455,326 520,319 585,312 650,312"
+                  fill="none" stroke="#2ed573" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.7"/>
+
+        <polyline points="130,373 195,370 260,366 325,363 390,360 455,356 520,353 585,350 650,346"
+                  fill="none" stroke="#4facfe" stroke-width="2.5"/>
+
+        <polyline points="130,312 195,298 260,271 325,244 390,217 455,190 520,169 585,142 650,115"
+                  fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-dasharray="6 4"/>
+
+        <g fill="#2ed573">
+          <circle cx="130" cy="370" r="3.5"/><circle cx="195" cy="366" r="3.5"/>
+          <circle cx="260" cy="360" r="3.5"/><circle cx="325" cy="353" r="3.5"/>
+        </g>
+        <g fill="#ffd700">
+          <circle cx="390" cy="346" r="3.5"/><circle cx="455" cy="346" r="3.5"/>
+          <circle cx="520" cy="339" r="3.5"/>
+        </g>
+        <g fill="#ff6b6b">
+          <circle cx="585" cy="332" r="3.5"/><circle cx="650" cy="326" r="3.5"/>
+        </g>
+        <g fill="#a78bfa">
+          <circle cx="130" cy="312" r="3.5"/><circle cx="195" cy="298" r="3.5"/>
+          <circle cx="260" cy="271" r="3.5"/><circle cx="325" cy="244" r="3.5"/>
+          <circle cx="390" cy="217" r="3.5"/><circle cx="455" cy="190" r="3.5"/>
+          <circle cx="520" cy="169" r="3.5"/><circle cx="585" cy="142" r="3.5"/>
+          <circle cx="650" cy="115" r="3.5"/>
+        </g>
+        <g fill="#4facfe">
+          <circle cx="130" cy="373" r="3.5"/><circle cx="195" cy="370" r="3.5"/>
+          <circle cx="260" cy="366" r="3.5"/><circle cx="325" cy="363" r="3.5"/>
+          <circle cx="390" cy="360" r="3.5"/><circle cx="455" cy="356" r="3.5"/>
+          <circle cx="520" cy="353" r="3.5"/><circle cx="585" cy="350" r="3.5"/>
+          <circle cx="650" cy="346" r="3.5"/>
+        </g>
+
+        <g font-family="-apple-system, system-ui, sans-serif" font-size="12" fill="#e8edf5">
+          <rect x="146" y="52" width="240" height="86" fill="#0d1f3c" fill-opacity="0.85" stroke="rgba(255,255,255,0.12)"/>
+          <line x1="156" y1="70" x2="166" y2="70" stroke="#2ed573" stroke-width="2.5"/>
+          <line x1="166" y1="70" x2="176" y2="70" stroke="#ffd700" stroke-width="2.5"/>
+          <line x1="176" y1="70" x2="186" y2="70" stroke="#ff6b6b" stroke-width="2.5"/>
+          <text x="192" y="74">Minimum FC (regular chlorine)</text>
+          <line x1="156" y1="88" x2="186" y2="88" stroke="#4facfe" stroke-width="2.5"/>
+          <text x="192" y="92">Minimum FC (saltwater / SWG)</text>
+          <rect x="156" y="100" width="30" height="8" fill="#2ed573" fill-opacity="0.18" stroke="#2ed573" stroke-opacity="0.4"/>
+          <text x="192" y="108">Target FC range</text>
+          <line x1="156" y1="124" x2="186" y2="124" stroke="#a78bfa" stroke-width="2.5" stroke-dasharray="6 4"/>
+          <text x="192" y="128">Shock level</text>
+        </g>
+      </svg>
+      <figcaption>Free chlorine targets scale with cyanuric acid. As CYA rises, more total FC is needed to keep the active sanitizer fraction high enough to kill algae and bacteria. Saltwater pools can run lower because the generator continuously replaces what's consumed.</figcaption>
+    </figure>
+
     <div class="comparison-table">
       <table>
-        <tr><th>CYA (ppm)</th><th>Minimum FC</th><th>Target FC</th><th>Shock Level</th></tr>
-        <tr><td>20</td><td class="tag-good">1.5</td><td>2–4</td><td>10</td></tr>
-        <tr><td>30</td><td class="tag-good">2</td><td>3–5</td><td>12</td></tr>
-        <tr><td>40</td><td class="tag-good">3</td><td>4–6</td><td>16</td></tr>
-        <tr><td>50</td><td class="tag-good">4</td><td>5–7</td><td>20</td></tr>
-        <tr><td>60</td><td class="tag-warn">5</td><td>5–8</td><td>24</td></tr>
-        <tr><td>70</td><td class="tag-warn">5</td><td>6–8</td><td>28</td></tr>
-        <tr><td>80</td><td class="tag-warn">6</td><td>7–9</td><td>31</td></tr>
-        <tr><td>90</td><td class="tag-bad">7</td><td>7–10</td><td>35</td></tr>
-        <tr><td>100</td><td class="tag-bad">8</td><td>8–10</td><td>39</td></tr>
+        <tr>
+          <th>CYA (ppm)</th>
+          <th>Minimum FC<span class="hint">Regular chlorine</span></th>
+          <th>Minimum FC<span class="hint">Saltwater (SWG)</span></th>
+          <th>Target FC</th>
+          <th>Shock Level</th>
+        </tr>
+        <tr><td>20</td><td class="tag-good">1.5</td><td>1</td><td>2–4</td><td>10</td></tr>
+        <tr><td>30</td><td class="tag-good">2</td><td>1.5</td><td>3–5</td><td>12</td></tr>
+        <tr><td>40</td><td class="tag-good">3</td><td>2</td><td>4–6</td><td>16</td></tr>
+        <tr><td>50</td><td class="tag-good">4</td><td>2.5</td><td>5–7</td><td>20</td></tr>
+        <tr><td>60</td><td class="tag-warn">5</td><td>3</td><td>5–8</td><td>24</td></tr>
+        <tr><td>70</td><td class="tag-warn">5</td><td>3.5</td><td>6–8</td><td>28</td></tr>
+        <tr><td>80</td><td class="tag-warn">6</td><td>4</td><td>7–9</td><td>31</td></tr>
+        <tr><td>90</td><td class="tag-bad">7</td><td>4.5</td><td>7–10</td><td>35</td></tr>
+        <tr><td>100</td><td class="tag-bad">8</td><td>5</td><td>8–10</td><td>39</td></tr>
       </table>
     </div>
 
-    <p><strong>Minimum FC</strong> is the floor. Don't let your chlorine drop below this number. <strong>Target FC</strong> is the range you should aim for during normal operation. <strong>Shock level</strong> is what you need to reach and hold during a shock-and-maintain process to kill an active algae bloom.</p>
+    <p><strong>Minimum FC</strong> is the floor. Don't let your chlorine drop below this number. <strong>Target FC</strong> is the range you should aim for during normal operation. <strong>Shock level</strong> is what you need to reach and hold to kill an active algae bloom.</p>
+
+    <div class="info-card">
+      <h4>What "shock level" really means</h4>
+      <p>The shock-level column is the FC concentration required for <em>breakpoint chlorination</em> — the point where chlorine destroys combined chloramines and algae faster than they form. Hold FC at this level, retesting every few hours and re-dosing as needed, until the pool passes an overnight chlorine loss test of less than 1 ppm. Saltwater pool owners should add liquid chlorine manually rather than driving the salt cell at maximum, which accelerates cell wear.</p>
+    </div>
 
     <div class="app-callout">PoolChem Tracker factors in your CYA level when calculating chlorine recommendations, so your FC target automatically adjusts. <a href="https://apps.apple.com/app/id6762652630">Try it free</a></div>
 
