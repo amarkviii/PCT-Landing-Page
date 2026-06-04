@@ -65,6 +65,7 @@ PoolChem Tracker helps residential pool owners monitor and balance their water c
 - [Cyanuric Acid](https://www.poolchemtracker.com/explained/cyanuric-acid): CYA protects chlorine from UV; target 30–50 (60–80 for SWG); too much CYA causes most pool problems
 - [Chloramines](https://www.poolchemtracker.com/explained/chloramines): Spent chlorine compounds from sweat/urine/oils that cause 'pool smell' and red eyes — fix is more chlorine, not less
 - [Langelier Saturation Index (LSI)](https://www.poolchemtracker.com/explained/lsi): Single number indicating if water will corrode, scale, or stay balanced; target -0.3 to +0.3
+- [Calcium Hardness](https://www.poolchemtracker.com/explained/calcium-hardness): Dissolved calcium in pool water; biggest single LSI lever; target 200–400 ppm plaster, 150–250 vinyl; only drain reduces it
 
 ## Contact
 
