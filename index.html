@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PoolChem Tracker — Pool Chemistry Calculator &amp; Water Balance App for iPhone</title>
+<title>Pool Chemistry Help &amp; Tracker — Cloudy Water, Chlorine, LSI</title>
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon.png" type="image/png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<meta name="description" content="Free pool chemistry calculator for iPhone and iPad. Track chlorine, pH, alkalinity, CYA, calcium hardness, and LSI. Get exact dosing recommendations with science-based water balance tools — all offline.">
+<meta name="description" content="Plain-language answers to common pool chemistry problems — cloudy water, chlorine that won't hold, pH, alkalinity, LSI. Plus an iPhone app that tracks your readings so problems don't come back.">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
 <script>
 window.dataLayer=window.dataLayer||[];
@@ -20,17 +20,17 @@ gtag('config','G-S8JT1DELF6');
 <link rel="alternate" type="application/rss+xml" title="PoolChem Tracker Blog" href="https://www.poolchemtracker.com/feed.xml">
 <link rel="canonical" href="https://www.poolchemtracker.com/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="PoolChem Tracker — Pool Chemistry Calculator &amp; Water Balance App for iPhone">
-<meta property="og:description" content="Free pool chemistry calculator for iPhone and iPad. Track chlorine, pH, alkalinity, CYA, calcium hardness, and LSI. Get exact dosing recommendations with science-based water balance tools — all offline.">
+<meta property="og:title" content="Pool Chemistry Help &amp; Tracker — Cloudy Water, Chlorine, LSI">
+<meta property="og:description" content="Plain-language answers to common pool chemistry problems — cloudy water, chlorine that won't hold, pH, alkalinity, LSI. Plus an iPhone app that tracks your readings so problems don't come back.">
 <meta property="og:url" content="https://www.poolchemtracker.com/">
 <meta property="og:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
 <meta property="og:site_name" content="PoolChem Tracker">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="PoolChem Tracker — Pool Chemistry Calculator &amp; Water Balance App for iPhone">
-<meta name="twitter:description" content="Free pool chemistry calculator for iPhone and iPad. Track chlorine, pH, alkalinity, CYA, calcium hardness, and LSI. Get exact dosing recommendations with science-based water balance tools — all offline.">
+<meta name="twitter:title" content="Pool Chemistry Help &amp; Tracker — Cloudy Water, Chlorine, LSI">
+<meta name="twitter:description" content="Plain-language answers to common pool chemistry problems — cloudy water, chlorine that won't hold, pH, alkalinity, LSI. Plus an iPhone app that tracks your readings so problems don't come back.">
 <meta name="twitter:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","name":"PoolChem Tracker","url":"https://www.poolchemtracker.com/","description":"Free pool chemistry calculator for iPhone and iPad. Track chlorine, pH, alkalinity, CYA, calcium hardness, and LSI. Get exact dosing recommendations with science-based water balance tools."}
+{"@context":"https://schema.org","@type":"WebSite","name":"PoolChem Tracker","url":"https://www.poolchemtracker.com/","description":"Plain-language answers to common pool chemistry problems — cloudy water, chlorine that won't hold, pH, alkalinity, LSI. Plus an iPhone app that tracks your readings so problems don't come back."}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"PoolChem Tracker","url":"https://www.poolchemtracker.com","logo":"https://www.poolchemtracker.com/Logo/logo-256.webp","sameAs":["https://apps.apple.com/app/id6762652630","https://bsky.app/profile/poolchemtracker.com"],"contactPoint":{"@type":"ContactPoint","email":"support@poolchemtracker.com","contactType":"customer support"}}
@@ -859,6 +859,90 @@ gtag('config','G-S8JT1DELF6');
     margin-bottom: 1rem;
   }
 
+  /* Find problem / symptom grid */
+  .find-problem { padding: 4rem 0 3rem; border-top: 1px solid var(--border); }
+  .find-problem h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+  .find-problem > .container > p {
+    text-align: center;
+    color: var(--muted);
+    max-width: 560px;
+    margin: 0 auto 2rem;
+  }
+  .symptom-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.85rem;
+  }
+  .symptom-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.15rem;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .symptom-link:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .symptom-icon { font-size: 1.4rem; flex-shrink: 0; }
+
+  /* Tracking pivot */
+  .tracking-pivot {
+    padding: 5rem 0;
+    border-top: 1px solid var(--border);
+    background: linear-gradient(135deg, rgba(79,172,254,0.04), rgba(0,242,254,0.02));
+  }
+  .tracking-pivot h3 {
+    text-align: center;
+    font-size: 1.9rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+  .tracking-pivot .pivot-lead {
+    text-align: center;
+    color: var(--text);
+    font-size: 1.05rem;
+    max-width: 620px;
+    margin: 0 auto 2.5rem;
+  }
+  .tracking-pivot .pivot-lead strong { color: var(--accent); }
+  .pivot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+  .pivot-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+  }
+  .pivot-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+  .pivot-card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+  .pivot-card p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+  .pivot-cta { text-align: center; }
+  .pivot-cta .hero-note { margin-top: 1rem; }
+
   /* Mobile */
   @media (max-width: 640px) {
     .hero { padding: 3rem 0 2rem; }
@@ -902,8 +986,8 @@ gtag('config','G-S8JT1DELF6');
 <!-- Hero -->
 <section class="hero">
   <div class="container">
-    <h2>Pool Chemistry Calculator &amp; <span class="gradient">Water Balance App</span> for iPhone</h2>
-    <p class="subtitle">Track chlorine, alkalinity, pH, CYA, calcium hardness, and LSI with science-based pool water balancing tools. Get exact dosing recommendations — all private and offline.</p>
+    <h2>Pool problems, <span class="gradient">solved</span>. Then tracked so they don't come back.</h2>
+    <p class="subtitle">Plain-language answers for cloudy water, chlorine that won't hold, pH, alkalinity, and water balance — plus an iPhone app that tracks your readings to catch problems before they come back.</p>
     <a href="https://apps.apple.com/app/id6762652630" class="app-store-badge"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40"></a>
     <div class="hero-note">Free to start. Pro upgrade for $4.99 (one-time, no subscription).</div>
   </div>
@@ -918,6 +1002,212 @@ gtag('config','G-S8JT1DELF6');
       <div class="trust-badge"><div class="badge-icon">&#x1F6AB;</div> No Account Required</div>
       <div class="trust-badge"><div class="badge-icon">&#x1F9EA;</div> Accurate LSI</div>
       <div class="trust-badge"><div class="badge-icon">&#x1F4F1;</div> iPhone + iPad</div>
+    </div>
+  </div>
+</section>
+
+<!-- What's wrong with your pool? -->
+<section class="find-problem" id="symptoms">
+  <div class="container">
+    <h3>What's wrong with your pool?</h3>
+    <p>Pick a symptom — we'll explain the cause and walk you through the fix.</p>
+    <div class="symptom-grid">
+      <a href="blog/why-is-my-pool-water-cloudy" class="symptom-link">
+        <span class="symptom-icon">&#x1F4A8;</span>
+        <span>Cloudy water</span>
+      </a>
+      <a href="blog/pool-turned-green-overnight" class="symptom-link">
+        <span class="symptom-icon">&#x1F33F;</span>
+        <span>Green pool</span>
+      </a>
+      <a href="blog/pool-chlorine-too-low" class="symptom-link">
+        <span class="symptom-icon">&#x1F4C9;</span>
+        <span>Chlorine too low</span>
+      </a>
+      <a href="blog/why-wont-chlorine-stay-in-pool" class="symptom-link">
+        <span class="symptom-icon">&#x1F4A7;</span>
+        <span>Chlorine won't hold</span>
+      </a>
+      <a href="blog/how-to-lower-pool-alkalinity" class="symptom-link">
+        <span class="symptom-icon">&#x1F4CA;</span>
+        <span>High alkalinity</span>
+      </a>
+      <a href="blog/pool-ph-too-high" class="symptom-link">
+        <span class="symptom-icon">&#x2696;&#xFE0F;</span>
+        <span>pH too high</span>
+      </a>
+      <a href="blog/pool-cloudy-after-shocking" class="symptom-link">
+        <span class="symptom-icon">&#x26A1;</span>
+        <span>Cloudy after shocking</span>
+      </a>
+      <a href="blog/pool-chemistry-beginners" class="symptom-link">
+        <span class="symptom-icon">&#x1F4D6;</span>
+        <span>I'm new to this</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Step-by-step guide series -->
+<section class="problems-section">
+  <div class="container">
+    <h3>Step-by-step guide series</h3>
+    <p>Troubleshooting playbooks and a plain-language reference. Pick the one that matches your situation.</p>
+
+    <div class="hub-grid">
+      <a href="blog/why-is-my-pool-water-cloudy" class="hub-callout">
+        <div class="hub-callout-text">
+          <span class="hub-callout-label">Guide series</span>
+          <h4>Cloudy or green water?</h4>
+          <p>Diagnose your symptoms, then follow the step-by-step fix.</p>
+        </div>
+        <span class="arrow">&rarr;</span>
+      </a>
+
+      <a href="blog/pool-chlorine-levels-chart" class="hub-callout">
+        <div class="hub-callout-text">
+          <span class="hub-callout-label">Guide series</span>
+          <h4>Chlorine levels &amp; problems</h4>
+          <p>What FC, TC, and CC readings mean, how much to add, and why chlorine drops.</p>
+        </div>
+        <span class="arrow">&rarr;</span>
+      </a>
+
+      <a href="blog/pool-chemistry-beginners" class="hub-callout">
+        <div class="hub-callout-text">
+          <span class="hub-callout-label">Guide series</span>
+          <h4>Pool chemistry basics</h4>
+          <p>The 5 numbers that matter, how to balance them, and the chemicals you actually need.</p>
+        </div>
+        <span class="arrow">&rarr;</span>
+      </a>
+
+      <a href="explained/" class="hub-callout reference">
+        <div class="hub-callout-text">
+          <span class="hub-callout-label">Reference</span>
+          <h4>Pool Chemistry Explained</h4>
+          <p>Plain-language definitions for every pool chemistry term. CYA, LSI, chloramines, free chlorine, and more.</p>
+        </div>
+        <span class="arrow">&rarr;</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- The questions pool owners ask most -->
+<section class="problems-section">
+  <div class="container">
+    <h3>The questions pool owners ask most</h3>
+    <p>Direct, plain-language answers — backed by tested chemistry, not pool-store sales pitches.</p>
+    <div class="problems-grid">
+      <a href="blog/pool-chlorine-levels-chart" class="problem-link-card">
+        <h4>Pool chlorine levels chart</h4>
+        <p>FC, TC, and CC at a glance — what's normal, what's low, and when to act.</p>
+        <span class="read-more">See the chart &rarr;</span>
+      </a>
+      <a href="blog/fc-cya-chart-chlorine-levels" class="problem-link-card">
+        <h4>FC/CYA chart: how much chlorine do you need?</h4>
+        <p>Your CYA level sets your chlorine target. Here's the chart that ties them together.</p>
+        <span class="read-more">See the chart &rarr;</span>
+      </a>
+      <a href="blog/free-chlorine-vs-total-chlorine" class="problem-link-card">
+        <h4>Free chlorine vs total chlorine</h4>
+        <p>What FC, CC, and TC actually mean — and which number tells you the pool is safe.</p>
+        <span class="read-more">Learn the difference &rarr;</span>
+      </a>
+      <a href="blog/baking-soda-vs-soda-ash" class="problem-link-card">
+        <h4>Baking soda vs soda ash</h4>
+        <p>Which one to use for pH, which one for alkalinity, and why they're not interchangeable.</p>
+        <span class="read-more">Get the answer &rarr;</span>
+      </a>
+      <a href="blog/does-liquid-chlorine-raise-cya" class="problem-link-card">
+        <h4>Does liquid chlorine raise CYA?</h4>
+        <p>Spoiler: no. Here's what does, and how to keep CYA under control.</p>
+        <span class="read-more">Get the answer &rarr;</span>
+      </a>
+      <a href="blog/best-time-to-test-pool-water" class="problem-link-card">
+        <h4>The best time to test pool water</h4>
+        <p>Why morning readings beat afternoon ones, and when to retest after rain or shock.</p>
+        <span class="read-more">Read the guide &rarr;</span>
+      </a>
+      <a href="blog/pool-cloudy-after-shocking" class="problem-link-card">
+        <h4>Why is my pool cloudy after shocking?</h4>
+        <p>The most common causes — and how to clear it without dumping in more chemicals.</p>
+        <span class="read-more">Read the guide &rarr;</span>
+      </a>
+      <a href="blog/what-is-lsi" class="problem-link-card">
+        <h4>What is LSI — and why does it matter?</h4>
+        <p>The water-balance number that decides whether your pool corrodes or scales. Explained simply.</p>
+        <span class="read-more">Read the explainer &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Chemistry FAQ -->
+<section class="faq">
+  <div class="container">
+    <h3>Pool chemistry FAQ</h3>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h4>What should free chlorine be in a pool?</h4>
+        <p>The ideal free chlorine (FC) level depends on your cyanuric acid (CYA). At CYA 30, aim for 2–4 ppm. At CYA 50, aim for 4–6 ppm. The rule of thumb is FC should be at least 7.5% of your CYA level. <a href="blog/fc-cya-chart-chlorine-levels">See the full FC/CYA chart &rarr;</a></p>
+      </div>
+      <div class="faq-item">
+        <h4>Can total chlorine be lower than free chlorine?</h4>
+        <p>No — total chlorine is free chlorine plus combined chlorine, so TC should always be equal to or higher than FC. If your test shows TC below FC, the reading is a testing error. Try retesting with fresh reagents or a different kit. <a href="blog/free-chlorine-vs-total-chlorine">Free chlorine vs total chlorine explained &rarr;</a></p>
+      </div>
+      <div class="faq-item">
+        <h4>Why is my pool chlorine high but still cloudy?</h4>
+        <p>High chlorine with cloudy water usually means high CYA is locking up your chlorine, or high pH/alkalinity is causing minerals to precipitate. Your FC reading looks fine, but the effective chlorine may be too low. Check CYA first. <a href="blog/why-is-my-pool-water-cloudy">Diagnose cloudy pool water &rarr;</a></p>
+      </div>
+      <div class="faq-item">
+        <h4>How often should I test free chlorine?</h4>
+        <p>2–3 times per week during swim season, weekly in the off-season. Test in the morning for the most accurate baseline — UV breaks down chlorine throughout the day. Always test after heavy rain, pool parties, or adding chemicals. <a href="blog/how-often-to-test-pool-water">Full testing schedule &rarr;</a></p>
+      </div>
+      <div class="faq-item">
+        <h4>What is the ideal pool pH?</h4>
+        <p>Keep pH between 7.4 and 7.8, with 7.5–7.6 being the sweet spot. Below 7.2, water becomes corrosive and irritates skin and eyes. Above 7.8, chlorine loses effectiveness and calcium can precipitate out, causing cloudy water and scale. <a href="blog/ideal-pool-ph-level">Full pH guide &rarr;</a></p>
+      </div>
+      <div class="faq-item">
+        <h4>How much chlorine should I add to my pool?</h4>
+        <p>It depends on your pool volume, current FC level, and target FC (which is set by your CYA). As a rough guide, 1 oz of liquid chlorine (12.5%) raises FC by about 1 ppm per 1,000 gallons. PoolChem Tracker calculates the exact dose for you. <a href="blog/how-to-raise-pool-chlorine">Chlorine dosing guide &rarr;</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tracking pivot -->
+<section class="tracking-pivot">
+  <div class="container">
+    <h3>Tired of looking it up every time?</h3>
+    <p class="pivot-lead">One-off answers fix today's problem. <strong>Tracking your chemistry over time prevents the next one.</strong></p>
+    <div class="pivot-grid">
+      <div class="pivot-card">
+        <div class="pivot-icon">&#x1F4DD;</div>
+        <h4>Log a reading in seconds</h4>
+        <p>Enter your test results — FC, pH, alkalinity, CYA, calcium, temperature. Same workflow you already use.</p>
+      </div>
+      <div class="pivot-card">
+        <div class="pivot-icon">&#x1F4C8;</div>
+        <h4>See the trend, not just the snapshot</h4>
+        <p>Charts show how your chemistry shifts week to week — so a drift toward cloudy or scale is obvious before you can see it in the water.</p>
+      </div>
+      <div class="pivot-card">
+        <div class="pivot-icon">&#x1F9EE;</div>
+        <h4>Exact dosing for your pool</h4>
+        <p>Based on your pool size and current readings, not generic charts. Full LSI with CYA-corrected alkalinity — the accurate calculation, not the simplified one.</p>
+      </div>
+      <div class="pivot-card">
+        <div class="pivot-icon">&#x1F4A1;</div>
+        <h4>Catch problems early</h4>
+        <p>A health score and trend view tell you what to fix before "cloudy water again" turns into another weekend lost.</p>
+      </div>
+    </div>
+    <div class="pivot-cta">
+      <a href="https://apps.apple.com/app/id6762652630" class="app-store-badge"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40"></a>
+      <div class="hero-note">Free to start. Pro upgrade $4.99 — one-time, no subscription.</div>
     </div>
   </div>
 </section>
@@ -973,63 +1263,6 @@ gtag('config','G-S8JT1DELF6');
   </div>
 </section>
 
-<!-- Problem → Solution -->
-<section class="problem">
-  <div class="container">
-    <h3>Sound familiar?</h3>
-    <p>Most pool owners deal with the same frustrations — and waste money because of them.</p>
-    <div class="problem-grid">
-      <div class="problem-card">
-        <div class="p-icon">&#x1F4A8;</div>
-        <h4>Cloudy water again</h4>
-        <p>You added chemicals last week but something's still off and you're not sure what.</p>
-      </div>
-      <div class="problem-card">
-        <div class="p-icon">&#x1F4B8;</div>
-        <h4>Expensive guesswork</h4>
-        <p>The pool store says buy more chemicals. You're spending hundreds and still chasing problems.</p>
-      </div>
-      <div class="problem-card">
-        <div class="p-icon">&#x1F9EA;</div>
-        <h4>Confusing chemistry</h4>
-        <p>pH, alkalinity, CYA, LSI — you know they matter but don't know how they're connected.</p>
-      </div>
-      <div class="problem-card">
-        <div class="p-icon">&#x1F6A8;</div>
-        <h4>Hidden damage</h4>
-        <p>Corrosion and scale buildup happen slowly. By the time you see it, the damage is done.</p>
-      </div>
-    </div>
-
-    <div class="solution-intro">
-      <h4>PoolChem Tracker gives you <span class="gradient">clarity</span></h4>
-      <p>Log your readings once and get everything you need to keep your water balanced.</p>
-    </div>
-    <div class="solution-grid">
-      <div class="solution-card">
-        <div class="s-icon">&#x2705;</div>
-        <h4>Exact dosing</h4>
-        <p>Know exactly what to add and how much — based on your pool, not generic charts.</p>
-      </div>
-      <div class="solution-card">
-        <div class="s-icon">&#x2705;</div>
-        <h4>Accurate LSI analysis</h4>
-        <p>Full Langelier Saturation Index with CYA-corrected alkalinity — not the simplified formula most apps use.</p>
-      </div>
-      <div class="solution-card">
-        <div class="s-icon">&#x2705;</div>
-        <h4>Trend tracking</h4>
-        <p>See how your chemistry changes over time and spot patterns before they become costly.</p>
-      </div>
-      <div class="solution-card">
-        <div class="s-icon">&#x2705;</div>
-        <h4>Health score</h4>
-        <p>One number, 0–100, that tells you instantly if your water is balanced or needs attention.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- Features -->
 <section class="features">
   <div class="container">
@@ -1065,6 +1298,17 @@ gtag('config','G-S8JT1DELF6');
         <h4>Private &amp; Offline</h4>
         <p>All data stays on your device. No account required, no cloud, no tracking. Works without an internet connection.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Interactive demo -->
+<section class="demo">
+  <div class="container">
+    <h3>Try it yourself</h3>
+    <p>Explore the live demo with sample pool data — or enter your own readings.</p>
+    <div class="phone-frame">
+      <iframe src="demo/" title="PoolChem Tracker interactive demo" loading="lazy"></iframe>
     </div>
   </div>
 </section>
@@ -1113,134 +1357,6 @@ gtag('config','G-S8JT1DELF6');
     </div>
     <div class="pricing-cta">
       <a href="https://apps.apple.com/app/id6762652630" class="app-store-badge"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40"></a>
-    </div>
-  </div>
-</section>
-
-<!-- Why PoolChem -->
-<section class="differentiator">
-  <div class="container">
-    <h3>Why PoolChem Tracker?</h3>
-    <p>Built on proven pool chemistry principles — FC/CYA-based chlorine targets, accurate LSI, and the same methodology trusted by the pool care community. This is the tool that does the math for you.</p>
-    <div class="compare-grid">
-      <div class="compare-card">
-        <h4>&#x1F4DD; Spreadsheets</h4>
-        <ul>
-          <li>No dosing calculations</li>
-          <li>No LSI analysis</li>
-          <li>No recommendations</li>
-          <li>Manual chart-making</li>
-        </ul>
-      </div>
-      <div class="compare-card">
-        <h4>&#x1F3EA; Pool store testing</h4>
-        <ul>
-          <li>Upsells on chemicals you may not need</li>
-          <li>No trend history</li>
-          <li>Requires a trip every time</li>
-          <li>Results vary by store</li>
-        </ul>
-      </div>
-      <div class="compare-card ours">
-        <h4>&#x1F4F1; PoolChem Tracker</h4>
-        <ul>
-          <li>Exact dosing for your pool size</li>
-          <li>Automatic LSI balance analysis</li>
-          <li>Trend charts and health scoring</li>
-          <li>Works offline, 100% private</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Featured guides -->
-<section class="problems-section">
-  <div class="container">
-    <h3>Featured pool chemistry guides</h3>
-    <p>Step-by-step troubleshooting series and a plain-language reference. Start with whichever fits your situation.</p>
-
-    <div class="hub-grid">
-      <a href="blog/why-is-my-pool-water-cloudy" class="hub-callout">
-        <div class="hub-callout-text">
-          <span class="hub-callout-label">Guide series</span>
-          <h4>Cloudy or green water?</h4>
-          <p>Diagnose your symptoms, then follow the step-by-step fix.</p>
-        </div>
-        <span class="arrow">&rarr;</span>
-      </a>
-
-      <a href="blog/pool-chlorine-levels-chart" class="hub-callout">
-        <div class="hub-callout-text">
-          <span class="hub-callout-label">Guide series</span>
-          <h4>Chlorine levels &amp; problems</h4>
-          <p>What FC, TC, and CC readings mean, how much to add, and why chlorine drops.</p>
-        </div>
-        <span class="arrow">&rarr;</span>
-      </a>
-
-      <a href="blog/pool-chemistry-beginners" class="hub-callout">
-        <div class="hub-callout-text">
-          <span class="hub-callout-label">Guide series</span>
-          <h4>Pool chemistry basics</h4>
-          <p>The 5 numbers that matter, how to balance them, and the chemicals you actually need.</p>
-        </div>
-        <span class="arrow">&rarr;</span>
-      </a>
-
-      <a href="explained/" class="hub-callout reference">
-        <div class="hub-callout-text">
-          <span class="hub-callout-label">Reference</span>
-          <h4>Pool Chemistry Explained</h4>
-          <p>Plain-language definitions for every pool chemistry term. CYA, LSI, chloramines, free chlorine, and more.</p>
-        </div>
-        <span class="arrow">&rarr;</span>
-      </a>
-    </div>
-
-  </div>
-</section>
-
-<!-- Chemistry FAQ -->
-<section class="faq">
-  <div class="container">
-    <h3>Pool chemistry FAQ</h3>
-    <div class="faq-grid">
-      <div class="faq-item">
-        <h4>What should free chlorine be in a pool?</h4>
-        <p>The ideal free chlorine (FC) level depends on your cyanuric acid (CYA). At CYA 30, aim for 2–4 ppm. At CYA 50, aim for 4–6 ppm. The rule of thumb is FC should be at least 7.5% of your CYA level. <a href="blog/fc-cya-chart-chlorine-levels">See the full FC/CYA chart &rarr;</a></p>
-      </div>
-      <div class="faq-item">
-        <h4>Can total chlorine be lower than free chlorine?</h4>
-        <p>No — total chlorine is free chlorine plus combined chlorine, so TC should always be equal to or higher than FC. If your test shows TC below FC, the reading is a testing error. Try retesting with fresh reagents or a different kit. <a href="blog/free-chlorine-vs-total-chlorine">Free chlorine vs total chlorine explained &rarr;</a></p>
-      </div>
-      <div class="faq-item">
-        <h4>Why is my pool chlorine high but still cloudy?</h4>
-        <p>High chlorine with cloudy water usually means high CYA is locking up your chlorine, or high pH/alkalinity is causing minerals to precipitate. Your FC reading looks fine, but the effective chlorine may be too low. Check CYA first. <a href="blog/why-is-my-pool-water-cloudy">Diagnose cloudy pool water &rarr;</a></p>
-      </div>
-      <div class="faq-item">
-        <h4>How often should I test free chlorine?</h4>
-        <p>2–3 times per week during swim season, weekly in the off-season. Test in the morning for the most accurate baseline — UV breaks down chlorine throughout the day. Always test after heavy rain, pool parties, or adding chemicals. <a href="blog/how-often-to-test-pool-water">Full testing schedule &rarr;</a></p>
-      </div>
-      <div class="faq-item">
-        <h4>What is the ideal pool pH?</h4>
-        <p>Keep pH between 7.4 and 7.8, with 7.5–7.6 being the sweet spot. Below 7.2, water becomes corrosive and irritates skin and eyes. Above 7.8, chlorine loses effectiveness and calcium can precipitate out, causing cloudy water and scale. <a href="blog/ideal-pool-ph-level">Full pH guide &rarr;</a></p>
-      </div>
-      <div class="faq-item">
-        <h4>How much chlorine should I add to my pool?</h4>
-        <p>It depends on your pool volume, current FC level, and target FC (which is set by your CYA). As a rough guide, 1 oz of liquid chlorine (12.5%) raises FC by about 1 ppm per 1,000 gallons. PoolChem Tracker calculates the exact dose for you. <a href="blog/how-to-raise-pool-chlorine">Chlorine dosing guide &rarr;</a></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Interactive demo -->
-<section class="demo">
-  <div class="container">
-    <h3>Try it yourself</h3>
-    <p>Explore the live demo with sample pool data — or enter your own readings.</p>
-    <div class="phone-frame">
-      <iframe src="demo/" title="PoolChem Tracker interactive demo" loading="lazy"></iframe>
     </div>
   </div>
 </section>
