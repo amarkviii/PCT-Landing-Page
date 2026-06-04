@@ -5,13 +5,21 @@
 <link>https://www.poolchemtracker.com/blog/</link>
 <description>Pool chemistry guides, tips, and maintenance advice from PoolChem Tracker.</description>
 <language>en-us</language>
-<lastBuildDate>Tue, 26 May 2026 00:00:00 +0000</lastBuildDate>
+<lastBuildDate>Wed, 04 Jun 2026 00:00:00 +0000</lastBuildDate>
 <atom:link href="https://www.poolchemtracker.com/feed.xml" rel="self" type="application/rss+xml"/>
 <image>
 <url>https://www.poolchemtracker.com/Logo/logo-256.webp</url>
 <title>PoolChem Tracker Blog</title>
 <link>https://www.poolchemtracker.com/blog/</link>
 </image>
+
+<item>
+<title>Pool Calcium Hardness: What It Is, Why It Matters, and How to Fix It</title>
+<link>https://www.poolchemtracker.com/blog/calcium-hardness-in-pools</link>
+<guid>https://www.poolchemtracker.com/blog/calcium-hardness-in-pools</guid>
+<pubDate>Wed, 04 Jun 2026 12:00:00 +0000</pubDate>
+<description>Low calcium hardness etches plaster and corrodes equipment. High calcium causes scale. Learn the target range for your pool type, how to raise calcium hardness with calcium chloride, and why no chemical can lower it — only a partial drain helps.</description>
+</item>
 
 <item>
 <title>How to Track Pool Chemicals (A Simple System)</title>
