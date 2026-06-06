@@ -62,11 +62,16 @@ PoolChem Tracker helps residential pool owners monitor and balance their water c
 
 - [Pool Chemistry Explained](https://www.poolchemtracker.com/explained/): Plain-language reference for every pool chemistry term — what each means, target ranges, why it matters
 - [Free Chlorine](https://www.poolchemtracker.com/explained/free-chlorine): Free chlorine (FC) is the active sanitizer; target depends on CYA level, not a single fixed number
+- [Total Chlorine](https://www.poolchemtracker.com/explained/total-chlorine): TC = FC + CC (chloramines); when TC equals FC, no chloramines are present; the number most test strips report
+- [Combined Chlorine](https://www.poolchemtracker.com/explained/combined-chlorine): CC = TC − FC; chloramines that cause pool smell and eye irritation; target < 0.5 ppm; fix is breakpoint chlorination
 - [Cyanuric Acid](https://www.poolchemtracker.com/explained/cyanuric-acid): CYA protects chlorine from UV; target 30–50 (60–80 for SWG); too much CYA causes most pool problems
 - [Chloramines](https://www.poolchemtracker.com/explained/chloramines): Spent chlorine compounds from sweat/urine/oils that cause 'pool smell' and red eyes — fix is more chlorine, not less
 - [Breakpoint Chlorination](https://www.poolchemtracker.com/explained/breakpoint-chlorination): The process of raising FC to shock level (CYA × 40%) to chemically destroy chloramines; must hold until CC < 0.5 ppm and FC holds overnight
+- [Total Alkalinity](https://www.poolchemtracker.com/explained/total-alkalinity): TA buffers pH from swinging; target 60–120 ppm; high TA causes persistent pH drift upward, low TA causes erratic pH swings
+- [pH](https://www.poolchemtracker.com/explained/ph): Measure of water acidity; target 7.4–7.8; affects chlorine effectiveness and swimmer comfort; fix TA first when both are off
 - [Langelier Saturation Index (LSI)](https://www.poolchemtracker.com/explained/lsi): Single number indicating if water will corrode, scale, or stay balanced; target -0.3 to +0.3
 - [Calcium Hardness](https://www.poolchemtracker.com/explained/calcium-hardness): Dissolved calcium in pool water; biggest single LSI lever; target 200–400 ppm plaster, 150–250 vinyl; only drain reduces it
+- [Phosphates](https://www.poolchemtracker.com/explained/phosphates): Algae nutrient source in pool water; elevated phosphates increase chlorine demand and fuel algae blooms when FC slips
 
 ## Contact
 
