@@ -29,6 +29,9 @@ gtag('config','G-S8JT1DELF6');
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.poolchemtracker.com/"},{"@type":"ListItem","position":2,"name":"Pool Calculators","item":"https://www.poolchemtracker.com/tools/"},{"@type":"ListItem","position":3,"name":"Pool Volume Calculator"}]}
 </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I find out how many gallons my pool holds?","acceptedAnswer":{"@type":"Answer","text":"Measure the length, width, and depth, then use the formula for your pool's shape. A rectangle pool uses L × W × avg depth × 7.48. The calculator handles all common shapes: rectangle, oval, round, kidney, and L-shape. For unusual shapes, break the pool into sections, calculate each, and add them."}},{"@type":"Question","name":"What if I don't know my pool's exact depth?","acceptedAnswer":{"@type":"Answer","text":"Use a telescoping pole or a weighted string at the shallow end, deep end, and a few points in between. For a sloped bottom, average depth = (shallow + deep) ÷ 2. A single measurement taken at a midpoint works well enough for chemical dosing."}},{"@type":"Question","name":"How accurate is a pool volume calculator?","acceptedAnswer":{"@type":"Answer","text":"Within ±5–10% for careful measurements. Pool walls aren't perfectly vertical and floors aren't perfectly flat. That's accurate enough for chemical dosing — just dose toward the conservative end of your target range and retest before adding more."}},{"@type":"Question","name":"Should I include the spa in my pool volume calculation?","acceptedAnswer":{"@type":"Answer","text":"Yes, if the spa shares water with the pool. Most attached spas do. The calculator includes a spa add-on option. If the spa is freestanding with its own separate water system, treat it independently."}},{"@type":"Question","name":"What pool volume do I use for chemical dose calculations?","acceptedAnswer":{"@type":"Answer","text":"Use the total gallons from this calculator for every chemical dose — chlorine, muriatic acid, baking soda, and calcium chloride all scale with water volume. An incorrect volume is the most common cause of consistent over- or under-dosing."}}]}
+</script>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -423,6 +426,27 @@ gtag('config','G-S8JT1DELF6');
 
     <p>The constant 7.48 converts cubic feet to US gallons. The oval and round constant 5.9 is &pi;/4 &times; 7.48 &asymp; 5.87, rounded to 5.9. The kidney constant 0.45 accounts for the indented-lobe geometry and is consistent with the Pool &amp; Hot Tub Alliance standard.</p>
 
+    <h3>Worked example: rectangular pool</h3>
+    <p>A standard backyard pool measures <strong>40 ft × 20 ft</strong> with a sloped bottom — 3.5 ft at the shallow end, 8 ft at the deep end. Average depth = (3.5 + 8) ÷ 2 = <strong>5.75 ft</strong>.</p>
+    <p>Volume = 40 × 20 × 5.75 × 7.48 = <strong>~34,400 gallons</strong>. A 20% underestimate (28,000 gallons) would leave you chronically under-dosing chlorine; a 20% overestimate means you're overdosing every treatment. Measure carefully and round down slightly when in doubt.</p>
+
+    <h3>Frequently asked questions</h3>
+
+    <h4 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">How do I find out how many gallons my pool holds?</h4>
+    <p>Measure length, width, and depth, then use the formula for your pool's shape. The calculator above handles rectangle, oval, round, kidney, and L-shaped pools. For unusual shapes, break the pool into sections you can measure separately, calculate each section, and add them.</p>
+
+    <h4 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">What if I don't know my pool's exact depth?</h4>
+    <p>Use a telescoping pole or weighted string at the shallow end, deep end, and two points in between. For a sloped bottom, average depth = (shallow + deep) ÷ 2 — which is what the "Sloped" option above calculates. A single depth measurement taken at the midpoint is good enough if that's all you have.</p>
+
+    <h4 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">How accurate is this pool volume calculator?</h4>
+    <p>Within ±5–10% for careful measurements. Pool walls aren't perfectly vertical and floors aren't flat. That's accurate enough for chemical dosing — just dose toward the conservative end of your target range and retest before adding more rather than adding everything at once.</p>
+
+    <h4 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">Should I include the spa in my pool volume?</h4>
+    <p>Yes, if the spa shares water with the pool — most attached spas do. Use the "Include Spa" add-on above. If your spa is freestanding with a separate pump and water, calculate and treat it independently.</p>
+
+    <h4 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">What pool volume do I use for chemical calculations?</h4>
+    <p>Use this calculated gallons figure for every dose — chlorine, muriatic acid, baking soda, and calcium chloride all scale with water volume. An incorrect volume is the most common cause of consistent over- or under-dosing across every chemical you add.</p>
+
     <div class="cta-box">
       <h3>Volume saved. Dosing automatic.</h3>
       <p>Enter your pool volume once in PoolChem Tracker and every recommendation — chlorine, acid, baking soda, calcium chloride — calculates the exact dose for your pool size automatically.</p>
@@ -434,7 +458,7 @@ gtag('config','G-S8JT1DELF6');
       <ul>
         <li><a href="chlorine-dose-calculator.html">Chlorine dose calculator</a></li>
         <li><a href="pool-shock-calculator.html">Pool shock calculator</a></li>
-        <li>Muriatic acid calculator<span class="coming-soon">— coming soon</span></li>
+        <li><a href="muriatic-acid-calculator.html">Muriatic acid calculator</a></li>
         <li><a href="../explained/free-chlorine">Free Chlorine &amp; CYA explained</a></li>
         <li><a href="../explained/lsi">LSI (Langelier Saturation Index) explained</a></li>
         <li><a href="../blog/pool-chemistry-cheat-sheet">Pool chemistry target ranges cheat sheet</a></li>
