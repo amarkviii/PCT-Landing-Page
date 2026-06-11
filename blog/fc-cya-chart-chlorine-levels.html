@@ -600,14 +600,14 @@ gtag('config','G-S8JT1DELF6');
       <p style="margin-bottom:0"><strong>CYA 80:</strong> minimum 6 ppm FC, target 7–9 ppm, shock at 31 ppm — consider a partial drain to bring CYA down</p>
     </div>
 
-    <div class="info-card">
+    <div class="info-card" id="shock-level">
       <h4>What "shock level" really means</h4>
       <p>The shock-level column is the FC concentration required for <em>breakpoint chlorination</em> — the point where chlorine destroys combined chloramines and algae faster than they form. Hold FC at this level, retesting every few hours and re-dosing as needed, until the pool passes an overnight chlorine loss test of less than 1 ppm. Saltwater pool owners should add liquid chlorine manually rather than driving the salt cell at maximum, which accelerates cell wear.</p>
     </div>
 
     <div class="app-callout"><strong>CYA creep is slow.</strong> PoolChem Tracker logs your CYA over time and flags when the trend is moving toward the danger zone — so you can act before you're staring at a partial drain. FC targets adjust automatically based on your current CYA reading. <a href="https://apps.apple.com/app/id6762652630">Track it from the start →</a></div>
 
-    <h3>Why does CYA affect chlorine?</h3>
+    <h3 id="why-cya-affects-chlorine">Why does CYA affect chlorine?</h3>
 
     <p>CYA (stabilizer/conditioner) protects chlorine from UV breakdown. That's its job and it does it well. But CYA also binds to chlorine molecules, reducing the amount of "active" chlorine available to sanitize.</p>
 
@@ -691,17 +691,6 @@ gtag('config','G-S8JT1DELF6');
       </table>
     </div>
 
-    <h3>Quick rules</h3>
-
-    <ul>
-      <li>FC minimum = CYA × 7.5%</li>
-      <li>Target FC = CYA × 7.5% to CYA × 10%</li>
-      <li>Shock level = CYA × 40%</li>
-      <li>Test CYA monthly — it only goes up, never down</li>
-      <li>Above 80-90 ppm CYA, consider a partial drain</li>
-      <li>Switch to liquid chlorine once CYA is at your target</li>
-    </ul>
-
     <div class="cta-box">
       <h3>Let the app do the math</h3>
       <p>PoolChem Tracker automatically adjusts your chlorine target based on your CYA reading. Log your results, get the right dosing recommendation, and keep FC where it needs to be.</p>
@@ -714,10 +703,10 @@ gtag('config','G-S8JT1DELF6');
     <p>The minimum free chlorine is CYA × 7.5% for regular chlorine pools. At CYA 30, you need at least 2 ppm FC. At CYA 50, at least 4 ppm. At CYA 80, at least 6 ppm. Saltwater pools use CYA × 5% because the salt cell continuously replenishes consumed chlorine. Below the minimum, the fraction of active sanitizer is too low to reliably kill algae and bacteria.</p>
 
     <h4>What does shock level mean?</h4>
-    <p>Shock level is FC = CYA × 40% — the concentration needed for breakpoint chlorination, where chlorine destroys chloramines and algae faster than they form. At CYA 50, shock level is 20 ppm FC. You hold FC at that level, retest every few hours, and re-dose as needed until the pool passes an overnight FC loss test of less than 1 ppm.</p>
+    <p>Shock level is FC = CYA × 40% — see the <a href="#shock-level" style="color:var(--accent)">shock level breakdown above</a> for exactly how to run a shock treatment.</p>
 
     <h4>Why does CYA affect how much chlorine I need?</h4>
-    <p>CYA binds to chlorine molecules, reducing the fraction that is active (hypochlorous acid). At 30 ppm CYA, only about 3% of your FC is active and doing the sanitizing work. At 80 ppm CYA, that fraction drops to about 1.2%. The rest is held in reserve, bound to stabilizer. As CYA rises you need more total FC to maintain enough active chlorine for effective sanitization.</p>
+    <p>CYA binds to chlorine molecules, reducing the active fraction — see the <a href="#why-cya-affects-chlorine" style="color:var(--accent)">full explanation above</a>.</p>
 
     <h4>Which chlorine products add CYA to pool water?</h4>
     <p>Trichlor tablets add significant CYA with every use. Dichlor granules add a moderate amount. Liquid chlorine (sodium hypochlorite), cal-hypo granular shock, and saltwater generators add no CYA. If trichlor tablets are your primary chlorine source, test CYA monthly — it accumulates steadily and doesn't leave the pool except through water removal.</p>
