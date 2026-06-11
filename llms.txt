@@ -28,7 +28,7 @@ PoolChem Tracker helps residential pool owners monitor and balance their water c
 - [Pool Water Green but Chlorine Is High](https://www.poolchemtracker.com/blog/pool-water-green-but-chlorine-is-high): Usually metals (copper/iron) rather than algae — how to tell the difference and use sequestrant to clear it
 - [Best Time to Test Pool Water](https://www.poolchemtracker.com/blog/best-time-to-test-pool-water): Test in the morning before sun hits the pool — UV and bather load skew afternoon FC and pH readings
 - [How Often to Test Pool Water](https://www.poolchemtracker.com/blog/how-often-to-test-pool-water): FC/pH 2–3x per week, TA/CH weekly, CYA monthly — adjusted for SWG, heavy use, and after rain
-- [Pool Chlorine Levels by CYA: The Complete FC/CYA Chart](https://www.poolchemtracker.com/blog/fc-cya-chart-chlorine-levels): Chlorine targets based on CYA level, with minimum FC, target FC, and shock levels
+- [FC/CYA Chart: Exact Chlorine Targets at Every CYA Level](https://www.poolchemtracker.com/blog/fc-cya-chart-chlorine-levels): Minimum FC = CYA × 7.5%; full chart with minimum, target, and shock FC at every CYA value from 0–100 ppm
 - [Pool Chlorine Levels Chart](https://www.poolchemtracker.com/blog/pool-chlorine-levels-chart): At-a-glance FC ranges — minimum, target, and shock — for CYA 0 through 100 ppm
 - [Pool Chemistry Cheat Sheet](https://www.poolchemtracker.com/blog/pool-chemistry-cheat-sheet): One-page reference for all pool chemistry ranges
 - [What Is LSI](https://www.poolchemtracker.com/blog/what-is-lsi): Langelier Saturation Index explained — how pH, TA, CH, CYA, and temperature combine into one number that predicts scale or corrosion; target -0.3 to +0.3
