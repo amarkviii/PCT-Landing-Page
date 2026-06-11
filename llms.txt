@@ -73,6 +73,13 @@ PoolChem Tracker helps residential pool owners monitor and balance their water c
 - [Calcium Hardness](https://www.poolchemtracker.com/explained/calcium-hardness): Dissolved calcium in pool water; biggest single LSI lever; target 200–400 ppm plaster, 150–250 vinyl; only drain reduces it
 - [Phosphates](https://www.poolchemtracker.com/explained/phosphates): Algae nutrient source in pool water; elevated phosphates increase chlorine demand and fuel algae blooms when FC slips
 
+## Pool Calculators
+
+- [Pool Calculators](https://www.poolchemtracker.com/tools/): Free pool chemistry calculators — volume, chlorine dose, shock level, and more
+- [Pool Volume Calculator](https://www.poolchemtracker.com/tools/pool-volume-calculator): Calculate pool gallons by shape (rectangle, oval, round, kidney, L-shape) with sloped depth, spa, and tanning shelf correction options
+- [Chlorine Dose Calculator](https://www.poolchemtracker.com/tools/chlorine-dose-calculator): How much liquid chlorine or cal-hypo to add to raise FC to target; supports 10%, 12.5%, cal-hypo 65%/73%, and trichlor (with CYA warning)
+- [Pool Shock Calculator](https://www.poolchemtracker.com/tools/pool-shock-calculator): Shock target FC = CYA × 40%; calculates how much chlorine needed to reach breakpoint chlorination level from current FC
+
 ## Contact
 
 - Email: support@poolchemtracker.com

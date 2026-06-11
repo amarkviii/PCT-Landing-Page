@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pool Shock Calculator — How Much Chlorine to Shock a Pool</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta name="description" content="Calculate your pool's shock level and how much chlorine to reach it. Enter pool gallons, CYA, and current FC. Uses the CYA × 40% breakpoint formula.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-S8JT1DELF6');
+</script>
+<link rel="canonical" href="https://www.poolchemtracker.com/tools/pool-shock-calculator">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pool Shock Calculator — How Much Chlorine to Shock a Pool">
+<meta property="og:description" content="Enter your pool gallons, CYA, and current FC to find your shock target and exactly how much chlorine to add.">
+<meta property="og:url" content="https://www.poolchemtracker.com/tools/pool-shock-calculator">
+<meta property="og:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<meta property="og:site_name" content="PoolChem Tracker">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pool Shock Calculator">
+<meta name="twitter:description" content="Find your pool's shock level (CYA × 40%) and how much liquid chlorine or cal-hypo to reach it.">
+<meta name="twitter:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.poolchemtracker.com/"},{"@type":"ListItem","position":2,"name":"Pool Calculators","item":"https://www.poolchemtracker.com/tools/"},{"@type":"ListItem","position":3,"name":"Pool Shock Calculator"}]}
+</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a1628;
+    --bg2: #0d1f3c;
+    --card: #0f1e38;
+    --accent: #4facfe;
+    --accent2: #00f2fe;
+    --text: #e8edf5;
+    --muted: #8899aa;
+    --good: #2ed573;
+    --warn: #ffa502;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  body { font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+  header { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+  .header-inner { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+  .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text); }
+  .logo-icon { width: 40px; height: 40px; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
+  .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+  .logo h1 { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
+  .logo h1 span { color: var(--accent); }
+  .header-right { display: flex; align-items: center; gap: 1.5rem; }
+  .header-link { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--accent); padding: 0.4rem 1rem; border-radius: 8px; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+  .header-link:hover { background: var(--accent); color: #000; }
+  .header-badge { display: inline-flex; }
+  .header-badge img { height: 36px; }
+
+  .page { padding: 3rem 0 4rem; }
+
+  .breadcrumb { font-size: 0.8rem; color: var(--muted); margin-bottom: 2rem; }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .page-label { display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+
+  h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 0.75rem; }
+  h2 .gradient { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .page-desc { font-size: 1.05rem; color: var(--muted); margin-bottom: 2.5rem; }
+
+  .calc-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; }
+
+  .field-group-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+
+  .inputs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+  .inputs-grid.one-col { grid-template-columns: 1fr; }
+  .inputs-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
+
+  .field { display: flex; flex-direction: column; gap: 0.35rem; }
+  .field label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .field input { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 0.65rem 0.85rem; color: var(--text); font-size: 1rem; font-family: inherit; transition: border-color 0.15s; width: 100%; -moz-appearance: textfield; }
+  .field input::-webkit-outer-spin-button, .field input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .field input:focus { outline: none; border-color: rgba(79,172,254,0.5); }
+  .field input::placeholder { color: var(--muted); opacity: 0.5; }
+  .field-hint { font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; }
+  .field-hint a { color: var(--accent); text-decoration: none; }
+  .field-hint a:hover { text-decoration: underline; }
+
+  .section-divider { border-top: 1px solid var(--border); margin: 1.5rem 0; }
+
+  .product-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+  .product-tab { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 600; color: var(--muted); cursor: pointer; transition: all 0.15s; font-family: inherit; }
+  .product-tab.active { background: rgba(79,172,254,0.12); border-color: rgba(79,172,254,0.4); color: var(--accent); }
+  .product-tab:hover:not(.active) { border-color: rgba(79,172,254,0.25); color: var(--text); }
+
+  /* Shock target display (shown before result) */
+  .shock-target-row { display: flex; align-items: center; justify-content: space-between; background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem 1.1rem; margin-top: 1.5rem; }
+  .shock-target-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .shock-target-value { font-size: 1.4rem; font-weight: 800; color: var(--accent); letter-spacing: -0.02em; }
+  .shock-target-value .unit { font-size: 0.85rem; font-weight: 600; color: var(--muted); margin-left: 0.2rem; }
+
+  .warn-box { background: rgba(255,165,2,0.07); border: 1px solid rgba(255,165,2,0.3); border-radius: 10px; padding: 1rem 1.25rem; margin-top: 0.75rem; font-size: 0.88rem; color: var(--warn); line-height: 1.6; }
+  .warn-box strong { display: block; margin-bottom: 0.25rem; }
+
+  .result-box { background: linear-gradient(135deg, rgba(79,172,254,0.10), rgba(0,242,254,0.05)); border: 1px solid rgba(79,172,254,0.3); border-radius: 12px; padding: 1.5rem; text-align: center; margin-top: 1rem; transition: opacity 0.2s; }
+  .result-box.empty { opacity: 0.4; }
+  .result-box.good-state { background: rgba(46,213,115,0.07); border-color: rgba(46,213,115,0.35); }
+  .result-label { font-size: 0.72rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+  .result-label.good { color: var(--good); }
+  .result-primary { font-size: clamp(2rem, 6vw, 3rem); font-weight: 800; letter-spacing: -0.03em; color: var(--text); line-height: 1.1; }
+  .result-secondary { font-size: 0.9rem; color: var(--muted); margin-top: 0.4rem; }
+  .result-note { font-size: 0.78rem; color: var(--muted); margin-top: 0.75rem; opacity: 0.8; line-height: 1.5; }
+
+  h3 { font-size: 1.35rem; font-weight: 700; margin: 2.5rem 0 0.75rem; letter-spacing: -0.02em; }
+  p { color: var(--text); margin-bottom: 1.25rem; font-size: 1.05rem; }
+  ul { margin: 0 0 1.25rem 1.5rem; color: var(--text); font-size: 1.05rem; }
+  li { margin-bottom: 0.4rem; }
+
+  .key-fact { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .key-fact h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .key-fact p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+
+  .related-list { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; }
+  .related-list h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.85rem; color: var(--accent); }
+  .related-list ul { list-style: none; margin: 0; padding: 0; }
+  .related-list li { padding: 0.4rem 0; font-size: 0.95rem; border-bottom: 1px solid var(--border); }
+  .related-list li:last-child { border-bottom: none; }
+  .related-list a { color: var(--accent); text-decoration: none; }
+  .related-list a:hover { text-decoration: underline; }
+
+  .cta-box { background: linear-gradient(135deg, rgba(79,172,254,0.08), rgba(0,242,254,0.05)); border: 1px solid rgba(79,172,254,0.25); border-radius: 14px; padding: 2rem; margin: 2.5rem 0; text-align: center; }
+  .cta-box h3 { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.5rem; }
+  .cta-box p { color: var(--muted); font-size: 0.92rem; max-width: 480px; margin: 0 auto 1.25rem; line-height: 1.6; }
+  .cta-box .badge { display: inline-block; transition: opacity 0.2s; }
+  .cta-box .badge:hover { opacity: 0.85; }
+  .cta-box .badge img { height: 44px; }
+
+  footer { padding: 2rem 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+  .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+
+  @media (max-width: 640px) {
+    .page { padding: 2rem 0 3rem; }
+    .header-badge { display: none; }
+    .header-link { font-size: 0.8rem; padding: 0.35rem 0.75rem; }
+    .header-right { gap: 0.75rem; }
+    .inputs-grid { grid-template-columns: 1fr 1fr; }
+    .inputs-grid.three-col { grid-template-columns: 1fr 1fr; }
+    .inputs-grid.one-col { grid-template-columns: 1fr; }
+    .calc-card { padding: 1.25rem; }
+    .product-tabs { gap: 0.4rem; }
+    .product-tab { padding: 0.45rem 0.75rem; font-size: 0.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../" class="logo">
+      <div class="logo-icon"><img src="../Logo/logo-96.webp" alt="PoolChem Tracker" width="96" height="96"></div>
+      <h1>Pool<span>Chem</span> Tracker</h1>
+    </a>
+    <div class="header-right">
+      <a href="../blog/" class="header-link">Guides</a>
+      <a href="../features" class="header-link">Features</a>
+      <a href="../about" class="header-link">About</a>
+      <a href="https://apps.apple.com/app/id6762652630" class="header-badge"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40"></a>
+    </div>
+  </div>
+</header>
+
+<div class="page">
+  <div class="container">
+
+    <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Pool Calculators</a> &rsaquo; Shock</div>
+
+    <span class="page-label">Pool Calculators</span>
+    <h2>Pool Shock <span class="gradient">Calculator</span></h2>
+    <p class="page-desc">Find your shock target FC and exactly how much chlorine to add to reach it. The shock level is set by your CYA — not a fixed number.</p>
+
+    <div class="calc-card">
+
+      <div class="inputs-grid one-col">
+        <div class="field">
+          <label>Pool Volume</label>
+          <input type="number" id="gallons" min="0" step="100" placeholder="e.g. 15000 gallons" oninput="calc()">
+          <span class="field-hint">Don't know your gallons? <a href="pool-volume-calculator.html">Use the volume calculator</a></span>
+        </div>
+      </div>
+
+      <div class="inputs-grid">
+        <div class="field">
+          <label>CYA (ppm)</label>
+          <input type="number" id="cya" min="0" step="5" placeholder="e.g. 40" oninput="calc()">
+        </div>
+        <div class="field">
+          <label>Current FC (ppm)</label>
+          <input type="number" id="fc-current" min="0" step="0.5" placeholder="e.g. 3" oninput="calc()">
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <div class="field-group-label">Chlorine Product</div>
+      <div class="product-tabs">
+        <button class="product-tab active" onclick="setProduct('liquid-10')">Liquid 10%</button>
+        <button class="product-tab" onclick="setProduct('liquid-12')">Liquid 12.5%</button>
+        <button class="product-tab" onclick="setProduct('calh-65')">Cal-Hypo 65%</button>
+      </div>
+
+      <div class="shock-target-row">
+        <span class="shock-target-label">Your Shock Target FC</span>
+        <span class="shock-target-value" id="shock-target-display">&mdash;<span class="unit">ppm</span></span>
+      </div>
+
+      <div class="warn-box" id="cya-high-warn" style="display:none">
+        <strong>CYA is very high.</strong>
+        At CYA above 80 ppm, your shock target exceeds 32 ppm and may be difficult to reach and hold. If CYA is above 100 ppm, a partial drain and refill to dilute CYA is the most practical fix before attempting to shock.
+      </div>
+
+      <div class="result-box empty" id="result-box">
+        <div class="result-label" id="result-label">Add to Your Pool</div>
+        <div class="result-primary" id="result-main">&mdash;</div>
+        <div class="result-secondary" id="result-secondary"></div>
+        <div class="result-note" id="result-note">Enter your pool volume, CYA, and current FC above</div>
+      </div>
+
+    </div><!-- /calc-card -->
+
+    <h3>Why the shock level depends on CYA</h3>
+    <p>CYA (cyanuric acid) stabilizes chlorine against UV degradation — but it also reduces chlorine's ability to oxidize contaminants and kill pathogens. As CYA rises, you need a higher FC to get the same sanitation effect. The shock level (also called the breakpoint chlorination level) scales with CYA to account for this.</p>
+    <p>The formula is straightforward: <strong>Shock target FC = CYA &times; 40%</strong>. A pool with CYA 50 ppm needs FC at 20 ppm to shock. A pool with CYA 80 ppm needs FC at 32 ppm. Using a fixed shock target like "10 ppm" or "one bag of shock" ignores your CYA entirely — which is why many shocks fail.</p>
+
+    <div class="key-fact">
+      <h4>Getting to shock target is only the first step</h4>
+      <p>After adding chlorine, you need to <em>hold</em> FC at or above the shock target — continuously — until combined chlorine (CC) drops to 0.5 ppm or less and the water clears. If FC falls below the shock target before CC reaches zero, you may need to add more chlorine and start the clock again. Test every few hours. Run the pump 24/7. Brush the walls daily.</p>
+    </div>
+
+    <h3>When to shock your pool</h3>
+    <ul>
+      <li><strong>CC above 0.5 ppm</strong> — the clearest sign that chloramines are present and need to be oxidized out</li>
+      <li><strong>Green or cloudy water</strong> — algae bloom requiring oxidation</li>
+      <li><strong>After heavy use</strong> — high bather load introduces organic contaminants</li>
+      <li><strong>After a storm</strong> — rain introduces organics and dilutes chlorine</li>
+      <li><strong>Pool has been idle</strong> — FC may have drifted low long enough for algae to take hold</li>
+    </ul>
+
+    <div class="key-fact">
+      <h4>Shock at dusk or night</h4>
+      <p>UV from sunlight destroys unprotected chlorine quickly. Even with CYA, high FC levels are vulnerable to UV degradation. Add chlorine in the evening so it has the full night to work before sunlight can degrade it.</p>
+    </div>
+
+    <h3>Why liquid chlorine for shocking</h3>
+    <p>Liquid chlorine (sodium hypochlorite) is the best choice for shocking because it adds no calcium, no cyanurate, and no stabilizer — just chlorine. Cal-hypo works if your calcium hardness is low, but it raises calcium with every dose. Trichlor is not suitable for shocking: each dose adds CYA at the same time you're trying to raise FC, and you'd need an impractical amount to reach shock levels.</p>
+
+    <div class="cta-box">
+      <h3>Track FC in real time. Know when to shock.</h3>
+      <p>PoolChem Tracker monitors CC, tells you when your FC has slipped below the shock target, and calculates how much to add to get back on track — automatically.</p>
+      <a href="https://apps.apple.com/app/id6762652630" class="badge"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40"></a>
+    </div>
+
+    <div class="related-list">
+      <h4>More pool calculators &amp; guides</h4>
+      <ul>
+        <li><a href="pool-volume-calculator.html">Pool volume calculator</a> — find your gallons first</li>
+        <li><a href="chlorine-dose-calculator.html">Chlorine dose calculator</a> — for regular top-offs</li>
+        <li><a href="../explained/free-chlorine">Free Chlorine &amp; CYA explained</a></li>
+        <li><a href="../explained/cyanuric-acid">Cyanuric Acid (CYA) explained</a></li>
+        <li><a href="../explained/breakpoint-chlorination">Breakpoint chlorination explained</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="../">Home</a>
+      <a href="../blog/">Guides</a>
+      <a href="../explained/">Explained</a>
+      <a href="mailto:support@poolchemtracker.com">Support</a>
+      <a href="../privacy">Privacy Policy</a>
+      <a href="../terms">Terms of Service</a>
+    </div>
+    <p>&copy; 2026 PoolChem Tracker. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  var product = 'liquid-10';
+
+  var products = {
+    'liquid-10': { type: 'liquid', concentration: 0.10,  density: 1.074, name: 'liquid chlorine (10%)' },
+    'liquid-12': { type: 'liquid', concentration: 0.125, density: 1.094, name: 'liquid chlorine (12.5%)' },
+    'calh-65':   { type: 'granular', concentration: 0.65, name: 'cal-hypo (65%)' }
+  };
+
+  window.setProduct = function (p) {
+    product = p;
+    var keys = ['liquid-10', 'liquid-12', 'calh-65'];
+    document.querySelectorAll('.product-tab').forEach(function (btn, i) {
+      btn.classList.toggle('active', keys[i] === p);
+    });
+    calc();
+  };
+
+  function shockTarget(cya) {
+    if (cya <= 0) return 10;
+    return Math.max(cya * 0.4, 10);
+  }
+
+  function formatLiquid(floz) {
+    if (floz < 1)   return 'Less than 1 fl oz';
+    if (floz < 8)   return floz.toFixed(1) + ' fl oz';
+    if (floz < 32)  return (floz / 8).toFixed(1) + ' cups';
+    if (floz < 128) return (floz / 32).toFixed(1) + ' quarts';
+    return (floz / 128).toFixed(2) + ' gallons';
+  }
+
+  function formatLiquidAlt(floz) {
+    if (floz < 8)   return '';
+    if (floz < 128) return Math.round(floz) + ' fl oz';
+    return Math.round(floz) + ' fl oz (' + (floz / 32).toFixed(1) + ' quarts)';
+  }
+
+  function formatGranular(oz) {
+    if (oz < 0.25) return 'Less than ¼ oz';
+    if (oz < 16)   return oz.toFixed(1) + ' oz';
+    var lbs = Math.floor(oz / 16);
+    var rem = oz % 16;
+    if (rem < 0.25) return lbs + ' lb' + (lbs > 1 ? 's' : '');
+    return lbs + ' lb' + (lbs > 1 ? 's' : '') + ' ' + rem.toFixed(1) + ' oz';
+  }
+
+  function formatGranularAlt(oz) {
+    if (oz < 16) return '';
+    return (oz / 16).toFixed(2) + ' lbs total';
+  }
+
+  window.calc = function () {
+    var gallons   = parseFloat(document.getElementById('gallons').value)    || 0;
+    var cya       = parseFloat(document.getElementById('cya').value)        || 0;
+    var fcCurrent = parseFloat(document.getElementById('fc-current').value) || 0;
+
+    var target    = shockTarget(cya);
+    var targetEl  = document.getElementById('shock-target-display');
+    var box       = document.getElementById('result-box');
+    var main      = document.getElementById('result-main');
+    var secondary = document.getElementById('result-secondary');
+    var note      = document.getElementById('result-note');
+    var label     = document.getElementById('result-label');
+    var cyaWarn   = document.getElementById('cya-high-warn');
+
+    // Update shock target display
+    if (document.getElementById('cya').value !== '') {
+      targetEl.innerHTML = target.toFixed(0) + '<span class="unit">ppm</span>';
+    } else {
+      targetEl.innerHTML = '&mdash;<span class="unit">ppm</span>';
+    }
+
+    // CYA high warning
+    cyaWarn.style.display = cya > 80 ? 'block' : 'none';
+
+    if (gallons <= 0 || document.getElementById('cya').value === '') {
+      box.classList.add('empty');
+      box.classList.remove('good-state');
+      main.textContent = '—';
+      secondary.textContent = '';
+      note.textContent = 'Enter your pool volume, CYA, and current FC above';
+      label.textContent = 'Add to Your Pool';
+      label.classList.remove('good');
+      return;
+    }
+
+    // Already at or above shock level
+    if (fcCurrent >= target) {
+      box.classList.remove('empty');
+      box.classList.add('good-state');
+      label.textContent = 'Already at Shock Level';
+      label.classList.add('good');
+      main.textContent = 'FC is ' + fcCurrent.toFixed(1) + ' ppm';
+      secondary.textContent = 'Shock target is ' + target.toFixed(0) + ' ppm';
+      note.textContent = 'Your FC is at or above the shock target. Test for CC to confirm the process is complete.';
+      return;
+    }
+
+    box.classList.remove('empty', 'good-state');
+    label.textContent = 'Add to Your Pool';
+    label.classList.remove('good');
+
+    var delta = target - fcCurrent;
+    var p = products[product];
+    var totalClGrams = delta * gallons * 3.78541 / 1000;
+
+    if (p.type === 'liquid') {
+      var floz = totalClGrams / (p.density * 29.5735 * p.concentration);
+      main.textContent = formatLiquid(floz);
+      secondary.textContent = formatLiquidAlt(floz);
+    } else {
+      var oz = totalClGrams / (28.3495 * p.concentration);
+      main.textContent = formatGranular(oz);
+      secondary.textContent = formatGranularAlt(oz);
+    }
+
+    note.textContent = 'of ' + p.name + ' to raise FC from ' + fcCurrent.toFixed(1) + ' to ' + target.toFixed(0) + ' ppm. Then hold FC at ' + target.toFixed(0) + ' ppm until CC drops to 0.5 ppm or less.';
+  };
+})();
+</script>
+
+</body>
+</html>
