@@ -5,13 +5,21 @@
 <link>https://www.poolchemtracker.com/blog/</link>
 <description>Pool chemistry guides, tips, and maintenance advice from PoolChem Tracker.</description>
 <language>en-us</language>
-<lastBuildDate>Wed, 04 Jun 2026 00:00:00 +0000</lastBuildDate>
+<lastBuildDate>Thu, 11 Jun 2026 00:00:00 +0000</lastBuildDate>
 <atom:link href="https://www.poolchemtracker.com/feed.xml" rel="self" type="application/rss+xml"/>
 <image>
 <url>https://www.poolchemtracker.com/Logo/logo-256.webp</url>
 <title>PoolChem Tracker Blog</title>
 <link>https://www.poolchemtracker.com/blog/</link>
 </image>
+
+<item>
+<title>Does High Alkalinity Cause Cloudy Pool Water?</title>
+<link>https://www.poolchemtracker.com/blog/high-alkalinity-cloudy-pool</link>
+<guid>https://www.poolchemtracker.com/blog/high-alkalinity-cloudy-pool</guid>
+<pubDate>Thu, 11 Jun 2026 12:00:00 +0000</pubDate>
+<description>When total alkalinity exceeds 120 ppm, it pushes pH up and forces calcium carbonate out of solution as a fine white haze. How to diagnose TA as the cloudiness cause, how to fix it with muriatic acid, and what to expect as the water clears.</description>
+</item>
 
 <item>
 <title>LSI and Saltwater Pools: Why SWG Owners Need to Watch Water Balance More Closely</title>
