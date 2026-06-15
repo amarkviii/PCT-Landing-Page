@@ -30,11 +30,11 @@
   </url>
   <url>
     <loc>https://www.poolchemtracker.com/explained/lsi</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-15</lastmod>
   </url>
   <url>
     <loc>https://www.poolchemtracker.com/explained/calcium-hardness</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-06-15</lastmod>
   </url>
   <url>
     <loc>https://www.poolchemtracker.com/explained/chloramines</loc>
@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://www.poolchemtracker.com/explained/total-alkalinity</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-06-15</lastmod>
   </url>
   <url>
     <loc>https://www.poolchemtracker.com/explained/combined-chlorine</loc>
@@ -78,7 +78,7 @@
   </url>
   <url>
     <loc>https://www.poolchemtracker.com/blog/what-is-lsi</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-06-15</lastmod>
   </url>
   <url>
     <loc>https://www.poolchemtracker.com/blog/calcium-hardness-in-pools</loc>
@@ -86,15 +86,15 @@
   </url>
   <url>
     <loc>https://www.poolchemtracker.com/blog/corrosive-pool-water</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-06-15</lastmod>
   </url>
   <url>
     <loc>https://www.poolchemtracker.com/blog/lsi-saltwater-pools</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-15</lastmod>
   </url>
   <url>
     <loc>https://www.poolchemtracker.com/blog/pool-scale-calcium-deposits</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-06-15</lastmod>
   </url>
   <url>
     <loc>https://www.poolchemtracker.com/blog/free-chlorine-vs-total-chlorine</loc>
@@ -234,7 +234,7 @@
   </url>
   <url>
     <loc>https://www.poolchemtracker.com/tools/</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-06-15</lastmod>
   </url>
   <url>
     <loc>https://www.poolchemtracker.com/tools/pool-volume-calculator</loc>
@@ -251,6 +251,10 @@
   <url>
     <loc>https://www.poolchemtracker.com/tools/muriatic-acid-calculator</loc>
     <lastmod>2026-06-10</lastmod>
+  </url>
+  <url>
+    <loc>https://www.poolchemtracker.com/tools/lsi-calculator</loc>
+    <lastmod>2026-06-15</lastmod>
   </url>
   <url>
     <loc>https://www.poolchemtracker.com/privacy</loc>
