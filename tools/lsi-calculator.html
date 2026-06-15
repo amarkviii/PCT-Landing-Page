@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pool LSI Calculator — Langelier Saturation Index (with CYA Correction)</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta name="description" content="Calculate your pool's Langelier Saturation Index (LSI) using the full formula — CYA-corrected alkalinity, polynomial temperature factor, and salt-adjusted TDS. Target: −0.3 to +0.3.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-S8JT1DELF6');
+</script>
+<link rel="canonical" href="https://www.poolchemtracker.com/tools/lsi-calculator">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pool LSI Calculator — Langelier Saturation Index">
+<meta property="og:description" content="Calculate your pool's LSI using the full Langelier formula with CYA-corrected alkalinity. Shows each factor's contribution to your water balance score.">
+<meta property="og:url" content="https://www.poolchemtracker.com/tools/lsi-calculator">
+<meta property="og:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<meta property="og:site_name" content="PoolChem Tracker">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pool LSI Calculator">
+<meta name="twitter:description" content="Full-formula LSI calculator with CYA correction, factor breakdown, and water balance advice.">
+<meta name="twitter:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.poolchemtracker.com/"},{"@type":"ListItem","position":2,"name":"Pool Calculators","item":"https://www.poolchemtracker.com/tools/"},{"@type":"ListItem","position":3,"name":"LSI Calculator"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a good LSI for a pool?","acceptedAnswer":{"@type":"Answer","text":"The target range for pool LSI is −0.3 to +0.3. Zero is perfect balance — water is neither aggressive nor scale-forming. Below −0.3, water is corrosive and will slowly dissolve plaster, etch grout, and attack metal. Above +0.3, water is scale-forming and will deposit calcium on tile, heater coils, and salt cells. Many pool professionals target −0.1 to +0.1 as a tighter sweet spot."}},{"@type":"Question","name":"Why do different LSI calculators give different results?","acceptedAnswer":{"@type":"Answer","text":"Most online LSI calculators use raw total alkalinity. The correct formula uses CYA-corrected alkalinity — you subtract CYA ÷ 3 from your TA reading before calculating. At CYA 60 ppm and TA 100 ppm, skipping this correction overstates the alkalinity factor by about 0.09 LSI units. Calculators also differ on the temperature factor — some use a stepped lookup table while others use a continuous polynomial. This calculator uses CYA-corrected alkalinity and a polynomial temperature factor matching the APSP reference table to within ±0.001."}},{"@type":"Question","name":"What does a negative LSI mean?","acceptedAnswer":{"@type":"Answer","text":"A negative LSI means your pool water is corrosive — it is undersaturated with calcium and will dissolve minerals from any surface it contacts. Over time this etches plaster, dissolves grout, pits concrete, and corrodes metal fittings and heat exchanger coils. Raise calcium hardness, pH, or alkalinity to bring LSI up. Low calcium hardness is the most common cause of persistently negative LSI."}},{"@type":"Question","name":"What does a positive LSI mean?","acceptedAnswer":{"@type":"Answer","text":"A positive LSI means your water is scale-forming — it holds more dissolved calcium than it can keep in solution, so calcium precipitates out as white deposits. You'll see scale on tile grout, inside pipe fittings, on heater coils, and clogging salt cell plates. Lower pH with muriatic acid first (fastest lever). If calcium hardness is above 500 ppm, a partial drain and refill is the only practical fix — no chemical removes calcium."}},{"@type":"Question","name":"Does CYA affect LSI?","acceptedAnswer":{"@type":"Answer","text":"Yes. CYA (cyanuric acid) adds cyanurate alkalinity that shows up on your TA test but does not buffer pH the same way carbonate alkalinity does. The correct formula subtracts CYA ÷ 3 from TA before calculating the alkalinity factor. At CYA 60 ppm, this lowers the effective alkalinity by 20 ppm. Using raw TA overstates the alkalinity factor and can make water appear more balanced than it is — especially for saltwater pool owners running CYA 60–80."}},{"@type":"Question","name":"How often should I calculate my pool's LSI?","acceptedAnswer":{"@type":"Answer","text":"Calculate LSI every time you test your pool water. If you are already measuring pH, alkalinity, calcium hardness, and temperature, the calculation requires no extra effort. Pay close attention after heavy rain (dilutes calcium and alkalinity), seasonal temperature swings, adding calcium chloride or muriatic acid, and after any partial drain and refill."}}]}
+</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a1628;
+    --bg2: #0d1f3c;
+    --card: #0f1e38;
+    --accent: #4facfe;
+    --accent2: #00f2fe;
+    --text: #e8edf5;
+    --muted: #8899aa;
+    --good: #2ed573;
+    --warn: #ffa502;
+    --danger: #ff4757;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  body { font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+  header { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+  .header-inner { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+  .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text); }
+  .logo-icon { width: 40px; height: 40px; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
+  .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+  .logo h1 { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
+  .logo h1 span { color: var(--accent); }
+  .header-right { display: flex; align-items: center; gap: 1.5rem; }
+  .header-link { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--accent); padding: 0.4rem 1rem; border-radius: 8px; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+  .header-link:hover { background: var(--accent); color: #000; }
+  .header-badge { display: inline-flex; }
+  .header-badge img { height: 36px; }
+
+  .page { padding: 3rem 0 4rem; }
+
+  .breadcrumb { font-size: 0.8rem; color: var(--muted); margin-bottom: 2rem; }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .page-label { display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+
+  h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 0.75rem; }
+  h2 .gradient { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .page-desc { font-size: 1.05rem; color: var(--muted); margin-bottom: 2.5rem; }
+
+  .calc-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; }
+
+  .field-group-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+
+  .inputs-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+
+  .field { display: flex; flex-direction: column; gap: 0.35rem; }
+  .field label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; justify-content: space-between; }
+  .field input { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 0.65rem 0.85rem; color: var(--text); font-size: 1rem; font-family: inherit; transition: border-color 0.15s; width: 100%; -moz-appearance: textfield; }
+  .field input::-webkit-outer-spin-button, .field input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .field input:focus { outline: none; border-color: rgba(79,172,254,0.5); }
+  .field input::placeholder { color: var(--muted); opacity: 0.5; }
+  .field-hint { font-size: 0.72rem; color: var(--muted); margin-top: 0.2rem; }
+  .field-hint a { color: var(--accent); text-decoration: none; }
+  .field-hint a:hover { text-decoration: underline; }
+
+  .unit-btn { background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; color: var(--muted); font-size: 0.68rem; font-weight: 700; padding: 0.15rem 0.45rem; cursor: pointer; font-family: inherit; letter-spacing: 0.04em; transition: border-color 0.15s, color 0.15s; }
+  .unit-btn:hover { border-color: rgba(79,172,254,0.4); color: var(--accent); }
+
+  .section-divider { border-top: 1px solid var(--border); margin: 1.25rem 0; }
+
+  .lsi-result { text-align: center; padding: 1.5rem 1rem 1rem; }
+  .lsi-number { font-size: 3.5rem; font-weight: 800; font-family: 'SF Mono', ui-monospace, monospace; line-height: 1; letter-spacing: -0.02em; color: var(--muted); transition: color 0.3s; }
+  .lsi-status { font-size: 0.88rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.5rem; color: var(--muted); transition: color 0.3s; }
+
+  .lsi-gauge { margin: 1.25rem 0 0.4rem; }
+  .lsi-bar { height: 8px; border-radius: 4px; background: linear-gradient(90deg, #ff4757 0%, #ff6b35 20%, #ffa502 35%, #2ed573 50%, #ffa502 65%, #ff6b35 80%, #ff4757 100%); position: relative; }
+  .lsi-needle { position: absolute; top: -5px; width: 3px; height: 18px; background: white; border-radius: 2px; transform: translateX(-50%); box-shadow: 0 0 6px rgba(255,255,255,0.8); transition: left 0.5s cubic-bezier(0.34,1.56,0.64,1); left: 50%; }
+  .lsi-ticks { display: flex; justify-content: space-between; font-family: 'SF Mono', ui-monospace, monospace; font-size: 0.6rem; color: var(--muted); margin-top: 0.35rem; }
+
+  .breakdown { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; margin-top: 1.25rem; overflow: hidden; font-family: 'SF Mono', ui-monospace, monospace; font-size: 0.82rem; }
+  .breakdown-header { display: flex; justify-content: space-between; padding: 0.5rem 0.85rem; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); border-bottom: 1px solid var(--border); }
+  .breakdown-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 0.45rem 0.85rem; border-bottom: 1px solid var(--border); gap: 0.75rem; }
+  .breakdown-row:last-child { border-bottom: none; background: rgba(79,172,254,0.04); }
+  .breakdown-cell { display: flex; flex-direction: column; flex: 1; }
+  .breakdown-name { color: var(--muted); font-size: 0.78rem; }
+  .breakdown-detail { color: var(--muted); font-size: 0.65rem; margin-top: 0.1rem; opacity: 0.65; }
+  .breakdown-value { color: var(--accent); font-weight: 700; white-space: nowrap; }
+  .breakdown-value.lsi-final { font-size: 1rem; }
+
+  .advice-box { border-radius: 10px; padding: 1rem 1.25rem; margin-top: 1.25rem; font-size: 0.9rem; display: none; }
+  .advice-box ul { margin: 0.5rem 0 0 1.25rem; }
+  .advice-box li { margin-bottom: 0.3rem; }
+  .advice-box a { color: var(--accent); text-decoration: none; }
+  .advice-box a:hover { text-decoration: underline; }
+  .advice-title { font-weight: 700; margin-bottom: 0.35rem; }
+  .advice-corrosive { background: rgba(255,71,87,0.07); border: 1px solid rgba(255,71,87,0.25); }
+  .advice-scale { background: rgba(255,107,53,0.07); border: 1px solid rgba(255,107,53,0.25); }
+  .advice-ok { background: rgba(46,213,115,0.07); border: 1px solid rgba(46,213,115,0.25); }
+
+  .ranges-table { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; overflow-x: auto; }
+  .ranges-table table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+  .ranges-table th { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); color: var(--muted); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .ranges-table td { padding: 0.55rem 0.75rem; border-bottom: 1px solid var(--border); }
+  .ranges-table tr:last-child td { border-bottom: none; }
+  .tag-bad { color: #ff4757; font-weight: 600; }
+  .tag-warn { color: #ffa502; font-weight: 600; }
+  .tag-good { color: #2ed573; font-weight: 600; }
+
+  h3 { font-size: 1.35rem; font-weight: 700; margin: 2.5rem 0 0.75rem; letter-spacing: -0.02em; }
+  p { color: var(--text); margin-bottom: 1.25rem; font-size: 1.05rem; }
+  ul { margin: 0 0 1.25rem 1.5rem; color: var(--text); font-size: 1.05rem; }
+  li { margin-bottom: 0.4rem; }
+
+  .key-fact { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .key-fact h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .key-fact p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+  .key-fact a { color: var(--accent); text-decoration: none; }
+  .key-fact a:hover { text-decoration: underline; }
+
+  .formula-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; font-family: 'SF Mono', ui-monospace, monospace; font-size: 0.82rem; color: var(--accent); line-height: 2; }
+  .formula-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--border); padding: 0.2rem 0; flex-wrap: wrap; }
+  .formula-row:last-child { border-bottom: none; }
+  .formula-name { color: var(--muted); font-size: 0.75rem; white-space: nowrap; }
+
+  .related-list { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; }
+  .related-list h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.85rem; color: var(--accent); }
+  .related-list ul { list-style: none; margin: 0; padding: 0; }
+  .related-list li { padding: 0.4rem 0; font-size: 0.95rem; border-bottom: 1px solid var(--border); }
+  .related-list li:last-child { border-bottom: none; }
+  .related-list a { color: var(--accent); text-decoration: none; }
+  .related-list a:hover { text-decoration: underline; }
+
+  .cta-box { background: linear-gradient(135deg, rgba(79,172,254,0.08), rgba(0,242,254,0.05)); border: 1px solid rgba(79,172,254,0.25); border-radius: 14px; padding: 2rem; margin: 2.5rem 0; text-align: center; }
+  .cta-box h3 { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.5rem; }
+  .cta-box p { color: var(--muted); font-size: 0.92rem; max-width: 480px; margin: 0 auto 1.25rem; line-height: 1.6; }
+  .cta-box .badge { display: inline-block; transition: opacity 0.2s; }
+  .cta-box .badge:hover { opacity: 0.85; }
+  .cta-box .badge img { height: 44px; }
+
+  footer { padding: 2rem 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+  .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+
+  @media (max-width: 640px) {
+    .page { padding: 2rem 0 3rem; }
+    .header-badge { display: none; }
+    .header-link { font-size: 0.8rem; padding: 0.35rem 0.75rem; }
+    .header-right { gap: 0.75rem; }
+    .inputs-grid { grid-template-columns: 1fr 1fr; }
+    .calc-card { padding: 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../" class="logo">
+      <div class="logo-icon"><img src="../Logo/logo-96.webp" alt="PoolChem Tracker" width="96" height="96"></div>
+      <h1>Pool<span>Chem</span> Tracker</h1>
+    </a>
+    <div class="header-right">
+      <a href="../blog/" class="header-link">Guides</a>
+      <a href="../features" class="header-link">Features</a>
+      <a href="./" class="header-link">Tools</a>
+      <a href="https://apps.apple.com/app/id6762652630" class="header-badge"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40"></a>
+    </div>
+  </div>
+</header>
+
+<div class="page">
+  <div class="container">
+
+    <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Pool Calculators</a> &rsaquo; LSI Calculator</div>
+
+    <span class="page-label">Pool Calculators</span>
+    <h2>Pool <span class="gradient">LSI Calculator</span></h2>
+    <p class="page-desc">Enter your current readings to get your Langelier Saturation Index — with the full factor breakdown and CYA-corrected alkalinity.</p>
+
+    <div class="calc-card">
+
+      <div class="field-group-label">Required</div>
+      <div class="inputs-grid">
+        <div class="field">
+          <label>pH</label>
+          <input type="number" id="inp-ph" step="0.1" min="6" max="9" placeholder="e.g. 7.4" oninput="calc()">
+        </div>
+        <div class="field">
+          <label>Temp <button class="unit-btn" id="unit-btn" type="button" onclick="toggleUnit()">°F</button></label>
+          <input type="number" id="inp-temp" step="1" placeholder="e.g. 80" oninput="calc()">
+          <span class="field-hint">Water temp, not air</span>
+        </div>
+        <div class="field">
+          <label>Total Alkalinity</label>
+          <input type="number" id="inp-ta" step="1" placeholder="ppm" oninput="calc()">
+        </div>
+        <div class="field">
+          <label>Calcium Hardness</label>
+          <input type="number" id="inp-ch" step="1" placeholder="ppm" oninput="calc()">
+        </div>
+        <div class="field">
+          <label>CYA <span style="font-size:0.65rem;text-transform:none;letter-spacing:0;color:var(--muted);font-weight:400">(optional)</span></label>
+          <input type="number" id="inp-cya" step="1" placeholder="ppm" oninput="calc()">
+          <span class="field-hint">Used for TA correction</span>
+        </div>
+        <div class="field">
+          <label>Salt <span style="font-size:0.65rem;text-transform:none;letter-spacing:0;color:var(--muted);font-weight:400">(optional)</span></label>
+          <input type="number" id="inp-salt" step="10" placeholder="ppm" oninput="calc()">
+          <span class="field-hint">Leave blank if not a salt pool</span>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <div class="lsi-result">
+        <div class="lsi-number" id="lsi-number">—</div>
+        <div class="lsi-status" id="lsi-status">Enter readings above</div>
+      </div>
+
+      <div class="lsi-gauge">
+        <div class="lsi-bar">
+          <div class="lsi-needle" id="lsi-needle"></div>
+        </div>
+        <div class="lsi-ticks">
+          <span>&minus;0.6</span><span>&minus;0.3</span><span>0</span><span>+0.3</span><span>+0.6</span>
+        </div>
+      </div>
+
+      <div class="breakdown" id="breakdown" style="display:none">
+        <div class="breakdown-header"><span>Factor</span><span>Value</span></div>
+        <div class="breakdown-row">
+          <div class="breakdown-cell"><div class="breakdown-name">pH</div></div>
+          <div class="breakdown-value" id="bval-ph">—</div>
+        </div>
+        <div class="breakdown-row">
+          <div class="breakdown-cell"><div class="breakdown-name">Temperature factor (TF)</div><div class="breakdown-detail" id="bdet-tf"></div></div>
+          <div class="breakdown-value" id="bval-tf">—</div>
+        </div>
+        <div class="breakdown-row">
+          <div class="breakdown-cell"><div class="breakdown-name">TDS factor</div><div class="breakdown-detail" id="bdet-tds"></div></div>
+          <div class="breakdown-value" id="bval-tds">—</div>
+        </div>
+        <div class="breakdown-row">
+          <div class="breakdown-cell"><div class="breakdown-name">Calcium factor (CF)</div><div class="breakdown-detail" id="bdet-ca"></div></div>
+          <div class="breakdown-value" id="bval-ca">—</div>
+        </div>
+        <div class="breakdown-row">
+          <div class="breakdown-cell"><div class="breakdown-name">Alkalinity factor (AF)</div><div class="breakdown-detail" id="bdet-alk"></div></div>
+          <div class="breakdown-value" id="bval-alk">—</div>
+        </div>
+        <div class="breakdown-row">
+          <div class="breakdown-cell"><div class="breakdown-name" style="color:var(--text);font-weight:700">LSI = sum &minus; 12.1</div></div>
+          <div class="breakdown-value lsi-final" id="bval-lsi">—</div>
+        </div>
+      </div>
+
+      <div class="advice-box advice-corrosive" id="advice-corrosive">
+        <div class="advice-title" style="color:#ff4757">Water is corrosive — what to do</div>
+        <ul>
+          <li>Raise <strong>pH</strong> with soda ash — fastest single lever (<a href="../blog/baking-soda-vs-soda-ash">soda ash vs baking soda</a>)</li>
+          <li>Raise <strong>calcium hardness</strong> with calcium chloride — low CH is the most common cause of persistent negative LSI</li>
+          <li>Raise <strong>total alkalinity</strong> with baking soda if TA is below 80 ppm</li>
+        </ul>
+      </div>
+
+      <div class="advice-box advice-scale" id="advice-scale">
+        <div class="advice-title" style="color:#ff6b35">Water is scale-forming — what to do</div>
+        <ul>
+          <li>Lower <strong>pH</strong> with muriatic acid — fastest lever (<a href="../blog/pool-ph-too-high">how to lower pH</a>)</li>
+          <li>Lower <strong>total alkalinity</strong> if above 120 ppm — see <a href="../blog/how-to-lower-pool-alkalinity">how to lower alkalinity</a></li>
+          <li>If calcium hardness is above 500 ppm, a <strong>partial drain and refill</strong> is the only option — no chemical removes calcium</li>
+        </ul>
+      </div>
+
+      <div class="advice-box advice-ok" id="advice-ok">
+        <div class="advice-title" style="color:#2ed573">Water is balanced</div>
+        <p style="margin:0;font-size:0.9rem;color:var(--muted)">Your LSI is in the target range. Water is neither corroding surfaces nor depositing scale. Keep testing regularly — temperature swings and rain can shift LSI without any chemical changes.</p>
+      </div>
+
+    </div><!-- /calc-card -->
+
+    <h3>What your LSI number means</h3>
+
+    <div class="ranges-table">
+      <table>
+        <tr><th>LSI Value</th><th>Status</th><th>What it means for your pool</th></tr>
+        <tr><td class="tag-bad">&lt; &minus;0.5</td><td>Highly corrosive</td><td>Aggressively dissolves plaster, etches grout, attacks metal fittings and heater coils</td></tr>
+        <tr><td class="tag-warn">&minus;0.5 to &minus;0.3</td><td>Corrosive</td><td>Slow but measurable surface damage over weeks and months</td></tr>
+        <tr><td class="tag-good">&minus;0.3 to +0.3</td><td>Balanced ✓</td><td>Target range — water is satisfied, neither dissolving surfaces nor depositing scale</td></tr>
+        <tr><td class="tag-warn">+0.3 to +0.5</td><td>Scale-forming</td><td>Calcium starts precipitating on surfaces and inside equipment</td></tr>
+        <tr><td class="tag-bad">&gt; +0.5</td><td>Heavily scale-forming</td><td>Visible scale on tile and grout, salt cells clogging, heater coil damage, cloudy water</td></tr>
+      </table>
+    </div>
+
+    <h3>How this calculator works</h3>
+
+    <p>Most LSI calculators use a simplified version of the Langelier formula. This one uses the exact formula from the PoolChem Tracker app, with two details that other tools commonly skip:</p>
+
+    <ul>
+      <li><strong>CYA-corrected alkalinity</strong> — instead of plugging in raw TA, the formula uses TA &minus; (CYA &divide; 3). At CYA 60 ppm and TA 100 ppm, this drops the effective alkalinity to 80 ppm. Skipping this step makes water appear more balanced than it is, especially in stabilized pools running CYA 50&ndash;80. Leave the CYA field blank if you have no stabilizer.</li>
+      <li><strong>Polynomial temperature factor</strong> — temperature converts to a factor using a continuous polynomial fit to the APSP reference table (max error &plusmn;0.001). Many tools use stepped lookup tables that produce small jumps at integer temperatures; this formula is smooth across the full range.</li>
+    </ul>
+
+    <div class="formula-box">
+      <div class="formula-row"><span>LSI</span><span>= pH + TF + TDS + CF + AF &minus; 12.1</span></div>
+      <div class="formula-row"><span class="formula-name">TF (temp factor)</span><span>= &minus;0.00001316 &times; T&sup2; + 0.00453862 &times; T &minus; 0.07390709</span></div>
+      <div class="formula-row"><span class="formula-name">TDS factor</span><span>= 0.012 &times; log&#x2081;&#x2080;(salt ppm)</span></div>
+      <div class="formula-row"><span class="formula-name">CF (calcium factor)</span><span>= log&#x2081;&#x2080;(CH &minus; 0.4)</span></div>
+      <div class="formula-row"><span class="formula-name">AF (alkalinity factor)</span><span>= log&#x2081;&#x2080;(corrTA), corrTA = TA &minus; CYA &divide; 3</span></div>
+    </div>
+
+    <div class="key-fact">
+      <h4>Why this differs from most apps and websites</h4>
+      <p>Industry standard tools often use raw total alkalinity and a step-table temperature factor. The CYA correction matters most for pools with stabilizer — at CYA 80 ppm, skipping it overstates the alkalinity factor by about 0.13 LSI units. See the <a href="../blog/what-is-lsi">full LSI guide</a> for a worked example showing the difference.</p>
+    </div>
+
+    <h3>Frequently asked questions</h3>
+
+    <h4 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">What is a good LSI for a pool?</h4>
+    <p>The target range is <strong>&minus;0.3 to +0.3</strong>. Zero is perfect balance. Below &minus;0.3, water is corrosive; above +0.3, it is scale-forming. Many pool professionals target &minus;0.1 to +0.1 as a tighter goal.</p>
+
+    <h4 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">Why do different LSI calculators give different results?</h4>
+    <p>Two reasons. First, most calculators use raw total alkalinity instead of CYA-corrected alkalinity. At CYA 60 ppm, this error alone overstates LSI by about 0.09 units. Second, the temperature factor varies by implementation — stepped lookup tables produce small jumps at integer temperatures while a polynomial is continuous. These differences are why pool owners sometimes see conflicting readings from different tools.</p>
+
+    <h4 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">What does a negative LSI mean?</h4>
+    <p>Your water is corrosive — undersaturated with calcium. It will pull minerals from whatever surfaces it contacts, etching plaster, dissolving grout, and corroding heat exchanger coils over time. Raise calcium hardness, pH, or alkalinity to bring LSI up. Low calcium hardness is the most common cause of persistently negative LSI.</p>
+
+    <h4 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">What does a positive LSI mean?</h4>
+    <p>Your water is scale-forming — it holds more dissolved calcium than it can keep in solution. Calcium precipitates out as white deposits on tile, inside pipes, on heater coils, and clogging salt cell plates. Lower pH with muriatic acid first (fastest lever), then alkalinity if elevated. If calcium is above 500 ppm, a partial drain and refill is the only solution.</p>
+
+    <h4 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">Does CYA affect LSI?</h4>
+    <p>Yes. CYA adds cyanurate alkalinity that shows up on your TA test but does not buffer pH the same way carbonate alkalinity does. The correct formula subtracts CYA &divide; 3 from TA before plugging in. Pools running CYA 80 ppm with TA 100 ppm have an effective alkalinity of about 73 ppm — not 100. Skipping this makes water appear more balanced than it is. See <a href="../blog/what-is-lsi" style="color:var(--accent)">the full LSI guide</a> for a worked step-by-step example.</p>
+
+    <h4 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">How often should I calculate LSI?</h4>
+    <p>Every time you test your water. If you are already measuring pH, alkalinity, calcium hardness, and temperature, LSI calculation takes no extra effort — it is just math on numbers you already have. Pay special attention after heavy rain, seasonal temperature swings, adding calcium or acid, and after any partial drain and refill.</p>
+
+    <div class="cta-box">
+      <h3>LSI calculated automatically on every log</h3>
+      <p>PoolChem Tracker runs this same formula automatically every time you log a reading — no copy-paste, no manual entry. It also tracks your history and shows how LSI has shifted over time.</p>
+      <a href="https://apps.apple.com/app/id6762652630" class="badge"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40"></a>
+    </div>
+
+    <div class="related-list">
+      <h4>Learn more about LSI</h4>
+      <ul>
+        <li><a href="../explained/lsi">Langelier Saturation Index — definition, formula &amp; target ranges</a></li>
+        <li><a href="../blog/what-is-lsi">What is LSI? Pool owner&rsquo;s guide with worked example</a></li>
+        <li><a href="../blog/lsi-saltwater-pools">LSI and saltwater pools — why SWG owners need to watch it more closely</a></li>
+        <li><a href="muriatic-acid-calculator.html">Muriatic acid calculator</a> — how much acid to lower pH or alkalinity</li>
+        <li><a href="./">All pool calculators</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="../">Home</a>
+      <a href="../blog/">Guides</a>
+      <a href="../explained/">Explained</a>
+      <a href="mailto:support@poolchemtracker.com">Support</a>
+      <a href="../privacy">Privacy Policy</a>
+      <a href="../terms">Terms of Service</a>
+    </div>
+    <p>&copy; 2026 PoolChem Tracker. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  var useCelsius = false;
+
+  window.toggleUnit = function () {
+    var inp = document.getElementById('inp-temp');
+    var btn = document.getElementById('unit-btn');
+    var v = parseFloat(inp.value);
+    useCelsius = !useCelsius;
+    btn.textContent = useCelsius ? '°C' : '°F';
+    inp.placeholder = useCelsius ? 'e.g. 27' : 'e.g. 80';
+    if (!isNaN(v)) {
+      inp.value = useCelsius
+        ? ((v - 32) * 5 / 9).toFixed(1)
+        : (v * 9 / 5 + 32).toFixed(1);
+    }
+    calc();
+  };
+
+  // Copied verbatim from PoolChem2/chemistry.js
+  // TF = -0.00001316×T² + 0.00453862×T − 0.07390709
+  // Max error vs reference table: ±0.001 — no stepped jumps at bucket boundaries
+  function tempFactor(tempF) {
+    return -0.00001316 * tempF * tempF + 0.00453862 * tempF - 0.07390709;
+  }
+
+  // LSI = pH + TempFactor + TDSFactor + CalciumFactor + AlkFactor − 12.1
+  // TempFactor    = polynomial fit to APSP reference table (°F)
+  // TDSFactor     = 0.012 × log10(salt_ppm)
+  // CalciumFactor = log10(CH − 0.4)
+  // AlkFactor     = log10(corrTA), corrTA = MAX(TA − CYA/3, 1)
+  function computeLSI(ph, tempF, ta, ch, cya, salt) {
+    ph    = parseFloat(ph)    || 0;
+    tempF = parseFloat(tempF) || 0;
+    ta    = parseFloat(ta)    || 0;
+    ch    = parseFloat(ch)    || 0;
+    cya   = parseFloat(cya)   || 0;
+    salt  = parseFloat(salt)  || 0;
+    var corrTA = Math.max(ta - (cya / 3), 1);
+    var tf   = tempFactor(tempF);
+    var tdsF = (salt > 0)     ? 0.012 * Math.log10(salt) : 0;
+    var caF  = (ch - 0.4 > 0) ? Math.log10(ch - 0.4)    : 0;
+    var alkF = Math.log10(corrTA);
+    var lsi  = ph + tf + tdsF + caF + alkF - 12.1;
+    return { lsi: isNaN(lsi) ? null : lsi, corrTA: corrTA, tf: tf, tdsF: tdsF, caF: caF, alkF: alkF };
+  }
+
+  function sign(v) { return v >= 0 ? '+' : ''; }
+  function fmt4(v) { return sign(v) + v.toFixed(4); }
+
+  function hideAdvice() {
+    ['advice-corrosive', 'advice-scale', 'advice-ok'].forEach(function (id) {
+      document.getElementById(id).style.display = 'none';
+    });
+  }
+
+  window.calc = function () {
+    var ph   = parseFloat(document.getElementById('inp-ph').value);
+    var temp = parseFloat(document.getElementById('inp-temp').value);
+    var ta   = parseFloat(document.getElementById('inp-ta').value);
+    var ch   = parseFloat(document.getElementById('inp-ch').value);
+    var cya  = parseFloat(document.getElementById('inp-cya').value)  || 0;
+    var salt = parseFloat(document.getElementById('inp-salt').value) || 0;
+
+    var numEl     = document.getElementById('lsi-number');
+    var statusEl  = document.getElementById('lsi-status');
+    var needle    = document.getElementById('lsi-needle');
+    var breakdown = document.getElementById('breakdown');
+
+    if (isNaN(ph) || isNaN(temp) || isNaN(ta) || isNaN(ch)) {
+      numEl.textContent    = '—';
+      numEl.style.color    = 'var(--muted)';
+      statusEl.textContent = 'Enter readings above';
+      statusEl.style.color = 'var(--muted)';
+      needle.style.left    = '50%';
+      breakdown.style.display = 'none';
+      hideAdvice();
+      return;
+    }
+
+    var tempF = useCelsius ? temp * 9 / 5 + 32 : temp;
+    var res = computeLSI(ph, tempF, ta, ch, cya, salt);
+
+    if (res.lsi === null) {
+      numEl.textContent    = '—';
+      statusEl.textContent = 'Check input values';
+      breakdown.style.display = 'none';
+      hideAdvice();
+      return;
+    }
+
+    var lsi = res.lsi;
+    var color, label;
+    if      (lsi >  0.5)  { color = 'var(--danger)'; label = 'Heavily Scale-Forming'; }
+    else if (lsi >  0.3)  { color = 'var(--warn)';   label = 'Scale-Forming'; }
+    else if (lsi >  0.1)  { color = '#ffd700';        label = 'Slightly Scale-Forming'; }
+    else if (lsi >= -0.1) { color = 'var(--good)';   label = 'Balanced ✓'; }
+    else if (lsi >= -0.3) { color = '#ffd700';        label = 'Slightly Corrosive'; }
+    else if (lsi >= -0.5) { color = 'var(--warn)';   label = 'Corrosive'; }
+    else                  { color = 'var(--danger)'; label = 'Highly Corrosive'; }
+
+    numEl.textContent    = sign(lsi) + lsi.toFixed(2);
+    numEl.style.color    = color;
+    statusEl.textContent = label;
+    statusEl.style.color = color;
+
+    var clamped = Math.max(-0.6, Math.min(0.6, lsi));
+    needle.style.left = ((clamped + 0.6) / 1.2 * 100) + '%';
+
+    // Factor breakdown
+    breakdown.style.display = 'block';
+    document.getElementById('bval-ph').textContent  = sign(ph) + ph.toFixed(4);
+    document.getElementById('bval-tf').textContent  = fmt4(res.tf);
+    document.getElementById('bdet-tf').textContent  = (useCelsius
+      ? temp.toFixed(1) + '°C → ' + tempF.toFixed(1) + '°F'
+      : tempF.toFixed(1) + '°F') + ' → polynomial';
+    document.getElementById('bval-tds').textContent = fmt4(res.tdsF);
+    document.getElementById('bdet-tds').textContent = salt > 0
+      ? '0.012 × log₁₀(' + salt + ')'
+      : 'no salt — factor = 0';
+    document.getElementById('bval-ca').textContent  = fmt4(res.caF);
+    document.getElementById('bdet-ca').textContent  = 'log₁₀(' + ch + ' − 0.4)';
+    document.getElementById('bval-alk').textContent = fmt4(res.alkF);
+    document.getElementById('bdet-alk').textContent = cya > 0
+      ? 'corrTA = ' + ta + ' − ' + cya + '/3 = ' + res.corrTA.toFixed(1) + ' ppm'
+      : 'log₁₀(' + ta + ') — no CYA entered';
+    document.getElementById('bval-lsi').textContent = sign(lsi) + lsi.toFixed(2);
+    document.getElementById('bval-lsi').style.color = color;
+
+    // Advice
+    hideAdvice();
+    if      (lsi < -0.3) { document.getElementById('advice-corrosive').style.display = 'block'; }
+    else if (lsi >  0.3) { document.getElementById('advice-scale').style.display = 'block'; }
+    else                 { document.getElementById('advice-ok').style.display = 'block'; }
+  };
+
+})();
+</script>
+
+</body>
+</html>
