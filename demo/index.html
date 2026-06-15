@@ -447,7 +447,7 @@
     <div class="logo-icon"><img src="appicon-72.png" alt="PoolChem"></div>
     <div>
       <h1>Pool<span>Chem</span></h1>
-      <div style="font-family:var(--mono);font-size:0.6rem;color:var(--muted);margin-top:-0.15rem">v1.10.1</div>
+      <div style="font-family:var(--mono);font-size:0.6rem;color:var(--muted);margin-top:-0.15rem">v1.12.8</div>
     </div>
   </div>
   <button onclick="navTo('log')" style="background:var(--accent);color:var(--bg);border:none;border-radius:8px;padding:0.4rem 0.75rem;font-size:0.72rem;font-weight:700;font-family:var(--sans);cursor:pointer;white-space:nowrap;flex-shrink:0">+ Log Reading</button>
@@ -1251,6 +1251,27 @@
 </main>
 
 <script>
+// ── DEMO DATA SEED ──
+// Keep dates relative to today so the demo always looks current.
+// Re-seeds if data is absent or the newest reading is >30 days old.
+(function seedDemo() {
+  function demoDate(daysAgo) {
+    const d = new Date();
+    d.setDate(d.getDate() - daysAgo);
+    return d.toISOString().split('T')[0];
+  }
+  const seed = [
+    { id:1, date: demoDate(20), fc: 3.8, tc: 3.9, ph: 7.6, ta: 98,  ch: 280, cya: 38, temp: 75, lsi:  0.07 },
+    { id:2, date: demoDate(14), fc: 3.0, tc: 3.0, ph: 7.4, ta: 100, ch: 285, cya: 40, temp: 78, lsi: -0.11, notes: 'Added 1 qt liquid chlorine' },
+    { id:3, date: demoDate(8),  fc: 4.0, tc: 4.1, ph: 7.6, ta: 95,  ch: 290, cya: 40, temp: 80, lsi:  0.08 },
+    { id:4, date: demoDate(4),  fc: 3.2, tc: 3.2, ph: 7.5, ta: 88,  ch: 295, cya: 40, temp: 83, lsi: -0.05 },
+    { id:5, date: demoDate(0),  fc: 3.5, tc: 3.5, ph: 7.4, ta: 90,  ch: 300, cya: 40, temp: 84, lsi: -0.12 },
+  ];
+  localStorage.setItem('pool_readings', JSON.stringify(seed));
+  localStorage.setItem('pool_disclaimer_seen', '1');
+  localStorage.setItem('pool_onboarding_done', '1');
+})();
+
 // ── STATE ──
 let readings = JSON.parse(localStorage.getItem('pool_readings') || '[]');
 // Migrate old 'cc' field to 'tc' (Total Chlorine)
@@ -2320,16 +2341,18 @@ function buildRecs(r) {
   // 0. SHOCK — always first
   if (cc !== null && cc > 0.5) {
     const shockTarget = Math.round((r.cya != null ? r.cya : 40) * 0.4);
+    const shockOz = Math.max(0, (shockTarget - r.fc) * GALLON / 10000 * 128 / 10);
     issues.push({ order:0, icon:'🚨', priority:'critical', treatment:'Shock & Maintain',
-      amount:`Raise FC to ${shockTarget} ppm`,
-      context:`Based on: CC = ${cc} ppm (TC − FC). ${fmtPoolCtx(GALLON)}`,
+      amount: shockOz > 0 ? `~${fmtLiquid(shockOz)} Liquid Chlorine (10%) to start` : `Already at/above shock — hold level`,
+      context:`Based on: CC = ${cc} ppm (TC − FC). Raise FC from ${r.fc} to ${shockTarget} ppm. ${fmtPoolCtx(GALLON)}`,
       effect:'Eliminates chloramines at breakpoint chlorination.',
-      note:`CC > 0.5 ppm — active chloramine buildup. Raise FC to ${shockTarget} ppm and maintain that level — retest and re-dose every few hours. Continue until CC drops below 0.5 ppm and FC holds overnight (loses less than 1 ppm). Do not add other chemicals until complete.`,
+      note:`CC > 0.5 ppm — active chloramine buildup. Add the starting dose, then retest in a few hours and re-dose to hold FC at ${shockTarget} ppm. Continue until CC drops below 0.5 ppm and FC holds overnight (loses less than 1 ppm). Do not add other chemicals until complete.`,
       why:'Combined chlorine above 0.5 ppm causes eye/skin irritation and blocks sanitizer effectiveness.' });
   } else if (cc !== null && cc > 0.2) {
+    const boostOz = 2.5 * GALLON / 10000 * 128 / 10;
     issues.push({ order:0, icon:'⚡', priority:'critical', treatment:'Boost Chlorine',
-      amount:'Raise FC by 2–3 ppm',
-      context:`Based on: CC = ${cc} ppm (TC − FC).`,
+      amount:`~${fmtLiquid(boostOz)} Liquid Chlorine (10%)`,
+      context:`Based on: CC = ${cc} ppm (TC − FC). Raise FC by ~2.5 ppm. ${fmtPoolCtx(GALLON)}`,
       effect:'Helps oxidize forming chloramines.',
       note:`CC is ${cc} ppm — early chloramine formation. Monitor closely and retest in 4–6 hrs.`,
       why:'Combined chlorine above 0.2 ppm indicates chloramines are beginning to form.' });
@@ -2344,7 +2367,7 @@ function buildRecs(r) {
   const taLowAndPhHigh = r.ta != null && r.ta < taR.min && r.ph != null && r.ph > phR.max;
 
   if (r.ph != null && r.ph > phR.max) {
-    const oz = Math.round((r.ph - phR.target) / 0.1 * 10 * SCALE * acidScale);
+    const oz = Math.round((r.ph - phR.target) / 0.1 * ((r.ta || 80) / 10) * 4.17 * SCALE * acidScale);
     issues.push({ order: taLowAndPhHigh ? 2 : 1, icon:'⬇️', priority:'high', treatment:`Muriatic Acid (${acidLabel})`,
       amount:`~${fmtFloz(oz)}`,
       context:`Based on: pH ${r.ph} → target ${phR.target}. ${fmtPoolCtx(GALLON)}`,
@@ -2352,34 +2375,46 @@ function buildRecs(r) {
       note: taLowAndPhHigh
         ? 'Raise TA first (step above) — muriatic acid lowers TA too, which would worsen your low TA. Add acid only after TA is corrected.'
         : 'Add slowly near return jet with pump running. Wait 4–6 hrs before retesting.',
-      why:'High pH reduces chlorine effectiveness and promotes scale. If you have an SWG, this is normal — electrolysis naturally raises pH over time.' });
+      why:`High pH reduces chlorine effectiveness and promotes scale.${poolSettings.swg ? ' For SWG pools, electrolysis naturally raises pH over time — a regular weekly acid dose helps manage this.' : ''}` });
   }
-  if (r.ph != null && r.ph < phR.min) {
+  const taIsLow = r.ta != null && r.ta < taR.min;
+  const phCritical = r.ph != null && r.ph < 7.0;
+  if (r.ph != null && r.ph < phR.min && (phCritical || (!taIsLow && !poolSettings.swg))) {
     const oz = Math.round((phR.target - r.ph) / 0.1 * 11 * SCALE);
-    issues.push({ order:1, icon:'⬆️', priority:'high', treatment:'pH Up (Sodium Carbonate)',
+    issues.push({ order:1, icon:'⬆️', priority: phCritical ? 'critical' : 'high', treatment:'pH Up (Sodium Carbonate)',
       amount:`~${fmtOz(oz)}`,
       context:`Based on: pH ${r.ph} → target ${phR.target}. ${fmtPoolCtx(GALLON)}`,
       effect:`Raises pH by ~${(phR.target - r.ph).toFixed(1)} units.`,
-      note:'Dissolve in bucket of pool water first, then pour around pool edge.',
+      note: phCritical
+        ? `pH below 7.0 is actively corrosive to plaster, grout, and metal fittings. We're recommending pH Up even though your SWG or low TA would normally raise pH on their own — they're too slow at this level. Dissolve in a bucket of pool water first, then pour around the pool edge.`
+        : 'Dissolve in bucket of pool water first, then pour around pool edge. Alternative: aerate the pool (point return jets upward, run a fountain or spa feature) to raise pH without adding chemicals — works best when TA is in range.',
       why:'Low pH is corrosive to pool surfaces, equipment, and irritating to swimmers.' });
+  }
+  if (poolSettings.swg && r.ph != null && r.ph >= 7.0 && r.ph < phR.min) {
+    issues.push({ order:1, icon:'ℹ️', priority:'low', treatment:'Monitor pH',
+      amount:'No action needed now',
+      context:`Based on: pH ${r.ph}, normal range ${phR.min}–${phR.max}.`,
+      effect:'Your SWG will naturally raise pH over the next few days through electrolysis.',
+      note:'pH is below the normal range but above the corrosive threshold (7.0). Retest in 2–3 days — SWG operation should bring pH back into range on its own. Want to speed it up? Aerate the pool — point return jets upward or run a fountain to push CO₂ off-gassing. If pH stays below the range after a week, or drops below 7.0, dose pH Up.',
+      why:'SWG pools naturally drift pH upward over time. Mild dips into the low-7s typically self-correct.' });
   }
 
   // 2. TA — before pH when pH is high and TA is low (see exception above)
   if (r.ta != null && r.ta < taR.min) {
-    const lbs = Math.round(((taTarget - r.ta) / 10) * 1.8 * SCALE * 10) / 10;
+    const lbs = Math.round(((taTarget - r.ta) / 10) * 2.5 * SCALE * 10) / 10;
     issues.push({ order: taLowAndPhHigh ? 1 : 2, icon:'⬆️', priority:'high', treatment:'Baking Soda (TA+)',
       amount:`~${fmtLbs(lbs)}`,
       context:`Based on: TA ${r.ta} → target ${taTarget} ppm. ${fmtPoolCtx(GALLON)}`,
       effect:`Raises TA by ~${taTarget - r.ta} ppm.`,
       note: taLowAndPhHigh
-        ? 'Raise TA before lowering pH — baking soda raises TA without significantly dropping pH. Then use acid to address pH in the next step.'
-        : 'Broadcast around pool with pump running. Retest pH after, as TA affects pH.',
+        ? 'Raise TA before lowering pH — baking soda raises TA without significantly dropping pH. Dissolve in a bucket of pool water first, then pour around the pool edge with pump running. Then use acid to address pH in the next step.'
+        : 'Dissolve in a bucket of pool water first, then pour around the pool edge with pump running. Retest pH after, as TA affects pH.',
       why: taLowAndPhHigh
         ? 'TA is very low and pH is high — muriatic acid would lower both, making TA worse. Raise TA first with baking soda, then address pH.'
         : 'Low alkalinity causes pH to swing widely. Fix after pH is stable.' });
   }
   if (r.ta != null && r.ta > taR.max) {
-    const taOz = Math.round((r.ta - taTarget) / 10 * 50 * SCALE * acidScale);
+    const taOz = Math.round((r.ta - taTarget) / 10 * 100 * SCALE * acidScale);
     issues.push({ order:2, icon:'⬇️', priority:'high', treatment:`Muriatic Acid for TA (${acidLabel})`,
       amount:`~${fmtFloz(taOz)}`,
       context:`Based on: TA ${r.ta} → target ${taTarget} ppm. ${fmtPoolCtx(GALLON)}`,
@@ -2393,7 +2428,7 @@ function buildRecs(r) {
   const cyaTarget = Math.round((cyaR.min + cyaR.max) / 2);
   const cyaLow = r.cya != null && r.cya < cyaR.min;
   if (cyaLow) {
-    const oz = Math.round(((cyaTarget - r.cya) / 10) * 16 * SCALE);
+    const oz = Math.round(((cyaTarget - r.cya) / 10) * 24 * SCALE);
     const fcAlsoLow = r.fc != null && r.fc < fcMin;
     issues.push({ order:3, icon:'⬆️', priority: fcAlsoLow ? 'critical' : 'medium', treatment:'CYA / Stabilizer',
       amount:`~${fmtOz(oz)}`,
@@ -2415,7 +2450,7 @@ function buildRecs(r) {
       why:'High CYA reduces chlorine effectiveness — "chlorine lock".' });
   }
 
-  // 4. Chlorine — target 1–3 ppm (downgrade if CYA needs fixing first)
+  // 4. Chlorine — CYA-adjusted target (downgrade if CYA needs fixing first)
   if (r.fc != null && r.fc < fcMin) {
     const needed = (fcTarget - r.fc) * GALLON / 10000;
     const ozNeeded = needed * 128 / 10;
@@ -2424,7 +2459,7 @@ function buildRecs(r) {
       context:`Based on: FC ${r.fc} ppm → target ${fcTarget} ppm. ${fmtPoolCtx(GALLON)}`,
       effect:`Raises FC by ~${(fcTarget - r.fc).toFixed(1)} ppm.`,
       note: cyaLow ? `Fix CYA first (step above) — your FC target will change once CYA is corrected.` : `Minimum FC is ${fcMin} ppm. Add in evening, run pump 4+ hrs.`,
-      why:'FC below 1 ppm cannot effectively sanitize the pool.' });
+      why:`FC below ${fcMin} ppm cannot effectively sanitize the pool.` });
   }
 
   if (r.fc != null && r.fc > fcR.max + 2) {
@@ -2432,8 +2467,8 @@ function buildRecs(r) {
       amount:'Stop adding chlorine — wait for levels to drop',
       context:`Based on: FC ${r.fc} ppm, target ${fcRangeLabel(r.cya)}.`,
       effect:'FC will naturally decrease through UV exposure and swimmer usage.',
-      note:'Do not swim until FC drops below 5 ppm. If you have an SWG, turn output down or off temporarily. Retest in 24 hrs.',
-      why:'FC above 5 ppm causes skin and eye irritation and can damage pool equipment.' });
+      note:`Do not swim until FC drops to ${fcR.max} ppm. If you have an SWG, turn output down or off temporarily. Retest in 24 hrs.`,
+      why:`FC significantly above the normal range (${fcRangeLabel(r.cya)}) can cause skin and eye irritation.` });
   }
 
   // 5. CH, Salt, Copper — secondary parameters
@@ -2466,7 +2501,7 @@ function buildRecs(r) {
       why:'Calcium hardness above range is only a concern when LSI indicates scale-forming conditions.' });
   }
   if (r.salt != null && r.salt < 2700 && poolSettings.swg) {
-    const lbs = Math.round(((3200 - r.salt) / 100) * 23 * SCALE);
+    const lbs = Math.round(((3200 - r.salt) / 100) * 15 * SCALE);
     issues.push({ order:5, icon:'🧂', priority:'medium', treatment:'Pool Salt',
       amount:`~${fmtLbs(lbs)}`,
       context:`Based on: Salt ${r.salt} → target 3200 ppm. ${fmtPoolCtx(GALLON)}`,
@@ -2474,11 +2509,11 @@ function buildRecs(r) {
       note:'Broadcast around pool, brush to dissolve, run pump 24 hrs before retesting.',
       why:'Low salt reduces your SWG\'s ability to generate chlorine effectively.' });
   }
-  if (r.salt != null && r.salt > 3400 && poolSettings.swg) {
+  if (r.salt != null && r.salt > 4500 && poolSettings.swg) {
     const drainGal = Math.round(GALLON * 0.1 / 100) * 100;
     issues.push({ order:5, icon:'🧂', priority:'medium', treatment:'Reduce Salt Level',
       amount:`${fmtDrain(drainGal, 10)} and refill`,
-      context:`Based on: Salt ${r.salt} ppm, target 2700–3400 ppm.`,
+      context:`Based on: Salt ${r.salt} ppm, typical range 2700–4000 ppm.`,
       effect:'Dilutes salt by ~10% — retest after refilling.',
       note:'Check your manufacturer\'s specs for the recommended range. High salt can damage the SWG cell and void the warranty.',
       why:'Excess salt accelerates corrosion of metal fittings and pool equipment.' });
@@ -2502,12 +2537,12 @@ function buildRecs(r) {
 
   // 6. Phosphates — always last
   if (r.phos != null && r.phos > 200) {
-    issues.push({ order:6, icon:'🌿', priority:'low', treatment:'Phosphate Remover',
-      amount:'Follow directions on container',
-      context:`Based on: Phosphates ${r.phos} ppb, target <200 ppb.`,
-      effect:'Reduces phosphate levels — water may cloud temporarily.',
-      note:'Add last — after other adjustments are complete. Temporary cloudiness is normal.',
-      why:'Phosphates feed algae. Address other parameters first, then treat phosphates.' });
+    issues.push({ order:6, icon:'ℹ️', priority:'low', treatment:'Monitor Phosphates',
+      amount:'No action needed unless algae issue',
+      context:`Based on: Phosphates ${r.phos} ppb (above the 200 ppb reference level).`,
+      effect:'Elevated phosphates are not a direct water-quality problem on their own.',
+      note:'Phosphates feed algae, but maintaining FC in your target range prevents algae regardless of phosphate levels. Phosphate remover is only worth using if you have an active algae bloom and can\'t keep FC up. The cheaper and more effective approach: keep up with chlorination.',
+      why:'Algae growth is controlled by chlorine, not by removing its food source.' });
   }
 
   // Sort by priority (critical first), then by treatment order within each priority
