@@ -3,3 +3,5 @@ Allow: /
 Disallow: /demo/
 
 Sitemap: https://www.poolchemtracker.com/sitemap.xml
+
+Content-Signal: ai-train=no, search=yes, ai-input=yes
