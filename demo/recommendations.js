@@ -63,6 +63,7 @@ function buildRecs(r) {
   const taR = R('ta');
   const taTarget = Math.round((taR.min + taR.max) / 2);
   const taLowAndPhHigh = r.ta != null && r.ta < taR.min && r.ph != null && r.ph > phR.max;
+  const phHighAndTaHigh = r.ph != null && r.ph > phR.max && r.ta != null && r.ta > taR.max;
 
   if (r.ph != null && r.ph > phR.max) {
     const oz = Math.round((r.ph - phR.target) / 0.1 * ((r.ta || 80) / 10) * 4.17 * SCALE * acidScale);
@@ -117,7 +118,9 @@ function buildRecs(r) {
       amount:`~${fmtFloz(taOz)}`,
       context:`Based on: TA ${r.ta} → target ${taTarget} ppm. ${fmtPoolCtx(GALLON)}`,
       effect:`Lowers TA by ~${r.ta - taTarget} ppm — may require multiple treatments with aeration.`,
-      note:'Add acid with pump running, aerate to raise pH back, then retest. Do not rush.',
+      note: phHighAndTaHigh
+        ? 'Your pH acid dose (step above) will also lower TA. Add the pH dose first, then aerate to raise pH back — this is the standard TA-lowering cycle. Retest both before adding more acid.'
+        : 'Add acid with pump running, aerate to raise pH back, then retest. Do not rush.',
       why:'High alkalinity locks pH in place and can cause cloudy water.' });
   }
 
@@ -137,6 +140,10 @@ function buildRecs(r) {
         : 'Add in skimmer sock, run pump 24 hrs. Retest CYA before adjusting chlorine.',
       why:'CYA protects chlorine from UV breakdown. Without adequate CYA, chlorine dissipates rapidly in sunlight.' });
   }
+  const chR = R('ch');
+  const lsiR = R('lsi');
+  const bothNeedDrain = r.cya != null && r.cya > cyaR.max + 10 && r.ch != null && r.ch > chR.max && r.lsi != null && r.lsi > lsiR.max;
+
   if (r.cya != null && r.cya > cyaR.max + 10) {
     const drainPct = Math.min(Math.round((1 - cyaR.max / r.cya) * 100), 50);
     const drainGal = Math.round(GALLON * drainPct / 100 / 100) * 100;
@@ -144,12 +151,17 @@ function buildRecs(r) {
       amount:fmtDrain(drainGal, drainPct),
       context:`Based on: CYA ${r.cya} ppm, target ${cyaR.min}–${cyaR.max} ppm. ${fmtPoolCtx(GALLON)}`,
       effect:`Dilutes CYA by ~${drainPct}% — may need multiple cycles.`,
-      note:'Only way to reduce CYA. Refill with fresh water and retest. If you use chlorine tablets (trichlor), switch to liquid chlorine — tabs add CYA with every dose.',
+      note: bothNeedDrain
+        ? `Only way to reduce CYA. Your calcium hardness also needs a drain (next step) — combine both into one: use whichever drain percentage is larger. Refill with fresh water and retest. If you use chlorine tablets (trichlor), switch to liquid chlorine — tabs add CYA with every dose.`
+        : `Only way to reduce CYA. Refill with fresh water and retest. If you use chlorine tablets (trichlor), switch to liquid chlorine — tabs add CYA with every dose.`,
       why:'High CYA reduces chlorine effectiveness — "chlorine lock".' });
   }
 
   // 4. Chlorine — CYA-adjusted target (downgrade if CYA needs fixing first)
-  if (r.fc != null && r.fc < fcMin) {
+  // Skip if any CC-triggered chlorine rec is already firing — those doses cover FC deficiency too
+  const isShocking = cc !== null && cc > 0.5;
+  const isAddingChlorineForCC = cc !== null && cc > 0.2;
+  if (r.fc != null && r.fc < fcMin && !isAddingChlorineForCC) {
     const needed = (fcTarget - r.fc) * GALLON / 10000;
     const ozNeeded = needed * 128 / 10;
     issues.push({ order:4, icon:'🧴', priority:'critical', treatment:'Liquid Chlorine (10%)', linkKey:'fc-low',
@@ -160,7 +172,7 @@ function buildRecs(r) {
       why:`FC below ${fcMin} ppm cannot effectively sanitize the pool.` });
   }
 
-  if (r.fc != null && r.fc > fcR.max + 2) {
+  if (r.fc != null && r.fc > fcR.max + 2 && !isShocking) {
     issues.push({ order:4, icon:'⚠️', priority:'high', treatment:'Reduce Chlorine Exposure', linkKey:'fc-high',
       amount:'Stop adding chlorine — wait for levels to drop',
       context:`Based on: FC ${r.fc} ppm, target ${fcRangeLabel(r.cya)}.`,
@@ -170,7 +182,6 @@ function buildRecs(r) {
   }
 
   // 5. CH, Salt, Copper — secondary parameters
-  const chR = R('ch');
   const chTarget = Math.round((chR.min + chR.max) / 2);
   if (r.ch != null && r.ch < chR.min) {
     const lbs = Math.round(((chTarget - r.ch) / 10) * 1.7 * SCALE * 10) / 10;
@@ -181,14 +192,15 @@ function buildRecs(r) {
       note:'Add slowly with pump running. Does not significantly affect pH.',
       why:'Low calcium causes water to leach calcium from plaster and equipment.' });
   }
-  const lsiR = R('lsi');
   if (r.ch != null && r.ch > chR.max && r.lsi != null && r.lsi > lsiR.max) {
     const drainGal = Math.round(GALLON * 0.2 / 100) * 100;
     issues.push({ order:5, icon:'💧', priority:'medium', treatment:'Partial Drain & Refill (for CH)', linkKey:'ch-scale',
       amount:fmtDrain(drainGal, 20),
       context:`Based on: CH ${r.ch} ppm, target ${chR.min}–${chR.max} ppm. LSI ${r.lsi >= 0 ? '+' : ''}${r.lsi.toFixed(2)} (scale-forming).`,
       effect:'Dilutes CH by ~20% — may need multiple cycles.',
-      note:'Only way to lower calcium hardness. Drain and refill with fresh water, then retest.',
+      note: bothNeedDrain
+        ? 'You also need to drain for high CYA (step above) — combine both into one drain, using whichever percentage is larger. Only way to lower calcium hardness. Refill with fresh water and retest.'
+        : 'Only way to lower calcium hardness. Drain and refill with fresh water, then retest.',
       why:'High calcium with scale-forming LSI causes deposits on surfaces, tiles, heater elements, and plumbing.' });
   } else if (r.ch != null && r.ch > chR.max && (r.lsi == null || r.lsi <= lsiR.max)) {
     issues.push({ order:5, icon:'ℹ️', priority:'low', treatment:'Monitor Calcium Hardness', linkKey:'ch-balance',
