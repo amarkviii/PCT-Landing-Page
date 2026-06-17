@@ -17,11 +17,8 @@ Cloudflare Pages — auto-deploys from `main` branch.
 - Do not use "SLAM" — use "breakpoint chlorination" / "hold FC at shock level".
 - UTMs on outbound links are OK.
 
-## Related
-- iOS app: `/Users/jeffreythompson/PoolChem-iOS-Web/PoolChem2/`
-- Android: `/Users/jeffreythompson/PoolChem-Android/`
-- RSS worker: `/Users/jeffreythompson/PoolChem-iOS-Web/rss-to-social/`
-- Core chemistry: `/Users/jeffreythompson/PoolChem-Core/`
+## Sibling repos (boundary — do not inspect)
+iOS, Android, Core, and rss-to-social are reference-only. Do not open or search them unless the task explicitly requires cross-repo work.
 
 ## Search rules
 - `rg` ONLY. Never use `grep`.
