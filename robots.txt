@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /demo/
+Disallow: /app/
 
 Sitemap: https://www.poolchemtracker.com/sitemap.xml
 
