@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chlorine Dose Calculator — How Much Chlorine to Add to Your Pool</title>
+<title>Pool Chlorine Dose Calculator — FC/CYA Target Based</title>
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-<meta name="description" content="Calculate exactly how much liquid chlorine or cal-hypo to add to raise your pool's FC to target. Enter your gallons, current FC, and target FC.">
+<meta name="description" content="Calculate how much liquid chlorine or cal-hypo to raise FC to your CYA-based target. At CYA 50, target 5–7 ppm; at CYA 80, target 6–8 ppm. Enter gallons, current FC, and target FC.">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
 <script>
 window.dataLayer=window.dataLayer||[];
@@ -17,14 +17,14 @@ gtag('config','G-S8JT1DELF6');
 </script>
 <link rel="canonical" href="https://www.poolchemtracker.com/tools/chlorine-dose-calculator">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Chlorine Dose Calculator — How Much Chlorine to Add to Your Pool">
-<meta property="og:description" content="Enter your pool's gallons, current FC, and target FC to get an exact dose for liquid chlorine or cal-hypo.">
+<meta property="og:title" content="Pool Chlorine Dose Calculator — FC/CYA Target Based">
+<meta property="og:description" content="Calculate how much liquid chlorine or cal-hypo to raise FC to your CYA-based target. At CYA 50, target 5–7 ppm; at CYA 80, target 6–8 ppm. Enter gallons, current FC, and target FC.">
 <meta property="og:url" content="https://www.poolchemtracker.com/tools/chlorine-dose-calculator">
 <meta property="og:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
 <meta property="og:site_name" content="PoolChem Tracker">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Chlorine Dose Calculator">
-<meta name="twitter:description" content="How much liquid chlorine or cal-hypo to add to raise your pool FC — enter gallons, current FC, target FC.">
+<meta name="twitter:title" content="Pool Chlorine Dose Calculator — FC/CYA Target Based">
+<meta name="twitter:description" content="Calculate how much liquid chlorine or cal-hypo to raise FC to your CYA-based target. At CYA 50, target 5–7 ppm; at CYA 80, target 6–8 ppm.">
 <meta name="twitter:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.poolchemtracker.com/"},{"@type":"ListItem","position":2,"name":"Pool Calculators","item":"https://www.poolchemtracker.com/tools/"},{"@type":"ListItem","position":3,"name":"Chlorine Dose Calculator"}]}
@@ -148,6 +148,17 @@ gtag('config','G-S8JT1DELF6');
   footer a:hover { color: var(--text); }
   .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
 
+  .answer-box {
+    background: rgba(79,172,254,0.08);
+    border: 1px solid rgba(79,172,254,0.3);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0 1.75rem;
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+
   @media (max-width: 640px) {
     .page { padding: 2rem 0 3rem; }
     .header-badge { display: none; }
@@ -185,7 +196,12 @@ gtag('config','G-S8JT1DELF6');
 
     <span class="page-label">Pool Calculators</span>
     <h2>Chlorine <span class="gradient">Dose Calculator</span></h2>
-    <p class="page-desc">Enter your pool volume, current FC, and target FC to find out exactly how much chlorine to add.</p>
+    <p class="page-desc">Enter your pool volume, current FC, and CYA-based target FC to get an exact dose. Not sure what target to use? Your target FC = CYA × 7.5% for most pools — see the <a href="../blog/fc-cya-chart-chlorine-levels" style="color:var(--accent)">FC/CYA chart</a>.</p>
+
+    <div class="answer-box">
+      <strong>Safe chlorine levels depend on CYA.</strong><br>
+      Higher CYA requires higher free chlorine (FC) to stay effective.
+    </div>
 
     <div class="calc-card">
 
@@ -283,12 +299,13 @@ gtag('config','G-S8JT1DELF6');
     </div>
 
     <div class="related-list">
-      <h4>More pool calculators</h4>
+      <h4>More pool calculators &amp; guides</h4>
       <ul>
+        <li><a href="../blog/fc-cya-chart-chlorine-levels">FC/CYA chart</a> — find your safe FC target before you dose</li>
+        <li><a href="../blog/pool-chlorine-levels-chart">Pool chlorine levels chart</a> — FC, CC, and TC ranges with CYA-adjusted targets</li>
         <li><a href="pool-volume-calculator">Pool volume calculator</a> — find your gallons first</li>
         <li><a href="pool-shock-calculator">Pool shock calculator</a> — how much to reach breakpoint chlorination</li>
         <li><a href="../explained/free-chlorine">Free Chlorine &amp; CYA explained</a></li>
-        <li><a href="../blog/pool-chemistry-cheat-sheet">Pool chemistry target ranges cheat sheet</a></li>
       </ul>
     </div>
 
