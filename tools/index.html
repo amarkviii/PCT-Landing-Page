@@ -103,6 +103,16 @@ gtag('config','G-S8JT1DELF6');
   footer a:hover { color: var(--text); }
   .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
 
+  .calc-cluster { padding-top: 2.5rem; }
+
+  .cluster-intent { font-size: 0.92rem; color: var(--muted); margin: -0.75rem 0 1.25rem; line-height: 1.6; max-width: 640px; }
+
+  .cluster-learn { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 0.875rem; }
+  .cluster-learn a { font-size: 0.82rem; color: var(--accent); text-decoration: none; font-weight: 600; }
+  .cluster-learn a:hover { text-decoration: underline; }
+
+  .coming-note { font-size: 0.82rem; color: var(--muted); text-align: center; padding: 1.5rem 0 0; }
+
   @media (max-width: 640px) {
     .hero { padding: 2.5rem 0 2rem; }
     .header-badge { display: none; }
@@ -133,7 +143,7 @@ gtag('config','G-S8JT1DELF6');
   <div class="container">
     <div class="breadcrumb"><a href="../">Home</a> &rsaquo; Pool Calculators</div>
     <h2>Free Pool <span class="gradient">Calculators</span></h2>
-    <p class="lede">Every pool chemistry number you need — volume, chlorine dose, shock target — calculated correctly and explained clearly.</p>
+    <p class="lede">Pool chemistry is a system — these calculators cover each piece of it. Start with your pool volume, then work through chlorine, pH, and water balance.</p>
   </div>
 </div>
 
@@ -141,65 +151,102 @@ gtag('config','G-S8JT1DELF6');
   <div class="container">
 
     <h3>Start here</h3>
+    <p class="cluster-intent">Every other calculator on this page needs your pool volume. Find it once and the rest of the math follows.</p>
     <div class="calc-grid">
 
       <a href="pool-volume-calculator" class="calc-tile">
         <div class="tile-tag">Step 1</div>
         <h4>Pool Volume Calculator</h4>
         <p>Find your pool's gallons by shape — rectangle, oval, round, kidney, or L-shape. Includes sloped-bottom, spa, and tanning shelf options.</p>
-        <div class="start-here-note">Every other calculator needs this</div>
-      </a>
-
-      <a href="chlorine-dose-calculator" class="calc-tile">
-        <div class="tile-tag">Chlorine</div>
-        <h4>Chlorine Dose Calculator</h4>
-        <p>How much liquid chlorine or cal-hypo to add to reach your target FC. Supports 10%, 12.5%, cal-hypo 65%/73%, and trichlor.</p>
-      </a>
-
-      <a href="pool-shock-calculator" class="calc-tile">
-        <div class="tile-tag">Shock</div>
-        <h4>Pool Shock Calculator</h4>
-        <p>Find your shock target (CYA &times; 40%) and how much chlorine to reach it. The shock level depends on your CYA — not a fixed number.</p>
-      </a>
-
-      <a href="muriatic-acid-calculator" class="calc-tile">
-        <div class="tile-tag">pH &amp; Alkalinity</div>
-        <h4>Muriatic Acid Calculator</h4>
-        <p>How much muriatic acid to lower pH or total alkalinity. Supports 31.45% and 14.5% strengths.</p>
-      </a>
-
-      <a href="lsi-calculator" class="calc-tile">
-        <div class="tile-tag">Water Balance</div>
-        <h4>LSI Calculator</h4>
-        <p>Calculate your Langelier Saturation Index using the full formula — CYA-corrected alkalinity, polynomial temperature factor, and a factor breakdown showing exactly what's driving your water balance score.</p>
       </a>
 
     </div>
 
-    <div class="calc-section" style="padding-top:2rem">
-      <h3>Coming soon</h3>
+    <div class="calc-cluster">
+      <h3>Chlorine Management</h3>
+      <p class="cluster-intent">Chlorine only works if your dose matches your CYA and pool volume — these calculators do that math.</p>
       <div class="calc-grid">
 
-        <div class="calc-tile coming-soon">
+        <a href="chlorine-dose-calculator" class="calc-tile">
+          <div class="tile-tag">Dose</div>
+          <h4>Chlorine Dose Calculator</h4>
+          <p>How much liquid chlorine or cal-hypo to add to reach your target FC. Supports 10%, 12.5%, cal-hypo 65%/73%, and trichlor.</p>
+        </a>
+
+        <a href="pool-shock-calculator" class="calc-tile">
+          <div class="tile-tag">Shock</div>
+          <h4>Pool Shock Calculator</h4>
+          <p>Find your shock target (CYA &times; 40%) and how much chlorine to reach it. The shock level depends on your CYA — not a fixed number.</p>
+        </a>
+
+      </div>
+      <div class="cluster-learn">
+        <a href="../explained/cyanuric-acid">Why shock targets depend on CYA &rarr;</a>
+        <a href="../explained/free-chlorine">How free chlorine ranges work &rarr;</a>
+      </div>
+    </div>
+
+    <div class="calc-cluster">
+      <h3>pH &amp; Alkalinity</h3>
+      <p class="cluster-intent">Muriatic acid lowers pH and alkalinity; baking soda raises alkalinity. Getting both in range is the foundation of stable, comfortable water.</p>
+      <div class="calc-grid">
+
+        <a href="muriatic-acid-calculator" class="calc-tile">
+          <div class="tile-tag">pH &amp; Alkalinity</div>
+          <h4>Muriatic Acid Calculator</h4>
+          <p>How much muriatic acid to lower pH or total alkalinity. Supports 31.45% and 14.5% strengths.</p>
+        </a>
+
+        <a href="baking-soda-calculator" class="calc-tile">
           <div class="tile-tag">Alkalinity</div>
           <h4>Baking Soda Calculator</h4>
-          <p>How much baking soda to raise total alkalinity to target.</p>
-          <span class="badge-soon">Coming soon</span>
-        </div>
+          <p>How much baking soda to raise total alkalinity to target. TA is your pH's buffer — too low and pH swings with every addition.</p>
+        </a>
 
-        <div class="calc-tile coming-soon">
+      </div>
+      <div class="cluster-learn">
+        <a href="../explained/ph">How pH affects chlorine effectiveness &rarr;</a>
+        <a href="../explained/total-alkalinity">Total alkalinity explained &rarr;</a>
+      </div>
+    </div>
+
+    <div class="calc-cluster">
+      <h3>CYA (Stabilizer)</h3>
+      <p class="cluster-intent">CYA protects chlorine from UV, but once it's in the water the only way out is dilution. This calculator tells you exactly how much to drain.</p>
+      <div class="calc-grid">
+
+        <a href="cya-dilution-calculator" class="calc-tile">
           <div class="tile-tag">CYA</div>
           <h4>CYA Dilution Calculator</h4>
-          <p>How much water to drain and refill to bring CYA down to a target level.</p>
-          <span class="badge-soon">Coming soon</span>
-        </div>
+          <p>How much water to drain and refill to bring CYA down to your target. Includes staged drain guidance for large reductions.</p>
+        </a>
 
+      </div>
+      <div class="cluster-learn">
+        <a href="../explained/cyanuric-acid">How CYA affects chlorine requirements &rarr;</a>
+      </div>
+    </div>
+
+    <div class="calc-cluster">
+      <h3>Water Balance</h3>
+      <p class="cluster-intent">Unbalanced water corrodes equipment and etches surfaces over time. LSI is the standard measure — here's how to calculate yours.</p>
+      <div class="calc-grid">
+
+        <a href="lsi-calculator" class="calc-tile">
+          <div class="tile-tag">Water Balance</div>
+          <h4>LSI Calculator</h4>
+          <p>Calculate your Langelier Saturation Index using the full formula — CYA-corrected alkalinity, polynomial temperature factor, and a factor breakdown showing exactly what's driving your water balance score.</p>
+        </a>
+
+      </div>
+      <div class="cluster-learn">
+        <a href="../explained/lsi">What LSI means for your pool &rarr;</a>
       </div>
     </div>
 
     <div class="info-banner">
-      <h4>Want all of this automatic?</h4>
-      <p>PoolChem Tracker logs your readings and calculates every dose for you — volume, chlorine, acid, and more — all tailored to your pool size and chemistry. <a href="https://apps.apple.com/app/id6762652630?ct=tool">Download on the App Store</a>.</p>
+      <h4>Want all of this done automatically?</h4>
+      <p>PoolChem Tracker logs your readings and calculates every dose based on your pool — no manual lookup needed. <a href="https://apps.apple.com/app/id6762652630?ct=tool">Download on the App Store</a>.</p>
     </div>
 
   </div>

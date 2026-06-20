@@ -25,7 +25,7 @@ function fcRangeLabel(cya) {
 // ── CLIMATE RANGES ──
 const CLIMATE_DATA = {
   temperate: { label:'Temperate (Baseline)', ph:{min:7.4,max:7.6,target:7.4}, ta:{min:60,max:80}, cya:{min:40,max:70}, ch:{min:200,max:400}, lsi:{min:-0.2,max:0.2} },
-  desert:    { label:'Desert / Arid',        ph:{min:7.7,max:7.9,target:7.8}, ta:{min:50,max:70}, cya:{min:70,max:80}, ch:{min:350,max:650}, lsi:{min:0.0,max:0.3} },
+  desert:    { label:'Desert / Arid',        ph:{min:7.6,max:7.8,target:7.6}, ta:{min:50,max:70}, cya:{min:70,max:80}, ch:{min:350,max:650}, lsi:{min:0.0,max:0.3} },
   tropical:  { label:'Tropical / Humid',     ph:{min:7.4,max:7.7,target:7.5}, ta:{min:70,max:90}, cya:{min:50,max:70}, ch:{min:250,max:400}, lsi:{min:-0.2,max:0.2} },
   coastal:   { label:'Coastal',              ph:{min:7.5,max:7.8,target:7.6}, ta:{min:70,max:90}, cya:{min:50,max:70}, ch:{min:250,max:450}, lsi:{min:-0.1,max:0.3} },
   mountain:  { label:'Mountain / High Alt.',  ph:{min:7.4,max:7.7,target:7.5}, ta:{min:60,max:80}, cya:{min:60,max:80}, ch:{min:200,max:400}, lsi:{min:-0.2,max:0.2} },

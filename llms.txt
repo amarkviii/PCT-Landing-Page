@@ -81,6 +81,8 @@ PoolChem Tracker helps residential pool owners monitor and balance their water c
 - [Chlorine Dose Calculator](https://www.poolchemtracker.com/tools/chlorine-dose-calculator): How much liquid chlorine or cal-hypo to add to raise FC to target; supports 10%, 12.5%, cal-hypo 65%/73%, and trichlor (with CYA warning)
 - [Pool Shock Calculator](https://www.poolchemtracker.com/tools/pool-shock-calculator): Shock target FC = CYA × 40%; calculates how much chlorine needed to reach breakpoint chlorination level from current FC
 - [Muriatic Acid Calculator](https://www.poolchemtracker.com/tools/muriatic-acid-calculator): How much muriatic acid to lower pH (uses current pH, target pH, and TA for accuracy) or lower total alkalinity; supports 31.45% and 14.5% strengths
+- [Baking Soda Calculator](https://www.poolchemtracker.com/tools/baking-soda-calculator): How much baking soda (sodium bicarbonate) to raise total alkalinity to target; dose in ounces and pounds; target TA 80–120 ppm
+- [CYA Dilution Calculator](https://www.poolchemtracker.com/tools/cya-dilution-calculator): How many gallons to drain and refill to lower CYA to target; includes staged drain guidance when reduction requires draining more than 50% of the pool
 - [LSI Calculator](https://www.poolchemtracker.com/tools/lsi-calculator): Calculate pool Langelier Saturation Index using the full formula — CYA-corrected alkalinity (TA minus CYA/3), polynomial temperature factor, salt TDS adjustment; shows per-factor breakdown so you can see what's driving your water balance score; target -0.3 to +0.3
 
 ## Contact
