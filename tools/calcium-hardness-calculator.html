@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calcium Hardness Calculator — How Much to Raise Pool CH</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta name="description" content="Calculate how much calcium chloride to add to raise pool calcium hardness to your target. Supports 77% flake and 96% anhydrous calcium chloride. Dose in lbs and oz.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-S8JT1DELF6');
+</script>
+<link rel="canonical" href="https://www.poolchemtracker.com/tools/calcium-hardness-calculator">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Calcium Hardness Calculator — How Much to Raise Pool CH">
+<meta property="og:description" content="Enter your pool volume, current CH, and target to find the exact calcium chloride dose needed to raise calcium hardness.">
+<meta property="og:url" content="https://www.poolchemtracker.com/tools/calcium-hardness-calculator">
+<meta property="og:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<meta property="og:site_name" content="PoolChem Tracker">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calcium Hardness Calculator">
+<meta name="twitter:description" content="How much calcium chloride to raise pool calcium hardness to target — enter gallons, current CH, and target ppm.">
+<meta name="twitter:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.poolchemtracker.com/"},{"@type":"ListItem","position":2,"name":"Pool Calculators","item":"https://www.poolchemtracker.com/tools/"},{"@type":"ListItem","position":3,"name":"Calcium Hardness Calculator"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What calcium hardness level should I target?","acceptedAnswer":{"@type":"Answer","text":"For plaster (gunite) pools: 200–400 ppm, ideally 250–350 ppm. For fiberglass and vinyl liner pools: 150–250 ppm. Calcium hardness also affects your LSI (Langelier Saturation Index) — low CH makes water corrosive, high CH causes scaling. Use an LSI calculator to see how your CH interacts with pH, temperature, and alkalinity."}},{"@type":"Question","name":"Can I add calcium chloride all at once?","acceptedAnswer":{"@type":"Answer","text":"For doses under 10 lbs, adding in one batch is fine. For larger increases — especially 25 ppm or more — split the dose over two or three days. Calcium chloride dissolves exothermically (releasing heat), and large doses can temporarily cloud the water. Retest after each addition and wait for the water to clear before adding more."}},{"@type":"Question","name":"What happens if calcium hardness is too high?","acceptedAnswer":{"@type":"Answer","text":"High CH causes scaling — white deposits on pool surfaces, tile lines, equipment, and inside pipes. It also pushes LSI positive, accelerating calcium carbonate precipitation. Once CH is too high, the only correction is dilution: partially drain the pool and refill with fresh water. There is no chemical that removes calcium."}},{"@type":"Question","name":"Why can't I lower calcium hardness with a product?","acceptedAnswer":{"@type":"Answer","text":"Dissolved calcium ions cannot be removed by adding a chemical to the pool. Chelating agents and scale inhibitors prevent calcium from precipitating out, but they don't reduce the actual CH reading. The only way to lower CH is to replace some pool water with source water that has lower calcium content."}},{"@type":"Question","name":"Does salt level affect calcium hardness?","acceptedAnswer":{"@type":"Answer","text":"No — salt (NaCl) and calcium hardness are separate parameters. However, both affect LSI. Saltwater pools have a small positive TDS (total dissolved solids) effect that slightly reduces the LSI-scaling tendency, but it is minor compared to the contribution from CH, pH, and alkalinity."}}]}
+</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a1628;
+    --bg2: #0d1f3c;
+    --card: #0f1e38;
+    --accent: #4facfe;
+    --accent2: #00f2fe;
+    --text: #e8edf5;
+    --muted: #8899aa;
+    --good: #2ed573;
+    --warn: #ffa502;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  body { font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+  header { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+  .header-inner { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+  .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text); }
+  .logo-icon { width: 40px; height: 40px; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
+  .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+  .logo .logo-name { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
+  .logo .logo-name span { color: var(--accent); }
+  .header-right { display: flex; align-items: center; gap: 1.5rem; }
+  .header-link { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--accent); padding: 0.4rem 1rem; border-radius: 8px; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+  .header-link:hover { background: var(--accent); color: #000; }
+  .header-badge { display: inline-flex; }
+  .header-badge img { height: 36px; }
+
+  .page { padding: 3rem 0 4rem; }
+
+  .breadcrumb { font-size: 0.8rem; color: var(--muted); margin-bottom: 2rem; }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .page-label { display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+
+  h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 0.75rem; }
+  h1 .gradient { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .page-desc { font-size: 1.05rem; color: var(--muted); margin-bottom: 2.5rem; }
+
+  .calc-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; }
+
+  .inputs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+  .inputs-grid.one-col { grid-template-columns: 1fr; }
+
+  .field { display: flex; flex-direction: column; gap: 0.35rem; }
+  .field label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .field input { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 0.65rem 0.85rem; color: var(--text); font-size: 1rem; font-family: inherit; transition: border-color 0.15s; width: 100%; -moz-appearance: textfield; }
+  .field input::-webkit-outer-spin-button, .field input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .field input:focus { outline: none; border-color: rgba(79,172,254,0.5); }
+  .field input::placeholder { color: var(--muted); opacity: 0.5; }
+  .field input.error { border-color: rgba(255,107,107,0.6); }
+  .field-hint { font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; }
+  .field-hint a { color: var(--accent); text-decoration: none; }
+  .field-hint a:hover { text-decoration: underline; }
+
+  .section-divider { border-top: 1px solid var(--border); margin: 1.5rem 0; }
+
+  .field-group-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+
+  .product-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+  .product-tab { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 600; color: var(--muted); cursor: pointer; transition: all 0.15s; font-family: inherit; }
+  .product-tab.active { background: rgba(79,172,254,0.12); border-color: rgba(79,172,254,0.4); color: var(--accent); }
+  .product-tab:hover:not(.active) { border-color: rgba(79,172,254,0.25); color: var(--text); }
+
+  .info-box { background: rgba(79,172,254,0.06); border: 1px solid rgba(79,172,254,0.2); border-radius: 10px; padding: 0.9rem 1.1rem; margin-top: 0.75rem; font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+  .info-box strong { color: var(--text); }
+
+  .result-box { background: linear-gradient(135deg, rgba(79,172,254,0.10), rgba(0,242,254,0.05)); border: 1px solid rgba(79,172,254,0.3); border-radius: 12px; padding: 1.5rem; text-align: center; margin-top: 1.5rem; transition: opacity 0.2s; }
+  .result-box.empty { opacity: 0.4; }
+  .result-box.error-state { background: rgba(255,107,107,0.05); border-color: rgba(255,107,107,0.3); }
+  .result-label { font-size: 0.72rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+  .result-primary { font-size: clamp(2rem, 6vw, 3rem); font-weight: 800; letter-spacing: -0.03em; color: var(--text); line-height: 1.1; }
+  .result-secondary { font-size: 0.9rem; color: var(--muted); margin-top: 0.4rem; }
+  .result-note { font-size: 0.78rem; color: var(--muted); margin-top: 0.75rem; opacity: 0.8; line-height: 1.5; }
+
+  h3 { font-size: 1.35rem; font-weight: 700; margin: 2.5rem 0 0.75rem; letter-spacing: -0.02em; }
+  p { color: var(--text); margin-bottom: 1.25rem; font-size: 1.05rem; }
+  ul { margin: 0 0 1.25rem 1.5rem; color: var(--text); font-size: 1.05rem; }
+  li { margin-bottom: 0.4rem; }
+
+  .key-fact { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .key-fact h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .key-fact p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+
+  .warn-key-fact { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--warn); border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .warn-key-fact h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--warn); }
+  .warn-key-fact p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+
+  .related-list { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; }
+  .related-list h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.85rem; color: var(--accent); }
+  .related-list ul { list-style: none; margin: 0; padding: 0; }
+  .related-list li { padding: 0.4rem 0; font-size: 0.95rem; border-bottom: 1px solid var(--border); }
+  .related-list li:last-child { border-bottom: none; }
+  .related-list a { color: var(--accent); text-decoration: none; }
+  .related-list a:hover { text-decoration: underline; }
+
+  .cta-box { background: linear-gradient(135deg, rgba(79,172,254,0.08), rgba(0,242,254,0.05)); border: 1px solid rgba(79,172,254,0.25); border-radius: 14px; padding: 2rem; margin: 2.5rem 0; text-align: center; }
+  .cta-box h3 { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.5rem; }
+  .cta-box p { color: var(--muted); font-size: 0.92rem; max-width: 480px; margin: 0 auto 1.25rem; line-height: 1.6; }
+  .cta-box .badge { display: inline-block; transition: opacity 0.2s; }
+  .cta-box .badge:hover { opacity: 0.85; }
+  .cta-box .badge img { height: 44px; }
+
+  footer { padding: 2rem 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+  .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+
+  @media (max-width: 640px) {
+    .page { padding: 2rem 0 3rem; }
+    .header-badge { display: none; }
+    .header-link { font-size: 0.8rem; padding: 0.35rem 0.75rem; }
+    .header-right { gap: 0.75rem; }
+    .inputs-grid { grid-template-columns: 1fr 1fr; }
+    .inputs-grid.one-col { grid-template-columns: 1fr; }
+    .calc-card { padding: 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../" class="logo">
+      <div class="logo-icon"><img src="../Logo/logo-96.webp" alt="PoolChem Tracker" width="96" height="96"></div>
+      <span class="logo-name">Pool<span>Chem</span> Tracker</span>
+    </a>
+    <div class="header-right">
+      <a href="../blog/" class="header-link">Guides</a>
+      <a href="../features" class="header-link">Features</a>
+      <a href="../about" class="header-link">About</a>
+      <a href="https://apps.apple.com/app/id6762652630?ct=tool" class="header-badge"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40"></a>
+    </div>
+  </div>
+</header>
+
+<div class="page">
+  <div class="container">
+
+    <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Pool Calculators</a> &rsaquo; Calcium Hardness Calculator</div>
+
+    <span class="page-label">Pool Calculators</span>
+    <h1>Calcium Hardness <span class="gradient">Calculator</span></h1>
+    <p class="page-desc">Calculate how much calcium chloride to add to raise your pool's calcium hardness (CH) to target.</p>
+
+    <div class="calc-card">
+
+      <div class="inputs-grid one-col">
+        <div class="field">
+          <label>Pool Volume</label>
+          <input type="number" id="gallons" min="0" step="100" placeholder="e.g. 15000 gallons" oninput="calc()">
+          <span class="field-hint">Don't know your gallons? <a href="pool-volume-calculator">Use the volume calculator</a></span>
+        </div>
+      </div>
+
+      <div class="inputs-grid">
+        <div class="field">
+          <label>Current CH (ppm)</label>
+          <input type="number" id="current-ch" min="0" max="2000" step="5" placeholder="e.g. 150" oninput="calc()">
+        </div>
+        <div class="field">
+          <label>Target CH (ppm)</label>
+          <input type="number" id="target-ch" min="0" max="2000" step="5" placeholder="e.g. 300" oninput="calc()">
+          <span class="field-hint">Plaster: 250–350 ppm · Fiberglass/vinyl: 150–250 ppm</span>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <strong>CH also affects water balance:</strong> Calcium hardness is a component of the LSI (Langelier Saturation Index). Low CH makes water corrosive; high CH causes scaling. Use the <a href="lsi-calculator" style="color:var(--accent);text-decoration:none">LSI calculator</a> to see your full water balance.
+      </div>
+
+      <div class="section-divider"></div>
+
+      <div class="field-group-label">Product</div>
+      <div class="product-tabs">
+        <button class="product-tab active" onclick="setProduct('77')">77% Calcium Chloride Flake</button>
+        <button class="product-tab" onclick="setProduct('96')">96% Anhydrous Calcium Chloride</button>
+      </div>
+
+      <div class="result-box empty" id="result-box">
+        <div class="result-label">Add to Your Pool</div>
+        <div class="result-primary" id="result-main">&mdash;</div>
+        <div class="result-secondary" id="result-secondary"></div>
+        <div class="result-note" id="result-note">Enter your pool volume and CH values above</div>
+      </div>
+
+    </div><!-- /calc-card -->
+
+    <div class="warn-key-fact">
+      <h4>Split large doses — calcium chloride dissolves hot</h4>
+      <p>Calcium chloride releases heat as it dissolves (exothermic reaction). For increases over 25 ppm, split the dose over two days. Pre-dissolve in a bucket of pool water before broadcasting, and add with the pump running. Large undissolved piles can bleach vinyl liners or etch plaster.</p>
+    </div>
+
+    <h3>Why calcium hardness matters</h3>
+    <p>Calcium hardness (CH) is how much dissolved calcium is in your pool water. It's one of the five factors in the Langelier Saturation Index (LSI) — the measure of whether your water is balanced, corrosive, or scaling.</p>
+    <p>Water with very low CH is aggressive: it wants to dissolve calcium from wherever it can find it — your pool plaster, grout, fittings, and equipment. This causes surface etching and pitting over time. Water with very high CH tips toward scaling, depositing calcium carbonate on surfaces, tile lines, and inside pipes.</p>
+
+    <div class="key-fact">
+      <h4>Target range by pool type</h4>
+      <p>Plaster (gunite): 200–400 ppm, ideally 250–350. Fiberglass: 150–250 ppm. Vinyl liner: 150–250 ppm. Concrete/pebble: 200–400 ppm. When in doubt, aim for 250–350 ppm — the middle of the safe range for most pool surfaces.</p>
+    </div>
+
+    <h3>How the dose is calculated</h3>
+    <p>The standard calcium chloride dose formula:</p>
+    <p><strong>lbs (77% CaCl₂) = (target CH − current CH) × pool gallons × 0.0000125</strong></p>
+    <p>This is derived from the molecular weight of calcium (40.08 g/mol) relative to calcium chloride (110.98 g/mol), adjusted for 77% product purity and the weight of water (8.34 lbs/gallon). For 96% anhydrous calcium chloride, the dose is multiplied by 0.77/0.96 ≈ 0.80.</p>
+    <p>The 77% flake form (sold as pool calcium increaser, hardness increaser, or under brand names like Dow Flake) is the most widely available product at pool supply stores. Anhydrous 96% is more concentrated and sometimes available in bulk.</p>
+
+    <h3>Worked example</h3>
+    <p>A 15,000-gallon pool tests at 120 ppm CH. The target for a plaster pool is 300 ppm — an increase of <strong>180 ppm</strong>.</p>
+    <p>Dose = 180 × 15,000 × 0.0000125 = <strong>33.75 lbs</strong> of 77% calcium chloride. Split into three additions of roughly 11 lbs each on consecutive days, with the pump running. Retest before each addition to confirm the previous dose has fully dissolved and circulated.</p>
+
+    <h3>Adding calcium hardness — step by step</h3>
+    <ul>
+      <li>Measure and record current CH before starting.</li>
+      <li>Fill a bucket with pool water. Slowly add the calcium chloride to the bucket and stir — never add water to the product.</li>
+      <li>Broadcast the dissolved mixture around the pool perimeter with the pump running.</li>
+      <li>For doses over 10 lbs, wait 24 hours and retest before adding more.</li>
+      <li>Do not swim until the product has fully dissolved (water should be clear).</li>
+    </ul>
+
+    <h3>Frequently asked questions</h3>
+
+    <h4 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">What calcium hardness level should I target?</h4>
+    <p>For plaster and gunite pools: 250–350 ppm is the sweet spot. For fiberglass and vinyl liner pools: 150–250 ppm — lower is acceptable because these surfaces don't leach calcium the way plaster does. CH also affects your LSI score along with pH, alkalinity, and temperature, so use the <a href="lsi-calculator">LSI calculator</a> to check the full picture.</p>
+
+    <h4 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">Can I add calcium chloride directly to the pool?</h4>
+    <p>Yes, but pre-dissolving in a bucket first is safer for vinyl liners and reduces the risk of a localized hot spot on plaster. If broadcasting dry, spread it evenly across the pool surface — never dump it in one spot — and keep the pump running to circulate it. The product will dissolve within a few hours.</p>
+
+    <h4 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">Can I add the full dose at once?</h4>
+    <p>For increases under 25 ppm, a single addition is fine. For larger increases, split the dose over multiple days and retest between additions. This prevents temporary clouding from calcium carbonate precipitation, and ensures you don't overshoot your target — there's no chemical way to lower CH once it's too high.</p>
+
+    <h4 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">What happens if calcium hardness is too high?</h4>
+    <p>CH above 400–500 ppm causes scaling: white, chalky deposits on pool surfaces, tile lines, the waterline, and inside the filter and heater. It also forces LSI positive, accelerating calcium carbonate precipitation. The only correction is dilution — drain a portion of your pool and refill with fresh water. Test your fill water's hardness first, since tap water in some areas already has high CH.</p>
+
+    <h4 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">Why can't I lower calcium hardness chemically?</h4>
+    <p>Dissolved calcium ions are stable in water and won't bond to a product that removes them from solution. Sequestering agents and scale inhibitors can prevent calcium from precipitating out, but they leave the CH reading unchanged. To lower CH, you must replace some of the pool water with water that has lower calcium content.</p>
+
+    <div class="cta-box">
+      <h3>CH tracked automatically with every reading.</h3>
+      <p>PoolChem Tracker logs calcium hardness alongside pH, alkalinity, and temperature — then calculates your LSI score and tells you exactly what to adjust.</p>
+      <a href="https://apps.apple.com/app/id6762652630?ct=tool" class="badge"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40"></a>
+    </div>
+
+    <div class="related-list">
+      <h4>More pool calculators &amp; guides</h4>
+      <ul>
+        <li><a href="pool-volume-calculator">Pool volume calculator</a> — find your gallons first</li>
+        <li><a href="lsi-calculator">LSI calculator</a> — see how CH affects your water balance</li>
+        <li><a href="muriatic-acid-calculator">Muriatic acid calculator</a> — lower pH or alkalinity</li>
+        <li><a href="baking-soda-calculator">Baking soda calculator</a> — raise total alkalinity</li>
+        <li><a href="saltwater-pool-salt-calculator">Salt addition calculator</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="../">Home</a>
+      <a href="../blog/">Guides</a>
+      <a href="../explained/">Explained</a>
+      <a href="mailto:support@poolchemtracker.com">Support</a>
+      <a href="../privacy">Privacy Policy</a>
+      <a href="../terms">Terms of Service</a>
+    </div>
+    <p>&copy; 2026 PoolChem Tracker. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  var purity = 0.77;
+
+  window.setProduct = function (p) {
+    purity = p === '77' ? 0.77 : 0.96;
+    document.querySelectorAll('.product-tab').forEach(function (btn, i) {
+      btn.classList.toggle('active', (i === 0 && p === '77') || (i === 1 && p === '96'));
+    });
+    calc();
+  };
+
+  function formatWeight(lbs) {
+    if (lbs < 0.1) return 'Less than 0.1 lbs';
+    if (lbs < 1)   return (lbs * 16).toFixed(0) + ' oz';
+    if (lbs < 2)   return lbs.toFixed(1) + ' lbs (' + (lbs * 16).toFixed(0) + ' oz)';
+    return lbs.toFixed(1) + ' lbs';
+  }
+
+  function formatAlt(lbs) {
+    if (lbs < 2)   return '';
+    return Math.round(lbs * 16) + ' oz';
+  }
+
+  window.calc = function () {
+    var gallons   = parseFloat(document.getElementById('gallons').value) || 0;
+    var currentCH = parseFloat(document.getElementById('current-ch').value);
+    var targetCH  = parseFloat(document.getElementById('target-ch').value);
+    var box       = document.getElementById('result-box');
+    var main      = document.getElementById('result-main');
+    var sec       = document.getElementById('result-secondary');
+    var note      = document.getElementById('result-note');
+
+    box.classList.remove('error-state');
+
+    document.getElementById('current-ch').classList.remove('error');
+    document.getElementById('target-ch').classList.remove('error');
+
+    if (gallons <= 0 || isNaN(currentCH) || isNaN(targetCH)) {
+      box.classList.add('empty');
+      main.textContent = '—';
+      sec.textContent = '';
+      note.textContent = 'Enter your pool volume and CH values above';
+      return;
+    }
+
+    if (targetCH <= currentCH) {
+      document.getElementById('target-ch').classList.add('error');
+      box.classList.remove('empty');
+      box.classList.add('error-state');
+      main.textContent = 'CH already at target';
+      sec.textContent = '';
+      note.textContent = 'Target CH must be higher than current CH. To lower calcium hardness, partially drain and refill with fresh water.';
+      return;
+    }
+
+    if (targetCH > 800) {
+      document.getElementById('target-ch').classList.add('error');
+      box.classList.remove('empty');
+      box.classList.add('error-state');
+      main.textContent = 'Target too high';
+      sec.textContent = '';
+      note.textContent = 'Calcium hardness above 400–500 ppm causes scaling. Target 250–350 ppm for most pool surfaces.';
+      return;
+    }
+
+    var delta = targetCH - currentCH;
+    var lbs77 = delta * gallons * 0.0000125;
+    var lbs   = lbs77 * (0.77 / purity);
+
+    box.classList.remove('empty', 'error-state');
+    main.textContent = formatWeight(lbs);
+    sec.textContent  = formatAlt(lbs);
+
+    var productName = purity === 0.77 ? '77% calcium chloride flake' : '96% anhydrous calcium chloride';
+    var splitNote   = delta > 25 ? ' Split over multiple days for large increases.' : '';
+    note.textContent = 'of ' + productName + ' to raise CH from ' + Math.round(currentCH) + ' to ' + Math.round(targetCH) + ' ppm in a ' + Math.round(gallons).toLocaleString() + '-gallon pool.' + splitNote;
+  };
+})();
+</script>
+
+</body>
+</html>

@@ -85,6 +85,8 @@ PoolChem Tracker helps residential pool owners monitor and balance their water c
 - [Baking Soda Calculator](https://www.poolchemtracker.com/tools/baking-soda-calculator): How much baking soda (sodium bicarbonate) to raise total alkalinity to target; dose in ounces and pounds; target TA 80–120 ppm
 - [CYA Dilution Calculator](https://www.poolchemtracker.com/tools/cya-dilution-calculator): How many gallons to drain and refill to lower CYA to target; includes staged drain guidance when reduction requires draining more than 50% of the pool
 - [LSI Calculator](https://www.poolchemtracker.com/tools/lsi-calculator): Calculate pool Langelier Saturation Index using the full formula — CYA-corrected alkalinity (TA minus CYA/3), polynomial temperature factor, salt TDS adjustment; shows per-factor breakdown so you can see what's driving your water balance score; target -0.3 to +0.3
+- [Saltwater Pool Salt Calculator](https://www.poolchemtracker.com/tools/saltwater-pool-salt-calculator): How many pounds of pool salt (NaCl) to add to reach target salinity ppm for salt chlorine generator (SWG) pools; supports 40 lb and 50 lb bag sizes; typical SWG target 2700–3400 ppm
+- [Calcium Hardness Calculator](https://www.poolchemtracker.com/tools/calcium-hardness-calculator): How much calcium chloride to raise pool calcium hardness (CH) to target; supports 77% CaCl2 flake and 96% anhydrous; target 250–350 ppm for plaster, 150–250 ppm for fiberglass/vinyl; CH affects LSI water balance score
 
 ## Contact
 
