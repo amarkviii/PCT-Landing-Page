@@ -58,8 +58,8 @@ gtag('config','G-S8JT1DELF6');
   .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text); }
   .logo-icon { width: 40px; height: 40px; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
   .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
-  .logo h1 { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
-  .logo h1 span { color: var(--accent); }
+  .logo .logo-name { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
+  .logo .logo-name span { color: var(--accent); }
   .header-right { display: flex; align-items: center; gap: 1.5rem; }
   .header-link { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--accent); padding: 0.4rem 1rem; border-radius: 8px; transition: background 0.2s, color 0.2s; white-space: nowrap; }
   .header-link:hover { background: var(--accent); color: #000; }
@@ -74,8 +74,8 @@ gtag('config','G-S8JT1DELF6');
 
   .concept-label { display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
 
-  article h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 1rem; }
-  article h2 .gradient { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  article h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 1rem; }
+  article h1 .gradient { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
   .meta { font-size: 0.85rem; color: var(--muted); margin-bottom: 2rem; }
 
@@ -156,7 +156,7 @@ gtag('config','G-S8JT1DELF6');
   <div class="header-inner">
     <a href="../" class="logo">
       <div class="logo-icon"><img src="../Logo/logo-96.webp" alt="PoolChem Tracker" width="96" height="96"></div>
-      <h1>Pool<span>Chem</span> Tracker</h1>
+      <span class="logo-name">Pool<span>Chem</span> Tracker</span>
     </a>
     <div class="header-right">
       <a href="../blog/" class="header-link">Guides</a>
@@ -173,7 +173,7 @@ gtag('config','G-S8JT1DELF6');
     <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Pool Chemistry Explained</a> &rsaquo; Total Alkalinity</div>
 
     <span class="concept-label">Pool Chemistry Explained</span>
-    <h2>Total Alkalinity <span class="gradient">(TA)</span></h2>
+    <h1>Total Alkalinity <span class="gradient">(TA)</span></h1>
     <div class="meta">4 min read &middot; Water Balance</div>
 
     <div class="definition-box">
