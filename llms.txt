@@ -66,6 +66,7 @@ PoolChem Tracker helps residential pool owners monitor and balance their water c
 - [Total Chlorine](https://www.poolchemtracker.com/explained/total-chlorine): TC = FC + CC (chloramines); when TC equals FC, no chloramines are present; the number most test strips report
 - [Combined Chlorine](https://www.poolchemtracker.com/explained/combined-chlorine): CC = TC − FC; chloramines that cause pool smell and eye irritation; target < 0.5 ppm; fix is breakpoint chlorination
 - [Cyanuric Acid](https://www.poolchemtracker.com/explained/cyanuric-acid): CYA protects chlorine from UV; target 30–50 (60–80 for SWG); too much CYA causes most pool problems
+- [FC/CYA Ratio](https://www.poolchemtracker.com/explained/fc-cya-ratio): FC must be at least CYA × 7.5% for standard pools (CYA × 5% for SWG); below this threshold chlorine stops killing algae effectively
 - [Chloramines](https://www.poolchemtracker.com/explained/chloramines): Spent chlorine compounds from sweat/urine/oils that cause 'pool smell' and red eyes — fix is more chlorine, not less
 - [Breakpoint Chlorination](https://www.poolchemtracker.com/explained/breakpoint-chlorination): The process of raising FC to shock level (CYA × 40%) to chemically destroy chloramines; must hold until CC < 0.5 ppm and FC holds overnight
 - [Total Alkalinity](https://www.poolchemtracker.com/explained/total-alkalinity): TA buffers pH from swinging; target 60–120 ppm; high TA causes persistent pH drift upward, low TA causes erratic pH swings
