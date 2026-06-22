@@ -59,6 +59,10 @@ PoolChem Tracker helps residential pool owners monitor and balance their water c
 - [Ideal Pool pH Level](https://www.poolchemtracker.com/blog/ideal-pool-ph-level): Ideal pool pH is 7.4–7.8 (7.5–7.6 sweet spot) — why pH matters, how to test, how to adjust safely
 - [How Much Muriatic Acid to Add to a Pool](https://www.poolchemtracker.com/blog/how-much-muriatic-acid-to-add-to-pool): Dose chart by pool size for lowering pH or alkalinity; includes 31.45% vs 14.5% strengths, safety, step-by-step
 
+- [Desert Pool Chemistry: The Complete Guide](https://www.poolchemtracker.com/blog/desert-pool-chemistry): Why desert pools in Arizona, Southern California, and Nevada need higher CYA (60–80 ppm), higher FC targets (CYA × 7.5% + climate buffer), and active calcium management — high evaporation, hard fill water, intense UV, and year-round heat all require different targets than national guides recommend
+- [Pool Evaporation in Hot Climates](https://www.poolchemtracker.com/blog/pool-evaporation-hot-climates): Desert pools lose 1–1.5 inches/week in summer vs. 0.25–0.5 for temperate climates; every evaporated gallon concentrates minerals left behind; bucket test to measure your pool's rate; solar cover reduces evaporation 75–90%; fall partial drain resets accumulated calcium and CYA
+- [Year-Round Pool Maintenance for Desert Pools](https://www.poolchemtracker.com/blog/year-round-pool-maintenance-desert-pools): No winterizing, no spring startup shock, no annual chemistry reset for AZ/SoCal/NV pools; seasonal calendar (spring CYA/CH check, summer daily FC + monthly LSI, fall partial drain, winter LSI flip toward corrosive); calcium hardness, CYA, and TDS accumulate year over year without planned drains
+
 ## Explained (Pool Chemistry Reference)
 
 - [Pool Chemistry Explained](https://www.poolchemtracker.com/explained/): Plain-language reference for every pool chemistry term — what each means, target ranges, why it matters

@@ -5,13 +5,37 @@
 <link>https://www.poolchemtracker.com/blog/</link>
 <description>Pool chemistry guides, tips, and maintenance advice from PoolChem Tracker.</description>
 <language>en-us</language>
-<lastBuildDate>Thu, 11 Jun 2026 00:00:00 +0000</lastBuildDate>
+<lastBuildDate>Sat, 21 Jun 2026 12:00:00 +0000</lastBuildDate>
 <atom:link href="https://www.poolchemtracker.com/feed.xml" rel="self" type="application/rss+xml"/>
 <image>
 <url>https://www.poolchemtracker.com/Logo/logo-256.webp</url>
 <title>PoolChem Tracker Blog</title>
 <link>https://www.poolchemtracker.com/blog/</link>
 </image>
+
+<item>
+<title>Desert Pool Chemistry: The Complete Guide for AZ &amp; Southern California Pools</title>
+<link>https://www.poolchemtracker.com/blog/desert-pool-chemistry</link>
+<guid>https://www.poolchemtracker.com/blog/desert-pool-chemistry</guid>
+<pubDate>Sat, 21 Jun 2026 12:00:00 +0000</pubDate>
+<description>Desert pools face four problems national guides ignore: intense UV destroys chlorine faster, tap water is already very hard, evaporation concentrates minerals all season, and summer heat pushes water balance toward scale. The correct CYA targets, FC minimums, and calcium management for Arizona and Southern California pools.</description>
+</item>
+
+<item>
+<title>Pool Evaporation in Hot Climates: Managing Water Loss and What It Does to Your Chemistry</title>
+<link>https://www.poolchemtracker.com/blog/pool-evaporation-hot-climates</link>
+<guid>https://www.poolchemtracker.com/blog/pool-evaporation-hot-climates</guid>
+<pubDate>Sat, 21 Jun 2026 11:00:00 +0000</pubDate>
+<description>Desert pools lose 1–1.5 inches of water per week in summer — and every gallon that evaporates leaves its mineral load behind, concentrating calcium, alkalinity, and CYA over the season. How to measure your pool's evaporation rate, reduce it with covers, and manage the chemistry consequences with a planned drain schedule.</description>
+</item>
+
+<item>
+<title>Year-Round Pool Maintenance for Desert Pools</title>
+<link>https://www.poolchemtracker.com/blog/year-round-pool-maintenance-desert-pools</link>
+<guid>https://www.poolchemtracker.com/blog/year-round-pool-maintenance-desert-pools</guid>
+<pubDate>Sat, 21 Jun 2026 10:00:00 +0000</pubDate>
+<description>Arizona, Southern California, Nevada, and similar climates never close their pools — which means no annual chemistry reset and minerals that accumulate year over year. The season-by-season maintenance calendar for desert pool owners, including when to do a partial drain, how winter LSI flips toward corrosive, and the tracking advantage of year-round data.</description>
+</item>
 
 <item>
 <title>Does High Alkalinity Cause Cloudy Pool Water?</title>
