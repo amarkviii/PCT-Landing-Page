@@ -112,17 +112,17 @@ gtag('config','G-S8JT1DELF6');
     padding: 1.25rem 1.5rem;
     margin: 1.5rem 0;
   }
-  .myth-box h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; color: #ff6b6b; }
+  .myth-box h3, .myth-box .box-heading { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; color: #ff6b6b; }
   .myth-box p { font-size: 0.95rem; color: var(--text); margin: 0; }
 
   .key-fact { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
-  .key-fact h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .key-fact h3, .key-fact .box-heading { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
   .key-fact p { font-size: 0.95rem; color: var(--muted); margin: 0; }
   .key-fact a { color: var(--accent); text-decoration: none; }
   .key-fact a:hover { text-decoration: underline; }
 
   .action-list, .related-list { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; }
-  .action-list h3, .related-list h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.85rem; color: var(--accent); }
+  .action-list h3, .related-list h3, .action-list .box-heading, .related-list .box-heading { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.85rem; color: var(--accent); }
   .action-list ul, .related-list ul { list-style: none; margin: 0; padding: 0; }
   .action-list li, .related-list li { padding: 0.4rem 0; font-size: 0.95rem; }
   .action-list a, .related-list a { color: var(--accent); text-decoration: none; }
@@ -180,7 +180,7 @@ gtag('config','G-S8JT1DELF6');
     </div>
 
     <div class="myth-box">
-      <h3>Common misconception</h3>
+      <p class="box-heading">Common misconception</p>
       <p>"Shocking just means adding a lot of chlorine." In reality, breakpoint chlorination is a specific chemical threshold &mdash; a target FC tied directly to your CYA level. Adding a fixed bag of granular shock without knowing your CYA may overshoot, undershoot, or not reach the breakpoint at all.</p>
     </div>
 
