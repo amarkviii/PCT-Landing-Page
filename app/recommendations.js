@@ -29,6 +29,8 @@ function buildRecs(r) {
   const SCALE  = GALLON / 18000;
   const issues = [];
   const cc = (r.tc != null && r.fc != null) ? Math.round((r.tc - r.fc) * 100) / 100 : null;
+  const isShocking = cc !== null && cc > 0.5;
+  const isAddingChlorineForCC = cc !== null && cc > 0.2;
   const acidConc = poolSettings.acidConc || 14.5;
   const acidScale = 14.5 / acidConc;
   const acidLabel = acidConc === 31.45 ? '31.45%' : '14.5%';
@@ -37,7 +39,7 @@ function buildRecs(r) {
   const fcTarget = fcR.target;
 
   // 0. SHOCK — always first
-  if (cc !== null && cc > 0.5) {
+  if (isShocking) {
     const shockTarget = Math.round((r.cya != null ? r.cya : 40) * 0.4);
     const shockOz = Math.max(0, (shockTarget - r.fc) * GALLON / 10000 * 128 / 10);
     issues.push({ order:0, icon:'🚨', priority:'critical', treatment:'Shock & Maintain', linkKey:'shock',
@@ -46,14 +48,19 @@ function buildRecs(r) {
       effect:'Eliminates chloramines at breakpoint chlorination.',
       note:`CC > 0.5 ppm — active chloramine buildup. Add the starting dose, then retest in a few hours and re-dose to hold FC at ${shockTarget} ppm. Continue until CC drops below 0.5 ppm and FC holds overnight (loses less than 1 ppm). Do not add other chemicals until complete.`,
       why:'Combined chlorine above 0.5 ppm causes eye/skin irritation and blocks sanitizer effectiveness.' });
-  } else if (cc !== null && cc > 0.2) {
-    const boostOz = 2.5 * GALLON / 10000 * 128 / 10;
-    issues.push({ order:0, icon:'⚡', priority:'critical', treatment:'Boost Chlorine', linkKey:'cc-high',
-      amount:`~${fmtLiquid(boostOz)} Liquid Chlorine (10%)`,
-      context:`Based on: CC = ${cc} ppm (TC − FC). Raise FC by ~2.5 ppm. ${fmtPoolCtx(GALLON)}`,
-      effect:'Helps oxidize forming chloramines.',
-      note:`CC is ${cc} ppm — early chloramine formation. Monitor closely and retest in 4–6 hrs.`,
-      why:'Combined chlorine above 0.2 ppm indicates chloramines are beginning to form.' });
+  } else if (isAddingChlorineForCC) {
+    // Skip boost when CYA is also low and FC is deficient — chlorine is deferred until after CYA corrects the target
+    const cyaAlsoLow = r.cya != null && r.cya < R('cya').min;
+    const fcDeficient = r.fc != null && r.fc < fcMin;
+    if (!(cyaAlsoLow && fcDeficient)) {
+      const boostOz = 2.5 * GALLON / 10000 * 128 / 10;
+      issues.push({ order:0, icon:'⚡', priority:'critical', treatment:'Boost Chlorine', linkKey:'cc-high',
+        amount:`~${fmtLiquid(boostOz)} Liquid Chlorine (10%)`,
+        context:`Based on: CC = ${cc} ppm (TC − FC). Raise FC by ~2.5 ppm. ${fmtPoolCtx(GALLON)}`,
+        effect:'Helps oxidize forming chloramines.',
+        note:`CC is ${cc} ppm — early chloramine formation. Monitor closely and retest in 4–6 hrs.`,
+        why:'Combined chlorine above 0.2 ppm indicates chloramines are beginning to form.' });
+    }
   }
 
   // 1 & 2. pH and TA — special case: if pH high AND TA low, raise TA first
@@ -136,7 +143,9 @@ function buildRecs(r) {
       context:`Based on: CYA ${r.cya} → target ${cyaTarget} ppm. ${fmtPoolCtx(GALLON)}`,
       effect:`Raises CYA by ~${cyaTarget - r.cya} ppm.`,
       note: fcAlsoLow
-        ? 'Fix CYA before adding chlorine — your FC target depends on CYA. Add in skimmer sock, run pump 24 hrs, then retest and adjust chlorine.'
+        ? (isShocking
+            ? 'Complete the shock step above before adding CYA. Then: add in skimmer sock, run pump 24+ hrs, and retest chlorine.'
+            : 'Add in skimmer sock, run pump 24+ hrs. The next step shows how much chlorine to add after CYA dissolves.')
         : 'Add in skimmer sock, run pump 24 hrs. Retest CYA before adjusting chlorine.',
       why:'CYA protects chlorine from UV breakdown. Without adequate CYA, chlorine dissipates rapidly in sunlight.' });
   }
@@ -157,18 +166,20 @@ function buildRecs(r) {
       why:'High CYA reduces chlorine effectiveness — "chlorine lock".' });
   }
 
-  // 4. Chlorine — CYA-adjusted target (downgrade if CYA needs fixing first)
-  // Skip if any CC-triggered chlorine rec is already firing — those doses cover FC deficiency too
-  const isShocking = cc !== null && cc > 0.5;
-  const isAddingChlorineForCC = cc !== null && cc > 0.2;
-  if (r.fc != null && r.fc < fcMin && !isAddingChlorineForCC) {
+  // 4. Chlorine — CYA-adjusted target
+  // Skip if a CC-triggered chlorine rec is already firing AND CYA doesn't need fixing first.
+  // When CYA is low and FC is deficient, boost is deferred — allow this step through after CYA.
+  const deferChlorineForCya = !isShocking && isAddingChlorineForCC && cyaLow;
+  if (r.fc != null && r.fc < fcMin && (!isAddingChlorineForCC || deferChlorineForCya)) {
     const needed = (fcTarget - r.fc) * GALLON / 10000;
     const ozNeeded = needed * 128 / 10;
     issues.push({ order:4, icon:'🧴', priority:'critical', treatment:'Liquid Chlorine (10%)', linkKey:'fc-low',
       amount:`~${fmtLiquid(ozNeeded)}`,
       context:`Based on: FC ${r.fc} ppm → target ${fcTarget} ppm. ${fmtPoolCtx(GALLON)}`,
       effect:`Raises FC by ~${(fcTarget - r.fc).toFixed(1)} ppm.`,
-      note: cyaLow ? `Fix CYA first (step above) — your FC target will change once CYA is corrected.` : `Minimum FC is ${fcMin} ppm. Add in evening, run pump 4+ hrs.`,
+      note: cyaLow
+        ? `Add after CYA dissolves (24+ hrs) — your FC target will shift once CYA is corrected, so retest after dosing.${deferChlorineForCya ? ` Adding chlorine to this level will also clear the elevated CC (${cc} ppm) from your test.` : ''}`
+        : `Minimum FC is ${fcMin} ppm. Add in evening, run pump 4+ hrs.`,
       why:`FC below ${fcMin} ppm cannot effectively sanitize the pool.` });
   }
 
