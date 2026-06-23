@@ -3,3 +3,12 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+/downloads/swg%20pool%20reference%20card.pdf
+  Link: <https://www.poolchemtracker.com/downloads/swg%20pool%20reference%20card.pdf>; rel="canonical"
+
+/downloads/pool%20chem%20reference%20card.pdf
+  Link: <https://www.poolchemtracker.com/downloads/pool%20chem%20reference%20card.pdf>; rel="canonical"
+
+/downloads/pool%20chem%20combined%20card.pdf
+  Link: <https://www.poolchemtracker.com/downloads/pool%20chem%20combined%20card.pdf>; rel="canonical"
