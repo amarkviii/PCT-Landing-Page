@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-<meta name="description" content="Calculate how much liquid chlorine to add to reach your target FC. Enter pool size, current FC, and CYA — get an exact dose in ounces or gallons.">
+<meta name="description" content="Calculate how much liquid chlorine to add to reach your target FC. Enter pool size, current FC, and CYA — get an exact dose in ounces, gallons, or litres.">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
 <script>
 window.dataLayer=window.dataLayer||[];
@@ -18,13 +18,13 @@ gtag('config','G-S8JT1DELF6');
 <link rel="canonical" href="https://www.poolchemtracker.com/tools/chlorine-dose-calculator">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Pool Chlorine Dose Calculator — How Much Liquid Chlorine to Add">
-<meta property="og:description" content="Calculate how much liquid chlorine to add to reach your target FC. Enter pool size, current FC, and CYA — get an exact dose in ounces or gallons.">
+<meta property="og:description" content="Calculate how much liquid chlorine to add to reach your target FC. Enter pool size, current FC, and CYA — get an exact dose in ounces, gallons, or litres.">
 <meta property="og:url" content="https://www.poolchemtracker.com/tools/chlorine-dose-calculator">
 <meta property="og:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
 <meta property="og:site_name" content="PoolChem Tracker">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Pool Chlorine Dose Calculator">
-<meta name="twitter:description" content="Calculate how much liquid chlorine to add to reach your target FC. Enter pool size, current FC, and CYA — get an exact dose in ounces or gallons.">
+<meta name="twitter:description" content="Calculate how much liquid chlorine to add to reach your target FC. Enter pool size, current FC, and CYA — get an exact dose in ounces, gallons, or litres.">
 <meta name="twitter:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.poolchemtracker.com/"},{"@type":"ListItem","position":2,"name":"Pool Calculators","item":"https://www.poolchemtracker.com/tools/"},{"@type":"ListItem","position":3,"name":"Chlorine Dose Calculator"}]}
@@ -159,6 +159,12 @@ gtag('config','G-S8JT1DELF6');
     line-height: 1.65;
   }
 
+  .toggle-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+  .toggle-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .toggle-group { display: flex; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .toggle-group button { background: none; border: none; color: var(--muted); font-size: 0.85rem; font-weight: 600; padding: 0.4rem 1rem; cursor: pointer; transition: background 0.15s, color 0.15s; font-family: inherit; }
+  .toggle-group button.active { background: var(--accent); color: #000; }
+
   @media (max-width: 640px) {
     .page { padding: 2rem 0 3rem; }
     .header-badge { display: none; }
@@ -195,7 +201,7 @@ gtag('config','G-S8JT1DELF6');
     <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Pool Calculators</a> &rsaquo; Chlorine Dose</div>
 
     <span class="page-label">Pool Calculators</span>
-    <h1>Chlorine <span class="gradient">Dose Calculator</span></h1>
+    <h1>How Much Chlorine to Add to Your Pool — <span class="gradient">Calculator</span></h1>
     <p class="page-desc">Enter your pool volume, current FC, and CYA-based target FC to get an exact dose. Not sure what target to use? Your target FC = CYA × 7.5% for most pools — see the <a href="../blog/fc-cya-chart-chlorine-levels" style="color:var(--accent)">FC/CYA chart</a>.</p>
 
     <div class="answer-box">
@@ -204,6 +210,14 @@ gtag('config','G-S8JT1DELF6');
     </div>
 
     <div class="calc-card">
+
+      <div class="toggle-row">
+        <span class="toggle-label">Units</span>
+        <div class="toggle-group">
+          <button id="btn-us" class="active" onclick="setVolumeUnits('us')">Gallons</button>
+          <button id="btn-metric" onclick="setVolumeUnits('metric')">Liters</button>
+        </div>
+      </div>
 
       <div class="inputs-grid one-col">
         <div class="field">
@@ -304,7 +318,7 @@ gtag('config','G-S8JT1DELF6');
         <li><a href="../blog/fc-cya-chart-chlorine-levels">FC/CYA chart</a> — find your safe FC target before you dose</li>
         <li><a href="../blog/pool-chlorine-levels-chart">Pool chlorine levels chart</a> — FC, CC, and TC ranges with CYA-adjusted targets</li>
         <li><a href="pool-volume-calculator">Pool volume calculator</a> — find your gallons first</li>
-        <li><a href="pool-shock-calculator">Pool shock calculator</a> — how much to reach breakpoint chlorination</li>
+        <li><a href="pool-shock-calculator">Pool shock calculator — breakpoint chlorination doses</a></li>
         <li><a href="../explained/free-chlorine">Free chlorine explained</a> — what FC measures and why it matters</li>
         <li><a href="../explained/cyanuric-acid">Cyanuric acid (CYA) explained</a> — how CYA sets your minimum FC target</li>
         <li><a href="../blog/pool-chlorine-too-low">Pool chlorine too low</a> — causes and step-by-step fix</li>
@@ -335,6 +349,7 @@ gtag('config','G-S8JT1DELF6');
   'use strict';
 
   var product = 'liquid-10';
+  var units = 'us';
 
   var products = {
     'liquid-10': { type: 'liquid', concentration: 0.10,  density: 1.074, name: 'liquid chlorine (10%)' },
@@ -353,6 +368,43 @@ gtag('config','G-S8JT1DELF6');
     document.getElementById('trichlor-warn').style.display = p === 'trichlor' ? 'block' : 'none';
     calc();
   };
+
+  window.setVolumeUnits = function (u) {
+    units = u;
+    document.getElementById('btn-us').classList.toggle('active', u === 'us');
+    document.getElementById('btn-metric').classList.toggle('active', u === 'metric');
+    var inp = document.getElementById('gallons');
+    inp.placeholder = u === 'metric' ? 'e.g. 57000 liters' : 'e.g. 15000 gallons';
+    calc();
+  };
+
+  function formatMetricLiquid(floz) {
+    var mL = floz * 29.5735;
+    if (mL < 10)   return 'Less than 10 mL';
+    if (mL < 1000) return Math.round(mL) + ' mL';
+    return (mL / 1000).toFixed(2) + ' L';
+  }
+
+  function formatMetricLiquidAlt(floz) {
+    var mL = floz * 29.5735;
+    if (mL < 100)  return '';
+    if (mL < 1000) return (mL / 1000).toFixed(2) + ' L';
+    return Math.round(mL) + ' mL';
+  }
+
+  function formatMetricPowder(oz) {
+    var g = oz * 28.3495;
+    if (g < 1)    return 'Less than 1 g';
+    if (g < 1000) return Math.round(g) + ' g';
+    return (g / 1000).toFixed(2) + ' kg';
+  }
+
+  function formatMetricPowderAlt(oz) {
+    var g = oz * 28.3495;
+    if (g < 100)  return '';
+    if (g < 1000) return (g / 1000).toFixed(2) + ' kg';
+    return Math.round(g) + ' g';
+  }
 
   function formatLiquid(floz) {
     if (floz < 1)   return 'Less than 1 fl oz';
@@ -384,7 +436,8 @@ gtag('config','G-S8JT1DELF6');
   }
 
   window.calc = function () {
-    var gallons   = parseFloat(document.getElementById('gallons').value)    || 0;
+    var raw       = parseFloat(document.getElementById('gallons').value)    || 0;
+    var gallons   = units === 'metric' ? raw * 0.264172 : raw;
     var fcCurrent = parseFloat(document.getElementById('fc-current').value) || 0;
     var fcTarget  = parseFloat(document.getElementById('fc-target').value)  || 0;
     var box       = document.getElementById('result-box');
@@ -421,13 +474,23 @@ gtag('config','G-S8JT1DELF6');
 
     if (p.type === 'liquid') {
       var floz = totalClGrams / (p.density * 29.5735 * p.concentration);
-      main.textContent = formatLiquid(floz);
-      secondary.textContent = formatLiquidAlt(floz);
+      if (units === 'metric') {
+        main.textContent = formatMetricLiquid(floz);
+        secondary.textContent = formatMetricLiquidAlt(floz);
+      } else {
+        main.textContent = formatLiquid(floz);
+        secondary.textContent = formatLiquidAlt(floz);
+      }
       note.textContent = 'of ' + p.name + ' to raise FC by ' + delta.toFixed(1) + ' ppm. Add near a return jet with pump running.';
     } else {
       var oz = totalClGrams / (28.3495 * p.concentration);
-      main.textContent = formatGranular(oz);
-      secondary.textContent = formatGranularAlt(oz);
+      if (units === 'metric') {
+        main.textContent = formatMetricPowder(oz);
+        secondary.textContent = formatMetricPowderAlt(oz);
+      } else {
+        main.textContent = formatGranular(oz);
+        secondary.textContent = formatGranularAlt(oz);
+      }
       note.textContent = 'of ' + p.name + ' to raise FC by ' + delta.toFixed(1) + ' ppm. Pre-dissolve in a bucket before adding.';
     }
   };

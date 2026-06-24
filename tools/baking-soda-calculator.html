@@ -149,6 +149,12 @@ gtag('config','G-S8JT1DELF6');
   footer a:hover { color: var(--text); }
   .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
 
+  .toggle-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+  .toggle-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .toggle-group { display: flex; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .toggle-group button { background: none; border: none; color: var(--muted); font-size: 0.85rem; font-weight: 600; padding: 0.4rem 1rem; cursor: pointer; transition: background 0.15s, color 0.15s; font-family: inherit; }
+  .toggle-group button.active { background: var(--accent); color: #000; }
+
   @media (max-width: 640px) {
     .page { padding: 2rem 0 3rem; }
     .header-badge { display: none; }
@@ -183,7 +189,7 @@ gtag('config','G-S8JT1DELF6');
     <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Pool Calculators</a> &rsaquo; Baking Soda Calculator</div>
 
     <span class="page-label">Pool Calculators</span>
-    <h1>Baking Soda <span class="gradient">Calculator</span></h1>
+    <h1>How Much Baking Soda to Add to Your Pool — <span class="gradient">Calculator</span></h1>
     <p class="page-desc">Enter your pool volume, current total alkalinity (TA), and target TA to get an exact baking soda dose. Target TA is 80–120 ppm for most pools.</p>
 
     <div class="answer-box">
@@ -192,6 +198,14 @@ gtag('config','G-S8JT1DELF6');
     </div>
 
     <div class="calc-card">
+
+      <div class="toggle-row">
+        <span class="toggle-label">Units</span>
+        <div class="toggle-group">
+          <button id="btn-us" class="active" onclick="setVolumeUnits('us')">Gallons</button>
+          <button id="btn-metric" onclick="setVolumeUnits('metric')">Liters</button>
+        </div>
+      </div>
 
       <div class="inputs-grid one-col">
         <div class="field">
@@ -302,6 +316,31 @@ gtag('config','G-S8JT1DELF6');
 (function () {
   'use strict';
 
+  var units = 'us';
+
+  window.setVolumeUnits = function (u) {
+    units = u;
+    document.getElementById('btn-us').classList.toggle('active', u === 'us');
+    document.getElementById('btn-metric').classList.toggle('active', u === 'metric');
+    var inp = document.getElementById('gallons');
+    inp.placeholder = u === 'metric' ? 'e.g. 57000 liters' : 'e.g. 15000 gallons';
+    calc();
+  };
+
+  function formatMetricPowder(oz) {
+    var g = oz * 28.3495;
+    if (g < 1)    return 'Less than 1 g';
+    if (g < 1000) return Math.round(g) + ' g';
+    return (g / 1000).toFixed(2) + ' kg';
+  }
+
+  function formatMetricPowderAlt(oz) {
+    var g = oz * 28.3495;
+    if (g < 100)  return '';
+    if (g < 1000) return (g / 1000).toFixed(2) + ' kg';
+    return Math.round(g) + ' g';
+  }
+
   function formatPowder(oz) {
     if (oz < 0.25) return 'Less than ¼ oz';
     if (oz < 16)   return oz.toFixed(1) + ' oz';
@@ -317,7 +356,8 @@ gtag('config','G-S8JT1DELF6');
   }
 
   window.calc = function () {
-    var gallons   = parseFloat(document.getElementById('gallons').value)    || 0;
+    var raw       = parseFloat(document.getElementById('gallons').value)    || 0;
+    var gallons   = units === 'metric' ? raw * 0.264172 : raw;
     var taCurrent = parseFloat(document.getElementById('ta-current').value) || 0;
     var taTarget  = parseFloat(document.getElementById('ta-target').value)  || 0;
     var box       = document.getElementById('result-box');
@@ -351,8 +391,13 @@ gtag('config','G-S8JT1DELF6');
     var oz = rise * gallons * 3.78541 / 1000 * (84 / 50) / 28.3495;
 
     box.classList.remove('empty', 'error-state');
-    main.textContent = formatPowder(oz);
-    secondary.textContent = formatPowderAlt(oz);
+    if (units === 'metric') {
+      main.textContent = formatMetricPowder(oz);
+      secondary.textContent = formatMetricPowderAlt(oz);
+    } else {
+      main.textContent = formatPowder(oz);
+      secondary.textContent = formatPowderAlt(oz);
+    }
     note.textContent = 'of baking soda to raise TA by ' + rise.toFixed(0) + ' ppm. Add in doses of 2–3 lbs, retest after each.';
   };
 })();

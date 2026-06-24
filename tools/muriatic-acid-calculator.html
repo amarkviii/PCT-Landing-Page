@@ -187,7 +187,7 @@ gtag('config','G-S8JT1DELF6');
     <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Pool Calculators</a> &rsaquo; Muriatic Acid</div>
 
     <span class="page-label">Pool Calculators</span>
-    <h1>Muriatic Acid <span class="gradient">Calculator</span></h1>
+    <h1>How Much Muriatic Acid to Add to Your Pool — <span class="gradient">Calculator</span></h1>
     <p class="page-desc">Calculate how much muriatic acid to add to lower your pool's pH or total alkalinity.</p>
 
     <div class="calc-card">
@@ -197,6 +197,14 @@ gtag('config','G-S8JT1DELF6');
         <div class="toggle-group">
           <button id="btn-ph" class="active" onclick="setMode('ph')">Lower pH</button>
           <button id="btn-ta" onclick="setMode('ta')">Lower Alkalinity</button>
+        </div>
+      </div>
+
+      <div class="toggle-row" style="margin-bottom:1rem">
+        <span class="toggle-label">Units</span>
+        <div class="toggle-group">
+          <button id="btn-us" class="active" onclick="setVolumeUnits('us')">Gallons</button>
+          <button id="btn-metric" onclick="setVolumeUnits('metric')">Liters</button>
         </div>
       </div>
 
@@ -346,6 +354,7 @@ gtag('config','G-S8JT1DELF6');
 
   var mode = 'ph';
   var strength = '31';
+  var units = 'us';
 
   window.setMode = function (m) {
     mode = m;
@@ -363,6 +372,29 @@ gtag('config','G-S8JT1DELF6');
     });
     calc();
   };
+
+  window.setVolumeUnits = function (u) {
+    units = u;
+    document.getElementById('btn-us').classList.toggle('active', u === 'us');
+    document.getElementById('btn-metric').classList.toggle('active', u === 'metric');
+    var inp = document.getElementById('gallons');
+    inp.placeholder = u === 'metric' ? 'e.g. 57000 liters' : 'e.g. 15000 gallons';
+    calc();
+  };
+
+  function formatMetricLiquid(floz) {
+    var mL = floz * 29.5735;
+    if (mL < 10)   return 'Less than 10 mL';
+    if (mL < 1000) return Math.round(mL) + ' mL';
+    return (mL / 1000).toFixed(2) + ' L';
+  }
+
+  function formatMetricLiquidAlt(floz) {
+    var mL = floz * 29.5735;
+    if (mL < 100)  return '';
+    if (mL < 1000) return (mL / 1000).toFixed(2) + ' L';
+    return Math.round(mL) + ' mL';
+  }
 
   function flOzForStrength(floz31) {
     return strength === '31' ? floz31 : floz31 * (31.45 / 14.5);
@@ -383,7 +415,8 @@ gtag('config','G-S8JT1DELF6');
   }
 
   window.calc = function () {
-    var gallons = parseFloat(document.getElementById('gallons').value) || 0;
+    var raw     = parseFloat(document.getElementById('gallons').value) || 0;
+    var gallons = units === 'metric' ? raw * 0.264172 : raw;
     var box     = document.getElementById('result-box');
     var main    = document.getElementById('result-main');
     var sec     = document.getElementById('result-secondary');
@@ -471,8 +504,13 @@ gtag('config','G-S8JT1DELF6');
 
     var floz = flOzForStrength(floz31);
     box.classList.remove('empty', 'error-state');
-    main.textContent = formatLiquid(floz);
-    sec.textContent = formatAlt(floz);
+    if (units === 'metric') {
+      main.textContent = formatMetricLiquid(floz);
+      sec.textContent  = formatMetricLiquidAlt(floz);
+    } else {
+      main.textContent = formatLiquid(floz);
+      sec.textContent  = formatAlt(floz);
+    }
     note.textContent = noteText;
   };
 })();

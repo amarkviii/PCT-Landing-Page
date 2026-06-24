@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-<meta name="description" content="Calculate gallons to drain and refill to hit your target CYA. Staged drain guidance for large reductions. Enter pool volume, current and target CYA.">
+<meta name="description" content="Calculate how much to drain and refill to lower pool CYA. Enter pool volume, current CYA, and target — staged guidance for large reductions.">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
 <script>
 window.dataLayer=window.dataLayer||[];
@@ -152,6 +152,12 @@ gtag('config','G-S8JT1DELF6');
   footer a:hover { color: var(--text); }
   .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
 
+  .toggle-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+  .toggle-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .toggle-group { display: flex; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .toggle-group button { background: none; border: none; color: var(--muted); font-size: 0.85rem; font-weight: 600; padding: 0.4rem 1rem; cursor: pointer; transition: background 0.15s, color 0.15s; font-family: inherit; }
+  .toggle-group button.active { background: var(--accent); color: #000; }
+
   @media (max-width: 640px) {
     .page { padding: 2rem 0 3rem; }
     .header-badge { display: none; }
@@ -186,7 +192,7 @@ gtag('config','G-S8JT1DELF6');
     <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Pool Calculators</a> &rsaquo; CYA Dilution Calculator</div>
 
     <span class="page-label">Pool Calculators</span>
-    <h1>CYA Dilution <span class="gradient">Calculator</span></h1>
+    <h1>How Much to Drain to Lower Pool CYA — <span class="gradient">Calculator</span></h1>
     <p class="page-desc">Enter your pool volume, current CYA, and target CYA to find out exactly how many gallons to drain and replace with fresh water. Target CYA is 30–50 ppm for most pools.</p>
 
     <div class="answer-box">
@@ -195,6 +201,14 @@ gtag('config','G-S8JT1DELF6');
     </div>
 
     <div class="calc-card">
+
+      <div class="toggle-row">
+        <span class="toggle-label">Units</span>
+        <div class="toggle-group">
+          <button id="btn-us" class="active" onclick="setVolumeUnits('us')">Gallons</button>
+          <button id="btn-metric" onclick="setVolumeUnits('metric')">Liters</button>
+        </div>
+      </div>
 
       <div class="inputs-grid one-col">
         <div class="field">
@@ -319,12 +333,24 @@ gtag('config','G-S8JT1DELF6');
 (function () {
   'use strict';
 
+  var units = 'us';
+
+  window.setVolumeUnits = function (u) {
+    units = u;
+    document.getElementById('btn-us').classList.toggle('active', u === 'us');
+    document.getElementById('btn-metric').classList.toggle('active', u === 'metric');
+    var inp = document.getElementById('gallons');
+    inp.placeholder = u === 'metric' ? 'e.g. 57000 liters' : 'e.g. 15000 gallons';
+    calc();
+  };
+
   function commaFmt(n) {
     return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 
   window.calc = function () {
-    var gallons    = parseFloat(document.getElementById('gallons').value)    || 0;
+    var raw        = parseFloat(document.getElementById('gallons').value)    || 0;
+    var gallons    = units === 'metric' ? raw * 0.264172 : raw;
     var cyaCurrent = parseFloat(document.getElementById('cya-current').value) || 0;
     var cyaTarget  = parseFloat(document.getElementById('cya-target').value)  || 0;
     var box        = document.getElementById('result-box');
@@ -362,7 +388,11 @@ gtag('config','G-S8JT1DELF6');
     var pct = (drainFraction * 100).toFixed(1);
 
     box.classList.remove('empty', 'error-state');
-    main.textContent = commaFmt(gallonsToDrain) + ' gal';
+    if (units === 'metric') {
+      main.textContent = Math.round(gallonsToDrain * 3.78541).toLocaleString() + ' L';
+    } else {
+      main.textContent = commaFmt(gallonsToDrain) + ' gal';
+    }
     secondary.textContent = pct + '% of pool volume';
     note.textContent = 'to drain and refill with fresh water to reach ' + cyaTarget + ' ppm CYA';
 
@@ -370,8 +400,13 @@ gtag('config','G-S8JT1DELF6');
       var stage1CYA = cyaCurrent * 0.5;
       var stage2Fraction = 1 - (cyaTarget / stage1CYA);
       var stage2Gallons = gallons * stage2Fraction;
-      stage1Text.textContent = 'Stage 1: drain ' + commaFmt(gallons * 0.5) + ' gal (50%) and refill → CYA drops to ~' + Math.round(stage1CYA) + ' ppm';
-      stage2Text.textContent = 'Stage 2: drain ' + commaFmt(stage2Gallons) + ' gal (' + (stage2Fraction * 100).toFixed(0) + '%) and refill → CYA drops to ~' + cyaTarget + ' ppm';
+      if (units === 'metric') {
+        stage1Text.textContent = 'Stage 1: drain ' + Math.round(gallons * 0.5 * 3.78541).toLocaleString() + ' L (50%) and refill → CYA drops to ~' + Math.round(stage1CYA) + ' ppm';
+        stage2Text.textContent = 'Stage 2: drain ' + Math.round(stage2Gallons * 3.78541).toLocaleString() + ' L (' + (stage2Fraction * 100).toFixed(0) + '%) and refill → CYA drops to ~' + cyaTarget + ' ppm';
+      } else {
+        stage1Text.textContent = 'Stage 1: drain ' + commaFmt(gallons * 0.5) + ' gal (50%) and refill → CYA drops to ~' + Math.round(stage1CYA) + ' ppm';
+        stage2Text.textContent = 'Stage 2: drain ' + commaFmt(stage2Gallons) + ' gal (' + (stage2Fraction * 100).toFixed(0) + '%) and refill → CYA drops to ~' + cyaTarget + ' ppm';
+      }
       stagedWarn.style.display = 'block';
     }
   };

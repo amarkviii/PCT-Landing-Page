@@ -148,6 +148,12 @@ gtag('config','G-S8JT1DELF6');
   footer a:hover { color: var(--text); }
   .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
 
+  .toggle-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+  .toggle-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .toggle-group { display: flex; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .toggle-group button { background: none; border: none; color: var(--muted); font-size: 0.85rem; font-weight: 600; padding: 0.4rem 1rem; cursor: pointer; transition: background 0.15s, color 0.15s; font-family: inherit; }
+  .toggle-group button.active { background: var(--accent); color: #000; }
+
   @media (max-width: 640px) {
     .page { padding: 2rem 0 3rem; }
     .header-badge { display: none; }
@@ -182,10 +188,18 @@ gtag('config','G-S8JT1DELF6');
     <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Pool Calculators</a> &rsaquo; Pool pH Calculator</div>
 
     <span class="page-label">Pool Calculators</span>
-    <h1>Pool pH <span class="gradient">Calculator</span></h1>
+    <h1>How Much Acid or Base to Adjust Pool pH — <span class="gradient">Calculator</span></h1>
     <p class="page-desc">Calculate how much muriatic acid to lower pool pH, or how much soda ash to raise it. Target range: 7.4–7.6.</p>
 
     <div class="calc-card">
+
+      <div class="toggle-row">
+        <span class="toggle-label">Units</span>
+        <div class="toggle-group">
+          <button id="btn-us" class="active" onclick="setVolumeUnits('us')">Gallons</button>
+          <button id="btn-metric" onclick="setVolumeUnits('metric')">Liters</button>
+        </div>
+      </div>
 
       <div class="inputs-grid one-col">
         <div class="field">
@@ -338,6 +352,7 @@ gtag('config','G-S8JT1DELF6');
   'use strict';
 
   var strength = '31';
+  var units = 'us';
 
   window.setStrength = function (s) {
     strength = s;
@@ -346,6 +361,36 @@ gtag('config','G-S8JT1DELF6');
     });
     calc();
   };
+
+  window.setVolumeUnits = function (u) {
+    units = u;
+    document.getElementById('btn-us').classList.toggle('active', u === 'us');
+    document.getElementById('btn-metric').classList.toggle('active', u === 'metric');
+    var inp = document.getElementById('gallons');
+    inp.placeholder = u === 'metric' ? 'e.g. 57000 liters' : 'e.g. 15000 gallons';
+    calc();
+  };
+
+  function formatMetricLiquid(floz) {
+    var mL = floz * 29.5735;
+    if (mL < 10)   return 'Less than 10 mL';
+    if (mL < 1000) return Math.round(mL) + ' mL';
+    return (mL / 1000).toFixed(2) + ' L';
+  }
+
+  function formatMetricLiquidAlt(floz) {
+    var mL = floz * 29.5735;
+    if (mL < 100)  return '';
+    if (mL < 1000) return (mL / 1000).toFixed(2) + ' L';
+    return Math.round(mL) + ' mL';
+  }
+
+  function formatMetricPowder(oz) {
+    var g = oz * 28.3495;
+    if (g < 1)    return 'Less than 1 g';
+    if (g < 1000) return Math.round(g) + ' g';
+    return (g / 1000).toFixed(2) + ' kg';
+  }
 
   function flOzForStrength(floz31) {
     return strength === '31' ? floz31 : floz31 * (31.45 / 14.5);
@@ -380,7 +425,8 @@ gtag('config','G-S8JT1DELF6');
   }
 
   window.calc = function () {
-    var gallons = parseFloat(document.getElementById('gallons').value) || 0;
+    var raw     = parseFloat(document.getElementById('gallons').value) || 0;
+    var gallons = units === 'metric' ? raw * 0.264172 : raw;
     var current = parseFloat(document.getElementById('current-ph').value);
     var target  = parseFloat(document.getElementById('target-ph').value);
     var box     = document.getElementById('result-box');
@@ -430,8 +476,13 @@ gtag('config','G-S8JT1DELF6');
       var floz   = flOzForStrength(floz31);
 
       box.classList.remove('empty', 'error-state');
-      main.textContent = formatLiquid(floz);
-      sec.textContent  = formatLiquidAlt(floz);
+      if (units === 'metric') {
+        main.textContent = formatMetricLiquid(floz);
+        sec.textContent  = formatMetricLiquidAlt(floz);
+      } else {
+        main.textContent = formatLiquid(floz);
+        sec.textContent  = formatLiquidAlt(floz);
+      }
       note.textContent = 'of ' + (strength === '31' ? '31.45%' : '14.5%') + ' muriatic acid to lower pH from ' + current.toFixed(1) + ' to ' + target.toFixed(1) + '. Add near a return jet, retest after 1 hour.';
 
     } else {
@@ -450,8 +501,13 @@ gtag('config','G-S8JT1DELF6');
       var ozSoda = (rDelta / 0.2) * (gallons / 10000) * 6;
 
       box.classList.remove('empty', 'error-state');
-      main.textContent = formatWeight(ozSoda);
-      sec.textContent  = '';
+      if (units === 'metric') {
+        main.textContent = formatMetricPowder(ozSoda);
+        sec.textContent  = '';
+      } else {
+        main.textContent = formatWeight(ozSoda);
+        sec.textContent  = '';
+      }
       note.textContent = 'of soda ash (sodium carbonate) to raise pH from ' + current.toFixed(1) + ' to ' + target.toFixed(1) + '. Add with pump running, retest after 30 minutes. Split large doses.';
     }
   };

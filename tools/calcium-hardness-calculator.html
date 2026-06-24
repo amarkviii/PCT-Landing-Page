@@ -145,6 +145,12 @@ gtag('config','G-S8JT1DELF6');
   footer a:hover { color: var(--text); }
   .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
 
+  .toggle-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+  .toggle-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .toggle-group { display: flex; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .toggle-group button { background: none; border: none; color: var(--muted); font-size: 0.85rem; font-weight: 600; padding: 0.4rem 1rem; cursor: pointer; transition: background 0.15s, color 0.15s; font-family: inherit; }
+  .toggle-group button.active { background: var(--accent); color: #000; }
+
   @media (max-width: 640px) {
     .page { padding: 2rem 0 3rem; }
     .header-badge { display: none; }
@@ -179,10 +185,18 @@ gtag('config','G-S8JT1DELF6');
     <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Pool Calculators</a> &rsaquo; Calcium Hardness Calculator</div>
 
     <span class="page-label">Pool Calculators</span>
-    <h1>Calcium Hardness <span class="gradient">Calculator</span></h1>
+    <h1>How Much Calcium Chloride to Add to Your Pool — <span class="gradient">Calculator</span></h1>
     <p class="page-desc">Calculate how much calcium chloride to add to raise your pool's calcium hardness (CH) to target.</p>
 
     <div class="calc-card">
+
+      <div class="toggle-row">
+        <span class="toggle-label">Units</span>
+        <div class="toggle-group">
+          <button id="btn-us" class="active" onclick="setVolumeUnits('us')">Gallons</button>
+          <button id="btn-metric" onclick="setVolumeUnits('metric')">Liters</button>
+        </div>
+      </div>
 
       <div class="inputs-grid one-col">
         <div class="field">
@@ -314,6 +328,7 @@ gtag('config','G-S8JT1DELF6');
   'use strict';
 
   var purity = 0.77;
+  var units = 'us';
 
   window.setProduct = function (p) {
     purity = p === '77' ? 0.77 : 0.96;
@@ -322,6 +337,29 @@ gtag('config','G-S8JT1DELF6');
     });
     calc();
   };
+
+  window.setVolumeUnits = function (u) {
+    units = u;
+    document.getElementById('btn-us').classList.toggle('active', u === 'us');
+    document.getElementById('btn-metric').classList.toggle('active', u === 'metric');
+    var inp = document.getElementById('gallons');
+    inp.placeholder = u === 'metric' ? 'e.g. 57000 liters' : 'e.g. 15000 gallons';
+    calc();
+  };
+
+  function formatMetricWeight(lbs) {
+    var g = lbs * 453.592;
+    if (g < 10)   return 'Less than 10 g';
+    if (g < 1000) return Math.round(g) + ' g';
+    return (g / 1000).toFixed(2) + ' kg';
+  }
+
+  function formatMetricWeightAlt(lbs) {
+    var g = lbs * 453.592;
+    if (g < 100)  return '';
+    if (g < 1000) return (g / 1000).toFixed(2) + ' kg';
+    return Math.round(g) + ' g';
+  }
 
   function formatWeight(lbs) {
     if (lbs < 0.1) return 'Less than 0.1 lbs';
@@ -336,7 +374,8 @@ gtag('config','G-S8JT1DELF6');
   }
 
   window.calc = function () {
-    var gallons   = parseFloat(document.getElementById('gallons').value) || 0;
+    var raw       = parseFloat(document.getElementById('gallons').value) || 0;
+    var gallons   = units === 'metric' ? raw * 0.264172 : raw;
     var currentCH = parseFloat(document.getElementById('current-ch').value);
     var targetCH  = parseFloat(document.getElementById('target-ch').value);
     var box       = document.getElementById('result-box');
@@ -382,12 +421,20 @@ gtag('config','G-S8JT1DELF6');
     var lbs   = lbs77 * (0.77 / purity);
 
     box.classList.remove('empty', 'error-state');
-    main.textContent = formatWeight(lbs);
-    sec.textContent  = formatAlt(lbs);
+    if (units === 'metric') {
+      main.textContent = formatMetricWeight(lbs);
+      sec.textContent  = formatMetricWeightAlt(lbs);
+    } else {
+      main.textContent = formatWeight(lbs);
+      sec.textContent  = formatAlt(lbs);
+    }
 
     var productName = purity === 0.77 ? '77% calcium chloride flake' : '96% anhydrous calcium chloride';
     var splitNote   = delta > 25 ? ' Split over multiple days for large increases.' : '';
-    note.textContent = 'of ' + productName + ' to raise CH from ' + Math.round(currentCH) + ' to ' + Math.round(targetCH) + ' ppm in a ' + Math.round(gallons).toLocaleString() + '-gallon pool.' + splitNote;
+    var poolVolumeStr = units === 'metric'
+      ? Math.round(raw).toLocaleString() + '-liter'
+      : Math.round(gallons).toLocaleString() + '-gallon';
+    note.textContent = 'of ' + productName + ' to raise CH from ' + Math.round(currentCH) + ' to ' + Math.round(targetCH) + ' ppm in a ' + poolVolumeStr + ' pool.' + splitNote;
   };
 })();
 </script>
