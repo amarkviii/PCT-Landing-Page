@@ -6,8 +6,10 @@
 /about.html /about 301
 /download.html /download 301
 /features.html /features 301
-/privacy.html /privacy 301
-/terms.html /terms 301
+/privacy.html /privacy-app 301
+/terms.html /terms-app 301
+/terms /terms-app 301
+/privacy /privacy-app 301
 
 # Blog index
 /blog/index.html /blog/ 301
