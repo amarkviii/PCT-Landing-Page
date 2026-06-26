@@ -4,6 +4,16 @@
 
 PoolChem Tracker helps residential pool owners monitor and balance their water chemistry. Log readings for Free Chlorine, Total Chlorine, pH, Total Alkalinity, Calcium Hardness, Cyanuric Acid, Salt, and Water Temperature. The app calculates your Langelier Saturation Index (LSI), generates a health score, and gives plain-language dosing recommendations based on your pool size.
 
+## Key Facts
+
+- Platform: iOS
+- Pricing: Free with optional Pro upgrade (one-time purchase)
+- Ads: None
+- Account required: No
+- Cloud sync: No
+- Data storage: On-device only
+- Internet connection: Not required for logging chemistry
+
 ## Pages
 
 - [Home](https://www.poolchemtracker.com/): Landing page and app overview
