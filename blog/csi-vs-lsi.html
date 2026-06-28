@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSI vs. LSI: Are They the Same Thing?</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta name="description" content="Pool apps and calculators use both CSI and LSI. Here's what each term means, where they come from, and why two tools using different names can still give you different numbers.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-S8JT1DELF6');
+</script>
+<link rel="canonical" href="https://www.poolchemtracker.com/blog/csi-vs-lsi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSI vs. LSI: Are They the Same Thing?">
+<meta property="og:description" content="Pool apps and calculators use both CSI and LSI. Here's what each term means, where they come from, and why two tools using different names can still give you different numbers.">
+<meta property="og:url" content="https://www.poolchemtracker.com/blog/csi-vs-lsi">
+<meta property="og:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<meta property="og:site_name" content="PoolChem Tracker">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CSI vs. LSI: Are They the Same Thing?">
+<meta name="twitter:description" content="Pool apps and calculators use both CSI and LSI. Same formula structure, same target range — but the name doesn't tell you which formula is actually being used.">
+<meta name="twitter:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"CSI vs. LSI: Are They the Same Thing?","description":"Pool apps and calculators use both CSI and LSI. Here's what each term means, where they come from, and why two tools using different names can still give you different numbers.","datePublished":"2026-06-28","dateModified":"2026-06-28","author":{"@type":"Organization","name":"PoolChem Tracker"},"publisher":{"@type":"Organization","name":"PoolChem Tracker","logo":{"@type":"ImageObject","url":"https://www.poolchemtracker.com/Logo/logo-256.webp"}},"image":"https://www.poolchemtracker.com/Screenshots/social-card.png","mainEntityOfPage":"https://www.poolchemtracker.com/blog/csi-vs-lsi"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is CSI the same as LSI?","acceptedAnswer":{"@type":"Answer","text":"Yes, in practice. Same formula structure, same target range, same inputs. The name reflects origin and emphasis, not a different measurement."}},{"@type":"Question","name":"Which is more accurate, a CSI calculator or an LSI calculator?","acceptedAnswer":{"@type":"Answer","text":"Neither is inherently more accurate. Accuracy depends on whether the calculator uses CYA-corrected alkalinity and includes TDS. The name doesn't determine this."}},{"@type":"Question","name":"Why does my pool app say CSI instead of LSI?","acceptedAnswer":{"@type":"Answer","text":"Preference or branding. Some pool industry tools adopted \"CSI\" to emphasize the calcium carbonate framing and to differentiate their pool-specific formula from the original municipal-water LSI. The underlying math is the same."}},{"@type":"Question","name":"What does SI mean on my pool store printout?","acceptedAnswer":{"@type":"Answer","text":"Saturation Index — shorthand for the same calculation. Some printouts use SI, some use LSI, some use CSI. They're all measuring the same thing."}}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.poolchemtracker.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://www.poolchemtracker.com/blog/"},{"@type":"ListItem","position":3,"name":"CSI vs. LSI"}]}
+</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a1628;
+    --bg2: #0d1f3c;
+    --card: #0f1e38;
+    --accent: #4facfe;
+    --accent2: #00f2fe;
+    --text: #e8edf5;
+    --muted: #8899aa;
+    --good: #2ed573;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  body {
+    font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  header {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  header .header-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .logo .logo-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .logo .logo-name span { color: var(--accent); }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .header-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--accent);
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+
+  .header-link:hover {
+    background: var(--accent);
+    color: #000;
+  }
+
+  .header-badge { display: inline-flex; }
+  .header-badge img { height: 36px; }
+
+  article {
+    padding: 3rem 0 4rem;
+  }
+
+  .breadcrumb {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  .breadcrumb a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  article h1 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  article h1 .gradient {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .article-meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+  }
+
+  article h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 2.5rem 0 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  article h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 2rem 0 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  article p {
+    color: var(--text);
+    margin-bottom: 1.25rem;
+    font-size: 1.05rem;
+  }
+
+  article ul, article ol {
+    margin: 0 0 1.25rem 1.5rem;
+    color: var(--text);
+    font-size: 1.05rem;
+  }
+
+  article li {
+    margin-bottom: 0.4rem;
+  }
+
+  .info-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .info-card h3, .info-card .box-heading {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .info-card p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-bottom: 0;
+  }
+
+  .comparison-table {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+
+  .comparison-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+
+  .comparison-table th {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .comparison-table td {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  .comparison-table tr:last-child td { border-bottom: none; }
+
+  .cta-box {
+    background: linear-gradient(135deg, rgba(79,172,254,0.08), rgba(0,242,254,0.05));
+    border: 1px solid rgba(79,172,254,0.25);
+    border-radius: 14px;
+    padding: 2rem;
+    margin: 2.5rem 0;
+    text-align: center;
+  }
+
+  .cta-box h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+  }
+
+  .cta-box p {
+    color: var(--muted);
+    font-size: 0.92rem;
+    max-width: 480px;
+    margin: 0 auto 1.25rem;
+    line-height: 1.6;
+  }
+
+  .cta-box .badge { display: inline-block; transition: opacity 0.2s; }
+  .cta-box .badge:hover { opacity: 0.85; }
+  .cta-box .badge img { height: 44px; }
+
+  .app-callout {
+    background: rgba(79,172,254,0.06);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 0.75rem 1rem;
+    margin: 1.5rem 0;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .app-callout a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .app-callout a:hover { text-decoration: underline; }
+
+  .keep-reading a { color: var(--accent); }
+  .keep-reading a:hover { text-decoration: underline; }
+
+  footer {
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  footer a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  footer a:hover { color: var(--text); }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 640px) {
+    article { padding: 2rem 0 3rem; }
+    .header-badge { display: none; }
+    .header-link { font-size: 0.8rem; padding: 0.35rem 0.75rem; }
+    .header-right { gap: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../" class="logo">
+      <div class="logo-icon"><img src="../Logo/logo-96.webp" alt="PoolChem Tracker" width="96" height="96"></div>
+      <span class="logo-name">Pool<span>Chem</span> Tracker</span>
+    </a>
+    <div class="header-right">
+      <a href="./" class="header-link">Guides</a>
+      <a href="../features" class="header-link">Features</a>
+      <a href="../explained/" class="header-link">Explained</a>
+      <a href="../tools/" class="header-link">Tools</a>
+      <a href="../about" class="header-link">About</a>
+      <a href="https://apps.apple.com/app/id6762652630?ct=blog" class="header-badge"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40"></a>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container">
+    <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Guides</a> &rsaquo; CSI vs. LSI</div>
+
+    <h1><span class="gradient">CSI vs. LSI:</span> Are They the Same Thing?</h1>
+    <div class="article-meta">4 min read &middot; June 2026</div>
+
+    <div class="info-card" style="border-left:3px solid var(--accent);">
+      <p class="box-heading">Short answer</p>
+      <p>CSI and LSI measure the same thing &mdash; whether your pool water is balanced, corrosive, or scale-forming. They use nearly identical math and the same &minus;0.3 to +0.3 target. The name on a calculator doesn&rsquo;t determine its accuracy. The formula implementation does.</p>
+    </div>
+
+    <p>If you&rsquo;ve used more than one pool chemistry tool, you&rsquo;ve probably noticed that some say LSI, some say CSI, and some just say SI. It&rsquo;s easy to assume the different names mean different calculations &mdash; or that one is newer or more accurate than the other. Neither is true. The terminology reflects where the index came from and who adopted it, not a meaningful difference in what it measures.</p>
+
+    <h2>Where each term comes from</h2>
+
+    <h3>LSI (Langelier Saturation Index)</h3>
+
+    <p>LSI was developed by Wilfred Langelier in 1936 for municipal water treatment. The original purpose was to predict whether drinking water would corrode pipes or deposit scale in distribution systems &mdash; a practical concern for city water utilities. The underlying chemistry is the same one that governs pool water: water either needs more dissolved minerals (corrosive) or has more than it can hold in solution (scale-forming).</p>
+
+    <p>The pool industry adopted LSI because the question it answers &mdash; will this water attack surfaces or leave deposits? &mdash; is exactly the same question for pools. The inputs are identical: pH, temperature, calcium hardness, alkalinity, and total dissolved solids.</p>
+
+    <h3>CSI (Calcite Saturation Index or Calcium Saturation Index)</h3>
+
+    <p>CSI emerged as a pool-industry rebranding. The &ldquo;calcite&rdquo; framing emphasizes what actually precipitates out of scale-forming water: calcium carbonate crystals. Some pool industry tools and publications use CSI specifically to mean the modern, pool-adapted formula that accounts for CYA (cyanuric acid), while older LSI references may not include that correction.</p>
+
+    <p>The shift in name was partly practical &mdash; &ldquo;calcite saturation&rdquo; more directly describes the pool-specific concern &mdash; and partly a way for pool-focused tools to signal that they&rsquo;re using a formula tuned for pools rather than municipal water treatment.</p>
+
+    <h3>SI (Saturation Index)</h3>
+
+    <p>SI is shorthand you&rsquo;ll sometimes see on pool store printouts. Same thing. The full name is dropped in favor of brevity.</p>
+
+    <h2>What is the same and what differs</h2>
+
+    <div class="comparison-table">
+      <table>
+        <tr><th>Factor</th><th>LSI</th><th>CSI</th></tr>
+        <tr><td>What it measures</td><td>Calcium carbonate saturation</td><td>Calcium carbonate saturation</td></tr>
+        <tr><td>Target range</td><td>&minus;0.3 to +0.3</td><td>&minus;0.3 to +0.3</td></tr>
+        <tr><td>Formula structure</td><td>pH + TF + TDS + CF + AF &minus; 12.1</td><td>pH + TF + TDS + CF + AF &minus; 12.1</td></tr>
+        <tr><td>CYA alkalinity correction</td><td>Not in original formula; may or may not be included by a given tool</td><td>Usually included in pool-specific implementations</td></tr>
+        <tr><td>Origin</td><td>Langelier 1936, municipal water treatment</td><td>Pool industry adaptation</td></tr>
+      </table>
+    </div>
+
+    <p>The meaningful difference is the CYA alkalinity correction &mdash; not whether a calculator is labeled CSI or LSI. Tools that call themselves CSI are more likely to include it, but neither label guarantees it.</p>
+
+    <h2>Why two calculators can still give different numbers</h2>
+
+    <p>The name (CSI vs. LSI) tells you less than you&rsquo;d think about what formula is actually being used. What matters is whether the calculator:</p>
+
+    <ul>
+      <li>Uses CYA-corrected alkalinity (TA &minus; CYA/3) or raw TA</li>
+      <li>Includes TDS from salt readings or ignores it</li>
+      <li>Uses a polynomial temperature curve or a coarse lookup table</li>
+    </ul>
+
+    <p>A calculator that says &ldquo;CSI&rdquo; but skips CYA correction will give wrong answers. A calculator that says &ldquo;LSI&rdquo; but includes CYA correction will be accurate. The label is a branding choice; the formula is what determines accuracy. See <a href="why-lsi-calculators-disagree" style="color:var(--accent)">why LSI calculators disagree</a> for the full breakdown of the four formula differences that actually matter.</p>
+
+    <h2>What this means practically</h2>
+
+    <p>For pool owners: don&rsquo;t worry about the name on the calculator. Ask whether it has a CYA field. If it doesn&rsquo;t, it&rsquo;s using raw total alkalinity and will overstate your result &mdash; telling you the water is balanced or scaling when it isn&rsquo;t, especially for pools with 40+ ppm CYA.</p>
+
+    <p>Both terms land on the same action: calculate it, keep it between &minus;0.3 and +0.3, and track it over time. The number matters; the name on the label does not.</p>
+
+    <div class="app-callout">PoolChem Tracker calculates your water balance index using CYA-corrected alkalinity, a polynomial temperature curve, and salt-derived TDS. It shows the full factor breakdown so you can see exactly how the number was calculated. <a href="https://apps.apple.com/app/id6762652630?ct=blog">Try it free</a></div>
+
+    <h2>Frequently asked questions</h2>
+
+    <h3 id="faq-same" style="font-size:1.15rem; font-weight:700; margin:2rem 0 0.5rem;">Is CSI the same as LSI?</h3>
+    <p>Yes, in practice. Same formula structure, same target range, same inputs. The name reflects origin and emphasis, not a different measurement.</p>
+
+    <h3 id="faq-accuracy" style="font-size:1.15rem; font-weight:700; margin:2rem 0 0.5rem;">Which is more accurate, a CSI calculator or an LSI calculator?</h3>
+    <p>Neither is inherently more accurate. Accuracy depends on whether the calculator uses CYA-corrected alkalinity and includes TDS. The name doesn&rsquo;t determine this.</p>
+
+    <h3 id="faq-why-csi" style="font-size:1.15rem; font-weight:700; margin:2rem 0 0.5rem;">Why does my pool app say CSI instead of LSI?</h3>
+    <p>Preference or branding. Some pool industry tools adopted &ldquo;CSI&rdquo; to emphasize the calcium carbonate framing and to differentiate their pool-specific formula from the original municipal-water LSI. The underlying math is the same.</p>
+
+    <h3 id="faq-si" style="font-size:1.15rem; font-weight:700; margin:2rem 0 0.5rem;">What does SI mean on my pool store printout?</h3>
+    <p>Saturation Index &mdash; shorthand for the same calculation. Some printouts use SI, some use LSI, some use CSI. They&rsquo;re all measuring the same thing.</p>
+
+    <h3>Keep reading</h3>
+    <ul class="keep-reading">
+      <li><a href="why-lsi-calculators-disagree">Why Two LSI Calculators Give Different Answers</a> &mdash; the four specific formula differences that actually matter</li>
+      <li><a href="../explained/lsi">Langelier Saturation Index &mdash; Explained</a> &mdash; complete formula and factor definitions</li>
+      <li><a href="what-is-lsi">Why LSI Matters: the real cost of unbalanced water</a></li>
+      <li><a href="lsi-saltwater-pools">LSI and Saltwater Pools</a> &mdash; TDS and SWG pH drift</li>
+      <li><a href="../tools/lsi-calculator">LSI Calculator</a> &mdash; uses the full formula with CYA correction and factor breakdown</li>
+      <li><a href="pool-chemistry-beginners">Pool Chemistry for Beginners: The 5 Numbers That Matter</a></li>
+    </ul>
+  </div>
+</article>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="../">Home</a>
+      <a href="mailto:support@poolchemtracker.com">Support</a>
+      <a href="../privacy">Privacy Policy</a>
+      <a href="../terms">Terms of Service</a>
+      <a href="https://bsky.app/profile/poolchemtracker.com" style="display:inline-flex;align-items:center;gap:0.35rem;"><svg width="14" height="13" viewBox="0 0 568 501" fill="currentColor" aria-hidden="true"><path d="M123.121 33.664C188.241 82.553 258.281 181.68 284 234.873c25.719-53.192 95.759-152.32 160.879-201.21C491.866-1.611 568-28.906 568 57.947c0 17.346-9.945 145.713-15.778 166.555-20.275 72.453-94.155 90.933-159.875 79.748C507.222 323.8 536.444 388.56 473.333 453.32c-119.86 122.992-172.272-30.859-185.702-70.281-2.462-7.227-3.614-10.608-3.631-7.733-.017-2.875-1.169.506-3.631 7.733-13.43 39.422-65.842 193.273-185.702 70.281-63.111-64.76-33.889-129.52 80.986-149.071-65.72 11.185-139.6-7.295-159.875-79.748C9.945 203.659 0 75.291 0 57.946 0-28.906 76.135-1.612 123.121 33.664Z"/></svg> Bluesky</a>
+    </div>
+    <p>&copy; 2026 PoolChem Tracker. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

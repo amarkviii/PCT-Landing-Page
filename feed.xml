@@ -5,13 +5,21 @@
 <link>https://www.poolchemtracker.com/blog/</link>
 <description>Pool chemistry guides, tips, and maintenance advice from PoolChem Tracker.</description>
 <language>en-us</language>
-<lastBuildDate>Sat, 28 Jun 2026 12:00:00 +0000</lastBuildDate>
+<lastBuildDate>Sat, 28 Jun 2026 18:00:00 +0000</lastBuildDate>
 <atom:link href="https://www.poolchemtracker.com/feed.xml" rel="self" type="application/rss+xml"/>
 <image>
 <url>https://www.poolchemtracker.com/Logo/logo-256.webp</url>
 <title>PoolChem Tracker Blog</title>
 <link>https://www.poolchemtracker.com/blog/</link>
 </image>
+
+<item>
+<title>CSI vs. LSI: Are They the Same Thing?</title>
+<link>https://www.poolchemtracker.com/blog/csi-vs-lsi</link>
+<guid>https://www.poolchemtracker.com/blog/csi-vs-lsi</guid>
+<pubDate>Sat, 28 Jun 2026 14:00:00 +0000</pubDate>
+<description>Pool apps and calculators use both CSI and LSI. Same formula structure, same target range — but the name doesn't tell you whether CYA correction or TDS is included. Here's what actually determines accuracy.</description>
+</item>
 
 <item>
 <title>Desert Pool Chemistry: The Complete Guide for AZ &amp; Southern California Pools</title>
