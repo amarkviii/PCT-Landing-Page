@@ -5,7 +5,7 @@
 <link>https://www.poolchemtracker.com/blog/</link>
 <description>Pool chemistry guides, tips, and maintenance advice from PoolChem Tracker.</description>
 <language>en-us</language>
-<lastBuildDate>Sat, 21 Jun 2026 12:00:00 +0000</lastBuildDate>
+<lastBuildDate>Sat, 28 Jun 2026 12:00:00 +0000</lastBuildDate>
 <atom:link href="https://www.poolchemtracker.com/feed.xml" rel="self" type="application/rss+xml"/>
 <image>
 <url>https://www.poolchemtracker.com/Logo/logo-256.webp</url>
@@ -43,6 +43,14 @@
 <guid>https://www.poolchemtracker.com/blog/high-alkalinity-cloudy-pool</guid>
 <pubDate>Thu, 11 Jun 2026 12:00:00 +0000</pubDate>
 <description>When total alkalinity exceeds 120 ppm, it pushes pH up and forces calcium carbonate out of solution as a fine white haze. How to diagnose TA as the cloudiness cause, how to fix it with muriatic acid, and what to expect as the water clears.</description>
+</item>
+
+<item>
+<title>Why Two LSI Calculators Can Give You Different Answers</title>
+<link>https://www.poolchemtracker.com/blog/why-lsi-calculators-disagree</link>
+<guid>https://www.poolchemtracker.com/blog/why-lsi-calculators-disagree</guid>
+<pubDate>Sat, 28 Jun 2026 09:00:00 +0000</pubDate>
+<description>Run the same pool readings through two LSI calculators and get different results. Here are the four formula differences — CYA correction, temperature method, TDS, and factor rounding — and which answer to trust.</description>
 </item>
 
 <item>
