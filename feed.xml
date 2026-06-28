@@ -5,13 +5,21 @@
 <link>https://www.poolchemtracker.com/blog/</link>
 <description>Pool chemistry guides, tips, and maintenance advice from PoolChem Tracker.</description>
 <language>en-us</language>
-<lastBuildDate>Sat, 28 Jun 2026 22:00:00 +0000</lastBuildDate>
+<lastBuildDate>Sat, 28 Jun 2026 23:00:00 +0000</lastBuildDate>
 <atom:link href="https://www.poolchemtracker.com/feed.xml" rel="self" type="application/rss+xml"/>
 <image>
 <url>https://www.poolchemtracker.com/Logo/logo-256.webp</url>
 <title>PoolChem Tracker Blog</title>
 <link>https://www.poolchemtracker.com/blog/</link>
 </image>
+
+<item>
+<title>Why Your LSI Changes After It Rains</title>
+<link>https://www.poolchemtracker.com/blog/why-lsi-changes-after-rain</link>
+<guid>https://www.poolchemtracker.com/blog/why-lsi-changes-after-rain</guid>
+<pubDate>Sat, 28 Jun 2026 19:00:00 +0000</pubDate>
+<description>A heavy rainstorm can undo a week of careful chemistry work in a few hours. Rain dilutes calcium, alkalinity, and pH simultaneously — pushing LSI negative across all four inputs at once. Here's what happens to each factor and when to test after significant rain.</description>
+</item>
 
 <item>
 <title>LSI by Pool Surface Type: Plaster, Vinyl, and Fiberglass</title>
