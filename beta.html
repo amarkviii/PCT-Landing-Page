@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join the Android Beta — PoolChem Tracker</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="description" content="Help shape PoolChem Tracker for Android. Join the closed beta — free pool chemistry tracking, dosing recommendations, and LSI balance on your Android device.">
+<meta name="robots" content="noindex, nofollow">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-S8JT1DELF6');
+</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a1628;
+    --bg2: #0d1f3c;
+    --card: #0f1e38;
+    --accent: #4facfe;
+    --accent2: #00f2fe;
+    --text: #e8edf5;
+    --muted: #8899aa;
+    --good: #2ed573;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  body {
+    font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  header {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  header .header-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .logo .logo-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .logo .logo-name span { color: var(--accent); }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .header-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--accent);
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+
+  .header-link:hover {
+    background: var(--accent);
+    color: #000;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 4rem 0 2.5rem;
+    text-align: center;
+  }
+
+  .beta-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: rgba(79,172,254,0.12);
+    color: var(--accent);
+    border: 1px solid rgba(79,172,254,0.25);
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero h1 .gradient {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero .subtitle {
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* Steps */
+  .steps-section {
+    padding: 3rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .steps-section h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .step {
+    display: flex;
+    gap: 1.25rem;
+    margin-bottom: 1.75rem;
+    align-items: flex-start;
+  }
+
+  .step:last-child { margin-bottom: 0; }
+
+  .step-num {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #000;
+    font-size: 0.9rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-body h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+
+  .step-body p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .step-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.25rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .step-btn:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+  }
+
+  .step-btn-primary {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #000;
+  }
+
+  .step-btn-secondary {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  /* Wait notice */
+  .wait-notice {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    background: rgba(79,172,254,0.06);
+    border: 1px solid rgba(79,172,254,0.2);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-bottom: 1.75rem;
+  }
+
+  .wait-notice .wi-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+
+  .wait-notice strong { color: var(--text); }
+
+  /* Returning tester */
+  .returning {
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .returning-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .returning-card .ri-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+
+  .returning-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+  }
+
+  .returning-card p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+  }
+
+  /* iOS section */
+  .ios-section {
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .ios-section h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+
+  .ios-section p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .app-store-badge { display: inline-block; transition: opacity 0.2s; }
+  .app-store-badge:hover { opacity: 0.85; }
+  .app-store-badge img { height: 50px; }
+
+  /* Footer */
+  footer {
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding: 3rem 0 2rem; }
+    .header-link { font-size: 0.8rem; padding: 0.35rem 0.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="./" class="logo">
+      <div class="logo-icon"><img src="Logo/logo-96.webp" alt="PoolChem Tracker" width="96" height="96"></div>
+      <span class="logo-name">Pool<span>Chem</span> Tracker</span>
+    </a>
+    <div class="header-right">
+      <a href="features" class="header-link">Features</a>
+      <a href="blog/" class="header-link">Guides</a>
+      <a href="tools/" class="header-link">Tools</a>
+      <a href="about" class="header-link">About</a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="beta-badge">Android Closed Beta</div>
+    <h1>Help Shape <span class="gradient">PoolChem for Android</span></h1>
+    <p class="subtitle">We're looking for pool owners to test the Android version before public launch. It's free, takes 3 minutes to join, and your feedback directly shapes the app.</p>
+  </div>
+</section>
+
+<!-- Steps -->
+<section class="steps-section">
+  <div class="container">
+    <h2>How to join</h2>
+
+    <!-- Step 1 -->
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h3>Join the Testing Community</h3>
+        <p>This registers your Google account so Google Play knows you're an authorized tester.</p>
+        <a href="https://groups.google.com/g/poolchem-beta-testers" class="step-btn step-btn-primary" target="_blank" rel="noopener">Join Google Group</a>
+      </div>
+    </div>
+
+    <!-- Wait notice between steps 1 and 2 -->
+    <div class="wait-notice">
+      <span class="wi-icon">&#x23F3;</span>
+      <span><strong>Wait 5–10 minutes after joining.</strong> Google Play needs time to sync your permissions before the opt-in link will work. If you rush Step 2, you may see an "app not available" error — just give it a few minutes and try again.</span>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h3>Accept the Tester Invite</h3>
+        <p>Click the button below and tap "Become a Tester." Make sure you're signed into the same Google account you used in Step 1.</p>
+        <a href="https://play.google.com/apps/testing/com.poolchemtracker.app" class="step-btn step-btn-primary" target="_blank" rel="noopener">Become a Tester</a>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h3>Download from Google Play</h3>
+        <p>Once opted in, head to the Play Store to download the app and start tracking your pool chemistry.</p>
+        <a href="https://play.google.com/store/apps/details?id=com.poolchemtracker.app" class="step-btn step-btn-primary" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 2.237l1.582 2.74a.5.5 0 01-.866.5l-1.604-2.776C15.408 2.258 14.24 2 13 2h-2c-1.24 0-2.408.258-3.635.7L5.761 5.478a.5.5 0 01-.866-.5L6.477 2.237C4.248 3.39 2.577 5.5 2.077 8H21.923c-.5-2.5-2.17-4.61-4.4-5.763zM7 6a1 1 0 110-2 1 1 0 010 2zm10 0a1 1 0 110-2 1 1 0 010 2zM3.5 9C2.672 9 2 9.672 2 10.5v7c0 .828.672 1.5 1.5 1.5S5 18.328 5 17.5v-7C5 9.672 4.328 9 3.5 9zm17 0c-.828 0-1.5.672-1.5 1.5v7c0 .828.672 1.5 1.5 1.5s1.5-.672 1.5-1.5v-7c0-.828-.672-1.5-1.5-1.5zM5 9v10c0 1.105.895 2 2 2h1v3.5c0 .828.672 1.5 1.5 1.5s1.5-.672 1.5-1.5V21h2v3.5c0 .828.672 1.5 1.5 1.5s1.5-.672 1.5-1.5V21h1c1.105 0 2-.895 2-2V9H5z"/></svg>
+          Get it on Google Play
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Returning testers -->
+<section class="returning">
+  <div class="container">
+    <div class="returning-card">
+      <div class="ri-icon">&#x1F504;</div>
+      <div>
+        <h3>Returning tester?</h3>
+        <p>If you've tested a previous version, your permissions are already set up. Just head straight to the Play Store to grab the latest update.</p>
+        <a href="https://play.google.com/store/apps/details?id=com.poolchemtracker.app" class="step-btn step-btn-secondary" target="_blank" rel="noopener">Go to Play Store</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- iOS -->
+<section class="ios-section">
+  <div class="container">
+    <h2>Have an iPhone?</h2>
+    <p>The iOS version is live on the App Store — free to download, no beta required.</p>
+    <a href="https://apps.apple.com/app/id6762652630?ct=web_beta" class="app-store-badge">
+      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="135" height="40">
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="./">Home</a>
+      <a href="features">Features</a>
+      <a href="blog/">Guides</a>
+      <a href="about">About</a>
+      <a href="mailto:support@poolchemtracker.com">Support</a>
+      <a href="legal">Legal</a>
+      <a href="https://bsky.app/profile/poolchemtracker.com" style="display:inline-flex;align-items:center;gap:0.35rem;"><svg width="14" height="13" viewBox="0 0 568 501" fill="currentColor" aria-hidden="true"><path d="M123.121 33.664C188.241 82.553 258.281 181.68 284 234.873c25.719-53.192 95.759-152.32 160.879-201.21C491.866-1.611 568-28.906 568 57.947c0 17.346-9.945 145.713-15.778 166.555-20.275 72.453-94.155 90.933-159.875 79.748C507.222 323.8 536.444 388.56 473.333 453.32c-119.86 122.992-172.272-30.859-185.702-70.281-2.462-7.227-3.614-10.608-3.631-7.733-.017-2.875-1.169.506-3.631 7.733-13.43 39.422-65.842 193.273-185.702 70.281-63.111-64.76-33.889-129.52 80.986-149.071-65.72 11.185-139.6-7.295-159.875-79.748C9.945 203.659 0 75.291 0 57.946 0-28.906 76.135-1.612 123.121 33.664Z"/></svg> Bluesky</a>
+    </div>
+    <p>&copy; 2026 PoolChem Tracker. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
