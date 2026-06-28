@@ -5,13 +5,21 @@
 <link>https://www.poolchemtracker.com/blog/</link>
 <description>Pool chemistry guides, tips, and maintenance advice from PoolChem Tracker.</description>
 <language>en-us</language>
-<lastBuildDate>Sat, 28 Jun 2026 18:00:00 +0000</lastBuildDate>
+<lastBuildDate>Sat, 28 Jun 2026 22:00:00 +0000</lastBuildDate>
 <atom:link href="https://www.poolchemtracker.com/feed.xml" rel="self" type="application/rss+xml"/>
 <image>
 <url>https://www.poolchemtracker.com/Logo/logo-256.webp</url>
 <title>PoolChem Tracker Blog</title>
 <link>https://www.poolchemtracker.com/blog/</link>
 </image>
+
+<item>
+<title>LSI by Pool Surface Type: Plaster, Vinyl, and Fiberglass</title>
+<link>https://www.poolchemtracker.com/blog/lsi-pool-surface-types</link>
+<guid>https://www.poolchemtracker.com/blog/lsi-pool-surface-types</guid>
+<pubDate>Sat, 28 Jun 2026 18:00:00 +0000</pubDate>
+<description>The LSI formula is the same for every pool. The consequences differ by surface. Corrosive water dissolves plaster directly, corrodes the metal walls behind vinyl liners, and leaves fiberglass gel coat intact but at risk from scale that is nearly impossible to remove without scratching.</description>
+</item>
 
 <item>
 <title>CSI vs. LSI: Are They the Same Thing?</title>
