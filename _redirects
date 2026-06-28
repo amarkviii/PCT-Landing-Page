@@ -1,4 +1,59 @@
-# All redirects are handled by functions/_middleware.js
-# Cloudflare Pages strips the domain from same-site _redirects destinations,
-# producing relative Location headers that fail GSC validation.
-# The middleware uses Response.redirect() which always emits absolute URLs.
+# Note: Cloudflare Pages cannot produce absolute Location headers for same-domain
+# redirects. The domain is stripped regardless of what is written here.
+# These rules are kept to ensure 301 (permanent) status codes — without them,
+# Cloudflare Pages falls back to its built-in HTML stripping which uses 307 (temporary).
+
+# Legacy dead URLs
+/pool-dose-calculator /tools/ 301
+
+# Root pages
+/index.html / 301
+/about.html /about 301
+/download.html /download 301
+/features.html /features 301
+/privacy.html /privacy-app 301
+/terms.html /terms-app 301
+/terms /terms-app 301
+/privacy /privacy-app 301
+
+# Blog index
+/blog/index.html /blog/ 301
+
+# Pool Chemistry Explained
+/explained/index.html /explained/ 301
+/explained/cyanuric-acid.html /explained/cyanuric-acid 301
+/explained/lsi.html /explained/lsi 301
+/explained/chloramines.html /explained/chloramines 301
+/explained/free-chlorine.html /explained/free-chlorine 301
+/explained/ph.html /explained/ph 301
+/explained/total-alkalinity.html /explained/total-alkalinity 301
+/explained/combined-chlorine.html /explained/combined-chlorine 301
+/explained/total-chlorine.html /explained/total-chlorine 301
+
+# Blog posts
+/blog/baking-soda-vs-soda-ash.html /blog/baking-soda-vs-soda-ash 301
+/blog/best-time-to-test-pool-water.html /blog/best-time-to-test-pool-water 301
+/blog/does-liquid-chlorine-raise-cya.html /blog/does-liquid-chlorine-raise-cya 301
+/blog/fc-cya-chart-chlorine-levels.html /blog/fc-cya-chart-chlorine-levels 301
+/blog/free-chlorine-vs-total-chlorine.html /blog/free-chlorine-vs-total-chlorine 301
+/blog/how-often-to-test-pool-water.html /blog/how-often-to-test-pool-water 301
+/blog/how-to-balance-pool-water.html /blog/how-to-balance-pool-water 301
+/blog/how-to-lower-pool-alkalinity.html /blog/how-to-lower-pool-alkalinity 301
+/blog/how-to-raise-pool-chlorine.html /blog/how-to-raise-pool-chlorine 301
+/blog/how-to-test-pool-water-at-home.html /blog/how-to-test-pool-water-at-home 301
+/blog/liquid-chlorine-vs-tablets.html /blog/liquid-chlorine-vs-tablets 301
+/blog/opening-pool-for-summer.html /blog/opening-pool-for-summer 301
+/blog/pool-chemistry-beginners.html /blog/pool-chemistry-beginners 301
+/blog/pool-chemistry-cheat-sheet.html /blog/pool-chemistry-cheat-sheet 301
+/blog/pool-chlorine-levels-chart.html /blog/pool-chlorine-levels-chart 301
+/blog/pool-chlorine-too-low.html /blog/pool-chlorine-too-low 301
+/blog/pool-cloudy-after-shocking.html /blog/pool-cloudy-after-shocking 301
+/blog/pool-ph-too-high.html /blog/pool-ph-too-high 301
+/blog/pool-startup-chemicals-checklist.html /blog/pool-startup-chemicals-checklist 301
+/blog/pool-water-green-but-chlorine-is-high.html /blog/pool-water-green-but-chlorine-is-high 301
+/blog/saltwater-vs-chlorine-pools.html /blog/saltwater-vs-chlorine-pools 301
+/blog/test-strips-vs-liquid-test-kits.html /blog/test-strips-vs-liquid-test-kits 301
+/blog/what-chemicals-do-i-need-for-a-pool.html /blog/what-chemicals-do-i-need-for-a-pool 301
+/blog/what-is-lsi.html /blog/what-is-lsi 301
+/blog/why-is-my-pool-water-cloudy.html /blog/why-is-my-pool-water-cloudy 301
+/blog/why-wont-chlorine-stay-in-pool.html /blog/why-wont-chlorine-stay-in-pool 301
