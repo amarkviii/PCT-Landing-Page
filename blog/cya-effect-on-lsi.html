@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How CYA Changes Your LSI Calculation</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta name="description" content="High CYA lowers the effective alkalinity used in the LSI formula. Here's why the correction matters — and what it means if your CYA is above 60 ppm.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-S8JT1DELF6');
+</script>
+<link rel="canonical" href="https://www.poolchemtracker.com/blog/cya-effect-on-lsi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How CYA Changes Your LSI Calculation">
+<meta property="og:description" content="High CYA lowers the effective alkalinity used in the LSI formula. Here's why the correction matters — and what it means if your CYA is above 60 ppm.">
+<meta property="og:url" content="https://www.poolchemtracker.com/blog/cya-effect-on-lsi">
+<meta property="og:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<meta property="og:site_name" content="PoolChem Tracker">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How CYA Changes Your LSI Calculation">
+<meta name="twitter:description" content="High CYA lowers the effective alkalinity used in the LSI formula. Here's why the correction matters — and what it means if your CYA is above 60 ppm.">
+<meta name="twitter:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"How CYA Changes Your LSI Calculation","description":"High CYA lowers the effective alkalinity used in the LSI formula. Here's why the correction matters — and what it means if your CYA is above 60 ppm.","datePublished":"2026-06-28","dateModified":"2026-06-28","author":{"@type":"Organization","name":"PoolChem Tracker"},"publisher":{"@type":"Organization","name":"PoolChem Tracker","logo":{"@type":"ImageObject","url":"https://www.poolchemtracker.com/Logo/logo-256.webp"}},"image":"https://www.poolchemtracker.com/Screenshots/social-card.png","mainEntityOfPage":"https://www.poolchemtracker.com/blog/cya-effect-on-lsi"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does CYA affect LSI directly or only through alkalinity?","acceptedAnswer":{"@type":"Answer","text":"CYA affects LSI only through the alkalinity correction. It lowers the effective alkalinity value that goes into the alkalinity factor of the LSI formula. CYA does not directly change pH, calcium hardness, temperature, or TDS. Its entire LSI impact comes from subtracting CYA/3 from total alkalinity before calculating the alkalinity factor. The higher the CYA, the larger the subtraction, and the lower the resulting LSI."}},{"@type":"Question","name":"How much does the CYA correction change my LSI?","acceptedAnswer":{"@type":"Answer","text":"At typical CYA levels of 30–60 ppm, the correction shifts LSI by about 0.05–0.15. At higher CYA levels of 80–120 ppm, which are common in outdoor pools late in the season, the shift can be 0.15–0.25. This is large enough to move a pool from the balanced range into corrosive territory. Whether the difference matters for you depends on your CYA level — check your current reading and apply the formula (effective TA = TA minus CYA/3) to see where you actually stand."}},{"@type":"Question","name":"Should I raise my alkalinity if I have high CYA?","acceptedAnswer":{"@type":"Answer","text":"Yes, if your CYA is high and your effective alkalinity (after the CYA correction) falls below 80 ppm, raising total alkalinity will push LSI back toward balanced. The target is effective TA in the 80–120 ppm range, so your raw TA target rises with CYA. At CYA 90, for example, you'd want raw TA around 110–140 ppm to achieve 80–110 ppm effective TA. That said, at very high CYA levels this becomes harder to manage — a partial drain to reduce CYA is often the better long-term fix."}},{"@type":"Question","name":"Do indoor pools need to worry about this?","acceptedAnswer":{"@type":"Answer","text":"No. Indoor pools don't use CYA because there's no UV light to degrade chlorine. With CYA at zero, the correction term (CYA ÷ 3) is zero — and the formula uses raw total alkalinity as-is. The CYA correction only matters when CYA is present in meaningful amounts (generally above 30 ppm)."}}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.poolchemtracker.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://www.poolchemtracker.com/blog/"},{"@type":"ListItem","position":3,"name":"How CYA Changes Your LSI Calculation"}]}
+</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a1628;
+    --bg2: #0d1f3c;
+    --card: #0f1e38;
+    --accent: #4facfe;
+    --accent2: #00f2fe;
+    --text: #e8edf5;
+    --muted: #8899aa;
+    --good: #2ed573;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  body {
+    font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  header {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  header .header-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .logo .logo-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .logo .logo-name span { color: var(--accent); }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .header-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--accent);
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+
+  .header-link:hover {
+    background: var(--accent);
+    color: #000;
+  }
+
+  .header-badge { display: inline-flex; }
+  .header-badge img { height: 36px; }
+
+  article {
+    padding: 3rem 0 4rem;
+  }
+
+  .breadcrumb {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  .breadcrumb a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  article h1 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  article h1 .gradient {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .article-meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+  }
+
+  article h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 2.5rem 0 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  article h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 2rem 0 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  article p {
+    color: var(--text);
+    margin-bottom: 1.25rem;
+    font-size: 1.05rem;
+  }
+
+  article ul, article ol {
+    margin: 0 0 1.25rem 1.5rem;
+    color: var(--text);
+    font-size: 1.05rem;
+  }
+
+  article li {
+    margin-bottom: 0.4rem;
+  }
+
+  .info-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .info-card h3, .info-card .box-heading {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .info-card p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-bottom: 0;
+  }
+
+  .formula-block {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    text-align: center;
+  }
+
+  .formula-block p {
+    font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 0;
+    letter-spacing: 0.01em;
+  }
+
+  .lsi-scale {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+
+  .lsi-scale table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+
+  .lsi-scale th {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .lsi-scale td {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  .lsi-scale tr:last-child td { border-bottom: none; }
+
+  .tag-bad { color: #ff6b6b; }
+  .tag-warn { color: #ffd700; }
+  .tag-good { color: #2ed573; }
+
+  .cta-box {
+    background: linear-gradient(135deg, rgba(79,172,254,0.08), rgba(0,242,254,0.05));
+    border: 1px solid rgba(79,172,254,0.25);
+    border-radius: 14px;
+    padding: 2rem;
+    margin: 2.5rem 0;
+    text-align: center;
+  }
+
+  .cta-box h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+  }
+
+  .cta-box p {
+    color: var(--muted);
+    font-size: 0.92rem;
+    max-width: 480px;
+    margin: 0 auto 1.25rem;
+    line-height: 1.6;
+  }
+
+  .cta-box .badge { display: inline-block; transition: opacity 0.2s; }
+  .cta-box .badge:hover { opacity: 0.85; }
+  .cta-box .badge img { height: 44px; }
+
+  .app-callout {
+    background: rgba(79,172,254,0.06);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 0.75rem 1rem;
+    margin: 1.5rem 0;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .app-callout a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .app-callout a:hover { text-decoration: underline; }
+
+  .keep-reading a { color: var(--accent); }
+  .keep-reading a:hover { text-decoration: underline; }
+
+  footer {
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  footer a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  footer a:hover { color: var(--text); }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 640px) {
+    article { padding: 2rem 0 3rem; }
+    .header-badge { display: none; }
+    .header-link { font-size: 0.8rem; padding: 0.35rem 0.75rem; }
+    .header-right { gap: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../" class="logo">
+      <div class="logo-icon"><img src="../Logo/logo-96.webp" alt="PoolChem Tracker" width="96" height="96"></div>
+      <span class="logo-name">Pool<span>Chem</span> Tracker</span>
+    </a>
+    <div class="header-right">
+      <a href="./" class="header-link">Guides</a>
+      <a href="../features" class="header-link">Features</a>
+      <a href="../explained/" class="header-link">Explained</a>
+      <a href="../tools/" class="header-link">Tools</a>
+      <a href="../about" class="header-link">About</a>
+      <a href="https://apps.apple.com/app/id6762652630?ct=blog" class="header-badge"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40"></a>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container">
+    <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Guides</a> &rsaquo; How CYA Changes Your LSI Calculation</div>
+
+    <h1>How <span class="gradient">CYA</span> Changes Your LSI Calculation</h1>
+    <div class="article-meta">6 min read &middot; June 2026</div>
+
+    <div class="info-card" style="border-left:3px solid var(--accent);">
+      <p>Cyanuric acid (CYA, stabilizer) doesn&rsquo;t appear in the basic LSI formula. But it changes one of the formula&rsquo;s inputs &mdash; total alkalinity &mdash; in a way that matters when CYA is above 50 ppm. Pools with high stabilizer levels have less effective alkalinity than the test kit reads. A pool that appears balanced on a simple LSI calculator may actually be corrosive when calculated correctly.</p>
+    </div>
+
+    <p>Most LSI calculators use raw total alkalinity as-is. The full formula requires a correction: some of the alkalinity measured by your test is contributed by cyanurate ions &mdash; a byproduct of CYA&rsquo;s dissociation in water &mdash; and cyanurate doesn&rsquo;t participate in the calcium carbonate equilibrium the same way bicarbonate does. So it needs to be subtracted before the calculation.</p>
+
+    <h2>What the correction is</h2>
+
+    <p>The adjustment is simple: <strong>effective TA = TA &minus; (CYA &divide; 3)</strong></p>
+
+    <p>This CYA-corrected alkalinity is the value that goes into the LSI alkalinity factor &mdash; not the raw number from your test. The higher your CYA, the more you subtract, and the lower your LSI will be compared to a calculator that ignores it.</p>
+
+    <div class="formula-block">
+      <p>Effective TA = Total Alkalinity &minus; (CYA &divide; 3)</p>
+    </div>
+
+    <h2>How much it shifts your LSI</h2>
+
+    <p>The correction grows with CYA level.</p>
+
+    <div class="lsi-scale">
+      <table>
+        <tr>
+          <th>CYA (ppm)</th>
+          <th>Subtract from TA</th>
+          <th>Typical LSI shift</th>
+        </tr>
+        <tr>
+          <td>30</td>
+          <td>10 ppm</td>
+          <td>Small (&minus;0.05 to &minus;0.08)</td>
+        </tr>
+        <tr>
+          <td>60</td>
+          <td>20 ppm</td>
+          <td>Moderate (&minus;0.10 to &minus;0.15)</td>
+        </tr>
+        <tr>
+          <td>90</td>
+          <td>30 ppm</td>
+          <td>Significant (&minus;0.15 to &minus;0.20)</td>
+        </tr>
+        <tr>
+          <td>120</td>
+          <td>40 ppm</td>
+          <td>Large (&minus;0.20 to &minus;0.25)</td>
+        </tr>
+      </table>
+    </div>
+
+    <p>Exact LSI shift depends on the rest of the water chemistry. These ranges assume typical pool conditions.</p>
+
+    <h2>Concrete example: same pool, two calculators</h2>
+
+    <p>Pool: pH 7.4, TA 100, CH 250, CYA 80, 82&deg;F</p>
+
+    <div class="lsi-scale">
+      <table>
+        <tr>
+          <th>Calculator</th>
+          <th>Alkalinity used</th>
+          <th>Result</th>
+          <th>Verdict</th>
+        </tr>
+        <tr>
+          <td><strong>Basic (no CYA correction)</strong></td>
+          <td>TA = 100 ppm</td>
+          <td>LSI &asymp; &minus;0.08</td>
+          <td class="tag-warn">Borderline OK</td>
+        </tr>
+        <tr>
+          <td><strong>CYA-corrected</strong></td>
+          <td>Effective TA = 100 &minus; (80 &divide; 3) = 73 ppm</td>
+          <td>LSI &asymp; &minus;0.23</td>
+          <td class="tag-bad">Corrosive</td>
+        </tr>
+      </table>
+    </div>
+
+    <p>These are identical pool readings. The difference is entirely the CYA correction. For a plaster pool, &minus;0.23 is meaningfully corrosive &mdash; the water is slowly dissolving the surface. The basic calculator would tell the owner everything is fine. This is one of the four reasons two calculators give different answers for the same pool &mdash; see <a href="why-lsi-calculators-disagree" style="color:var(--accent)">Why Two LSI Calculators Give Different Answers</a> for the full breakdown.</p>
+
+    <h2>Who it matters most for</h2>
+
+    <h3>Pools that use stabilized chlorine (trichlor tablets)</h3>
+    <p>Trichlor tablets add CYA every time they dissolve. By mid-season, CYA in tablet pools commonly reaches 60&ndash;100+ ppm without the owner realizing it. This is exactly the range where the correction meaningfully shifts LSI.</p>
+
+    <h3>Pools that haven&rsquo;t been drained or diluted recently</h3>
+    <p>CYA doesn&rsquo;t degrade naturally &mdash; it only leaves through dilution. A pool entering its third season without a significant water exchange can easily have 80&ndash;120 ppm CYA, compounding the LSI effect all season.</p>
+
+    <h3>Indoor pools</h3>
+    <p>Most indoor pools don&rsquo;t use CYA at all since there&rsquo;s no UV degradation to protect against. With CYA at 0, the correction term is 0 &mdash; the formula uses raw TA. Indoor pools can skip this adjustment entirely.</p>
+
+    <h2>How to account for it</h2>
+
+    <p><strong>Use a calculator that includes the correction:</strong> The <a href="../tools/lsi-calculator" style="color:var(--accent)">PoolChem Tracker LSI Calculator</a> uses CYA-corrected alkalinity in every calculation. If you&rsquo;ve been using a simple calculator, your actual LSI may be lower than you thought.</p>
+
+    <p><strong>Adjust your TA target upward if CYA is high:</strong> To hit an effective TA of 80 ppm with CYA at 90 ppm, you need a raw TA of approximately 110 ppm (80 + 90/3 = 110). The goal isn&rsquo;t higher total alkalinity &mdash; it&rsquo;s sufficient effective alkalinity after the CYA correction.</p>
+
+    <p><strong>Consider a partial drain if CYA is above 80&ndash;100 ppm:</strong> The only way to lower CYA is dilution. At very high CYA levels, maintaining balanced LSI requires running both TA and CH higher to compensate &mdash; which increases scale risk. A partial drain and refill is often the cleaner solution.</p>
+
+    <div class="app-callout">PoolChem Tracker uses CYA-corrected alkalinity in every LSI calculation automatically. Log your CYA level once, and it&rsquo;s factored into every reading going forward.</div>
+
+    <div class="cta-box">
+      <h2>LSI calculated correctly &mdash; every time</h2>
+      <p>Enter your CYA once. PoolChem Tracker applies the correction to every reading and shows your real LSI &mdash; not the one that ignores stabilizer.</p>
+      <a href="https://apps.apple.com/app/id6762652630?ct=blog" class="badge"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40"></a>
+    </div>
+
+    <h2>Frequently asked questions</h2>
+
+    <h3 id="faq-direct" style="font-size:1.15rem; font-weight:700; margin:2rem 0 0.5rem;">Does CYA affect LSI directly or only through alkalinity?</h3>
+    <p>CYA affects LSI only through the alkalinity correction. It lowers the effective alkalinity value that goes into the alkalinity factor of the LSI formula. CYA does not directly change pH, calcium hardness, temperature, or TDS. Its entire LSI impact comes from subtracting CYA/3 from total alkalinity before calculating the alkalinity factor. The higher the CYA, the larger the subtraction, and the lower the resulting LSI.</p>
+
+    <h3 id="faq-how-much" style="font-size:1.15rem; font-weight:700; margin:2rem 0 0.5rem;">How much does the CYA correction change my LSI?</h3>
+    <p>At typical CYA levels of 30&ndash;60 ppm, the correction shifts LSI by about 0.05&ndash;0.15. At higher CYA levels of 80&ndash;120 ppm, which are common in outdoor pools late in the season, the shift can be 0.15&ndash;0.25. This is large enough to move a pool from the balanced range into corrosive territory. Whether the difference matters for you depends on your CYA level &mdash; check your current reading and apply the formula (effective TA = TA minus CYA/3) to see where you actually stand.</p>
+
+    <h3 id="faq-raise-ta" style="font-size:1.15rem; font-weight:700; margin:2rem 0 0.5rem;">Should I raise my alkalinity if I have high CYA?</h3>
+    <p>Yes, if your CYA is high and your effective alkalinity (after the CYA correction) falls below 80 ppm, raising total alkalinity will push LSI back toward balanced. The target is effective TA in the 80&ndash;120 ppm range, so your raw TA target rises with CYA. At CYA 90, for example, you&rsquo;d want raw TA around 110&ndash;140 ppm to achieve 80&ndash;110 ppm effective TA. That said, at very high CYA levels this becomes harder to manage &mdash; a partial drain to reduce CYA is often the better long-term fix.</p>
+
+    <h3 id="faq-indoor" style="font-size:1.15rem; font-weight:700; margin:2rem 0 0.5rem;">Do indoor pools need to worry about this?</h3>
+    <p>No. Indoor pools don&rsquo;t use CYA because there&rsquo;s no UV light to degrade chlorine. With CYA at zero, the correction term (CYA &divide; 3) is zero &mdash; and the formula uses raw total alkalinity as-is. The CYA correction only matters when CYA is present in meaningful amounts (generally above 30 ppm).</p>
+
+    <h3>Keep reading</h3>
+    <ul class="keep-reading">
+      <li><a href="../explained/lsi">Langelier Saturation Index &mdash; Explained</a> &mdash; the complete formula and factor definitions</li>
+      <li><a href="what-is-lsi">Why LSI Matters: the real cost of unbalanced water</a></li>
+      <li><a href="why-lsi-calculators-disagree">Why Two LSI Calculators Give Different Answers</a> &mdash; CYA correction is one of the four divergence points</li>
+      <li><a href="csi-vs-lsi">CSI vs. LSI: Are They the Same Thing?</a> &mdash; how formula differences (including CYA correction) define accuracy</li>
+      <li><a href="lsi-saltwater-pools">LSI and Saltwater Pools</a> &mdash; SWG pools with stabilizer</li>
+      <li><a href="lsi-pool-surface-types">LSI by Pool Surface Type</a> &mdash; why the correction matters more for plaster pools</li>
+      <li><a href="calcium-hardness-in-pools">Pool Calcium Hardness</a> &mdash; the other LSI input that interacts with CYA management</li>
+      <li><a href="../tools/lsi-calculator">LSI Calculator</a> &mdash; full formula with CYA correction</li>
+    </ul>
+  </div>
+</article>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="../">Home</a>
+      <a href="mailto:support@poolchemtracker.com">Support</a>
+      <a href="../privacy">Privacy Policy</a>
+      <a href="../terms">Terms of Service</a>
+      <a href="https://bsky.app/profile/poolchemtracker.com" style="display:inline-flex;align-items:center;gap:0.35rem;"><svg width="14" height="13" viewBox="0 0 568 501" fill="currentColor" aria-hidden="true"><path d="M123.121 33.664C188.241 82.553 258.281 181.68 284 234.873c25.719-53.192 95.759-152.32 160.879-201.21C491.866-1.611 568-28.906 568 57.947c0 17.346-9.945 145.713-15.778 166.555-20.275 72.453-94.155 90.933-159.875 79.748C507.222 323.8 536.444 388.56 473.333 453.32c-119.86 122.992-172.272-30.859-185.702-70.281-2.462-7.227-3.614-10.608-3.631-7.733-.017-2.875-1.169.506-3.631 7.733-13.43 39.422-65.842 193.273-185.702 70.281-63.111-64.76-33.889-129.52 80.986-149.071-65.72 11.185-139.6-7.295-159.875-79.748C9.945 203.659 0 75.291 0 57.946 0-28.906 76.135-1.612 123.121 33.664Z"/></svg> Bluesky</a>
+    </div>
+    <p>&copy; 2026 PoolChem Tracker. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
