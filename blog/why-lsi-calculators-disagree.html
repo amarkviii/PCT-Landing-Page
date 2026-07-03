@@ -338,6 +338,17 @@ gtag('config','G-S8JT1DELF6');
 
   .app-callout a:hover { text-decoration: underline; }
 
+  .answer-box {
+    background: rgba(79,172,254,0.08);
+    border: 1px solid rgba(79,172,254,0.3);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0 1.75rem;
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+  .hub-label { display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
   .keep-reading a { color: var(--accent); }
   .keep-reading a:hover { text-decoration: underline; }
 
@@ -394,12 +405,13 @@ gtag('config','G-S8JT1DELF6');
   <div class="container">
     <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Guides</a> &rsaquo; Why LSI Calculators Disagree</div>
 
+    <span class="hub-label">Part of: LSI Water Balance Series</span>
     <h1>Why two <span class="gradient">LSI calculators</span> can give you different answers</h1>
     <div class="article-meta">6 min read &middot; June 2026 &middot; By <a href="../about" style="color:var(--muted);text-decoration:none;">Jeffrey Thompson</a></div>
 
-    <div class="info-card" style="border-left:3px solid var(--accent);">
-      <p class="box-heading">The core problem</p>
-      <p>You ran the same numbers through two <a href="../explained/lsi" style="color:var(--accent)">LSI calculators</a> and got different results. Both claim to use the Langelier Saturation Index. The problem: not all calculators use the same formula. Four specific differences can shift your result by 0.1 to 0.3 points &mdash; enough to flip a &lsquo;balanced&rsquo; reading to &lsquo;corrosive.&rsquo;</p>
+    <div class="answer-box">
+      <strong>Not all LSI calculators use the same formula &mdash; four differences can shift results by 0.1 to 0.3 points.</strong><br>
+      The biggest: CYA alkalinity correction. At CYA 60 ppm, skipping it overstates your alkalinity factor by 0.11 &mdash; enough to flip &ldquo;corrosive&rdquo; to &ldquo;balanced.&rdquo;
     </div>
 
     <h2>The four ways calculators diverge</h2>
