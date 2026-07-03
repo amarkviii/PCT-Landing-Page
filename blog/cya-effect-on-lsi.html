@@ -323,6 +323,17 @@ gtag('config','G-S8JT1DELF6');
 
   .app-callout a:hover { text-decoration: underline; }
 
+  .answer-box {
+    background: rgba(79,172,254,0.08);
+    border: 1px solid rgba(79,172,254,0.3);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0 1.75rem;
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+  .hub-label { display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
   .keep-reading a { color: var(--accent); }
   .keep-reading a:hover { text-decoration: underline; }
 
@@ -379,11 +390,13 @@ gtag('config','G-S8JT1DELF6');
   <div class="container">
     <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Guides</a> &rsaquo; How CYA Changes Your LSI Calculation</div>
 
+    <span class="hub-label">Part of: LSI Water Balance Series</span>
     <h1>How <span class="gradient">CYA</span> Changes Your LSI Calculation</h1>
     <div class="article-meta">6 min read &middot; June 2026 &middot; By <a href="../about" style="color:var(--muted);text-decoration:none;">Jeffrey Thompson</a></div>
 
-    <div class="info-card" style="border-left:3px solid var(--accent);">
-      <p>Cyanuric acid (CYA, stabilizer) doesn&rsquo;t appear in the basic LSI formula. But it changes one of the formula&rsquo;s inputs &mdash; total alkalinity &mdash; in a way that matters when CYA is above 50 ppm. Pools with high stabilizer levels have less effective alkalinity than the test kit reads. A pool that appears balanced on a simple LSI calculator may actually be corrosive when calculated correctly.</p>
+    <div class="answer-box">
+      <strong>CYA lowers the effective alkalinity used in the LSI formula &mdash; a pool that looks balanced may actually be corrosive.</strong><br>
+      Correction: effective TA = TA &minus; (CYA &divide; 3). At CYA 80 ppm this shifts LSI by ~0.15 &mdash; enough to flip a borderline reading from OK to corrosive.
     </div>
 
     <p>Most LSI calculators use raw total alkalinity as-is. The full formula requires a correction: some of the alkalinity measured by your test is contributed by cyanurate ions &mdash; a byproduct of CYA&rsquo;s dissociation in water &mdash; and cyanurate doesn&rsquo;t participate in the calcium carbonate equilibrium the same way bicarbonate does. So it needs to be subtracted before the calculation.</p>
