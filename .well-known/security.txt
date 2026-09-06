@@ -1,0 +1,4 @@
+Contact: mailto:support@poolchemtracker.com
+Expires: 2027-05-25T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://www.poolchemtracker.com/.well-known/security.txt
