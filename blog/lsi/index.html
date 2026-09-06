@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LSI Pool Chemistry Guides — PoolChem Tracker</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<meta name="description" content="LSI pool chemistry guides: what the Langelier Saturation Index is, why calculators disagree, how rain and CYA shift it, and LSI by pool surface type.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-S8JT1DELF6');
+</script>
+<link rel="alternate" type="application/rss+xml" title="PoolChem Tracker Blog" href="https://www.poolchemtracker.com/feed.xml">
+<link rel="canonical" href="https://www.poolchemtracker.com/blog/lsi/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LSI Pool Chemistry Guides — PoolChem Tracker">
+<meta property="og:description" content="LSI guides: what the Langelier Saturation Index is, why calculators disagree, how rain and CYA affect it, and LSI by pool surface type.">
+<meta property="og:url" content="https://www.poolchemtracker.com/blog/lsi/">
+<meta property="og:site_name" content="PoolChem Tracker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LSI Pool Chemistry Guides — PoolChem Tracker">
+<meta name="twitter:description" content="LSI guides: what the Langelier Saturation Index is, why calculators disagree, how rain and CYA affect it, and LSI by pool surface type.">
+<meta property="og:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<meta name="twitter:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.poolchemtracker.com/"},
+    {"@type":"ListItem","position":2,"name":"Blog","item":"https://www.poolchemtracker.com/blog/"},
+    {"@type":"ListItem","position":3,"name":"LSI","item":"https://www.poolchemtracker.com/blog/lsi/"}
+  ]
+}
+</script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+.skip-link { position: absolute; left: 0; top: -3rem; background: var(--accent); color: #000; padding: 0.6rem 1rem; border-radius: 0 0 8px 0; font-weight: 700; font-size: 0.9rem; text-decoration: none; z-index: 1000; transition: top 0.15s; }
+.skip-link:focus { top: 0; }
+main:focus { outline: none; }
+:root { --bg: #0a1628; --bg2: #0d1f3c; --card: #0f1e38; --accent: #4facfe; --accent2: #00f2fe; --text: #e8edf5; --muted: #9fb0c3; --good: #2ed573; --warn: #ffa502; --fix: #ff6b6b; --border: rgba(255,255,255,0.08); }
+body { font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.container { max-width: 820px; margin: 0 auto; padding: 0 1.5rem; }
+header { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+header .header-inner { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+.logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text); }
+.logo-icon { width: 40px; height: 40px; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
+.logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+.logo .logo-name { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
+.logo .logo-name span { color: var(--accent); }
+.header-right { display: flex; align-items: center; gap: 1.5rem; }
+.header-link { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--accent); padding: 0.4rem 1rem; border-radius: 8px; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+.header-link:hover { background: var(--accent); color: #000; }
+.breadcrumb { padding: 1.25rem 0 0; font-size: 0.82rem; color: var(--muted); }
+.breadcrumb a { color: var(--muted); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb span { margin: 0 0.4rem; opacity: 0.5; }
+.page-header { padding: 1.5rem 0 2rem; }
+.page-header h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 1rem; }
+.page-header h1 .gradient { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.page-intro { color: var(--muted); font-size: 1rem; line-height: 1.7; max-width: 680px; }
+.article-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.article-card { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; text-decoration: none; color: var(--text); transition: border-color 0.2s, transform 0.2s; }
+.article-card:hover { border-color: rgba(79,172,254,0.3); transform: translateY(-2px); }
+.article-card h2 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.01em; line-height: 1.3; }
+.article-card p { font-size: 0.84rem; color: var(--muted); line-height: 1.5; flex: 1; }
+.article-meta { display: flex; align-items: center; justify-content: space-between; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border); }
+.article-meta .read-time { font-size: 0.75rem; color: var(--muted); }
+.article-meta .read-link { font-size: 0.78rem; color: var(--accent); font-weight: 600; }
+.calc-row { margin-bottom: 2.5rem; padding: 1rem 0; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; }
+.calc-label { font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; margin-right: 0.25rem; }
+.calc-pill { display: inline-flex; align-items: center; gap: 0.35rem; background: rgba(79,172,254,0.08); border: 1px solid rgba(79,172,254,0.18); border-radius: 20px; padding: 0.35rem 0.85rem; color: var(--accent); text-decoration: none; font-size: 0.8rem; font-weight: 600; transition: background 0.2s, border-color 0.2s; white-space: nowrap; }
+.calc-pill:hover { background: rgba(79,172,254,0.15); border-color: rgba(79,172,254,0.35); }
+.related { margin-bottom: 2.5rem; }
+.related-label { font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.75rem; }
+.related-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.related-pill { display: inline-flex; align-items: center; background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 20px; padding: 0.35rem 0.85rem; color: var(--muted); text-decoration: none; font-size: 0.8rem; font-weight: 600; transition: border-color 0.2s, color 0.2s; }
+.related-pill:hover { border-color: rgba(79,172,254,0.3); color: var(--accent); }
+.app-banner { margin: 0 0 3rem; background: linear-gradient(135deg, rgba(79,172,254,0.08), rgba(0,242,254,0.05)); border: 1px solid rgba(79,172,254,0.2); border-radius: 14px; padding: 2rem; text-align: center; }
+.app-banner h2 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+.app-banner p { color: var(--muted); font-size: 0.9rem; max-width: 480px; margin: 0 auto 1.25rem; }
+.app-banner .badge img { height: 44px; }
+.app-banner .badge { display: inline-block; transition: opacity 0.2s; }
+.app-banner .badge:hover { opacity: 0.85; }
+.app-features { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem 2rem; margin-bottom: 1.25rem; }
+.app-feature { font-size: 0.82rem; color: var(--text); font-weight: 600; opacity: 0.85; }
+.app-feature::before { content: "\2713 "; color: var(--good); font-weight: 700; }
+footer { padding: 2rem 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--muted); }
+footer a { color: var(--muted); text-decoration: none; }
+footer a:hover { color: var(--text); }
+.footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+@media (max-width: 640px) { .header-link { font-size: 0.8rem; padding: 0.35rem 0.75rem; } .header-right { gap: 0.75rem; } .article-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header>
+  <div class="header-inner">
+    <a href="../../" class="logo">
+      <div class="logo-icon"><img src="../../Logo/logo-96.webp" alt="PoolChem Tracker" width="96" height="96"></div>
+      <span class="logo-name">Pool<span>Chem</span> Tracker</span>
+    </a>
+    <div class="header-right">
+      <a href="../../features" class="header-link">Features</a>
+      <a href="../../explained/" class="header-link">Explained</a>
+      <a href="../../tools/" class="header-link">Tools</a>
+      <a href="../../about" class="header-link">About</a>
+      <a href="../../download" class="header-link">Download</a>
+    </div>
+  </div>
+</header>
+<main id="main-content" tabindex="-1">
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../../">Home</a><span aria-hidden="true">/</span><a href="../">Blog</a><span aria-hidden="true">/</span>LSI
+  </nav>
+  <section class="page-header">
+    <h1>Pool <span class="gradient">LSI</span> guides</h1>
+    <p class="page-intro">The Langelier Saturation Index combines five water chemistry measurements — pH, temperature, calcium hardness, total alkalinity, and cyanuric acid — into a single number that tells you whether your water is corrosive, scale-forming, or balanced. A positive LSI means scale is likely. A negative LSI means the water is hungry for calcium and will pull it from wherever it can find it — your plaster, your grout, your equipment. Individual parameters can look fine while the LSI sits in dangerous territory, which is why most pool problems that "don't make sense" start making sense once you look at LSI.</p>
+  </section>
+  <div class="article-grid">
+    <a href="../what-is-lsi" class="article-card">
+      <h2>Why LSI Is the Pool Chemistry Number Most Owners Ignore</h2>
+      <p>Corrosive water etches plaster and attacks metal. Scale fouls heaters and salt cells. What bad LSI actually costs you.</p>
+      <div class="article-meta"><span class="read-time">7 min</span><span class="read-link">Read guide &rarr;</span></div>
+    </a>
+    <a href="../lsi-saltwater-pools" class="article-card">
+      <h2>LSI and Saltwater Pools: Why SWG Owners Need to Watch Water Balance More Closely</h2>
+      <p>Every hour a salt chlorine generator runs, it pushes pH upward. Combined with summer heat, this makes SWG pools uniquely prone to scale — including on the cell itself.</p>
+      <div class="article-meta"><span class="read-time">8 min</span><span class="read-link">Read guide &rarr;</span></div>
+    </a>
+    <a href="../why-lsi-calculators-disagree" class="article-card">
+      <h2>Why Two LSI Calculators Can Give You Different Answers</h2>
+      <p>Run the same numbers through two calculators and get different LSI results. Here are the four formula differences that cause it — and which answer to trust.</p>
+      <div class="article-meta"><span class="read-time">6 min</span><span class="read-link">Read guide &rarr;</span></div>
+    </a>
+    <a href="../csi-vs-lsi" class="article-card">
+      <h2>CSI vs. LSI: Are They the Same Thing?</h2>
+      <p>Pool apps use both terms. They measure the same thing &mdash; but the name doesn't tell you which formula is actually being used.</p>
+      <div class="article-meta"><span class="read-time">4 min</span><span class="read-link">Read guide &rarr;</span></div>
+    </a>
+    <a href="../lsi-pool-surface-types" class="article-card">
+      <h2>LSI by Pool Surface Type: Plaster, Vinyl, and Fiberglass</h2>
+      <p>Same formula, different stakes. What corrosive or scale-forming water actually costs each surface type — and how the calcium hardness targets differ.</p>
+      <div class="article-meta"><span class="read-time">7 min</span><span class="read-link">Read guide &rarr;</span></div>
+    </a>
+    <a href="../why-lsi-changes-after-rain" class="article-card">
+      <h2>Why Your LSI Changes After It Rains</h2>
+      <p>Rain adds pure, acidic water that dilutes calcium, alkalinity, and pH simultaneously. Here's what happens to all four LSI factors — and when to test.</p>
+      <div class="article-meta"><span class="read-time">6 min</span><span class="read-link">Read guide &rarr;</span></div>
+    </a>
+    <a href="../cya-effect-on-lsi" class="article-card">
+      <h2>How CYA Changes Your LSI Calculation</h2>
+      <p>Most LSI calculators ignore CYA. When they account for it, high stabilizer levels lower effective alkalinity — shifting LSI negative by more than you'd expect.</p>
+      <div class="article-meta"><span class="read-time">6 min</span><span class="read-link">Read guide &rarr;</span></div>
+    </a>
+  </div>
+  <div class="calc-row">
+    <span class="calc-label">Calculators:</span>
+    <a href="../../tools/lsi-calculator" class="calc-pill">&#x1F9EE; LSI Calculator</a>
+  </div>
+  <div class="related">
+    <p class="related-label">Related topics</p>
+    <div class="related-pills">
+      <a href="../calcium/" class="related-pill">Calcium Hardness</a>
+      <a href="../ph/" class="related-pill">pH</a>
+      <a href="../alkalinity/" class="related-pill">Alkalinity</a>
+      <a href="../desert-pools/" class="related-pill">Desert Pools</a>
+    </div>
+  </div>
+  <div class="app-banner">
+    <h2>PoolChem Tracker calculates your LSI on every reading</h2>
+    <p>Enter your five water parameters and get a full LSI calculation using temperature and CYA-corrected alkalinity — not the simplified formula most apps use.</p>
+    <div class="app-features">
+      <span class="app-feature">Full LSI formula</span>
+      <span class="app-feature">CYA correction</span>
+      <span class="app-feature">Trend charts</span>
+      <span class="app-feature">Works offline</span>
+    </div>
+    <div style="display:flex;gap:0.75rem;justify-content:center;align-items:center;flex-wrap:wrap;"><a href="https://apps.apple.com/app/id6762652630?ct=blog_lsi" class="badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'ios'})"><img loading="lazy" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40" style="height:54px;"></a><a href="https://play.google.com/store/apps/details?id=com.poolchemtracker.app&utm_source=website&utm_medium=blog_lsi" class="badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'android'})"><img loading="lazy" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="width:auto;height:54px;"></a></div>
+  </div>
+</div>
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="../../">Home</a>
+      <a href="mailto:support@poolchemtracker.com">Support</a>
+      <a href="../../privacy-website">Privacy Policy</a>
+      <a href="../../terms-website">Terms of Service</a>
+      <a href="https://bsky.app/profile/poolchemtracker.com" style="display:inline-flex;align-items:center;gap:0.35rem;"><svg width="14" height="13" viewBox="0 0 568 501" fill="currentColor" aria-hidden="true"><path d="M123.121 33.664C188.241 82.553 258.281 181.68 284 234.873c25.719-53.192 95.759-152.32 160.879-201.21C491.866-1.611 568-28.906 568 57.947c0 17.346-9.945 145.713-15.778 166.555-20.275 72.453-94.155 90.933-159.875 79.748C507.222 323.8 536.444 388.56 473.333 453.32c-119.86 122.992-172.272-30.859-185.702-70.281-2.462-7.227-3.614-10.608-3.631-7.733-.017-2.875-1.169.506-3.631 7.733-13.43 39.422-65.842 193.273-185.702 70.281-63.111-64.76-33.889-129.52 80.986-149.071-65.72 11.185-139.6-7.295-159.875-79.748C9.945 203.659 0 75.291 0 57.946 0-28.906 76.135-1.612 123.121 33.664Z"/></svg> Bluesky</a>
+    </div>
+    <p>&copy; 2026 PoolChem Tracker. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>

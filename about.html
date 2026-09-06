@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About PoolChem Tracker — Why I Built It</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="description" content="Built by a pool owner who got tired of guessing. The story behind PoolChem Tracker, free calculators, plain-language guides, and the chemistry explained.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-S8JT1DELF6');
+</script>
+<link rel="canonical" href="https://www.poolchemtracker.com/about">
+<meta property="og:type" content="website">
+<meta property="og:title" content="About PoolChem Tracker — Why I Built It">
+<meta property="og:description" content="Built by a pool owner who got tired of guessing. The story behind PoolChem Tracker, the free calculators, the guides, and why your data never leaves your device.">
+<meta property="og:url" content="https://www.poolchemtracker.com/about">
+<meta property="og:site_name" content="PoolChem Tracker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="About PoolChem Tracker — Why I Built It">
+<meta name="twitter:description" content="Built by a pool owner who got tired of guessing. The story behind PoolChem Tracker, the free calculators, the guides, and why your data never leaves your device.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"About PoolChem Tracker — Why I Built It","description":"Built by a pool owner who got tired of guessing. The story behind PoolChem Tracker, the free calculators, the guides, and why your data never leaves your device.","url":"https://www.poolchemtracker.com/about","author":{"@type":"Person","name":"Jeffrey Thompson"},"isPartOf":{"@type":"WebSite","name":"PoolChem Tracker","url":"https://www.poolchemtracker.com/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Jeffrey Thompson","url":"https://www.poolchemtracker.com/about","knowsAbout":["pool chemistry","swimming pool maintenance","water balance","Langelier Saturation Index","free chlorine","CYA stabilizer"],"description":"MBA, pool owner, and indie developer. Built PoolChem Tracker to solve his own pool chemistry problems and has published 50+ guides and articles on pool care.","sameAs":["https://www.linkedin.com/in/jeffreyathompsonmba"]}
+</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .skip-link { position: absolute; left: 0; top: -3rem; background: var(--accent); color: #000; padding: 0.6rem 1rem; border-radius: 0 0 8px 0; font-weight: 700; font-size: 0.9rem; text-decoration: none; z-index: 1000; transition: top 0.15s; }
+  .skip-link:focus { top: 0; }
+  main:focus { outline: none; }
+
+  :root {
+    --bg: #0a1628;
+    --bg2: #0d1f3c;
+    --card: #0f1e38;
+    --accent: #4facfe;
+    --accent2: #00f2fe;
+    --text: #e8edf5;
+    --muted: #9fb0c3;
+    --good: #2ed573;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  body {
+    font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Header */
+  header {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  header .header-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .logo .logo-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .logo .logo-name span { color: var(--accent); }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .header-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--accent);
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+
+  .header-link:hover {
+    background: var(--accent);
+    color: #000;
+  }
+
+  .header-badge { display: inline-flex; }
+  .header-badge img { height: 36px; }
+
+  .app-store-badge {
+    display: inline-block;
+    transition: opacity 0.2s;
+  }
+
+  .app-store-badge:hover { opacity: 0.85; }
+  .app-store-badge img { height: 54px; }
+
+  /* Page header */
+  .page-header {
+    padding: 5rem 0 2rem;
+    text-align: center;
+  }
+
+  .page-header h1 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+
+  .page-header h1 .gradient {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .page-header p {
+    color: var(--muted);
+    font-size: 1.1rem;
+  }
+
+  /* Content */
+  .content {
+    padding: 2rem 0 3rem;
+  }
+
+  .content h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 2.5rem 0 0.75rem;
+  }
+
+  .content h2:first-child {
+    margin-top: 0;
+  }
+
+  .content p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  .content p strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* Values grid */
+  .values {
+    padding: 2rem 0 3rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .values h2 {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .value-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .value-card h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .value-card p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* Contact */
+  .contact {
+    padding: 2rem 0 3rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .contact h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  .contact p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact a.email {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .contact a.email:hover { text-decoration: underline; }
+
+  /* CTA */
+  .cta {
+    padding: 4rem 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+
+  .cta h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  .cta p {
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+  }
+
+  /* Footer */
+  footer {
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  footer a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  footer a:hover { color: var(--text); }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    .page-header { padding: 3rem 0 1.5rem; }
+    .header-badge { display: none; }
+    .header-link { font-size: 0.8rem; padding: 0.35rem 0.75rem; }
+    .header-right { gap: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header>
+  <div class="header-inner">
+    <a href="./" class="logo">
+      <div class="logo-icon"><img src="Logo/logo-96.webp" alt="PoolChem Tracker" width="96" height="96"></div>
+      <span class="logo-name">Pool<span>Chem</span> Tracker</span>
+    </a>
+    <div class="header-right">
+      <a href="features" class="header-link">Features</a>
+      <a href="blog/" class="header-link">Guides</a>
+      <a href="tools/" class="header-link">Tools</a>
+      <a href="download" class="header-link">Download</a>
+    </div>
+  </div>
+</header>
+<main id="main-content" tabindex="-1">
+
+<section class="page-header">
+  <div class="container">
+    <h1>Built by a <span class="gradient">pool owner</span></h1>
+    <p>Not a pool company. Not a corporation. Just someone who got tired of guessing.</p>
+  </div>
+</section>
+
+<section class="content">
+  <div class="container">
+    <h2>Why I built PoolChem Tracker</h2>
+    <p>In 2022, my family built a house, and then built an inground saltwater pool from scratch.</p>
+    <p>When we filled it for the first time, I knew almost nothing about pool chemistry. Like most new pool owners, I relied on the pool store and a handful of apps. The advice often conflicted, the recommendations did not seem to solve the problems I was having, and I still did not understand why my water kept getting out of balance.</p>
+    <p>I am not a chemist by training. My background is in business, and I am the kind of person who turns everything into a spreadsheet.</p>
+    <p>From the very first week, I logged every water test, every chemical addition, and every recommendation from the pool store. After a few months, patterns started to emerge. They did not match what I was being told.</p>
+    <p>Eventually, I figured out what was really happening.</p>
+    <p>I live in the California desert, where triple digit temperatures, intense sun, rapid evaporation, and extremely hard fill water all have a major impact on pool chemistry. The problems I was fighting, rising stabilizer (CYA), heavy chlorine demand, and scale buildup, were not random. They were a direct result of my environment.</p>
+    <p>The pool store's advice did not account for that. Neither did the apps I tried.</p>
+    <p>Scale turned out to be one of the biggest challenges. Trying to understand why it kept forming led me down a rabbit hole into the <a href="blog/what-is-lsi" style="color:var(--accent);text-decoration:none;font-weight:600;">Langelier Saturation Index (LSI)</a>, a calculation that predicts whether water is balanced, corrosive, or likely to form scale. It quickly became clear that LSI is one of the most important measurements for keeping pool water healthy, yet many apps either ignored it or oversimplified it.</p>
+    <p>I decided there had to be a better way.</p>
+    <p>What started as a spreadsheet eventually became PoolChem Tracker, a tool that tracks water chemistry over time, spots trends before they become expensive problems, and provides recommendations based on your actual pool, your climate, and the way pools behave in the real world, not generic averages.</p>
+
+    <h2>Along the way, I also started writing</h2>
+    <p>The same problem that pushed me to build the app also pushed me to start writing.</p>
+    <p>Good information about pool chemistry was scattered, contradictory, and often seemed more focused on selling chemicals than helping pool owners understand what was happening.</p>
+    <p>Questions like these kept coming up.</p>
+    <p>Why does high CYA make chlorine less effective?<br>What does LSI actually measure?<br>Why does pool store advice sometimes make things worse instead of better?</p>
+    <p>I answered those questions for myself first. Then I started publishing the explanations so other pool owners could benefit from what I had learned.</p>
+    <p>That is how this website grew alongside the app.</p>
+    <p>The calculators, guides, and explainers all came from the same place: a pool owner who needed answers and could not find them in one place.</p>
+
+    <h2>Who it is for</h2>
+    <p>Whether you are taking care of your first pool or you have owned one for years, PoolChem Tracker is designed to help you understand your water instead of constantly guessing.</p>
+    <p>If you just need to calculate how much chemical to add, the free calculators cover every common adjustment, including chlorine, muriatic acid, alkalinity, calcium hardness, CYA, salt, and LSI. No account and no app required.</p>
+    <p>If you want to understand the chemistry behind the numbers, the guides explain everything from chlorine basics to complete water balance in plain English for pool owners, not chemists.</p>
+    <p>And if you want to track your readings over time, spot trends before they become expensive problems, and receive recommendations tailored to your actual pool, that is exactly what the PoolChem Tracker app was built to do.</p>
+    <p>Many people discover the guides first and download the app later after realizing how much easier consistent tracking makes pool care.</p>
+
+    <h2>Why privacy matters</h2>
+    <p>Most pool apps require an account, sync your data to the cloud, or collect analytics about how the app is used.</p>
+    <p>I built PoolChem Tracker differently.</p>
+    <p>Your readings, dosing history, and pool settings stay on your device. The app works without an internet connection. There are no accounts to create, no cloud storage, and no analytics running in the background.</p>
+    <p><strong>Your pool data belongs to you. It never leaves your device.</strong></p>
+  </div>
+</section>
+
+<section class="values">
+  <div class="container">
+    <h2>The principles behind PoolChem Tracker</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <h3>&#x1F3AF; Solve real problems</h3>
+        <p>Every feature exists because it solved a real problem I encountered as a pool owner. If it does not make pool care easier or more accurate, it does not belong in the app.</p>
+      </div>
+      <div class="value-card">
+        <h3>&#x1F9EA; Accuracy matters</h3>
+        <p>PoolChem Tracker calculates the Langelier Saturation Index (LSI) to help identify scaling and corrosion risk. It also enforces minimum free chlorine targets based on your stabilizer (CYA) level and adjusts recommendations for your pool type, water temperature, and whether you use a saltwater chlorine generator. The goal is not simply to show your numbers. It is to help you understand what they mean and what to do next.</p>
+      </div>
+      <div class="value-card">
+        <h3>&#x1F512; Privacy by default</h3>
+        <p>Your readings stay on your device. I cannot see your data because I never collect it.</p>
+      </div>
+      <div class="value-card">
+        <h3>&#x1F4B0; Honest pricing</h3>
+        <p>PoolChem Tracker is free to try. Unlock the full app with a one time purchase of $4.99. No subscriptions. No ads. No recurring charges.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content" style="border-top:1px solid var(--border);padding-top:2rem;">
+  <div class="container">
+    <h2>How the LSI calculator works</h2>
+    <p>PoolChem Tracker calculates LSI from the measurements you actually test, including pH, calcium hardness, total alkalinity, water temperature, and total dissolved solids (TDS).</p>
+    <p>Some calculators let you adjust individual values until you reach a "perfect" LSI. That is not how LSI is intended to be used.</p>
+    <p>The correct approach is to test your water first, then calculate LSI from those real measurements. The Pool and Hot Tub Alliance has specifically warned against manipulating inputs simply to reach a desired LSI because doing so is inconsistent with the ANSI/APSP/ICC-11 water chemistry standard.</p>
+    <p>That is the approach PoolChem Tracker follows.</p>
+  </div>
+</section>
+
+<section class="content" style="border-top:1px solid var(--border);padding-top:2rem;">
+  <div class="container">
+    <h2>A note from the founder</h2>
+    <p>I built PoolChem Tracker because it is the app I wish I had when I was learning how to take care of my own pool.</p>
+    <p>I am not a chemist, and I do not pretend to be one. Everything in PoolChem Tracker is built on established pool chemistry principles, industry standards, and years of maintaining my own pool while continually researching, testing, and improving the way I care for it.</p>
+    <p>Every feature exists because it solved a real problem I faced as a pool owner, not because I wanted the longest feature list.</p>
+    <p>I hope PoolChem Tracker helps make pool care a little simpler, a little more predictable, and a lot less frustrating.</p>
+    <p>Questions, feedback, or feature requests? I read every email: <a href="mailto:support@poolchemtracker.com" style="color:var(--accent);text-decoration:none;font-weight:600;">support@poolchemtracker.com</a></p>
+    <p style="margin-top:1rem;color:var(--text);font-weight:600;">— Jeffrey Thompson, MBA</p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2>Ready to stop guessing?</h2>
+    <p>Give PoolChem Tracker a try. Free on iOS and Android.</p>
+    <div style="display:flex;gap:0.75rem;justify-content:center;align-items:center;flex-wrap:wrap;">
+      <a href="https://apps.apple.com/app/id6762652630?ct=web_about" class="app-store-badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'ios'})"><img loading="lazy" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.poolchemtracker.app&utm_source=website&utm_medium=about_cta" class="app-store-badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'android'})"><img loading="lazy" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="width:auto;"></a>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="./">Home</a>
+      <a href="features">Features</a>
+      <a href="blog/">Guides</a>
+      <a href="mailto:support@poolchemtracker.com">Support</a>
+      <a href="legal">Legal</a>
+      <a href="https://bsky.app/profile/poolchemtracker.com" style="display:inline-flex;align-items:center;gap:0.35rem;"><svg width="14" height="13" viewBox="0 0 568 501" fill="currentColor" aria-hidden="true"><path d="M123.121 33.664C188.241 82.553 258.281 181.68 284 234.873c25.719-53.192 95.759-152.32 160.879-201.21C491.866-1.611 568-28.906 568 57.947c0 17.346-9.945 145.713-15.778 166.555-20.275 72.453-94.155 90.933-159.875 79.748C507.222 323.8 536.444 388.56 473.333 453.32c-119.86 122.992-172.272-30.859-185.702-70.281-2.462-7.227-3.614-10.608-3.631-7.733-.017-2.875-1.169.506-3.631 7.733-13.43 39.422-65.842 193.273-185.702 70.281-63.111-64.76-33.889-129.52 80.986-149.071-65.72 11.185-139.6-7.295-159.875-79.748C9.945 203.659 0 75.291 0 57.946 0-28.906 76.135-1.612 123.121 33.664Z"/></svg> Bluesky</a>
+    </div>
+    <p>&copy; 2026 PoolChem Tracker. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

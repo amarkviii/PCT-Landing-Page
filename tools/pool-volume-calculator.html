@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pool Volume Calculator — How Many Gallons Is My Pool?</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta name="description" content="Enter your pool shape and dimensions — rectangle, oval, round, kidney, or L-shape — and get your volume in gallons or litres instantly.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-S8JT1DELF6');
+</script>
+<link rel="canonical" href="https://www.poolchemtracker.com/tools/pool-volume-calculator">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pool Volume Calculator — How Many Gallons Is My Pool?">
+<meta property="og:description" content="Find out how many gallons your pool holds. Enter shape and dimensions — rectangle, oval, round, kidney, or L-shape — and get your volume instantly.">
+<meta property="og:url" content="https://www.poolchemtracker.com/tools/pool-volume-calculator">
+<meta property="og:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<meta property="og:site_name" content="PoolChem Tracker">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pool Volume Calculator">
+<meta name="twitter:description" content="Find out how many gallons your pool holds by shape — rectangle, oval, round, kidney, or L-shape. Sloped-bottom option included.">
+<meta name="twitter:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.poolchemtracker.com/"},{"@type":"ListItem","position":2,"name":"Pool Calculators","item":"https://www.poolchemtracker.com/tools/"},{"@type":"ListItem","position":3,"name":"Pool Volume Calculator"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I find out how many gallons my pool holds?","acceptedAnswer":{"@type":"Answer","text":"Measure the length, width, and depth, then use the formula for your pool's shape. A rectangle pool uses L × W × avg depth × 7.48. The calculator handles all common shapes: rectangle, oval, round, kidney, and L-shape. For unusual shapes, break the pool into sections, calculate each, and add them."}},{"@type":"Question","name":"What if I don't know my pool's exact depth?","acceptedAnswer":{"@type":"Answer","text":"Use a telescoping pole or a weighted string at the shallow end, deep end, and a few points in between. For a sloped bottom, average depth = (shallow + deep) ÷ 2. A single measurement taken at a midpoint works well enough for chemical dosing."}},{"@type":"Question","name":"How accurate is a pool volume calculator?","acceptedAnswer":{"@type":"Answer","text":"Within ±5–10% for careful measurements. Pool walls aren't perfectly vertical and floors aren't perfectly flat. That's accurate enough for chemical dosing — just dose toward the conservative end of your target range and retest before adding more."}},{"@type":"Question","name":"Should I include the spa in my pool volume calculation?","acceptedAnswer":{"@type":"Answer","text":"Yes, if the spa shares water with the pool. Most attached spas do. The calculator includes a spa add-on option. If the spa is freestanding with its own separate water system, treat it independently."}},{"@type":"Question","name":"What pool volume do I use for chemical dose calculations?","acceptedAnswer":{"@type":"Answer","text":"Use the total gallons from this calculator for every chemical dose — chlorine, muriatic acid, baking soda, and calcium chloride all scale with water volume. An incorrect volume is the most common cause of consistent over- or under-dosing."}}]}
+</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .skip-link { position: absolute; left: 0; top: -3rem; background: var(--accent); color: #000; padding: 0.6rem 1rem; border-radius: 0 0 8px 0; font-weight: 700; font-size: 0.9rem; text-decoration: none; z-index: 1000; transition: top 0.15s; }
+  .skip-link:focus { top: 0; }
+  main:focus { outline: none; }
+
+  :root {
+    --bg: #0a1628;
+    --bg2: #0d1f3c;
+    --card: #0f1e38;
+    --accent: #4facfe;
+    --accent2: #00f2fe;
+    --text: #e8edf5;
+    --muted: #9fb0c3;
+    --good: #2ed573;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  body { font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+  header { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+  .header-inner { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+  .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text); }
+  .logo-icon { width: 40px; height: 40px; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
+  .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+  .logo .logo-name { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
+  .logo .logo-name span { color: var(--accent); }
+  .header-right { display: flex; align-items: center; gap: 1.5rem; }
+  .header-link { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--accent); padding: 0.4rem 1rem; border-radius: 8px; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+  .header-link:hover { background: var(--accent); color: #000; }
+  .header-badge { display: inline-flex; }
+  .header-badge img { height: 36px; }
+
+  .page { padding: 3rem 0 4rem; }
+
+  .breadcrumb { font-size: 0.8rem; color: var(--muted); margin-bottom: 2rem; }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .page-label { display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+
+  h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 0.75rem; }
+  h1 .gradient { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .page-desc { font-size: 1.05rem; color: var(--muted); margin-bottom: 2.5rem; }
+
+  /* Calculator card */
+  .calc-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; }
+
+  /* Toggle group (units + depth type) */
+  .toggle-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; }
+  .toggle-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .toggle-group { display: flex; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .toggle-group button { background: none; border: none; color: var(--muted); font-size: 0.85rem; font-weight: 600; padding: 0.4rem 1rem; cursor: pointer; transition: background 0.15s, color 0.15s; font-family: inherit; }
+  .toggle-group button.active { background: var(--accent); color: #000; }
+
+  /* Shape tabs */
+  .shape-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.75rem; }
+  .shape-tab { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 600; color: var(--muted); cursor: pointer; transition: all 0.15s; font-family: inherit; }
+  .shape-tab.active { background: rgba(79,172,254,0.12); border-color: rgba(79,172,254,0.4); color: var(--accent); }
+  .shape-tab:hover:not(.active) { border-color: rgba(79,172,254,0.25); color: var(--text); }
+
+  /* Input grid */
+  .inputs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+  .inputs-grid.one-col { grid-template-columns: 1fr; }
+  .inputs-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
+
+  .field { display: flex; flex-direction: column; gap: 0.35rem; }
+  .field label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .field input { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 0.65rem 0.85rem; color: var(--text); font-size: 1rem; font-family: inherit; transition: border-color 0.15s; width: 100%; -moz-appearance: textfield; }
+  .field input::-webkit-outer-spin-button, .field input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .field input:focus { outline: none; border-color: rgba(79,172,254,0.5); }
+  .field input::placeholder { color: var(--muted); opacity: 0.5; }
+
+  /* Section divider for L-shape */
+  .section-label { font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 1.25rem 0 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+
+  /* Depth row */
+  .depth-row { margin-top: 0; }
+
+  /* Result */
+  .result-box { background: linear-gradient(135deg, rgba(79,172,254,0.10), rgba(0,242,254,0.05)); border: 1px solid rgba(79,172,254,0.3); border-radius: 12px; padding: 1.5rem; text-align: center; margin-top: 1.5rem; transition: opacity 0.2s; }
+  .result-box.empty { opacity: 0.4; }
+  .result-label { font-size: 0.72rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+  .result-primary { font-size: clamp(2.2rem, 6vw, 3.2rem); font-weight: 800; letter-spacing: -0.03em; color: var(--text); line-height: 1.1; }
+  .result-primary .unit { font-size: 1.1rem; font-weight: 600; color: var(--muted); margin-left: 0.25rem; }
+  .result-secondary { font-size: 0.9rem; color: var(--muted); margin-top: 0.4rem; }
+  .result-note { font-size: 0.78rem; color: var(--muted); margin-top: 0.75rem; opacity: 0.7; }
+
+  /* Explanation */
+  h2 { font-size: 1.35rem; font-weight: 700; margin: 2.5rem 0 0.75rem; letter-spacing: -0.02em; }
+  p { color: var(--text); margin-bottom: 1.25rem; font-size: 1.05rem; }
+  ul { margin: 0 0 1.25rem 1.5rem; color: var(--text); font-size: 1.05rem; }
+  li { margin-bottom: 0.4rem; }
+
+  .size-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.92rem; }
+  .size-table th { text-align: left; font-size: 0.72rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); }
+  .size-table td { padding: 0.55rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--text); }
+  .size-table tr:last-child td { border-bottom: none; }
+  .size-table td:last-child { color: var(--accent); font-weight: 700; }
+  .size-table-note { font-size: 0.8rem; color: var(--muted); margin-top: -0.75rem; margin-bottom: 1.5rem; }
+
+  .formula-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; font-family: 'SF Mono', ui-monospace, monospace; font-size: 0.9rem; color: var(--accent); line-height: 2; }
+  .formula-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--border); padding: 0.25rem 0; }
+  .formula-row:last-child { border-bottom: none; }
+  .formula-shape-name { color: var(--muted); font-size: 0.8rem; white-space: nowrap; }
+
+  .key-fact { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .key-fact h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .key-fact p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+
+  .related-list { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; }
+  .related-list h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.85rem; color: var(--accent); }
+  .related-list ul { list-style: none; margin: 0; padding: 0; }
+  .related-list li { padding: 0.4rem 0; font-size: 0.95rem; border-bottom: 1px solid var(--border); }
+  .related-list li:last-child { border-bottom: none; }
+  .related-list a { color: var(--accent); text-decoration: none; }
+  .related-list a:hover { text-decoration: underline; }
+  .coming-soon { color: var(--muted); font-size: 0.82rem; margin-left: 0.4rem; }
+
+  /* Add-on sections (spa, tanning shelf) */
+  .addon-section { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+  .addon-toggle { display: flex; align-items: flex-start; gap: 0.85rem; cursor: pointer; user-select: none; }
+  .addon-checkbox { width: 22px; height: 22px; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; background: var(--bg2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; transition: all 0.15s; }
+  .addon-checkbox.checked { background: rgba(79,172,254,0.18); border-color: var(--accent); }
+  .addon-checkbox.checked::after { content: '✓'; color: var(--accent); font-size: 0.8rem; font-weight: 800; line-height: 1; }
+  .addon-title { font-size: 0.92rem; font-weight: 700; color: var(--text); }
+  .addon-subtitle { font-size: 0.78rem; color: var(--muted); margin-top: 0.15rem; line-height: 1.4; }
+  .addon-body { margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed var(--border); }
+  .result-breakdown { font-size: 0.82rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.6; }
+
+  .cta-box { background: linear-gradient(135deg, rgba(79,172,254,0.08), rgba(0,242,254,0.05)); border: 1px solid rgba(79,172,254,0.25); border-radius: 14px; padding: 2rem; margin: 2.5rem 0; text-align: center; }
+  .cta-box h2 { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.5rem; }
+  .cta-box p { color: var(--muted); font-size: 0.92rem; max-width: 480px; margin: 0 auto 1.25rem; line-height: 1.6; }
+  .cta-box .badge { display: inline-block; transition: opacity 0.2s; }
+  .cta-box .badge:hover { opacity: 0.85; }
+  .cta-box .badge img { height: 44px; }
+
+  footer { padding: 2rem 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+  .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+
+  @media (max-width: 640px) {
+    .page { padding: 2rem 0 3rem; }
+    .header-badge { display: none; }
+    .header-link { font-size: 0.8rem; padding: 0.35rem 0.75rem; }
+    .header-right { gap: 0.75rem; }
+    .inputs-grid { grid-template-columns: 1fr 1fr; }
+    .inputs-grid.three-col { grid-template-columns: 1fr 1fr; }
+    .inputs-grid.one-col { grid-template-columns: 1fr; }
+    .calc-card { padding: 1.25rem; }
+    .shape-tabs { gap: 0.4rem; }
+    .shape-tab { padding: 0.45rem 0.75rem; font-size: 0.8rem; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header>
+  <div class="header-inner">
+    <a href="../" class="logo">
+      <div class="logo-icon"><img src="../Logo/logo-96.webp" alt="PoolChem Tracker" width="96" height="96"></div>
+      <span class="logo-name">Pool<span>Chem</span> Tracker</span>
+    </a>
+    <div class="header-right">
+      <a href="../blog/" class="header-link">Guides</a>
+      <a href="../features" class="header-link">Features</a>
+      <a href="../about" class="header-link">About</a>
+      <a href="../download" class="header-link">Download</a>
+    </div>
+  </div>
+</header>
+<main id="main-content" tabindex="-1">
+
+<div class="page">
+  <div class="container">
+
+    <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Pool Calculators</a> &rsaquo; Volume</div>
+
+    <span class="page-label">Pool Calculators</span>
+    <h1>How Many Gallons Is My Pool? — <span class="gradient">Volume Calculator</span></h1>
+    <p class="page-desc">Every dose calculation — chlorine, acid, baking soda — depends on getting your volume right. Select your pool's shape and enter its dimensions.</p>
+
+    <div class="calc-card">
+
+      <div class="toggle-row">
+        <span class="toggle-label">Units</span>
+        <div class="toggle-group">
+          <button id="btn-ft" class="active" onclick="setUnits('ft')">Feet</button>
+          <button id="btn-m" onclick="setUnits('m')">Meters</button>
+        </div>
+      </div>
+
+      <div class="shape-tabs" id="shape-tabs">
+        <button class="shape-tab active" onclick="setShape('rectangle')">Rectangle</button>
+        <button class="shape-tab" onclick="setShape('oval')">Oval</button>
+        <button class="shape-tab" onclick="setShape('round')">Round</button>
+        <button class="shape-tab" onclick="setShape('kidney')">Kidney</button>
+        <button class="shape-tab" onclick="setShape('lshape')">L-Shape</button>
+      </div>
+
+      <!-- Rectangle -->
+      <div id="panel-rectangle">
+        <div class="inputs-grid">
+          <div class="field">
+            <label for="rect-l" id="lbl-rect-l">Length (ft)</label>
+            <input inputmode="decimal" type="number" id="rect-l" min="0" step="0.5" placeholder="e.g. 40" oninput="calc()">
+          </div>
+          <div class="field">
+            <label for="rect-w" id="lbl-rect-w">Width (ft)</label>
+            <input inputmode="decimal" type="number" id="rect-w" min="0" step="0.5" placeholder="e.g. 20" oninput="calc()">
+          </div>
+        </div>
+        <div id="depth-rectangle"></div>
+      </div>
+
+      <!-- Oval -->
+      <div id="panel-oval" style="display:none">
+        <div class="inputs-grid">
+          <div class="field">
+            <label for="oval-l" id="lbl-oval-l">Length (ft)</label>
+            <input inputmode="decimal" type="number" id="oval-l" min="0" step="0.5" placeholder="e.g. 30" oninput="calc()">
+          </div>
+          <div class="field">
+            <label for="oval-w" id="lbl-oval-w">Width (ft)</label>
+            <input inputmode="decimal" type="number" id="oval-w" min="0" step="0.5" placeholder="e.g. 15" oninput="calc()">
+          </div>
+        </div>
+        <div id="depth-oval"></div>
+      </div>
+
+      <!-- Round -->
+      <div id="panel-round" style="display:none">
+        <div class="inputs-grid one-col">
+          <div class="field">
+            <label for="round-d" id="lbl-round-d">Diameter (ft)</label>
+            <input inputmode="decimal" type="number" id="round-d" min="0" step="0.5" placeholder="e.g. 24" oninput="calc()">
+          </div>
+        </div>
+        <div id="depth-round"></div>
+      </div>
+
+      <!-- Kidney -->
+      <div id="panel-kidney" style="display:none">
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1rem;">Measure the overall length, then the widths at the two widest points of each lobe.</p>
+        <div class="inputs-grid three-col">
+          <div class="field">
+            <label for="kid-l" id="lbl-kid-l">Length (ft)</label>
+            <input inputmode="decimal" type="number" id="kid-l" min="0" step="0.5" placeholder="e.g. 36" oninput="calc()">
+          </div>
+          <div class="field">
+            <label for="kid-a" id="lbl-kid-a">Width A (ft)</label>
+            <input inputmode="decimal" type="number" id="kid-a" min="0" step="0.5" placeholder="e.g. 18" oninput="calc()">
+          </div>
+          <div class="field">
+            <label for="kid-b" id="lbl-kid-b">Width B (ft)</label>
+            <input inputmode="decimal" type="number" id="kid-b" min="0" step="0.5" placeholder="e.g. 12" oninput="calc()">
+          </div>
+        </div>
+        <div id="depth-kidney"></div>
+      </div>
+
+      <!-- L-Shape -->
+      <div id="panel-lshape" style="display:none">
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1rem;">Break the pool into two rectangles. Measure each section separately — do not overlap.</p>
+        <div class="section-label">Section 1</div>
+        <div class="inputs-grid">
+          <div class="field">
+            <label for="l1-l" id="lbl-l1-l">Length (ft)</label>
+            <input inputmode="decimal" type="number" id="l1-l" min="0" step="0.5" placeholder="e.g. 30" oninput="calc()">
+          </div>
+          <div class="field">
+            <label for="l1-w" id="lbl-l1-w">Width (ft)</label>
+            <input inputmode="decimal" type="number" id="l1-w" min="0" step="0.5" placeholder="e.g. 15" oninput="calc()">
+          </div>
+        </div>
+        <div class="section-label">Section 2</div>
+        <div class="inputs-grid">
+          <div class="field">
+            <label for="l2-l" id="lbl-l2-l">Length (ft)</label>
+            <input inputmode="decimal" type="number" id="l2-l" min="0" step="0.5" placeholder="e.g. 15" oninput="calc()">
+          </div>
+          <div class="field">
+            <label for="l2-w" id="lbl-l2-w">Width (ft)</label>
+            <input inputmode="decimal" type="number" id="l2-w" min="0" step="0.5" placeholder="e.g. 12" oninput="calc()">
+          </div>
+        </div>
+        <div id="depth-lshape"></div>
+      </div>
+
+      <!-- Spa add-on -->
+      <div class="addon-section">
+        <div class="addon-toggle" onclick="toggleAddon('spa')">
+          <div class="addon-checkbox" id="check-spa"></div>
+          <div>
+            <div class="addon-title">Include Spa</div>
+            <div class="addon-subtitle">Attached spas share water with the pool and should be added to the total volume.</div>
+          </div>
+        </div>
+        <div id="addon-spa" style="display:none">
+          <div class="addon-body">
+            <div class="toggle-row">
+              <span class="toggle-label">Shape</span>
+              <div class="toggle-group">
+                <button id="spa-shape-round" class="active" onclick="setSpaShape('round')">Round</button>
+                <button id="spa-shape-rect" onclick="setSpaShape('rect')">Rectangle</button>
+              </div>
+            </div>
+            <div id="spa-panel-round">
+              <div class="inputs-grid one-col" style="margin-top:0.75rem">
+                <div class="field">
+                  <label for="spa-d" id="lbl-spa-d">Diameter (ft)</label>
+                  <input inputmode="decimal" type="number" id="spa-d" min="0" step="0.5" placeholder="e.g. 7" oninput="calc()">
+                </div>
+              </div>
+            </div>
+            <div id="spa-panel-rect" style="display:none">
+              <div class="inputs-grid" style="margin-top:0.75rem">
+                <div class="field">
+                  <label for="spa-l" id="lbl-spa-l">Length (ft)</label>
+                  <input inputmode="decimal" type="number" id="spa-l" min="0" step="0.5" placeholder="e.g. 8" oninput="calc()">
+                </div>
+                <div class="field">
+                  <label for="spa-w" id="lbl-spa-w">Width (ft)</label>
+                  <input inputmode="decimal" type="number" id="spa-w" min="0" step="0.5" placeholder="e.g. 6" oninput="calc()">
+                </div>
+              </div>
+            </div>
+            <div class="inputs-grid one-col" style="margin-top:0.75rem">
+              <div class="field">
+                <label for="spa-depth" id="lbl-spa-depth">Depth (ft)</label>
+                <input inputmode="decimal" type="number" id="spa-depth" min="0" step="0.25" placeholder="e.g. 3.5" oninput="calc()">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tanning shelf add-on -->
+      <div class="addon-section">
+        <div class="addon-toggle" onclick="toggleAddon('shelf')">
+          <div class="addon-checkbox" id="check-shelf"></div>
+          <div>
+            <div class="addon-title">Tanning Shelf Correction</div>
+            <div class="addon-subtitle">If your pool dimensions already include the shelf footprint, this subtracts the overcount (the shelf is shallower than the rest of the pool).</div>
+          </div>
+        </div>
+        <div id="addon-shelf" style="display:none">
+          <div class="addon-body">
+            <div class="inputs-grid" style="margin-top:0">
+              <div class="field">
+                <label for="shelf-l" id="lbl-shelf-l">Length (ft)</label>
+                <input inputmode="decimal" type="number" id="shelf-l" min="0" step="0.5" placeholder="e.g. 8" oninput="calc()">
+              </div>
+              <div class="field">
+                <label for="shelf-w" id="lbl-shelf-w">Width (ft)</label>
+                <input inputmode="decimal" type="number" id="shelf-w" min="0" step="0.5" placeholder="e.g. 6" oninput="calc()">
+              </div>
+            </div>
+            <div class="inputs-grid one-col">
+              <div class="field">
+                <label for="shelf-depth" id="lbl-shelf-depth">Depth (ft)</label>
+                <input inputmode="decimal" type="number" id="shelf-depth" min="0" step="0.25" placeholder="e.g. 0.5" oninput="calc()">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-box empty" id="result-box">
+        <div class="result-label">Estimated Total Volume</div>
+        <div class="result-primary" id="result-main">&mdash;</div>
+        <div class="result-secondary" id="result-alt"></div>
+        <div class="result-breakdown" id="result-breakdown"></div>
+        <div class="result-note" id="result-note">Enter your pool dimensions above</div>
+      </div>
+
+    </div><!-- /calc-card -->
+
+    <div class="cta-box">
+      <h2>Stop recalculating your pool every weekend.</h2>
+      <p>PoolChem Tracker remembers your pool size, tracks your chemistry history, and tells you exactly what to add next.</p>
+      <div style="display:flex;gap:0.75rem;justify-content:center;align-items:center;flex-wrap:wrap;"><a href="https://apps.apple.com/app/id6762652630?ct=tool" class="badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'ios'})"><img loading="lazy" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40" style="height:54px;"></a><a href="https://play.google.com/store/apps/details?id=com.poolchemtracker.app&utm_source=website&utm_medium=tool_cta" class="badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'android'})"><img loading="lazy" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="width:auto;height:54px;"></a></div>
+    </div>
+
+    <h2>Why pool volume matters</h2>
+    <p>Every chemical dose is calculated per gallon. Add 20% too little chlorine because you underestimated your pool size and you'll be chasing algae all summer. Add 20% too much acid and you'll overshoot your pH target every time. Volume is the one number that makes every other calculation correct — or wrong.</p>
+
+    <h2>How to measure accurately</h2>
+    <p>For length and width, a tape measure along the water line is the most accurate method. For depth, use a telescoping pole or measuring rod. Measure at the shallow end, the deep end, and two or three spots in between. For a pool with a sloped bottom, average depth = (shallow depth + deep depth) ÷ 2, which is what the "Sloped" option above calculates.</p>
+
+    <p>For unusual shapes, the approach is always the same: break the pool into sections you can measure, calculate each section, and add them. An L-shaped pool is two rectangles. A kidney pool has two lobes — the (A + B) formula approximates the curved boundary.</p>
+
+    <div class="key-fact">
+      <h3>Volume is always an estimate</h3>
+      <p>Pool walls aren't perfectly vertical, floors aren't perfectly flat, and tape measures aren't perfectly level. A well-measured pool still has ±5–10% error. Dose chemicals conservatively — you can always add more, but you can't easily remove what's already in.</p>
+    </div>
+
+    <h2>Formulas used</h2>
+
+    <div class="formula-box">
+      <div class="formula-row"><span class="formula-shape-name">Rectangle / Square</span><span>L &times; W &times; Avg Depth &times; 7.48</span></div>
+      <div class="formula-row"><span class="formula-shape-name">Oval</span><span>L &times; W &times; Avg Depth &times; 5.9</span></div>
+      <div class="formula-row"><span class="formula-shape-name">Round / Circle</span><span>Diameter&sup2; &times; Avg Depth &times; 5.9</span></div>
+      <div class="formula-row"><span class="formula-shape-name">Kidney</span><span>(A + B) &times; 0.45 &times; Length &times; Avg Depth &times; 7.48</span></div>
+      <div class="formula-row"><span class="formula-shape-name">L-Shape</span><span>Section&nbsp;1 + Section&nbsp;2 (each as rectangle)</span></div>
+    </div>
+
+    <p>The constant 7.48 converts cubic feet to US gallons. The oval and round constant 5.9 is &pi;/4 &times; 7.48 &asymp; 5.87, rounded to 5.9. The kidney constant 0.45 accounts for the indented-lobe geometry and is consistent with the Pool &amp; Hot Tub Alliance standard.</p>
+
+    <h2>Common above-ground pool sizes in gallons</h2>
+    <p>These figures use 4 ft as the water depth, which is the typical fill level for most above-ground round pools. For oval or irregularly shaped above-ground pools, use the calculator above with your actual measurements — the oval formula assumes a true ellipse and may not match your pool's shape.</p>
+    <table class="size-table">
+      <thead>
+        <tr><th>Pool size</th><th>Shape</th><th>Water depth</th><th>Gallons (approx.)</th><th>Litres (approx.)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>15 ft round</td><td>Round</td><td>4 ft (1.2 m)</td><td>~5,300</td><td>~20,100</td></tr>
+        <tr><td>18 ft round</td><td>Round</td><td>4 ft (1.2 m)</td><td>~7,600</td><td>~28,800</td></tr>
+        <tr><td>20 ft round</td><td>Round</td><td>4 ft (1.2 m)</td><td>~9,400</td><td>~35,600</td></tr>
+        <tr><td>21 ft round</td><td>Round</td><td>4 ft (1.2 m)</td><td>~10,400</td><td>~39,400</td></tr>
+        <tr><td>24 ft round</td><td>Round</td><td>4 ft (1.2 m)</td><td>~13,600</td><td>~51,500</td></tr>
+        <tr><td>27 ft round</td><td>Round</td><td>4 ft (1.2 m)</td><td>~17,200</td><td>~65,100</td></tr>
+        <tr><td>15×30 ft oval</td><td>Oval</td><td>4 ft (1.2 m)</td><td>~10,600</td><td>~40,100</td></tr>
+        <tr><td>18×33 ft oval</td><td>Oval</td><td>4 ft (1.2 m)</td><td>~14,100</td><td>~53,400</td></tr>
+        <tr><td>18×38 ft oval</td><td>Oval</td><td>4 ft (1.2 m)</td><td>~16,200</td><td>~61,300</td></tr>
+      </tbody>
+    </table>
+    <p class="size-table-note">Numbers rounded to the nearest 100. If your actual water depth differs from 4 ft, use the calculator above — volume scales directly with depth. Every additional 6 inches of water adds roughly 12–15% more volume. Oval figures assume a true ellipse; above-ground oval pools may hold slightly less due to their actual frame shape.</p>
+
+    <h2>Common in-ground pool sizes in gallons</h2>
+    <p>In-ground pools vary widely, but these are the most common backyard rectangle dimensions. Assumes the industry-standard 5 ft average depth (3.5 ft shallow, 6.5 ft deep).</p>
+    <table class="size-table">
+      <thead>
+        <tr><th>Pool size</th><th>Shape</th><th>Avg depth</th><th>Gallons (approx.)</th><th>Litres (approx.)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>12×24 ft</td><td>Rectangle</td><td>5 ft (1.5 m)</td><td>~10,800</td><td>~40,900</td></tr>
+        <tr><td>14×28 ft</td><td>Rectangle</td><td>5 ft (1.5 m)</td><td>~14,700</td><td>~55,600</td></tr>
+        <tr><td>15×30 ft</td><td>Rectangle</td><td>5 ft (1.5 m)</td><td>~16,800</td><td>~63,600</td></tr>
+        <tr><td>16×32 ft</td><td>Rectangle</td><td>5 ft (1.5 m)</td><td>~19,200</td><td>~72,700</td></tr>
+        <tr><td>16×36 ft</td><td>Rectangle</td><td>5 ft (1.5 m)</td><td>~21,600</td><td>~81,800</td></tr>
+        <tr><td>18×36 ft</td><td>Rectangle</td><td>5 ft (1.5 m)</td><td>~24,300</td><td>~92,000</td></tr>
+        <tr><td>20×40 ft</td><td>Rectangle</td><td>5 ft (1.5 m)</td><td>~30,000</td><td>~113,600</td></tr>
+        <tr><td>25×50 ft</td><td>Rectangle</td><td>5 ft (1.5 m)</td><td>~46,800</td><td>~177,200</td></tr>
+      </tbody>
+    </table>
+    <p class="size-table-note">Numbers rounded to the nearest 100. Depth has the largest effect on volume — a pool 1 ft deeper than average holds 15–20% more water. Use the calculator above with your actual measurements for an accurate dose calculation.</p>
+
+    <h2>Worked example: rectangular pool</h2>
+    <p>A standard backyard pool measures <strong>16 ft × 32 ft</strong> with a sloped bottom — 3.5 ft at the shallow end, 6.5 ft at the deep end. Average depth = (3.5 + 6.5) ÷ 2 = <strong>5 ft</strong>.</p>
+    <p>Volume = 16 × 32 × 5 × 7.48 = <strong>~19,200 gallons</strong>. A 20% underestimate (15,360 gallons) would leave you chronically under-dosing chlorine; a 20% overestimate means you're overdosing every treatment. Measure carefully and round down slightly when in doubt.</p>
+
+    <h2>Frequently asked questions</h2>
+
+    <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">How do I find out how many gallons my pool holds?</h3>
+    <p>Measure length, width, and depth, then use the formula for your pool's shape. The calculator above handles rectangle, oval, round, kidney, and L-shaped pools. For unusual shapes, break the pool into sections you can measure separately, calculate each section, and add them.</p>
+
+    <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">What if I don't know my pool's exact depth?</h3>
+    <p>Use a telescoping pole or weighted string at the shallow end, deep end, and two points in between. For a sloped bottom, average depth = (shallow + deep) ÷ 2 — which is what the "Sloped" option above calculates. A single depth measurement taken at the midpoint is good enough if that's all you have.</p>
+
+    <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">How accurate is this pool volume calculator?</h3>
+    <p>Within ±5–10% for careful measurements. Pool walls aren't perfectly vertical and floors aren't flat. That's accurate enough for chemical dosing — just dose toward the conservative end of your target range and retest before adding more rather than adding everything at once.</p>
+
+    <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">Should I include the spa in my pool volume?</h3>
+    <p>Yes, if the spa shares water with the pool — most attached spas do. Use the "Include Spa" add-on above. If your spa is freestanding with a separate pump and water, calculate and treat it independently.</p>
+
+    <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">What pool volume do I use for chemical calculations?</h3>
+    <p>Use this calculated gallons figure for every dose — chlorine, muriatic acid, baking soda, and calcium chloride all scale with water volume. An incorrect volume is the most common cause of consistent over- or under-dosing across every chemical you add.</p>
+
+
+    <div class="related-list">
+      <h3>Now that you know your volume</h3>
+      <ul>
+        <li><a href="chlorine-dose-calculator">Chlorine dose calculator</a> — exact liquid chlorine or cal-hypo dose for your pool</li>
+        <li><a href="pool-shock-calculator">Pool shock calculator</a> — shock target and dose based on your CYA</li>
+        <li><a href="muriatic-acid-calculator">Muriatic acid calculator</a> — lower pH or alkalinity with the right amount</li>
+        <li><a href="baking-soda-calculator">Baking soda calculator</a> — raise total alkalinity to target</li>
+        <li><a href="pool-chemical-addition-order">Chemical addition order calculator</a> — full prioritized treatment plan from your readings</li>
+      </ul>
+    </div>
+
+    <div class="related-list">
+      <h3>Related guides</h3>
+      <ul>
+        <li><a href="../blog/how-to-balance-pool-water">How to balance pool water in 4 steps</a> — every dose in the right order</li>
+        <li><a href="../blog/how-to-kill-pool-algae">How to kill pool algae</a> — shock dosing requires knowing your volume</li>
+        <li><a href="../blog/pool-chemistry-cheat-sheet">Pool chemistry target ranges cheat sheet</a></li>
+        <li><a href="../explained/free-chlorine">Free Chlorine &amp; CYA explained</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="../">Home</a>
+      <a href="../blog/">Guides</a>
+      <a href="../explained/">Explained</a>
+      <a href="mailto:support@poolchemtracker.com">Support</a>
+      <a href="../privacy-website">Privacy Policy</a>
+      <a href="../terms-website">Terms of Service</a>
+    </div>
+    <p>&copy; 2026 PoolChem Tracker. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  let shape = 'rectangle';
+  let units = 'ft';
+  const depthMode = { rectangle: 'uniform', oval: 'uniform', round: 'uniform', kidney: 'uniform', lshape: 'uniform' };
+  let spaEnabled = false;
+  let shelfEnabled = false;
+  let spaShape = 'round';
+
+  // Build depth controls for each shape panel
+  ['rectangle', 'oval', 'round', 'kidney', 'lshape'].forEach(function (id) {
+    document.getElementById('depth-' + id).innerHTML =
+      '<div class="depth-row">' +
+        '<div class="toggle-row" style="margin-top:0.25rem">' +
+          '<span class="toggle-label">Depth</span>' +
+          '<div class="toggle-group">' +
+            '<button id="dmode-' + id + '-uniform" class="active" onclick="setDepthMode(\'' + id + '\',\'uniform\')">Uniform</button>' +
+            '<button id="dmode-' + id + '-sloped" onclick="setDepthMode(\'' + id + '\',\'sloped\')">Sloped</button>' +
+          '</div>' +
+        '</div>' +
+        '<div id="duniform-' + id + '">' +
+          '<div class="inputs-grid one-col" style="margin-top:0.75rem">' +
+            '<div class="field">' +
+              '<label for="d-' + id + '" id="dlbl-' + id + '">Depth (ft)</label>' +
+              '<input inputmode="decimal" type="number" id="d-' + id + '" min="0" step="0.25" placeholder="e.g. 5" oninput="calc()">' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div id="dsloped-' + id + '" style="display:none">' +
+          '<div class="inputs-grid" style="margin-top:0.75rem">' +
+            '<div class="field">' +
+              '<label for="d-shallow-' + id + '" id="dlbl-shallow-' + id + '">Shallow End (ft)</label>' +
+              '<input inputmode="decimal" type="number" id="d-shallow-' + id + '" min="0" step="0.25" placeholder="e.g. 3.5" oninput="calc()">' +
+            '</div>' +
+            '<div class="field">' +
+              '<label for="d-deep-' + id + '" id="dlbl-deep-' + id + '">Deep End (ft)</label>' +
+              '<input inputmode="decimal" type="number" id="d-deep-' + id + '" min="0" step="0.25" placeholder="e.g. 8" oninput="calc()">' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+  });
+
+  window.toggleAddon = function (which) {
+    if (which === 'spa') {
+      spaEnabled = !spaEnabled;
+      document.getElementById('check-spa').classList.toggle('checked', spaEnabled);
+      document.getElementById('addon-spa').style.display = spaEnabled ? '' : 'none';
+    } else {
+      shelfEnabled = !shelfEnabled;
+      document.getElementById('check-shelf').classList.toggle('checked', shelfEnabled);
+      document.getElementById('addon-shelf').style.display = shelfEnabled ? '' : 'none';
+    }
+    calc();
+  };
+
+  window.setSpaShape = function (s) {
+    spaShape = s;
+    document.getElementById('spa-shape-round').classList.toggle('active', s === 'round');
+    document.getElementById('spa-shape-rect').classList.toggle('active', s === 'rect');
+    document.getElementById('spa-panel-round').style.display = s === 'round' ? '' : 'none';
+    document.getElementById('spa-panel-rect').style.display = s === 'rect' ? '' : 'none';
+    calc();
+  };
+
+  window.setDepthMode = function (id, mode) {
+    depthMode[id] = mode;
+    document.getElementById('dmode-' + id + '-uniform').classList.toggle('active', mode === 'uniform');
+    document.getElementById('dmode-' + id + '-sloped').classList.toggle('active', mode === 'sloped');
+    document.getElementById('duniform-' + id).style.display = mode === 'uniform' ? '' : 'none';
+    document.getElementById('dsloped-' + id).style.display = mode === 'sloped' ? '' : 'none';
+    calc();
+  };
+
+  window.setUnits = function (u) {
+    units = u;
+    document.getElementById('btn-ft').classList.toggle('active', u === 'ft');
+    document.getElementById('btn-m').classList.toggle('active', u === 'm');
+    updateUnitLabels();
+    calc();
+  };
+
+  window.setShape = function (s) {
+    shape = s;
+    var shapes = ['rectangle', 'oval', 'round', 'kidney', 'lshape'];
+    shapes.forEach(function (id) {
+      document.getElementById('panel-' + id).style.display = id === s ? '' : 'none';
+    });
+    document.querySelectorAll('.shape-tab').forEach(function (btn, i) {
+      btn.classList.toggle('active', shapes[i] === s);
+    });
+    calc();
+  };
+
+  function updateUnitLabels() {
+    var u = units === 'ft' ? 'ft' : 'm';
+    var dimIds = [
+      'lbl-rect-l', 'lbl-rect-w',
+      'lbl-oval-l', 'lbl-oval-w',
+      'lbl-round-d',
+      'lbl-kid-l', 'lbl-kid-a', 'lbl-kid-b',
+      'lbl-l1-l', 'lbl-l1-w', 'lbl-l2-l', 'lbl-l2-w'
+    ];
+    var dimNames = [
+      'Length', 'Width', 'Length', 'Width', 'Diameter',
+      'Length', 'Width A', 'Width B',
+      'Length', 'Width', 'Length', 'Width'
+    ];
+    dimIds.forEach(function (id, i) {
+      var el = document.getElementById(id);
+      if (el) el.textContent = dimNames[i] + ' (' + u + ')';
+    });
+    ['rectangle', 'oval', 'round', 'kidney', 'lshape'].forEach(function (id) {
+      var d = document.getElementById('dlbl-' + id);
+      var s = document.getElementById('dlbl-shallow-' + id);
+      var dp = document.getElementById('dlbl-deep-' + id);
+      if (d) d.textContent = 'Depth (' + u + ')';
+      if (s) s.textContent = 'Shallow End (' + u + ')';
+      if (dp) dp.textContent = 'Deep End (' + u + ')';
+    });
+    var addonLabels = [
+      ['lbl-spa-d', 'Diameter'], ['lbl-spa-l', 'Length'], ['lbl-spa-w', 'Width'], ['lbl-spa-depth', 'Depth'],
+      ['lbl-shelf-l', 'Length'], ['lbl-shelf-w', 'Width'], ['lbl-shelf-depth', 'Depth']
+    ];
+    addonLabels.forEach(function (pair) {
+      var el = document.getElementById(pair[0]);
+      if (el) el.textContent = pair[1] + ' (' + u + ')';
+    });
+  }
+
+  function toFt(v) {
+    return units === 'm' ? v * 3.28084 : v;
+  }
+
+  function getDepth(id) {
+    if (depthMode[id] === 'uniform') {
+      return toFt(parseFloat(document.getElementById('d-' + id).value) || 0);
+    }
+    var s = toFt(parseFloat(document.getElementById('d-shallow-' + id).value) || 0);
+    var d = toFt(parseFloat(document.getElementById('d-deep-' + id).value) || 0);
+    if (s === 0 && d === 0) return 0;
+    return (s + d) / 2;
+  }
+
+  function val(id) {
+    return toFt(parseFloat(document.getElementById(id).value) || 0);
+  }
+
+  window.calc = function () {
+    var gallons = 0;
+
+    if (shape === 'rectangle') {
+      gallons = val('rect-l') * val('rect-w') * getDepth('rectangle') * 7.48;
+    } else if (shape === 'oval') {
+      gallons = val('oval-l') * val('oval-w') * getDepth('oval') * 5.9;
+    } else if (shape === 'round') {
+      var d = val('round-d');
+      gallons = d * d * getDepth('round') * 5.9;
+    } else if (shape === 'kidney') {
+      gallons = (val('kid-a') + val('kid-b')) * 0.45 * val('kid-l') * getDepth('kidney') * 7.48;
+    } else if (shape === 'lshape') {
+      var area = val('l1-l') * val('l1-w') + val('l2-l') * val('l2-w');
+      gallons = area * getDepth('lshape') * 7.48;
+    }
+
+    // Spa
+    var spaGallons = 0;
+    if (spaEnabled) {
+      var spaDepth = toFt(parseFloat(document.getElementById('spa-depth').value) || 0);
+      if (spaShape === 'round') {
+        var spaDia = val('spa-d');
+        spaGallons = spaDia * spaDia * spaDepth * 5.9;
+      } else {
+        spaGallons = val('spa-l') * val('spa-w') * spaDepth * 7.48;
+      }
+    }
+
+    // Tanning shelf — subtract overcount (shelf area was included in main dimensions at full pool depth)
+    var shelfCorrection = 0;
+    if (shelfEnabled) {
+      var shelfDepth = toFt(parseFloat(document.getElementById('shelf-depth').value) || 0);
+      var poolDepth = getDepth(shape);
+      var shelfArea = val('shelf-l') * val('shelf-w');
+      if (shelfDepth < poolDepth) {
+        shelfCorrection = shelfArea * (poolDepth - shelfDepth) * 7.48;
+      }
+    }
+
+    var total = gallons + spaGallons - shelfCorrection;
+
+    var box = document.getElementById('result-box');
+    var main = document.getElementById('result-main');
+    var alt = document.getElementById('result-alt');
+    var breakdown = document.getElementById('result-breakdown');
+    var note = document.getElementById('result-note');
+
+    if (total > 0) {
+      box.classList.remove('empty');
+      var parts = [];
+      if (units === 'm') {
+        main.innerHTML = Math.round(total * 3.78541).toLocaleString() + '<span class="unit">L</span>';
+        alt.textContent = Math.round(total).toLocaleString() + ' gallons';
+        if (gallons > 0) parts.push('Pool: ' + Math.round(gallons * 3.78541).toLocaleString() + ' L');
+        if (spaGallons > 0) parts.push('Spa: +' + Math.round(spaGallons * 3.78541).toLocaleString() + ' L');
+        if (shelfCorrection > 0) parts.push('Shelf correction: −' + Math.round(shelfCorrection * 3.78541).toLocaleString() + ' L');
+      } else {
+        main.innerHTML = Math.round(total).toLocaleString() + '<span class="unit">gal</span>';
+        alt.textContent = Math.round(total * 3.78541).toLocaleString() + ' liters';
+        if (gallons > 0) parts.push('Pool: ' + Math.round(gallons).toLocaleString() + ' gal');
+        if (spaGallons > 0) parts.push('Spa: +' + Math.round(spaGallons).toLocaleString() + ' gal');
+        if (shelfCorrection > 0) parts.push('Shelf correction: −' + Math.round(shelfCorrection).toLocaleString() + ' gal');
+      }
+      breakdown.textContent = parts.length > 1 ? parts.join(' + ') : '';
+      note.textContent = 'Volume is an estimate. Actual pool volume may vary ±5–10%.';
+    } else {
+      box.classList.add('empty');
+      main.innerHTML = '&mdash;';
+      alt.textContent = '';
+      breakdown.textContent = '';
+      note.textContent = 'Enter your pool dimensions above';
+    }
+  };
+
+  // Initialize labels
+  updateUnitLabels();
+})();
+</script>
+
+</body>
+</html>

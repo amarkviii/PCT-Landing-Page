@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pool Water Replacement Calculator — How Much to Drain &amp; Refill</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta name="description" content="Enter pool readings to get the drain percentage that fixes CYA, calcium hardness, salt, and nitrates — with projected values for every parameter.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-S8JT1DELF6');
+</script>
+<link rel="canonical" href="https://www.poolchemtracker.com/tools/water-replacement-calculator">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pool Water Replacement Calculator — How Much to Drain &amp; Refill">
+<meta property="og:description" content="Find the single drain percentage to fix CYA, calcium hardness, salt, copper, and nitrates simultaneously — with projected values for every parameter.">
+<meta property="og:url" content="https://www.poolchemtracker.com/tools/water-replacement-calculator">
+<meta property="og:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<meta property="og:site_name" content="PoolChem Tracker">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pool Water Replacement Calculator — How Much to Drain &amp; Refill">
+<meta name="twitter:description" content="Find the single drain % that fixes CYA, calcium, salt, copper, and nitrates at once — with projected values for every parameter after the drain.">
+<meta name="twitter:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.poolchemtracker.com/"},{"@type":"ListItem","position":2,"name":"Pool Calculators","item":"https://www.poolchemtracker.com/tools/"},{"@type":"ListItem","position":3,"name":"Water Replacement Calculator"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much water do I need to drain to lower CYA?","acceptedAnswer":{"@type":"Answer","text":"Drain fraction = 1 minus (target CYA divided by current CYA). For example, to lower CYA from 90 to 50 ppm: drain fraction = 1 minus (50/90) = 44%. For a 15,000-gallon pool that's about 6,600 gallons. If the required drain exceeds 50%, a two-stage approach is usually more practical."}},{"@type":"Question","name":"Can I lower CYA and calcium hardness in the same drain?","acceptedAnswer":{"@type":"Answer","text":"Yes — and a multi-parameter calculator is the right way to plan it. Enter both current values and targets. The calculator finds the single drain percentage that satisfies the most demanding parameter, then shows projected values for all others after that drain. Often one drain operation fixes everything at once."}},{"@type":"Question","name":"What if my fill water has high calcium hardness?","acceptedAnswer":{"@type":"Answer","text":"If your tap water already has high calcium (common in Arizona, Nevada, and Southern California), draining has limited effect on calcium hardness — you're replacing pool water with water that's nearly as hard. Enter your fill water calcium hardness to see the adjusted calculation. In extreme cases (fill water CH above 250 ppm), reverse osmosis is more effective than draining for calcium."}},{"@type":"Question","name":"Is draining the only way to lower CYA?","acceptedAnswer":{"@type":"Answer","text":"Yes. Cyanuric acid does not degrade, evaporate, or get consumed by chlorine or bathers. Dilution by draining and refilling is the only effective method. There is no chemical treatment that reliably lowers CYA in a residential pool."}},{"@type":"Question","name":"When should I do a pool water replacement?","acceptedAnswer":{"@type":"Answer","text":"The most common triggers are: CYA above 80 ppm (chlorine stops working effectively), calcium hardness above 500 ppm (scale and cloudy water risk), copper above 0.3 ppm (staining risk), or before closing if CYA is high (CYA doesn't break down over winter). Many pool owners do a scheduled partial drain each fall — especially in hard-water climates — to reset CYA, calcium, and TDS simultaneously."}},{"@type":"Question","name":"How do I know what my fill water calcium hardness is?","acceptedAnswer":{"@type":"Answer","text":"Check your municipal water utility's annual Consumer Confidence Report (CCR) — it lists calcium hardness or total hardness for your water supply. Alternatively, test a sample of tap water with a standard pool water test kit. In Phoenix and Las Vegas, fill water CH is typically 200–350 ppm. In most coastal and northern US cities it's under 100 ppm."}}]}
+</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .skip-link { position: absolute; left: 0; top: -3rem; background: var(--accent); color: #000; padding: 0.6rem 1rem; border-radius: 0 0 8px 0; font-weight: 700; font-size: 0.9rem; text-decoration: none; z-index: 1000; transition: top 0.15s; }
+  .skip-link:focus { top: 0; }
+  main:focus { outline: none; }
+
+  :root {
+    --bg: #0a1628;
+    --bg2: #0d1f3c;
+    --card: #0f1e38;
+    --accent: #4facfe;
+    --accent2: #00f2fe;
+    --text: #e8edf5;
+    --muted: #9fb0c3;
+    --good: #2ed573;
+    --warn: #ffa502;
+    --danger: #ff6b6b;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  body { font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+
+  header { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+  .header-inner { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+  .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text); }
+  .logo-icon { width: 40px; height: 40px; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
+  .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+  .logo .logo-name { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
+  .logo .logo-name span { color: var(--accent); }
+  .header-right { display: flex; align-items: center; gap: 1.5rem; }
+  .header-link { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--accent); padding: 0.4rem 1rem; border-radius: 8px; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+  .header-link:hover { background: var(--accent); color: #000; }
+  .header-badge img { height: 36px; }
+
+  .page { padding: 3rem 0 4rem; }
+  .breadcrumb { font-size: 0.8rem; color: var(--muted); margin-bottom: 2rem; }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .page-label { display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+  h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 0.75rem; }
+  h1 .gradient { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .page-desc { font-size: 1.05rem; color: var(--muted); margin-bottom: 2.5rem; }
+
+  .calc-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem; }
+  .section-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+  .section-sub { font-size: 0.78rem; font-weight: 400; color: var(--muted); text-transform: none; letter-spacing: 0; }
+  .section-divider { border-top: 1px solid var(--border); margin: 1.5rem 0; }
+
+  .inputs-grid { display: grid; gap: 1rem; }
+  .inputs-grid.two-col { grid-template-columns: 1fr 1fr; margin-bottom: 1.25rem; }
+  .inputs-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
+  .field { display: flex; flex-direction: column; gap: 0.35rem; }
+  .field label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .field input { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 0.65rem 0.85rem; color: var(--text); font-size: 1rem; font-family: inherit; transition: border-color 0.15s; width: 100%; -moz-appearance: textfield; }
+  .field input::-webkit-outer-spin-button, .field input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .field input:focus { outline: none; border-color: rgba(79,172,254,0.5); }
+  .field-hint { font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem; }
+  .field-hint a { color: var(--accent); text-decoration: none; }
+  .field-hint a:hover { text-decoration: underline; }
+
+  .toggle-group { display: flex; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .toggle-group button { flex: 1; background: none; border: none; color: var(--muted); font-size: 0.85rem; font-weight: 600; padding: 0.55rem 0.75rem; cursor: pointer; transition: background 0.15s, color 0.15s; font-family: inherit; line-height: 1.3; }
+  .toggle-group button.active { background: var(--accent); color: #000; }
+
+  /* Parameter row */
+  .param-grid { display: grid; gap: 0.85rem; }
+  .param-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; align-items: end; background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem 1rem; }
+  .param-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; grid-column: 1 / -1; margin-bottom: -0.25rem; }
+  .param-hint { font-size: 0.72rem; color: var(--muted); margin-top: 0.15rem; }
+
+  /* Results */
+  .results-section { display: none; }
+  .results-section.visible { display: block; }
+
+  .drain-hero { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem 2rem; margin-bottom: 1.25rem; }
+  .drain-hero.all-clear { background: rgba(46,213,115,0.05); border-color: rgba(46,213,115,0.25); }
+  .drain-hero.needs-drain { background: rgba(79,172,254,0.05); border-color: rgba(79,172,254,0.25); }
+  .drain-hero.staged { background: rgba(255,165,2,0.05); border-color: rgba(255,165,2,0.25); }
+
+  .hero-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.75rem; }
+  .hero-number { font-size: 3rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
+  .drain-hero.all-clear .hero-number { color: var(--good); }
+  .drain-hero.needs-drain .hero-number { color: var(--accent); }
+  .drain-hero.staged .hero-number { color: var(--warn); }
+  .hero-unit { font-size: 0.85rem; color: var(--muted); margin-top: 0.3rem; }
+  .hero-gallons { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-top: 0.1rem; }
+  .hero-badge { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.25rem 0.75rem; border-radius: 6px; flex-shrink: 0; }
+  .drain-hero.all-clear .hero-badge { background: rgba(46,213,115,0.15); color: var(--good); }
+  .drain-hero.needs-drain .hero-badge { background: rgba(79,172,254,0.15); color: var(--accent); }
+  .drain-hero.staged .hero-badge { background: rgba(255,165,2,0.15); color: var(--warn); }
+  .hero-driver { font-size: 0.88rem; color: var(--muted); }
+  .hero-depth { font-size: 0.88rem; color: var(--muted); margin-top: 0.3rem; }
+  .hero-driver strong { color: var(--text); }
+
+  .staged-banner { background: rgba(255,165,2,0.06); border: 1px solid rgba(255,165,2,0.25); border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 1.25rem; font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+  .staged-banner strong { color: var(--text); }
+  .staged-banner ol { margin: 0.4rem 0 0 1.25rem; }
+  .staged-banner li { margin-bottom: 0.2rem; }
+
+  /* Per-parameter result cards */
+  .param-results { margin-bottom: 1.5rem; }
+  .param-result-head { font-size: 0.73rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.6rem; }
+
+  .result-item { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 1rem; }
+  .result-item.in-range { background: transparent; border-style: dashed; opacity: 0.65; }
+  .result-item.fixed { background: rgba(46,213,115,0.04); border-color: rgba(46,213,115,0.2); }
+  .result-item.partial { background: rgba(79,172,254,0.04); border-color: rgba(79,172,254,0.2); }
+  .result-item.cant-fix { background: rgba(255,165,2,0.04); border-color: rgba(255,165,2,0.2); }
+  .result-item.below-target { background: rgba(79,172,254,0.04); border-color: rgba(79,172,254,0.2); }
+  .result-item.below-target .result-icon { background: rgba(79,172,254,0.12); color: var(--accent); }
+  .result-item.below-target .result-projected { color: var(--accent); }
+
+  .result-icon { width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 800; flex-shrink: 0; }
+  .result-item.in-range .result-icon { background: rgba(46,213,115,0.12); color: var(--good); }
+  .result-item.fixed .result-icon { background: rgba(46,213,115,0.12); color: var(--good); }
+  .result-item.partial .result-icon { background: rgba(79,172,254,0.12); color: var(--accent); }
+  .result-item.cant-fix .result-icon { background: rgba(255,165,2,0.12); color: var(--warn); }
+
+  .result-body { flex: 1; min-width: 0; }
+  .result-name { font-size: 0.95rem; font-weight: 700; }
+  .result-note { font-size: 0.77rem; color: var(--muted); margin-top: 0.15rem; line-height: 1.5; }
+
+  .result-values { text-align: right; flex-shrink: 0; }
+  .result-projected { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
+  .result-item.fixed .result-projected { color: var(--good); }
+  .result-item.partial .result-projected { color: var(--accent); }
+  .result-item.cant-fix .result-projected { color: var(--warn); }
+  .result-projected-label { font-size: 0.68rem; color: var(--muted); margin-top: 0.1rem; }
+
+  h2 { font-size: 1.35rem; font-weight: 700; margin: 2.5rem 0 0.75rem; letter-spacing: -0.02em; }
+  h3 { font-size: 1.05rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+  p { color: var(--text); margin-bottom: 1.25rem; font-size: 1.05rem; }
+  ol, ul { margin: 0 0 1.25rem 1.5rem; color: var(--text); font-size: 1.05rem; }
+  li { margin-bottom: 0.4rem; }
+
+  .key-fact { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .key-fact h3 { font-size: 1rem; font-weight: 700; margin: 0 0 0.4rem; }
+  .key-fact p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+
+  .related-list { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; }
+  .related-list .box-heading { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.85rem; color: var(--accent); }
+  .related-list ul { list-style: none; margin: 0; padding: 0; }
+  .related-list li { padding: 0.4rem 0; font-size: 0.95rem; border-bottom: 1px solid var(--border); }
+  .related-list li:last-child { border-bottom: none; }
+  .related-list a { color: var(--accent); text-decoration: none; }
+  .related-list a:hover { text-decoration: underline; }
+
+  .cta-box { background: linear-gradient(135deg, rgba(79,172,254,0.08), rgba(0,242,254,0.05)); border: 1px solid rgba(79,172,254,0.25); border-radius: 14px; padding: 2rem; margin: 2.5rem 0; text-align: center; }
+  .cta-box h2 { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.5rem; }
+  .cta-box p { color: var(--muted); font-size: 0.92rem; max-width: 480px; margin: 0 auto 1.25rem; line-height: 1.6; }
+  .cta-box .badge:hover { opacity: 0.85; }
+  .cta-box .badge img { height: 44px; }
+
+  footer { padding: 2rem 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+  .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+
+  @media (max-width: 700px) {
+    .page { padding: 2rem 0 3rem; }
+    .header-badge { display: none; }
+    .header-link { font-size: 0.8rem; padding: 0.35rem 0.75rem; }
+    .header-right { gap: 0.75rem; }
+    .calc-card { padding: 1.25rem; }
+    .inputs-grid.two-col { grid-template-columns: 1fr 1fr; }
+    .param-row { grid-template-columns: 1fr 1fr; }
+    .param-row .field:last-child { grid-column: 1 / -1; }
+    .hero-number { font-size: 2.25rem; }
+  }
+  @media (max-width: 480px) {
+    .inputs-grid.two-col { grid-template-columns: 1fr; }
+    .param-row { grid-template-columns: 1fr; }
+    .param-row .field:last-child { grid-column: auto; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header>
+  <div class="header-inner">
+    <a href="../" class="logo">
+      <div class="logo-icon"><img src="../Logo/logo-96.webp" alt="PoolChem Tracker" width="96" height="96"></div>
+      <span class="logo-name">Pool<span>Chem</span> Tracker</span>
+    </a>
+    <div class="header-right">
+      <a href="../blog/" class="header-link">Guides</a>
+      <a href="../features" class="header-link">Features</a>
+      <a href="../about" class="header-link">About</a>
+      <a href="../download" class="header-link">Download</a>
+    </div>
+  </div>
+</header>
+
+<main id="main-content" tabindex="-1">
+<div class="page">
+<div class="container">
+
+  <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Pool Calculators</a> &rsaquo; Water Replacement Calculator</div>
+
+  <span class="page-label">Pool Calculators</span>
+  <h1>Pool Water Replacement Calculator —<br><span class="gradient">How Much to Drain &amp; Refill</span></h1>
+  <p class="page-desc">Enter your current readings and targets to find the single drain-and-refill percentage that fixes CYA, calcium hardness, salt, copper, and nitrates in one operation.</p>
+
+  <!-- ── Inputs ── -->
+  <div class="calc-card">
+
+    <div class="section-label">Pool Setup</div>
+    <div class="inputs-grid two-col">
+      <div class="field">
+        <label for="pool-volume">Pool Volume (gallons)</label>
+        <input inputmode="decimal" type="number" id="pool-volume" min="0" step="500" placeholder="e.g. 15000" oninput="calc()">
+        <span class="field-hint"><a href="pool-volume-calculator">Calculate gallons &rarr;</a></span>
+      </div>
+      <div class="field">
+        <label>Pool Surface</label>
+        <div class="toggle-group" id="surface-toggle">
+          <button class="active" onclick="setSurface('plaster')">Plaster / Gunite</button>
+          <button onclick="setSurface('vinyl')">Vinyl / Fiberglass</button>
+        </div>
+        <span class="field-hint">Sets calcium hardness targets</span>
+      </div>
+    </div>
+    <div class="inputs-grid two-col" style="margin-top:0.75rem;">
+      <div class="field">
+        <label for="pool-length">Pool Length (ft) <span style="font-weight:400;text-transform:none;letter-spacing:0;">optional</span></label>
+        <input inputmode="decimal" type="number" id="pool-length" min="0" step="1" placeholder="e.g. 30" oninput="calc()">
+      </div>
+      <div class="field">
+        <label for="pool-width">Pool Width (ft) <span style="font-weight:400;text-transform:none;letter-spacing:0;">optional</span></label>
+        <input inputmode="decimal" type="number" id="pool-width" min="0" step="1" placeholder="e.g. 15" oninput="calc()">
+        <span class="field-hint">Adds a drain depth estimate in inches</span>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section-label">Current Readings &amp; Targets <span class="section-sub">— fill in only what you want to fix</span></div>
+    <div class="param-grid">
+
+      <div class="param-row">
+        <div class="param-label">CYA (Cyanuric Acid)</div>
+        <div class="field">
+          <label for="cya-current">Current (ppm)</label>
+          <input inputmode="decimal" type="number" id="cya-current" min="0" max="300" step="5" placeholder="e.g. 90" oninput="calc()">
+        </div>
+        <div class="field">
+          <label for="cya-target">Target (ppm)</label>
+          <input inputmode="decimal" type="number" id="cya-target" min="0" max="300" step="5" placeholder="50" value="50" oninput="calc()">
+          <span class="param-hint">30–50 standard; 60–80 SWG</span>
+        </div>
+        <div class="field">
+          <label style="opacity:0;">—</label>
+          <div style="font-size:0.75rem;color:var(--muted);padding:0.7rem 0;">Fill water adds no CYA</div>
+        </div>
+      </div>
+
+      <div class="param-row">
+        <div class="param-label">Calcium Hardness</div>
+        <div class="field">
+          <label for="ch-current">Current (ppm)</label>
+          <input inputmode="decimal" type="number" id="ch-current" min="0" max="1000" step="10" placeholder="e.g. 550" oninput="calc()">
+        </div>
+        <div class="field">
+          <label for="ch-target" id="ch-target-label">Target (ppm)</label>
+          <input inputmode="decimal" type="number" id="ch-target" min="0" max="1000" step="10" placeholder="250" value="250" oninput="calc()">
+          <span class="param-hint" id="ch-target-hint">200–400 plaster</span>
+        </div>
+        <div class="field">
+          <label for="ch-fill">Fill Water CH (ppm)</label>
+          <input inputmode="decimal" type="number" id="ch-fill" min="0" max="500" step="10" placeholder="0" oninput="calc()">
+          <span class="param-hint">0 if unknown; check utility report for hard-water areas</span>
+        </div>
+      </div>
+
+      <div class="param-row">
+        <div class="param-label">Salt <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:0.72rem;">(SWG pools)</span></div>
+        <div class="field">
+          <label for="salt-current">Current (ppm)</label>
+          <input inputmode="decimal" type="number" id="salt-current" min="0" max="8000" step="100" placeholder="e.g. 4500" oninput="calc()">
+        </div>
+        <div class="field">
+          <label for="salt-target">Target (ppm)</label>
+          <input inputmode="decimal" type="number" id="salt-target" min="0" max="8000" step="100" placeholder="3200" value="3200" oninput="calc()">
+          <span class="param-hint">Check SWG manual — typically 2700–3400</span>
+        </div>
+        <div class="field">
+          <label style="opacity:0;">—</label>
+          <div style="font-size:0.75rem;color:var(--muted);padding:0.7rem 0;">Fill water adds no significant salt</div>
+        </div>
+      </div>
+
+      <div class="param-row">
+        <div class="param-label">Copper</div>
+        <div class="field">
+          <label for="copper-current">Current (ppm)</label>
+          <input inputmode="decimal" type="number" id="copper-current" min="0" max="5" step="0.05" placeholder="e.g. 0.5" oninput="calc()">
+        </div>
+        <div class="field">
+          <label for="copper-target">Target (ppm)</label>
+          <input inputmode="decimal" type="number" id="copper-target" min="0" max="5" step="0.05" placeholder="0.2" value="0.2" oninput="calc()">
+          <span class="param-hint">&lt;0.2 ppm; 0.0 ideal</span>
+        </div>
+        <div class="field">
+          <label style="opacity:0;">—</label>
+          <div style="font-size:0.75rem;color:var(--muted);padding:0.7rem 0;">Fill water adds no significant copper</div>
+        </div>
+      </div>
+
+      <div class="param-row">
+        <div class="param-label">Nitrates</div>
+        <div class="field">
+          <label for="nitrate-current">Current (ppm)</label>
+          <input inputmode="decimal" type="number" id="nitrate-current" min="0" max="200" step="1" placeholder="e.g. 25" oninput="calc()">
+        </div>
+        <div class="field">
+          <label for="nitrate-target">Target (ppm)</label>
+          <input inputmode="decimal" type="number" id="nitrate-target" min="0" max="200" step="1" placeholder="10" value="10" oninput="calc()">
+          <span class="param-hint">&lt;10 ppm</span>
+        </div>
+        <div class="field">
+          <label style="opacity:0;">—</label>
+          <div style="font-size:0.75rem;color:var(--muted);padding:0.7rem 0;">Fill water adds no significant nitrates</div>
+        </div>
+      </div>
+
+    </div><!-- /param-grid -->
+
+  </div><!-- /calc-card -->
+
+  <div class="cta-box">
+    <h2>Stop recalculating your pool every weekend.</h2>
+    <p>PoolChem Tracker remembers your pool size, tracks your chemistry history, and tells you exactly what to add next.</p>
+    <div style="display:flex;gap:0.75rem;justify-content:center;align-items:center;flex-wrap:wrap;"><a href="https://apps.apple.com/app/id6762652630?ct=tool" class="badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'ios'})"><img loading="lazy" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40" style="height:54px;"></a><a href="https://play.google.com/store/apps/details?id=com.poolchemtracker.app&utm_source=website&utm_medium=tool_cta" class="badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'android'})"><img loading="lazy" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="width:auto;height:54px;"></a></div>
+  </div>
+
+  <!-- ── Results ── -->
+  <div class="results-section" id="results-section">
+    <div id="hero-container"></div>
+    <div id="staged-container"></div>
+    <div id="param-results-container"></div>
+  </div>
+
+  <!-- ── Content ── -->
+
+  <h2>When should you replace pool water?</h2>
+  <p>Pool water accumulates dissolved solids over time that can only leave through dilution — draining and refilling. The most common triggers are:</p>
+  <ul>
+    <li><strong>CYA above 80 ppm</strong> — chlorine becomes less and less effective as CYA climbs. Above 80–100 ppm, a pool can be chronically underchlorinated even with what appears to be adequate FC on a test. Switching from trichlor tablets to liquid chlorine stops the buildup, but the only way to lower it is dilution.</li>
+    <li><strong>Calcium hardness above 400–500 ppm</strong> — especially common in desert climates (Phoenix, Las Vegas, inland Southern California) where fill water is already hard and evaporation concentrates it further every week. High CH causes scale on tile lines, cloudy water, and salt cell fouling.</li>
+    <li><strong>Copper above 0.3 ppm</strong> — from copper-based algaecides or corroding copper equipment (heat exchangers, old fittings). Copper stains surfaces permanently if left too long at high levels.</li>
+    <li><strong>Nitrates above 25 ppm</strong> — from fertilizer runoff, heavy bather load, or decomposing organics. Nitrates fuel algae and increase chlorine demand.</li>
+    <li><strong>Before closing for winter</strong> — CYA doesn't break down over winter. Closing at 90 ppm means opening at 90 ppm, which sets a high FC minimum from day one of swim season.</li>
+  </ul>
+
+  <div class="key-fact">
+    <h3>One drain — multiple problems fixed</h3>
+    <p>The advantage of a multi-parameter calculator is finding the drain percentage that satisfies every constraint at once. Often what drives the recommendation is CYA, and the same drain also brings calcium, salt, and other parameters into range — no additional chemistry needed.</p>
+  </div>
+
+  <h2>How pool dilution math works</h2>
+  <p>When you drain X% of your pool and refill with fresh water, every dissolved parameter that isn't in your fill water drops by X%. If you drain 40% and refill, CYA drops 40%, copper drops 40%, and nitrates drop 40% — all in the same operation. The only exception is calcium hardness in hard-water climates, where your fill water contains calcium and partially replaces what you removed.</p>
+  <p>The formula for a simple dilution (fill water level = 0):</p>
+  <p style="font-family:monospace;background:var(--card);padding:0.75rem 1rem;border-radius:8px;font-size:0.92rem;">Drain % = (current &minus; target) &divide; current &times; 100</p>
+  <p>For calcium hardness when fill water has significant CH:</p>
+  <p style="font-family:monospace;background:var(--card);padding:0.75rem 1rem;border-radius:8px;font-size:0.92rem;">Drain % = (current &minus; target) &divide; (current &minus; fill water CH) &times; 100</p>
+
+  <h3>Staged drains for large reductions</h3>
+  <p>Draining more than 50% of a pool in one operation is impractical for most residential pools — it risks liner flotation on vinyl pools and structural stress on inground shells. If the required drain exceeds 50%, a two-stage approach achieves the same result: drain 50% and refill, then recalculate and drain the remaining fraction. Each 50% drain halves every elevated parameter.</p>
+
+  <h2>Calcium hardness and hard fill water</h2>
+  <p>In cities with hard municipal water — Phoenix, Scottsdale, Las Vegas, Riverside, and most of the Mountain West — your fill water may already contain 200–350 ppm calcium hardness. This matters because every gallon you add to top up evaporation brings more calcium with it, and draining has a reduced effect: you're replacing pool water with water that's nearly as hard.</p>
+  <p>If your fill water CH is 300 ppm and your target is 250 ppm, no amount of draining will reach 250 ppm — you can only dilute toward your fill water level, not below it. In this case, reverse osmosis (which removes dissolved minerals without discarding water) is the more effective option. Enter your fill water CH in the calculator above to see the adjusted drain requirement for your specific conditions.</p>
+
+  <h2>What to do after draining</h2>
+  <ol>
+    <li><strong>Rebalance before shocking.</strong> Add alkalinity first (baking soda if TA is low), then pH (muriatic acid or soda ash), then calcium if CH dropped below target. Fresh fill water typically has low pH and alkalinity.</li>
+    <li><strong>Add stabilizer if CYA dropped too far.</strong> If draining brought CYA below 30 ppm, add cyanuric acid to bring it back to 30–50 ppm before heavy swim use.</li>
+    <li><strong>Shock the pool.</strong> Fresh water dilutes your existing chlorine. Shock to CYA &times; 40% (shock level) to start the refilled pool clean. Use the <a href="pool-shock-calculator" style="color:var(--accent);">shock calculator</a> for an exact dose.</li>
+    <li><strong>Retest all parameters after 24 hours</strong> with the pump running. Fresh and refill water take time to mix fully.</li>
+  </ol>
+
+
+  <div class="related-list">
+    <p class="box-heading">More pool calculators &amp; guides</p>
+    <ul>
+      <li><a href="./">All pool chemistry calculators</a></li>
+      <li><a href="cya-dilution-calculator">CYA dilution calculator</a> — single-parameter CYA drain with staged guidance</li>
+      <li><a href="pool-closing-calculator">Pool closing calculator</a> — full winterizing chemical shopping list</li>
+      <li><a href="pool-shock-calculator">Pool shock calculator</a> — CYA-based shock dose after refilling</li>
+      <li><a href="calcium-hardness-calculator">Calcium hardness calculator</a> — raise CH after draining</li>
+      <li><a href="../blog/reverse-osmosis-vs-draining-a-pool">Reverse osmosis vs. draining a pool &rarr;</a></li>
+      <li><a href="../blog/when-to-drain-a-desert-pool">When to drain a desert pool &rarr;</a></li>
+      <li><a href="../blog/cya-effect-on-lsi">How CYA affects your water balance &rarr;</a></li>
+    </ul>
+  </div>
+
+</div>
+</div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="../">Home</a>
+      <a href="../blog/">Guides</a>
+      <a href="../explained/">Explained</a>
+      <a href="mailto:support@poolchemtracker.com">Support</a>
+      <a href="../privacy-website">Privacy Policy</a>
+      <a href="../terms-website">Terms of Service</a>
+    </div>
+    <p>&copy; 2026 PoolChem Tracker. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  var surface = 'plaster';
+
+  var CH_TARGETS = { plaster: { min: 200, max: 400, label: '200–400 ppm plaster' }, vinyl: { min: 150, max: 250, label: '150–250 ppm vinyl/fiberglass' } };
+
+  window.setSurface = function (s) {
+    surface = s;
+    var btns = document.querySelectorAll('#surface-toggle button');
+    btns[0].classList.toggle('active', s === 'plaster');
+    btns[1].classList.toggle('active', s === 'vinyl');
+    var tgt = CH_TARGETS[s];
+    document.getElementById('ch-target').placeholder = tgt.min + '';
+    if (document.getElementById('ch-target').value === '' || document.getElementById('ch-target').dataset.auto === '1') {
+      document.getElementById('ch-target').value = tgt.min;
+      document.getElementById('ch-target').dataset.auto = '1';
+    }
+    document.getElementById('ch-target-hint').textContent = tgt.label;
+    calc();
+  };
+
+  function getVal(id) {
+    var v = parseFloat(document.getElementById(id).value);
+    return isNaN(v) ? null : v;
+  }
+
+  function commaFmt(n) {
+    return Math.round(n).toLocaleString();
+  }
+
+  function pctFmt(n) {
+    return n.toFixed(1) + '%';
+  }
+
+  // Returns required drain fraction (0–1) or null if already in range, or Infinity if can't fix
+  function requiredDrain(current, target, fill) {
+    fill = fill || 0;
+    if (current === null || target === null) return null;
+    if (current <= target) return 0; // already in range or below target
+    if (fill >= current) return Infinity; // fill water is worse than pool — can never improve
+    if (fill > 0 && fill >= target) return Infinity; // fill water CH prevents reaching target
+    if (target <= 0) return 2.0; // 0 ppm is unreachable through dilution — sentinel > 1
+    return (current - target) / (current - fill);
+  }
+
+  // Projected value after draining drainFrac and refilling
+  function projected(current, drainFrac, fill) {
+    fill = fill || 0;
+    return current * (1 - drainFrac) + fill * drainFrac;
+  }
+
+  window.calc = function () {
+    var vol = getVal('pool-volume');
+    if (!vol || vol <= 0) {
+      document.getElementById('results-section').classList.remove('visible');
+      return;
+    }
+
+    var poolLen = getVal('pool-length');
+    var poolWid = getVal('pool-width');
+    // gallons per inch of water depth: surface_area_sqft × (1 ft / 12 in) × 7.481 gal/cu_ft
+    var gallonsPerInch = (poolLen && poolWid && poolLen > 0 && poolWid > 0)
+      ? poolLen * poolWid * 0.6234
+      : null;
+
+    var cyaCur  = getVal('cya-current');
+    var cyaTgt  = getVal('cya-target');
+    var chCur   = getVal('ch-current');
+    var chTgt   = getVal('ch-target');
+    var chFill  = getVal('ch-fill') || 0;
+    var saltCur = getVal('salt-current');
+    var saltTgt = getVal('salt-target');
+    var cuCur   = getVal('copper-current');
+    var cuTgt   = getVal('copper-target');
+    var no3Cur  = getVal('nitrate-current');
+    var no3Tgt  = getVal('nitrate-target');
+
+    // Build parameter set
+    // isMaxOnly: true = target is a ceiling (lower is always fine; never add back)
+    //            false = target is a specific level (going below needs corrective addition)
+    var params = [];
+    if (cyaCur !== null && cyaTgt !== null)  params.push({ id: 'cya',     name: 'CYA',              current: cyaCur,  target: cyaTgt,  fill: 0,      unit: 'ppm',  decimals: 0, isMaxOnly: false });
+    if (chCur  !== null && chTgt  !== null)  params.push({ id: 'ch',      name: 'Calcium Hardness', current: chCur,   target: chTgt,   fill: chFill, unit: 'ppm',  decimals: 0, isMaxOnly: false });
+    if (saltCur !== null && saltTgt !== null) params.push({ id: 'salt',   name: 'Salt',              current: saltCur, target: saltTgt, fill: 0,      unit: 'ppm',  decimals: 0, isMaxOnly: false });
+    if (cuCur  !== null && cuTgt  !== null)  params.push({ id: 'copper',  name: 'Copper',            current: cuCur,   target: cuTgt,   fill: 0,      unit: 'ppm',  decimals: 2, isMaxOnly: true  });
+    if (no3Cur !== null && no3Tgt !== null)  params.push({ id: 'nitrate', name: 'Nitrates',          current: no3Cur,  target: no3Tgt,  fill: 0,      unit: 'ppm',  decimals: 0, isMaxOnly: true  });
+
+    if (params.length === 0) {
+      document.getElementById('results-section').classList.remove('visible');
+      return;
+    }
+
+    // Compute required drain for each parameter
+    var maxDrain = 0;
+    var driverName = null;
+    var cantFix = [];
+
+    params.forEach(function (p) {
+      var d = requiredDrain(p.current, p.target, p.fill);
+      p.requiredDrain = d;
+      if (d === null || d === 0) return; // in range or no data
+      if (d === Infinity || d > 1.0) {
+        cantFix.push(p); // Infinity = fill water too high; > 1.0 = target of 0 (unreachable)
+        return;
+      }
+      if (d > maxDrain) {
+        maxDrain = d;
+        driverName = p.name;
+      }
+    });
+
+    var drainPct = maxDrain * 100;
+    var gallons  = vol * maxDrain;
+
+    // Stage 1 drain for staged guidance
+    var staged = drainPct > 50;
+    var stage1CYA = null, stage2Pct = null, stage2Gallons = null;
+    if (staged && cyaCur !== null && cyaTgt !== null && cyaCur > 0) {
+      var afterStage1CYA = cyaCur * 0.5;
+      stage2Pct = (1 - cyaTgt / afterStage1CYA) * 100;
+      stage2Gallons = vol * (stage2Pct / 100);
+    }
+
+    // Hero card
+    var heroClass, heroBadge, heroLabel;
+    if (maxDrain === 0) {
+      heroClass = 'all-clear';
+      heroBadge = 'In Range';
+      heroLabel = 'All parameters are within target range. No drain needed.';
+    } else if (staged) {
+      heroClass = 'staged';
+      heroBadge = 'Staged Drain';
+      heroLabel = 'Drain exceeds 50% — two-stage approach recommended.';
+    } else {
+      heroClass = 'needs-drain';
+      heroBadge = 'Drain Needed';
+      heroLabel = driverName ? 'Controlled by: <strong>' + driverName + '</strong>' : '';
+    }
+
+    var depthLine = '';
+    if (maxDrain > 0 && gallonsPerInch) {
+      var drainInches = gallons / gallonsPerInch;
+      var wholeFt = Math.floor(drainInches / 12);
+      var remIn = Math.round(drainInches % 12 * 10) / 10;
+      var depthStr = wholeFt > 0
+        ? wholeFt + ' ft ' + Math.round(remIn) + ' in'
+        : drainInches.toFixed(1) + ' in';
+      depthLine = '<div class="hero-depth">≈ ' + depthStr + ' water level drop</div>';
+    }
+
+    var heroHtml = '<div class="drain-hero ' + heroClass + '">' +
+      '<div class="hero-top">' +
+        '<div>' +
+          (maxDrain > 0
+            ? '<div class="hero-number">' + drainPct.toFixed(1) + '%</div>' +
+              '<div class="hero-unit">drain fraction</div>' +
+              '<div class="hero-gallons">' + commaFmt(gallons) + ' gallons to drain</div>' +
+              depthLine
+            : '<div class="hero-number" style="font-size:2rem;">No Drain Needed</div>') +
+        '</div>' +
+        '<div class="hero-badge">' + heroBadge + '</div>' +
+      '</div>' +
+      (heroLabel ? '<div class="hero-driver">' + heroLabel + '</div>' : '') +
+    '</div>';
+    document.getElementById('hero-container').innerHTML = heroHtml;
+
+    // Helper: format inches as "X.X in" or "X ft Y in"
+    function fmtInches(gal) {
+      if (!gallonsPerInch) return '';
+      var inches = gal / gallonsPerInch;
+      var wholeFt = Math.floor(inches / 12);
+      if (wholeFt > 0) {
+        return ' / ≈ ' + wholeFt + ' ft ' + Math.round(inches % 12) + ' in';
+      }
+      return ' / ≈ ' + inches.toFixed(1) + ' in';
+    }
+
+    // Staged banner
+    var stagedHtml = '';
+    if (staged) {
+      var stage1Gal = vol * 0.5;
+      stagedHtml = '<div class="staged-banner"><strong>Two-stage drain recommended</strong> — draining more than 50% at once is hard on most pools. Do it in two steps:<ol>';
+      stagedHtml += '<li>Drain 50% (' + commaFmt(stage1Gal) + ' gal' + fmtInches(stage1Gal) + ') and refill fully. Run pump 24 hrs to mix before retesting.</li>';
+      if (stage2Pct !== null && stage2Pct > 0) {
+        stagedHtml += '<li>Drain an additional ' + stage2Pct.toFixed(1) + '% (' + commaFmt(stage2Gallons) + ' gal' + fmtInches(stage2Gallons) + ') and refill. Both stages together achieve your targets.</li>';
+      } else {
+        stagedHtml += '<li>Retest after refilling and calculate the remaining fraction needed.</li>';
+      }
+      stagedHtml += '</ol></div>';
+    }
+    document.getElementById('staged-container').innerHTML = stagedHtml;
+
+    // Per-parameter result cards
+    var resultItems = '';
+    var cantFixItems = '';
+
+    params.forEach(function (p) {
+      var d = p.requiredDrain;
+
+      if (d === Infinity || d > 1.0) {
+        // Can't fix — two distinct reasons
+        var proj = projected(p.current, maxDrain, p.fill);
+        var cantNote;
+        if (d > 1.0) {
+          // target = 0 sentinel: 0 ppm is not achievable through dilution
+          cantNote = 'A target of 0 ppm is not achievable through dilution — draining can only reduce ' + p.name + ' proportionally. The recommended drain brings it to ' + proj.toFixed(p.decimals) + ' ' + p.unit + '. Enter a practical target above 0 to include this parameter in the drain calculation.';
+        } else if (p.fill > 0) {
+          // fill water CH meets or exceeds target
+          cantNote = 'Fill water (' + p.fill + ' ppm) is at or above your target — draining cannot reduce ' + p.name + ' below fill water level. Consider reverse osmosis.';
+        } else {
+          cantNote = 'Cannot reduce ' + p.name + ' to target through dilution.';
+        }
+        cantFixItems += '<div class="result-item cant-fix">' +
+          '<div class="result-icon">!</div>' +
+          '<div class="result-body">' +
+            '<div class="result-name">' + p.name + '</div>' +
+            '<div class="result-note">' + cantNote + '</div>' +
+          '</div>' +
+          '<div class="result-values">' +
+            '<div class="result-projected" style="color:var(--warn);">' + proj.toFixed(p.decimals) + ' ' + p.unit + '</div>' +
+            '<div class="result-projected-label">after ' + pctFmt(drainPct) + ' drain</div>' +
+          '</div>' +
+        '</div>';
+        return;
+      }
+
+      var itemClass, icon, note;
+      var projVal = projected(p.current, maxDrain, p.fill);
+
+      if (d === null || d === 0) {
+        // Already in range
+        itemClass = 'in-range';
+        icon = '&#10003;';
+        note = 'Already at or below target (' + p.current.toFixed(p.decimals) + ' ppm). No action needed.';
+        resultItems += '<div class="result-item in-range">' +
+          '<div class="result-icon">' + icon + '</div>' +
+          '<div class="result-body">' +
+            '<div class="result-name">' + p.name + '</div>' +
+            '<div class="result-note">' + note + '</div>' +
+          '</div>' +
+        '</div>';
+        return;
+      }
+
+      // Needs drain — evaluate result
+      if (projVal > p.target) {
+        // Drain not enough — still above target
+        itemClass = 'partial';
+        icon = '&rarr;';
+        note = 'Needs ' + pctFmt(d * 100) + ' drain to reach target. The recommended ' + pctFmt(drainPct) + ' drain (for ' + (driverName || 'another parameter') + ') reduces this but does not fully reach target — a second drain may be needed.';
+      } else {
+        // At or below target — check whether we overshot significantly
+        var isControlling = Math.abs(d - maxDrain) < 0.001;
+        var belowByFraction = p.target > 0 ? (p.target - projVal) / p.target : 0;
+        if (isControlling || belowByFraction < 0.05) {
+          // Controlling param (exactly at target) or within 5% — fixed
+          itemClass = 'fixed';
+          icon = '&#10003;';
+          note = 'The recommended ' + pctFmt(drainPct) + ' drain brings this to target.';
+        } else if (p.isMaxOnly) {
+          // Target is a ceiling — going below it is always fine, no add-back needed
+          itemClass = 'fixed';
+          icon = '&#10003;';
+          note = 'The ' + pctFmt(drainPct) + ' drain reduces this well below your ' + p.target.toFixed(p.decimals) + ' ' + p.unit + ' threshold — no corrective action needed.';
+        } else {
+          // Specific target level — went below, user needs to add chemical back
+          itemClass = 'below-target';
+          icon = '&darr;';
+          note = 'The ' + pctFmt(drainPct) + ' drain (required for ' + (driverName || 'another parameter') + ') reduces ' + p.name + ' below your target. After refilling, add ' + p.name.toLowerCase() + ' back to reach ' + p.target.toFixed(p.decimals) + ' ' + p.unit + '.';
+        }
+      }
+
+      resultItems += '<div class="result-item ' + itemClass + '">' +
+        '<div class="result-icon">' + icon + '</div>' +
+        '<div class="result-body">' +
+          '<div class="result-name">' + p.name + '</div>' +
+          '<div class="result-note">Current: ' + p.current.toFixed(p.decimals) + ' ' + p.unit + ' &rarr; target: ' + p.target.toFixed(p.decimals) + ' ' + p.unit + '. ' + note + '</div>' +
+        '</div>' +
+        '<div class="result-values">' +
+          '<div class="result-projected">' + projVal.toFixed(p.decimals) + ' ' + p.unit + '</div>' +
+          '<div class="result-projected-label">after drain</div>' +
+        '</div>' +
+      '</div>';
+    });
+
+    var paramResultsHtml = '';
+    if (resultItems || cantFixItems) {
+      paramResultsHtml = '<div class="param-results">' +
+        '<div class="param-result-head">Parameter projections after ' + (maxDrain > 0 ? pctFmt(drainPct) + ' drain' : 'no drain') + '</div>' +
+        resultItems + cantFixItems +
+      '</div>';
+    }
+    document.getElementById('param-results-container').innerHTML = paramResultsHtml;
+
+    document.getElementById('results-section').classList.add('visible');
+  };
+
+  // Mark CH target as auto-set initially
+  document.getElementById('ch-target').dataset.auto = '1';
+  document.getElementById('ch-target').addEventListener('input', function () {
+    this.dataset.auto = '0';
+  });
+
+})();
+</script>
+</body>
+</html>

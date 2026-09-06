@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pool Opening Chemical Calculator — Spring Shopping List</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta name="description" content="Pool opening chemical list — exact shock, pH, alkalinity, calcium, CYA, and algaecide doses for your pool size. Sized for clear, cloudy, or green water.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-S8JT1DELF6');
+</script>
+<link rel="canonical" href="https://www.poolchemtracker.com/tools/pool-opening-calculator">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pool Opening Chemical Calculator — Spring Shopping List">
+<meta property="og:description" content="Shock, pH, alkalinity, calcium, CYA, and algaecide — exact opening doses for your pool size and condition, in the right addition order.">
+<meta property="og:url" content="https://www.poolchemtracker.com/tools/pool-opening-calculator">
+<meta property="og:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<meta property="og:site_name" content="PoolChem Tracker">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pool Opening Chemical Calculator — Spring Shopping List">
+<meta name="twitter:description" content="Exact pool opening chemical doses sized for your pool — clear, cloudy, or green. Shopping list with addition order.">
+<meta name="twitter:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.poolchemtracker.com/"},{"@type":"ListItem","position":2,"name":"Pool Calculators","item":"https://www.poolchemtracker.com/tools/"},{"@type":"ListItem","position":3,"name":"Pool Opening Calculator"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What chemicals do you need to open a pool?","acceptedAnswer":{"@type":"Answer","text":"The core opening chemicals are: pool shock (sized for your CYA and pool condition), a pH adjuster if pH is outside 7.2–7.8, baking soda if total alkalinity is below 80 ppm, calcium chloride if calcium hardness is below the minimum for your surface, cyanuric acid (stabilizer) if CYA is below 30 ppm, and optionally an algaecide. For green pools, you will also need to brush the pool thoroughly before adding any chemicals and plan for multiple shock doses over 2–3 days."}},{"@type":"Question","name":"How much shock does a pool need at opening?","acceptedAnswer":{"@type":"Answer","text":"Opening shock target is CYA × 40%, with a minimum of 10 ppm FC. For cloudy water, use 1.5 times that dose. For a visibly green or algae-filled pool, use 3 times the standard shock dose with a minimum of 30 ppm FC. Subtract your current FC from the target and calculate based on your pool volume. For 65% cal-hypo: lbs = FC needed × pool gallons ÷ 78,000."}},{"@type":"Question","name":"What order do you add pool opening chemicals?","acceptedAnswer":{"@type":"Answer","text":"Add opening chemicals in this order: (1) CYA stabilizer in a sock if CYA is below 30 ppm — wait 24–48 hours to fully dissolve. (2) Baking soda to raise alkalinity if needed. (3) Muriatic acid or soda ash to adjust pH. (4) Calcium chloride to raise calcium hardness if needed. (5) Pool shock at dusk, run pump overnight. (6) Algaecide 24–48 hours after shocking, once FC drops below 5 ppm."}},{"@type":"Question","name":"Should I add stabilizer (CYA) before opening shock?","acceptedAnswer":{"@type":"Answer","text":"Yes — if CYA is below 20 ppm, add stabilizer before shocking. Without CYA, sunlight destroys chlorine in a matter of hours. A full shock dose in a pool with no CYA can lose all its FC before the day is over. Add granular CYA in a fine mesh sock in front of a return jet, wait 24–48 hours for it to fully dissolve, then shock."}},{"@type":"Question","name":"How do I open a green pool?","acceptedAnswer":{"@type":"Answer","text":"To open a green pool: (1) Brush the walls, steps, and floor thoroughly before adding any chemicals — this disrupts the algae biofilm. (2) Balance pH and alkalinity first. (3) Shock at 3 times the standard dose (CYA × 40% × 3, minimum 30 ppm FC), added at dusk with the pump running continuously. (4) Retest FC each morning — if it drops below 5 ppm overnight, repeat the full shock dose. Two to three consecutive days of shocking is normal for severe algae. (5) Once FC holds overnight (the OCLT test), add algaecide and proceed to normal maintenance."}},{"@type":"Question","name":"Can I swim after adding pool opening chemicals?","acceptedAnswer":{"@type":"Answer","text":"Wait until FC has dropped back to the normal operating range for your CYA level before swimming. After a standard opening shock, this is typically 12–24 hours with the pump running. After treating a green pool with a triple shock dose, it may take 2–4 days before FC drops to a safe swimming level. Never swim when FC is above 10 ppm."}}]}
+</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .skip-link { position: absolute; left: 0; top: -3rem; background: var(--accent); color: #000; padding: 0.6rem 1rem; border-radius: 0 0 8px 0; font-weight: 700; font-size: 0.9rem; text-decoration: none; z-index: 1000; transition: top 0.15s; }
+  .skip-link:focus { top: 0; }
+  main:focus { outline: none; }
+
+  :root {
+    --bg: #0a1628;
+    --bg2: #0d1f3c;
+    --card: #0f1e38;
+    --accent: #4facfe;
+    --accent2: #00f2fe;
+    --text: #e8edf5;
+    --muted: #9fb0c3;
+    --good: #2ed573;
+    --warn: #ffa502;
+    --danger: #ff6b6b;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  body { font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+
+  header { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+  .header-inner { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+  .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text); }
+  .logo-icon { width: 40px; height: 40px; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
+  .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+  .logo .logo-name { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
+  .logo .logo-name span { color: var(--accent); }
+  .header-right { display: flex; align-items: center; gap: 1.5rem; }
+  .header-link { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--accent); padding: 0.4rem 1rem; border-radius: 8px; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+  .header-link:hover { background: var(--accent); color: #000; }
+  .header-badge img { height: 36px; }
+
+  .page { padding: 3rem 0 4rem; }
+  .breadcrumb { font-size: 0.8rem; color: var(--muted); margin-bottom: 2rem; }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .page-label { display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+  h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 0.75rem; }
+  h1 .gradient { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .page-desc { font-size: 1.05rem; color: var(--muted); margin-bottom: 2.5rem; }
+
+  .calc-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem; }
+  .section-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+  .section-sub { font-size: 0.78rem; font-weight: 400; color: var(--muted); text-transform: none; letter-spacing: 0; }
+  .section-divider { border-top: 1px solid var(--border); margin: 1.5rem 0; }
+
+  .inputs-grid { display: grid; gap: 1rem; }
+  .inputs-grid.two-col { grid-template-columns: 1fr 1fr; margin-bottom: 1.25rem; }
+  .inputs-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
+  .field { display: flex; flex-direction: column; gap: 0.35rem; }
+  .field label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .field input { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 0.65rem 0.85rem; color: var(--text); font-size: 1rem; font-family: inherit; transition: border-color 0.15s; width: 100%; -moz-appearance: textfield; }
+  .field input::-webkit-outer-spin-button, .field input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .field input:focus { outline: none; border-color: rgba(79,172,254,0.5); }
+  .field-hint { font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem; }
+  .field-hint a { color: var(--accent); text-decoration: none; }
+  .field-hint a:hover { text-decoration: underline; }
+
+  .toggle-group { display: flex; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .toggle-group button { flex: 1; background: none; border: none; color: var(--muted); font-size: 0.85rem; font-weight: 600; padding: 0.55rem 0.75rem; cursor: pointer; transition: background 0.15s, color 0.15s; font-family: inherit; line-height: 1.3; }
+  .toggle-group button.active { background: var(--accent); color: #000; }
+  .toggle-group button.active.warn { background: var(--warn); }
+  .toggle-group button.active.danger { background: var(--danger); }
+
+  /* Shopping list */
+  .results-section { display: none; }
+  .results-section.visible { display: block; }
+  .results-heading { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.35rem; }
+  .results-sub { font-size: 0.88rem; color: var(--muted); margin-bottom: 1.5rem; }
+
+  .shop-item { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem 1.25rem; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 1rem; }
+  .shop-item.in-range { background: transparent; border-style: dashed; opacity: 0.6; }
+  .shop-item.warning { border-color: rgba(255,165,2,0.35); background: rgba(255,165,2,0.04); }
+  .shop-item.optional { background: transparent; border-style: dashed; border-color: rgba(255,255,255,0.12); }
+
+  .shop-step { width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 800; flex-shrink: 0; background: rgba(79,172,254,0.15); color: var(--accent); }
+  .shop-item.in-range .shop-step { background: rgba(46,213,115,0.15); color: var(--good); }
+  .shop-item.warning .shop-step { background: rgba(255,165,2,0.15); color: var(--warn); }
+  .shop-item.optional .shop-step { background: rgba(255,255,255,0.06); color: var(--muted); font-size: 1rem; }
+
+  .shop-body { flex: 1; min-width: 0; }
+  .shop-name { font-size: 0.95rem; font-weight: 700; }
+  .shop-note { font-size: 0.77rem; color: var(--muted); margin-top: 0.2rem; line-height: 1.55; }
+  .shop-note a { color: var(--warn); }
+
+  .shop-amount-col { text-align: right; flex-shrink: 0; }
+  .shop-amount { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1; white-space: nowrap; }
+  .shop-unit { font-size: 0.68rem; color: var(--muted); margin-top: 0.1rem; }
+
+  .list-section-head { font-size: 0.73rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; margin: 1.5rem 0 0.6rem; }
+
+  .timing-banner { background: rgba(79,172,254,0.06); border: 1px solid rgba(79,172,254,0.2); border-radius: 10px; padding: 1rem 1.25rem; font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-top: 1rem; }
+  .timing-banner strong { color: var(--text); }
+  .timing-banner ol { margin: 0.4rem 0 0 1.25rem; }
+  .timing-banner li { margin-bottom: 0.15rem; }
+  .timing-banner p { font-size: 0.82rem; color: var(--muted); margin: 0.6rem 0 0; }
+  .timing-banner a { color: var(--accent); text-decoration: none; }
+
+  h2 { font-size: 1.35rem; font-weight: 700; margin: 2.5rem 0 0.75rem; letter-spacing: -0.02em; }
+  h3 { font-size: 1.05rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+  p { color: var(--text); margin-bottom: 1.25rem; font-size: 1.05rem; }
+  ol, ul { margin: 0 0 1.25rem 1.5rem; color: var(--text); font-size: 1.05rem; }
+  li { margin-bottom: 0.4rem; }
+
+  .key-fact { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .key-fact h3 { font-size: 1rem; font-weight: 700; margin: 0 0 0.4rem; }
+  .key-fact p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+
+  .warn-fact { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--warn); border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .warn-fact h3 { font-size: 1rem; font-weight: 700; margin: 0 0 0.4rem; color: var(--warn); }
+  .warn-fact p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+
+  .related-list { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; }
+  .related-list .box-heading { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.85rem; color: var(--accent); }
+  .related-list ul { list-style: none; margin: 0; padding: 0; }
+  .related-list li { padding: 0.4rem 0; font-size: 0.95rem; border-bottom: 1px solid var(--border); }
+  .related-list li:last-child { border-bottom: none; }
+  .related-list a { color: var(--accent); text-decoration: none; }
+  .related-list a:hover { text-decoration: underline; }
+
+  .cta-box { background: linear-gradient(135deg, rgba(79,172,254,0.08), rgba(0,242,254,0.05)); border: 1px solid rgba(79,172,254,0.25); border-radius: 14px; padding: 2rem; margin: 2.5rem 0; text-align: center; }
+  .cta-box h2 { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.5rem; }
+  .cta-box p { color: var(--muted); font-size: 0.92rem; max-width: 480px; margin: 0 auto 1.25rem; line-height: 1.6; }
+  .cta-box .badge:hover { opacity: 0.85; }
+  .cta-box .badge img { height: 44px; }
+
+  footer { padding: 2rem 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+  .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+
+  @media (max-width: 700px) {
+    .page { padding: 2rem 0 3rem; }
+    .header-badge { display: none; }
+    .header-link { font-size: 0.8rem; padding: 0.35rem 0.75rem; }
+    .header-right { gap: 0.75rem; }
+    .inputs-grid.two-col, .inputs-grid.three-col { grid-template-columns: 1fr 1fr; }
+    .calc-card { padding: 1.25rem; }
+    .shop-item { gap: 0.75rem; }
+  }
+  @media (max-width: 480px) {
+    .inputs-grid.two-col, .inputs-grid.three-col { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header>
+  <div class="header-inner">
+    <a href="../" class="logo">
+      <div class="logo-icon"><img src="../Logo/logo-96.webp" alt="PoolChem Tracker" width="96" height="96"></div>
+      <span class="logo-name">Pool<span>Chem</span> Tracker</span>
+    </a>
+    <div class="header-right">
+      <a href="../blog/" class="header-link">Guides</a>
+      <a href="../features" class="header-link">Features</a>
+      <a href="../about" class="header-link">About</a>
+      <a href="../download" class="header-link">Download</a>
+    </div>
+  </div>
+</header>
+
+<main id="main-content" tabindex="-1">
+<div class="page">
+<div class="container">
+
+  <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Pool Calculators</a> &rsaquo; Pool Opening Calculator</div>
+
+  <span class="page-label">Pool Calculators</span>
+  <h1>Pool Opening Chemical Calculator —<br><span class="gradient">Your Spring Shopping List</span></h1>
+  <p class="page-desc">Enter your pool size and condition to get an opening chemical shopping list. Add last fall&rsquo;s readings (or test your water first) for exact doses — or leave chemistry fields blank for a pre-trip estimate.</p>
+
+  <!-- ── Inputs ── -->
+  <div class="calc-card">
+
+    <div class="section-label">Your Pool</div>
+    <div class="inputs-grid two-col">
+      <div class="field">
+        <label for="pool-volume">Pool Volume (gallons)</label>
+        <input inputmode="decimal" type="number" id="pool-volume" min="0" step="500" placeholder="e.g. 15000" oninput="calc()">
+        <span class="field-hint"><a href="pool-volume-calculator">Calculate gallons &rarr;</a></span>
+      </div>
+      <div class="field">
+        <label>Pool Surface</label>
+        <div class="toggle-group" id="surface-toggle">
+          <button class="active" onclick="setSurface('plaster')">Plaster / Gunite</button>
+          <button onclick="setSurface('vinyl')">Vinyl or Fiberglass</button>
+        </div>
+        <span class="field-hint">Sets calcium hardness targets</span>
+      </div>
+    </div>
+    <div class="inputs-grid two-col">
+      <div class="field">
+        <label>Pool Condition</label>
+        <div class="toggle-group" id="condition-toggle">
+          <button class="active" onclick="setCondition('clear')">Clear / Covered</button>
+          <button onclick="setCondition('cloudy')" style="font-size:0.8rem;">Cloudy</button>
+          <button onclick="setCondition('green')" style="font-size:0.8rem;">Green / Algae</button>
+        </div>
+        <span class="field-hint">Determines shock dose size</span>
+      </div>
+      <div class="field">
+        <label>Saltwater Pool (SWG)?</label>
+        <div class="toggle-group" id="swg-toggle">
+          <button class="active" onclick="setSWG(false)">No</button>
+          <button onclick="setSWG(true)">Yes — SWG</button>
+        </div>
+        <span class="field-hint">Adjusts CYA targets</span>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section-label">Current Chemistry <span class="section-sub">— optional; leave blank to skip that adjustment</span></div>
+    <div class="inputs-grid three-col">
+      <div class="field">
+        <label for="current-fc">Free Chlorine (ppm)</label>
+        <input inputmode="decimal" type="number" id="current-fc" min="0" max="30" step="0.5" placeholder="e.g. 1" oninput="calc()">
+        <span class="field-hint">Used to size the shock dose</span>
+      </div>
+      <div class="field">
+        <label for="current-ph">pH</label>
+        <input inputmode="decimal" type="number" id="current-ph" min="6" max="9" step="0.1" placeholder="e.g. 7.6" oninput="calc()">
+        <span class="field-hint">Target: 7.2–7.8</span>
+      </div>
+      <div class="field">
+        <label for="current-ta">Total Alkalinity (ppm)</label>
+        <input inputmode="decimal" type="number" id="current-ta" min="0" max="300" step="5" placeholder="e.g. 80" oninput="calc()">
+        <span class="field-hint">Target: 60–90 ppm</span>
+      </div>
+      <div class="field">
+        <label for="current-cya">CYA (ppm)</label>
+        <input inputmode="decimal" type="number" id="current-cya" min="0" max="200" step="5" placeholder="e.g. 40" oninput="calc()">
+        <span class="field-hint">Sets shock target; 0 if unknown</span>
+      </div>
+      <div class="field">
+        <label for="current-ch">Calcium Hardness (ppm)</label>
+        <input inputmode="decimal" type="number" id="current-ch" min="0" max="1000" step="10" placeholder="e.g. 250" oninput="calc()">
+        <span class="field-hint">Target varies by surface type</span>
+      </div>
+    </div>
+
+  </div><!-- /calc-card -->
+
+  <div class="cta-box">
+    <h2>Stop recalculating your pool every weekend.</h2>
+    <p>PoolChem Tracker remembers your pool size, tracks your chemistry history, and tells you exactly what to add next.</p>
+    <div style="display:flex;gap:0.75rem;justify-content:center;align-items:center;flex-wrap:wrap;"><a href="https://apps.apple.com/app/id6762652630?ct=tool" class="badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'ios'})"><img loading="lazy" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40" style="height:54px;"></a><a href="https://play.google.com/store/apps/details?id=com.poolchemtracker.app&utm_source=website&utm_medium=tool_cta" class="badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'android'})"><img loading="lazy" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="width:auto;height:54px;"></a></div>
+  </div>
+
+  <!-- ── Results ── -->
+  <div class="results-section" id="results-section">
+    <p class="results-heading">Your Opening Chemical Shopping List</p>
+    <p class="results-sub" id="results-sub">Add chemicals in the numbered order below. Run the pump throughout. Wait between additions as noted.</p>
+    <div id="shopping-list"></div>
+    <div id="timing-note"></div>
+  </div>
+
+  <!-- ── Content ── -->
+
+  <h2>What chemicals do you need to open a pool?</h2>
+  <p>Opening a pool requires five categories of chemicals — some mandatory, some conditional on your current water readings and pool condition:</p>
+  <ol>
+    <li><strong>Pool shock</strong> — raise FC to shock level (CYA &times; 40%) to kill bacteria and oxidize any organic matter that accumulated over winter. For a green pool, use three times the standard dose.</li>
+    <li><strong>pH adjustment</strong> — muriatic acid if pH is above 7.8, soda ash if below 7.2. Correct pH before shocking — chlorine is significantly less effective at high or low pH.</li>
+    <li><strong>Alkalinity adjustment</strong> — baking soda if TA is below 60 ppm. Low alkalinity causes wild pH swings with every chemical addition.</li>
+    <li><strong>Calcium hardness</strong> — calcium chloride if CH is below the minimum for your surface type. Low CH is corrosive to plaster and can cause pitting over time.</li>
+    <li><strong>Stabilizer (CYA)</strong> — if CYA is below 30 ppm, add granular cyanuric acid <em>before</em> shocking. Without stabilizer, sunlight destroys chlorine within hours and your shock dose is wasted.</li>
+  </ol>
+
+  <div class="key-fact">
+    <h3>Test before you treat, when possible</h3>
+    <p>If you can test the water before buying chemicals, your doses will be exact. If you&rsquo;re making a pre-opening shopping run, the calculator above gives reasonable estimates based on pool size and condition — bring your readings to refine the plan once the pool is open.</p>
+  </div>
+
+  <h2>Pool opening chemical addition order</h2>
+  <ol>
+    <li><strong>CYA in a sock</strong> (if CYA is below 30 ppm) — place a fine mesh sock filled with granular stabilizer in front of a return jet and run the pump for 24–48 hours before shocking. Chlorine added before CYA dissolves will burn off in hours without accomplishing anything.</li>
+    <li><strong>Baking soda</strong> (if TA is low) — broadcast across the surface, wait 30 minutes.</li>
+    <li><strong>Muriatic acid or soda ash</strong> (if pH is out of range) — adjust pH, retest after 30 minutes. Correct pH before shocking — shock at the wrong pH is inefficient.</li>
+    <li><strong>Calcium chloride</strong> (if CH is low) — pre-dissolve in a bucket (water first, then the calcium chloride — the reaction is exothermic). Add slowly to the pool with the pump running.</li>
+    <li><strong>Pool shock</strong> — add at dusk, near return jets, with the pump running overnight. Do not pour directly into the skimmer.</li>
+    <li><strong>Algaecide</strong> — add 24–48 hours after shocking, once FC has dropped below 5 ppm. High chlorine degrades algaecide rapidly, so timing matters.</li>
+  </ol>
+
+  <h2>Opening a green pool</h2>
+  <p>A green pool requires a different approach than a clear or lightly cloudy pool. The green color indicates active algae — and algae demands significantly more chlorine than clean water.</p>
+  <ol>
+    <li><strong>Brush first.</strong> Before adding any chemicals, brush the walls, steps, and floor thoroughly with a pool brush. Algae grows in a biofilm that protects it from chlorine. Brushing disrupts the biofilm and makes the shock significantly more effective.</li>
+    <li><strong>Triple shock dose.</strong> For a green pool, use three times the standard shock level (CYA &times; 40% &times; 3, minimum 30 ppm FC). Add at dusk with the pump running continuously.</li>
+    <li><strong>Run the pump continuously.</strong> During algae treatment, keep the pump running around the clock — not just during normal filter cycles.</li>
+    <li><strong>Test and repeat.</strong> Check FC every morning. If FC drops below 5 ppm overnight, the algae is still consuming chlorine — add another full shock dose. Two to three consecutive days of shocking is normal for severe algae.</li>
+    <li><strong>Confirm with an OCLT.</strong> Once you think the algae is gone, run an overnight chlorine loss test: measure FC at dusk and again at dawn (before any sunlight). If FC drops less than 1 ppm, the algae demand is gone and it&rsquo;s safe to add algaecide and resume normal maintenance.</li>
+  </ol>
+
+  <div class="warn-fact">
+    <h3>Don&rsquo;t add algaecide during an active algae treatment</h3>
+    <p>Algaecide requires a normal chlorine level to work — it is an inhibitor, not a killer. Adding it while FC is at shock level wastes the product. Wait until the algae is gone (OCLT pass), FC has dropped to normal range, and then add algaecide as a preventive measure.</p>
+  </div>
+
+  <h2>Why CYA matters at opening</h2>
+  <p>Cyanuric acid (CYA, or stabilizer) protects chlorine from UV degradation. Without it, sunlight can destroy 75–90% of your pool&rsquo;s chlorine in just a few hours. At opening, especially after a partial drain or dilution over winter, CYA may be lower than expected.</p>
+  <p>If CYA is below 20 ppm and you shock the pool without adding stabilizer first, the shock dose can disappear before it has done its job. Add CYA in a sock in front of a return jet, run the pump for 24–48 hours to fully dissolve it, and then shock. The wait is worth it.</p>
+  <p>CYA also sets your ongoing chlorine target for the season. At CYA 40 ppm, your minimum FC is around 3 ppm. At CYA 70 ppm (SWG), it&rsquo;s around 3.5 ppm. Setting CYA correctly at opening means your chlorine will work effectively all season.</p>
+
+  <h2>Frequently asked questions</h2>
+
+  <h3>How much shock do I need to open a clear pool?</h3>
+  <p>For a pool that was covered and stayed clear over winter, the standard opening shock is CYA &times; 40%, minimum 10 ppm FC. Subtract your current FC from that target. For a pool with CYA 40 ppm and FC 0, you need 16 ppm of FC — about 2 lbs of 65% cal-hypo per 10,000 gallons. The calculator above computes this based on your actual pool volume.</p>
+
+  <h3>Do I need to balance the water before I shock at opening?</h3>
+  <p>Yes — adjust pH, alkalinity, and calcium before adding shock. Chlorine is far less effective at high pH. At pH 8.0, roughly 20% of your free chlorine is in the active (hypochlorous acid) form; at pH 7.5, it&rsquo;s closer to 50%. Adding shock to unbalanced water wastes a significant portion of the dose.</p>
+
+  <h3>How long after opening chemicals can I swim?</h3>
+  <p>After a standard shock, wait until FC drops back to the normal range for your CYA level — typically 12–24 hours with the pump running. For a green pool treatment with a triple shock dose, it may take 2–4 days before FC drops to a safe level. Never swim when FC is above 10 ppm.</p>
+
+  <h3>What is a metal sequestrant and do I need it at opening?</h3>
+  <p>Metal sequestrant binds iron, copper, and manganese in the water, preventing them from oxidizing and staining the pool surface when you add chlorine. If your fill water is high in metals, or if you have noticed staining on your pool surfaces in past seasons, add metal sequestrant before shocking. Apply it to the whole pool with the pump running, then wait 24 hours before adding shock.</p>
+
+  <h3>Does CYA carry over from last season?</h3>
+  <p>Yes — CYA does not degrade over winter. Whatever level you closed with is essentially what you open with, adjusted only for any dilution from rain or fill water added over winter. If you topped up the pool with water that contains no CYA (most tap water has zero), your CYA will have dropped proportionally. Enter your measured CYA above for an exact stabilizer dose.</p>
+
+
+  <div class="related-list">
+    <p class="box-heading">More pool calculators &amp; guides</p>
+    <ul>
+      <li><a href="./">All pool chemistry calculators</a></li>
+      <li><a href="pool-closing-calculator">Pool closing calculator</a> — winterizing shopping list</li>
+      <li><a href="pool-shock-calculator">Pool shock calculator</a> — CYA-based shock level and dose</li>
+      <li><a href="overnight-chlorine-loss-test">OCLT calculator</a> — confirm algae demand is gone before resuming normal maintenance</li>
+      <li><a href="water-replacement-calculator">Water replacement calculator</a> — plan a drain to lower CYA, calcium, or salt</li>
+      <li><a href="pool-chemical-addition-order">Chemical addition order calculator</a> — ongoing season treatment plan</li>
+      <li><a href="../blog/opening-pool-for-summer">Pool opening guide &rarr;</a></li>
+      <li><a href="../blog/how-to-close-a-pool-for-winter">Pool closing guide &rarr;</a></li>
+    </ul>
+  </div>
+
+</div>
+</div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="../">Home</a>
+      <a href="../blog/">Guides</a>
+      <a href="../explained/">Explained</a>
+      <a href="mailto:support@poolchemtracker.com">Support</a>
+      <a href="../privacy-website">Privacy Policy</a>
+      <a href="../terms-website">Terms of Service</a>
+    </div>
+    <p>&copy; 2026 PoolChem Tracker. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  // ── Chemistry constants ──────────────────────────────────────────────────────
+  var SHOCK_PPM_PER_LB      = 7.8;    // ppm FC per lb per 10k gal — 65% cal-hypo
+  var MURIATIC_K            = 0.00005; // fl_oz = phDrop × TA × vol × K
+  var SODA_ASH_PER_UNIT     = 1.875;  // lbs per pH-unit per 10k gal
+  var BAKING_SODA_PER_PPM   = 0.14;   // lbs per ppm-TA per 10k gal
+  var CACL2_PER_PPM         = 0.125;  // lbs per ppm-CH per 10k gal (77% flake)
+  var ALGAECIDE_FL_OZ_PER_10K = 3.5;  // fl oz per 10k gal (60% polyquat)
+  var SEQUESTRANT_FL_OZ_PER_10K = 16; // fl oz per 10k gal (metal sequestrant, initial dose)
+
+  // CH targets
+  var CH_MIN_PLASTER = 200, CH_MAX_PLASTER = 400, CH_TARGET_PLASTER = 250;
+  var CH_MIN_VINYL   = 150, CH_MAX_VINYL   = 250, CH_TARGET_VINYL   = 200;
+
+  var surface   = 'plaster';
+  var condition = 'clear';
+  var swg       = false;
+
+  // ── Toggle handlers ──────────────────────────────────────────────────────────
+
+  window.setSurface = function (s) {
+    surface = s;
+    var btns = document.querySelectorAll('#surface-toggle button');
+    btns[0].classList.toggle('active', s === 'plaster');
+    btns[1].classList.toggle('active', s === 'vinyl');
+    calc();
+  };
+
+  window.setCondition = function (c) {
+    condition = c;
+    var btns = document.querySelectorAll('#condition-toggle button');
+    btns[0].classList.toggle('active', c === 'clear');
+    btns[0].classList.remove('warn', 'danger');
+    btns[1].classList.toggle('active', c === 'cloudy');
+    btns[1].classList.toggle('warn', c === 'cloudy');
+    btns[2].classList.toggle('active', c === 'green');
+    btns[2].classList.toggle('danger', c === 'green');
+    calc();
+  };
+
+  window.setSWG = function (v) {
+    swg = v;
+    var btns = document.querySelectorAll('#swg-toggle button');
+    btns[0].classList.toggle('active', !v);
+    btns[1].classList.toggle('active', v);
+    calc();
+  };
+
+  // ── Helpers ──────────────────────────────────────────────────────────────────
+
+  function getVal(id) {
+    var v = parseFloat(document.getElementById(id).value);
+    return isNaN(v) ? null : v;
+  }
+
+  function fmtLbs(n) {
+    if (n < 0.1) return '<0.1 lb';
+    return n.toFixed(1) + (n === 1 ? ' lb' : ' lbs');
+  }
+
+  function fmtFlOz(n) {
+    n = Math.round(n);
+    if (n >= 128) return (n / 128).toFixed(1) + ' gal (' + n + ' fl oz)';
+    if (n >= 32)  { var qt = (n / 32).toFixed(1); return qt + ' qt (' + n + ' fl oz)'; }
+    if (n >= 16)  return n + ' fl oz (1 pt)';
+    return n + ' fl oz';
+  }
+
+  function itemHTML(opts) {
+    var cls = 'shop-item' + (opts.type !== 'needed' ? ' ' + opts.type : '');
+    var stepContent = opts.icon !== undefined ? opts.icon : (opts.step || '');
+    var amountBlock = opts.amount
+      ? '<div class="shop-amount-col"><div class="shop-amount">' + opts.amount + '</div>' +
+        (opts.unit ? '<div class="shop-unit">' + opts.unit + '</div>' : '') + '</div>'
+      : '';
+    return '<div class="' + cls + '">' +
+      '<div class="shop-step">' + stepContent + '</div>' +
+      '<div class="shop-body">' +
+        '<div class="shop-name">' + opts.name + '</div>' +
+        (opts.note ? '<div class="shop-note">' + opts.note + '</div>' : '') +
+      '</div>' + amountBlock + '</div>';
+  }
+
+  // ── Main calc ────────────────────────────────────────────────────────────────
+
+  window.calc = function () {
+    var vol = getVal('pool-volume');
+    var fc  = getVal('current-fc');
+    var ph  = getVal('current-ph');
+    var ta  = getVal('current-ta');
+    var cya = getVal('current-cya');
+    var ch  = getVal('current-ch');
+
+    if (!vol || vol <= 0) {
+      document.getElementById('results-section').classList.remove('visible');
+      return;
+    }
+
+    var scale     = vol / 10000;
+    var cyaMin    = swg ? 60 : 30;
+    var cyaMax    = swg ? 90 : 80;
+    var cyaTarget = swg ? 70 : 40;
+    var chMin     = surface === 'plaster' ? CH_MIN_PLASTER : CH_MIN_VINYL;
+    var chMax     = surface === 'plaster' ? CH_MAX_PLASTER : CH_MAX_VINYL;
+    var chTarget  = surface === 'plaster' ? CH_TARGET_PLASTER : CH_TARGET_VINYL;
+
+    var neededHTML   = '';
+    var inRangeHTML  = '';
+    var warningHTML  = '';
+    var optionalHTML = '';
+    var step         = 1;
+
+    // ── CYA / Stabilizer (first — must go before shock) ──────────────────────────
+    var shockCya; // CYA level to base shock target on
+    var cyaAdded = false;
+
+    if (cya !== null) {
+      if (cya < cyaMin) {
+        var cyaRise = cyaTarget - cya;
+        var cyaLbs  = cyaRise * vol * 0.0001333 / 16;
+        var cyaNote = cya < 10
+          ? 'CYA is ' + cya + ' ppm — without stabilizer, chlorine burns off in hours in sunlight. Add this first in a fine mesh sock or nylon stocking placed in front of a return jet. Run the pump 24–48 hours to fully dissolve. Do not shock until CYA has dissolved.'
+          : 'CYA is ' + cya + ' ppm — below the ' + cyaMin + ' ppm target. Add in a fine mesh sock in front of a return jet. Run the pump 24–48 hours before shocking.';
+        neededHTML += itemHTML({
+          type: 'needed', step: step++,
+          name: 'Cyanuric Acid (Stabilizer)',
+          note: cyaNote,
+          amount: fmtLbs(cyaLbs), unit: 'granular CYA (stabilizer)'
+        });
+        shockCya = cyaTarget;
+        cyaAdded = true;
+      } else if (cya > cyaMax) {
+        warningHTML += itemHTML({
+          type: 'warning', icon: '!',
+          name: 'CYA is High (' + cya + ' ppm)',
+          note: 'CYA does not break down — the only fix is a partial drain and refill. At ' + cya + ' ppm, your minimum FC this season is ' + (cya * (swg ? 0.05 : 0.075)).toFixed(1) + ' ppm or higher. <a href="water-replacement-calculator">Calculate your drain &rarr;</a>'
+        });
+        shockCya = cya;
+      } else {
+        inRangeHTML += itemHTML({
+          type: 'in-range', icon: '&#10003;',
+          name: 'CYA — In Range (' + cya + ' ppm)',
+          note: 'No stabilizer needed.'
+        });
+        shockCya = cya;
+      }
+    } else {
+      // CYA not entered — inform and assume 40 for shock calc
+      inRangeHTML += itemHTML({
+        type: 'in-range', icon: '&#8505;',
+        name: 'CYA — Test at Opening',
+        note: 'Enter your CYA reading above for an exact stabilizer dose. If CYA is below ' + cyaMin + ' ppm after testing, add granular CYA in a sock before shocking. The shock dose below is estimated assuming CYA &asymp; 40 ppm.'
+      });
+      shockCya = 40;
+    }
+
+    // ── Baking Soda (TA) ─────────────────────────────────────────────────────────
+    if (ta !== null) {
+      if (ta < 80) {
+        var taNeed  = 90 - ta;
+        var bakeLbs = taNeed * scale * BAKING_SODA_PER_PPM;
+        neededHTML += itemHTML({
+          type: 'needed', step: step++,
+          name: 'Baking Soda',
+          note: 'Raises total alkalinity from ' + ta + ' to ~90 ppm. Broadcast across the surface with pump running. Wait 30 minutes before next addition. For doses over 2 lbs, split over 4–6 hours and retest between additions.',
+          amount: fmtLbs(bakeLbs), unit: 'sodium bicarbonate'
+        });
+      } else if (ta > 120) {
+        inRangeHTML += itemHTML({
+          type: 'in-range', icon: '&#8505;',
+          name: 'Total Alkalinity High (' + ta + ' ppm)',
+          note: 'Muriatic acid (next step, if pH is also high) lowers TA simultaneously — no baking soda needed. Retest after pH adjustment.'
+        });
+      } else {
+        inRangeHTML += itemHTML({
+          type: 'in-range', icon: '&#10003;',
+          name: 'Total Alkalinity — In Range (' + ta + ' ppm)',
+          note: 'No baking soda needed.'
+        });
+      }
+    }
+
+    // ── pH adjustment ────────────────────────────────────────────────────────────
+    if (ph !== null) {
+      if (ph > 7.6) {
+        var phDrop       = ph - 7.4;
+        var taForCalc    = ta !== null ? ta : 100;
+        var muriaticFlOz = phDrop * taForCalc * vol * MURIATIC_K;
+        neededHTML += itemHTML({
+          type: 'needed', step: step++,
+          name: 'Muriatic Acid (31.45%)',
+          note: 'Lowers pH from ' + ph.toFixed(1) + ' to ~7.4. Pre-dilute in a bucket of pool water. Add slowly near a return jet with pump on. Retest before next step.',
+          amount: fmtFlOz(muriaticFlOz), unit: '31.45% muriatic acid'
+        });
+      } else if (ph < 7.2) {
+        var phRaise    = 7.4 - ph;
+        var sodaAshLbs = phRaise * scale * SODA_ASH_PER_UNIT;
+        neededHTML += itemHTML({
+          type: 'needed', step: step++,
+          name: 'Soda Ash (Sodium Carbonate)',
+          note: 'Raises pH from ' + ph.toFixed(1) + ' to ~7.4. Pre-dissolve in a bucket of pool water first. Add slowly near a return with pump running. Retest after 30 minutes.',
+          amount: fmtLbs(sodaAshLbs), unit: 'soda ash'
+        });
+      } else {
+        inRangeHTML += itemHTML({
+          type: 'in-range', icon: '&#10003;',
+          name: 'pH — In Range (' + ph.toFixed(1) + ')',
+          note: 'No pH adjustment needed.'
+        });
+      }
+    }
+
+    // ── Calcium Chloride (CH) ────────────────────────────────────────────────────
+    if (ch !== null) {
+      if (ch < chMin) {
+        var chNeed  = chTarget - ch;
+        var caclLbs = chNeed * scale * CACL2_PER_PPM;
+        neededHTML += itemHTML({
+          type: 'needed', step: step++,
+          name: 'Calcium Chloride (77% Flake)',
+          note: 'Raises CH from ' + ch + ' to ~' + chTarget + ' ppm. Add water to a bucket first, then the calcium chloride — the reaction is exothermic. Add slowly to pool with pump running.',
+          amount: fmtLbs(caclLbs), unit: '77% calcium chloride'
+        });
+      } else if (ch > chMax) {
+        warningHTML += itemHTML({
+          type: 'warning', icon: '!',
+          name: 'Calcium Hardness High (' + ch + ' ppm)',
+          note: 'CH cannot be lowered with chemicals — only by draining and refilling. High CH can cause scaling and cloudy water. <a href="water-replacement-calculator">Calculate your drain &rarr;</a>'
+        });
+      } else {
+        inRangeHTML += itemHTML({
+          type: 'in-range', icon: '&#10003;',
+          name: 'Calcium Hardness — In Range (' + ch + ' ppm)',
+          note: 'No calcium chloride needed.'
+        });
+      }
+    }
+
+    // ── Shock ────────────────────────────────────────────────────────────────────
+    var baseShock = Math.max(10, shockCya * 0.4);
+    var condMult  = condition === 'green' ? 3.0 : (condition === 'cloudy' ? 1.5 : 1.0);
+    var shockTarget = baseShock * condMult;
+    if (condition === 'green')  shockTarget = Math.max(30, shockTarget);
+    if (condition === 'cloudy') shockTarget = Math.max(20, shockTarget);
+
+    var fcCurrent = fc !== null ? fc : 0;
+    var fcNeeded  = Math.max(0, shockTarget - fcCurrent);
+    var shockLbs  = fcNeeded * scale / SHOCK_PPM_PER_LB;
+
+    var shockName, shockNote;
+    if (condition === 'green') {
+      shockName = 'Pool Shock — Triple Dose (65% Cal-Hypo)';
+      shockNote = 'Brush walls, steps, and floor before adding any chemicals. Shock target: ' + shockTarget.toFixed(0) + ' ppm FC (CYA &times; 40% &times; 3, minimum 30 ppm). Add at dusk with the pump running continuously. Retest FC each morning — if FC drops below 5 ppm overnight, the algae is still active; repeat the full shock dose. Two to three consecutive days of shocking may be needed.';
+    } else if (condition === 'cloudy') {
+      shockName = 'Pool Shock — 1.5&times; Dose (65% Cal-Hypo)';
+      shockNote = 'Shock target: ' + shockTarget.toFixed(0) + ' ppm FC (1.5&times; standard dose for cloudy or discolored water). Add at dusk near return jets with pump running. Run pump overnight. Retest the next morning.';
+    } else {
+      shockName = 'Pool Shock (65% Cal-Hypo)';
+      shockNote = 'Standard shock target: ' + shockTarget.toFixed(0) + ' ppm FC' +
+        (cya !== null ? ' (CYA ' + cya + ' &times; 40%)' : ' — estimated; enter CYA above for exact target') +
+        '. Add at dusk near return jets. Run pump overnight. Do not swim until FC drops to the normal range.';
+    }
+    if (cyaAdded) {
+      shockNote = 'Add only after the CYA stabilizer (Step 1) has fully dissolved — 24–48 hours. ' + shockNote;
+    }
+
+    neededHTML += itemHTML({
+      type: 'needed', step: step++,
+      name: shockName,
+      note: shockNote,
+      amount: fmtLbs(shockLbs), unit: 'cal-hypo shock (65%)'
+    });
+
+    // ── Algaecide ────────────────────────────────────────────────────────────────
+    var algaeFlOz = ALGAECIDE_FL_OZ_PER_10K * scale;
+    var algaeNote = 'Add 24–48 hours after shocking, once FC drops below 5 ppm. High chlorine degrades algaecide rapidly — timing matters. Broadcast around the perimeter with pump running.';
+
+    if (condition === 'green') {
+      neededHTML += itemHTML({
+        type: 'needed', step: step++,
+        name: 'Algaecide (60% Polyquat)',
+        note: algaeNote + ' Confirm the algae demand is gone with an <a href="overnight-chlorine-loss-test">overnight chlorine loss test</a> before adding algaecide.',
+        amount: fmtFlOz(algaeFlOz), unit: '60% polyquat algaecide'
+      });
+    } else {
+      optionalHTML += itemHTML({
+        type: 'optional', icon: '+',
+        name: 'Algaecide (60% Polyquat)',
+        note: algaeNote + ' Not required for a clear pool, but provides an added layer of protection for the first treatment of the season.',
+        amount: fmtFlOz(algaeFlOz), unit: '60% polyquat algaecide'
+      });
+    }
+
+    // ── Metal Sequestrant (optional) ─────────────────────────────────────────────
+    var seqFlOz = SEQUESTRANT_FL_OZ_PER_10K * scale;
+    optionalHTML += itemHTML({
+      type: 'optional', icon: '+',
+      name: 'Metal Sequestrant',
+      note: 'Recommended if your fill water is high in iron or copper, or if you&rsquo;ve noticed staining on pool surfaces in past seasons. Add before shocking with the pump running. Reapply periodically through the season.',
+      amount: fmtFlOz(seqFlOz), unit: 'metal sequestrant (initial dose)'
+    });
+
+    // ── Assemble output ──────────────────────────────────────────────────────────
+    var out = neededHTML;
+    if (warningHTML)  out += '<div class="list-section-head">Notes &amp; Warnings</div>' + warningHTML;
+    if (inRangeHTML)  out += '<div class="list-section-head">In Range — No Action Needed</div>' + inRangeHTML;
+    if (optionalHTML) out += '<div class="list-section-head">Optional</div>' + optionalHTML;
+
+    document.getElementById('shopping-list').innerHTML = out;
+
+    // ── Timing banner ────────────────────────────────────────────────────────────
+    var bannerItems = '';
+    if (condition === 'green') bannerItems += '<li><strong>Brush walls, steps, and floor before any additions</strong></li>';
+    if (cyaAdded)              bannerItems += '<li>CYA in sock — run pump 24–48 hours to dissolve before shocking</li>';
+    if (ta !== null && ta < 80) bannerItems += '<li>Baking soda (TA) — wait 30 min</li>';
+    if (ph !== null && (ph > 7.6 || ph < 7.2)) bannerItems += '<li>Muriatic acid or soda ash (pH) — wait 30 min, retest</li>';
+    if (ch !== null && ch < chMin) bannerItems += '<li>Calcium chloride (CH) — wait 1 hour</li>';
+    bannerItems += '<li>Pool shock — add at dusk, run pump overnight' + (condition === 'green' ? '; repeat if needed' : '') + '</li>';
+    bannerItems += '<li>Algaecide — 24–48 hrs after shock, once FC &lt; 5 ppm</li>';
+
+    var bannerExtra = '';
+    if (condition === 'green') {
+      bannerExtra = '<p>Run the pump continuously during algae treatment. Retest FC each morning — if FC drops below 5 ppm overnight, shock again. Use the <a href="overnight-chlorine-loss-test">OCLT calculator</a> to confirm algae is gone before resuming normal maintenance.</p>';
+    }
+
+    document.getElementById('timing-note').innerHTML =
+      '<div class="timing-banner"><strong>Addition order:</strong><ol>' + bannerItems + '</ol>' + bannerExtra + '</div>';
+
+    // Sub-heading adapts to condition
+    var subText = condition === 'green'
+      ? 'Brush the pool thoroughly before starting. Run the pump continuously. Repeat shock doses as needed until FC holds overnight.'
+      : 'Add chemicals in the numbered order below. Run the pump throughout. Wait between additions as noted.';
+    document.getElementById('results-sub').textContent = subText;
+
+    document.getElementById('results-section').classList.add('visible');
+  };
+
+})();
+</script>
+</body>
+</html>

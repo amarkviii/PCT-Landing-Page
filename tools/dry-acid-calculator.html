@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dry Acid to Muriatic Acid Calculator — Pool Chemical Conversion</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta name="description" content="Convert between dry acid (sodium bisulfate) and muriatic acid for your pool. Enter your amount and product strength — get the equivalent dose instantly.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-S8JT1DELF6');
+</script>
+<link rel="canonical" href="https://www.poolchemtracker.com/tools/dry-acid-calculator">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dry Acid to Muriatic Acid Calculator — Pool Chemical Conversion">
+<meta property="og:description" content="Convert between dry acid (sodium bisulfate) and muriatic acid. Find the equivalent pool pH-lowering dose instantly.">
+<meta property="og:url" content="https://www.poolchemtracker.com/tools/dry-acid-calculator">
+<meta property="og:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<meta property="og:site_name" content="PoolChem Tracker">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dry Acid to Muriatic Acid Calculator">
+<meta name="twitter:description" content="Convert between sodium bisulfate (dry acid) and muriatic acid — equivalent pool chemical doses.">
+<meta name="twitter:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.poolchemtracker.com/"},{"@type":"ListItem","position":2,"name":"Pool Calculators","item":"https://www.poolchemtracker.com/tools/"},{"@type":"ListItem","position":3,"name":"Dry Acid to Muriatic Acid Calculator"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is dry acid the same as muriatic acid?","acceptedAnswer":{"@type":"Answer","text":"No — they are different chemicals that do the same job. Dry acid is sodium bisulfate (NaHSO4), sold as a granular powder. Muriatic acid is hydrochloric acid (HCl), a liquid. Both lower pH and total alkalinity by releasing hydrogen ions into pool water, but their concentrations, handling requirements, and long-term effects differ."}},{"@type":"Question","name":"How much dry acid equals 1 quart of muriatic acid?","acceptedAnswer":{"@type":"Answer","text":"1 quart (32 fl oz) of 31.45% muriatic acid is equivalent to about 2.7 lbs of 93.2% dry acid (sodium bisulfate). This is based on equal moles of hydrogen ions — the active component that lowers pH and alkalinity. Use the calculator above for any specific amount."}},{"@type":"Question","name":"How much muriatic acid equals 1 lb of dry acid?","acceptedAnswer":{"@type":"Answer","text":"1 lb of 93.2% dry acid (sodium bisulfate) is equivalent to approximately 12 fl oz (1.5 cups) of 31.45% muriatic acid, or about 28 fl oz of 14.5% muriatic acid. The conversion is based on equivalent hydrogen ion content."}},{"@type":"Question","name":"Does dry acid add sulfates to pool water?","acceptedAnswer":{"@type":"Answer","text":"Yes. Sodium bisulfate introduces sulfate ions (SO4²⁻) that accumulate in pool water over time. High sulfate levels can corrode metal fittings, damage pool heaters, and etch plaster surfaces. Muriatic acid (HCl) does not add sulfates — it leaves behind chloride ions, which are harmless at normal pool concentrations. This is why muriatic acid is the preferred long-term choice for most pools."}},{"@type":"Question","name":"Which is safer to handle — dry acid or muriatic acid?","acceptedAnswer":{"@type":"Answer","text":"Dry acid is safer to handle and store. It does not emit fumes, has no liquid splash risk, and can be stored on a shelf without special ventilation. Muriatic acid produces corrosive fumes, can splash, and requires good ventilation. That said, dry acid is still an acid — it can burn skin and eyes on contact. Always wear gloves and eye protection with either product."}},{"@type":"Question","name":"Can I switch from dry acid to muriatic acid mid-season?","acceptedAnswer":{"@type":"Answer","text":"Yes — you can switch between them at any point in the season. The calculator above gives you the equivalent dose. If you have been using dry acid heavily all season, check your sulfate level; elevated sulfates are a sign that a partial water replacement may be beneficial before continuing with either acid."}}]}
+</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .skip-link { position: absolute; left: 0; top: -3rem; background: var(--accent); color: #000; padding: 0.6rem 1rem; border-radius: 0 0 8px 0; font-weight: 700; font-size: 0.9rem; text-decoration: none; z-index: 1000; transition: top 0.15s; }
+  .skip-link:focus { top: 0; }
+  main:focus { outline: none; }
+
+  :root {
+    --bg: #0a1628;
+    --bg2: #0d1f3c;
+    --card: #0f1e38;
+    --accent: #4facfe;
+    --accent2: #00f2fe;
+    --text: #e8edf5;
+    --muted: #9fb0c3;
+    --good: #2ed573;
+    --warn: #ffa502;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  body { font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+  header { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+  .header-inner { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+  .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text); }
+  .logo-icon { width: 40px; height: 40px; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
+  .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+  .logo .logo-name { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
+  .logo .logo-name span { color: var(--accent); }
+  .header-right { display: flex; align-items: center; gap: 1.5rem; }
+  .header-link { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--accent); padding: 0.4rem 1rem; border-radius: 8px; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+  .header-link:hover { background: var(--accent); color: #000; }
+  .header-badge { display: inline-flex; }
+  .header-badge img { height: 36px; }
+
+  .page { padding: 3rem 0 4rem; }
+
+  .breadcrumb { font-size: 0.8rem; color: var(--muted); margin-bottom: 2rem; }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .page-label { display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+
+  h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 0.75rem; }
+  h1 .gradient { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .page-desc { font-size: 1.05rem; color: var(--muted); margin-bottom: 2.5rem; }
+
+  .calc-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; }
+
+  .toggle-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; }
+  .toggle-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .toggle-group { display: flex; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .toggle-group button { background: none; border: none; color: var(--muted); font-size: 0.85rem; font-weight: 600; padding: 0.4rem 1rem; cursor: pointer; transition: background 0.15s, color 0.15s; font-family: inherit; white-space: nowrap; }
+  .toggle-group button.active { background: var(--accent); color: #000; }
+
+  .field-group-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+
+  .inputs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+  .inputs-grid.one-col { grid-template-columns: 1fr; }
+
+  .field { display: flex; flex-direction: column; gap: 0.35rem; }
+  .field label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .field input { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 0.65rem 0.85rem; color: var(--text); font-size: 1rem; font-family: inherit; transition: border-color 0.15s; width: 100%; -moz-appearance: textfield; }
+  .field input::-webkit-outer-spin-button, .field input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .field input:focus { outline: none; border-color: rgba(79,172,254,0.5); }
+  .field input::placeholder { color: var(--muted); opacity: 0.5; }
+
+  .section-divider { border-top: 1px solid var(--border); margin: 1.5rem 0; }
+
+  .product-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+  .product-tab { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 600; color: var(--muted); cursor: pointer; transition: all 0.15s; font-family: inherit; }
+  .product-tab.active { background: rgba(79,172,254,0.12); border-color: rgba(79,172,254,0.4); color: var(--accent); }
+  .product-tab:hover:not(.active) { border-color: rgba(79,172,254,0.25); color: var(--text); }
+
+  .info-box { background: rgba(79,172,254,0.06); border: 1px solid rgba(79,172,254,0.2); border-radius: 10px; padding: 0.9rem 1.1rem; margin-top: 0.75rem; font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+  .info-box strong { color: var(--text); }
+
+  .result-box { background: linear-gradient(135deg, rgba(79,172,254,0.10), rgba(0,242,254,0.05)); border: 1px solid rgba(79,172,254,0.3); border-radius: 12px; padding: 1.5rem; text-align: center; margin-top: 1.5rem; transition: opacity 0.2s; }
+  .result-box.empty { opacity: 0.4; }
+  .result-label { font-size: 0.72rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+  .result-primary { font-size: clamp(2rem, 6vw, 3rem); font-weight: 800; letter-spacing: -0.03em; color: var(--text); line-height: 1.1; }
+  .result-secondary { font-size: 0.9rem; color: var(--muted); margin-top: 0.4rem; }
+  .result-note { font-size: 0.78rem; color: var(--muted); margin-top: 0.75rem; opacity: 0.8; line-height: 1.5; }
+
+  h2 { font-size: 1.35rem; font-weight: 700; margin: 2.5rem 0 0.75rem; letter-spacing: -0.02em; }
+  h3 { font-size: 1.05rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+  p { color: var(--text); margin-bottom: 1.25rem; font-size: 1.05rem; }
+  ul { margin: 0 0 1.25rem 1.5rem; color: var(--text); font-size: 1.05rem; }
+  li { margin-bottom: 0.4rem; }
+
+  .key-fact { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .key-fact h3, .key-fact .box-heading { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; margin-top: 0; }
+  .key-fact p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+
+  .warn-key-fact { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--warn); border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .warn-key-fact .box-heading { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--warn); }
+  .warn-key-fact p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+
+  .ref-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.92rem; }
+  .ref-table th { text-align: left; padding: 0.6rem 1rem; font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); }
+  .ref-table td { padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); color: var(--text); }
+  .ref-table tr:last-child td { border-bottom: none; }
+  .ref-table tr:hover td { background: rgba(79,172,254,0.04); }
+
+  .related-list { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; }
+  .related-list .box-heading { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.85rem; color: var(--accent); }
+  .related-list ul { list-style: none; margin: 0; padding: 0; }
+  .related-list li { padding: 0.4rem 0; font-size: 0.95rem; border-bottom: 1px solid var(--border); }
+  .related-list li:last-child { border-bottom: none; }
+  .related-list a { color: var(--accent); text-decoration: none; }
+  .related-list a:hover { text-decoration: underline; }
+
+  .cta-box { background: linear-gradient(135deg, rgba(79,172,254,0.08), rgba(0,242,254,0.05)); border: 1px solid rgba(79,172,254,0.25); border-radius: 14px; padding: 2rem; margin: 2.5rem 0; text-align: center; }
+  .cta-box h2 { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.5rem; }
+  .cta-box p { color: var(--muted); font-size: 0.92rem; max-width: 480px; margin: 0 auto 1.25rem; line-height: 1.6; }
+  .cta-box .badge { display: inline-block; transition: opacity 0.2s; }
+  .cta-box .badge:hover { opacity: 0.85; }
+  .cta-box .badge img { height: 44px; }
+
+  footer { padding: 2rem 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+  .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+
+  @media (max-width: 640px) {
+    .page { padding: 2rem 0 3rem; }
+    .header-badge { display: none; }
+    .header-link { font-size: 0.8rem; padding: 0.35rem 0.75rem; }
+    .header-right { gap: 0.75rem; }
+    .inputs-grid { grid-template-columns: 1fr; }
+    .calc-card { padding: 1.25rem; }
+    .toggle-group button { padding: 0.4rem 0.65rem; font-size: 0.8rem; }
+    .ref-table th, .ref-table td { padding: 0.5rem 0.6rem; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header>
+  <div class="header-inner">
+    <a href="../" class="logo">
+      <div class="logo-icon"><img src="../Logo/logo-96.webp" alt="PoolChem Tracker" width="96" height="96"></div>
+      <span class="logo-name">Pool<span>Chem</span> Tracker</span>
+    </a>
+    <div class="header-right">
+      <a href="../blog/" class="header-link">Guides</a>
+      <a href="../features" class="header-link">Features</a>
+      <a href="../about" class="header-link">About</a>
+      <a href="../download" class="header-link">Download</a>
+    </div>
+  </div>
+</header>
+<main id="main-content" tabindex="-1">
+
+<div class="page">
+  <div class="container">
+
+    <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Pool Calculators</a> &rsaquo; Dry Acid to Muriatic Acid</div>
+
+    <span class="page-label">Pool Calculators</span>
+    <h1>Dry Acid to Muriatic Acid <span class="gradient">Calculator</span></h1>
+    <p class="page-desc">Convert between dry acid (sodium bisulfate) and muriatic acid — enter your amount and product strength to find the equivalent dose.</p>
+
+    <div class="calc-card">
+
+      <div class="toggle-row">
+        <span class="toggle-label">Convert</span>
+        <div class="toggle-group">
+          <button id="btn-dry-to-mu" class="active" onclick="setDirection('dry-to-mu')">Dry Acid &rarr; Muriatic</button>
+          <button id="btn-mu-to-dry" onclick="setDirection('mu-to-dry')">Muriatic &rarr; Dry Acid</button>
+        </div>
+      </div>
+
+      <div class="toggle-row" style="margin-bottom:1.5rem">
+        <span class="toggle-label">Units</span>
+        <div class="toggle-group">
+          <button id="btn-us" class="active" onclick="setUnits('us')">US</button>
+          <button id="btn-metric" onclick="setUnits('metric')">Metric</button>
+        </div>
+      </div>
+
+      <!-- Dry → Muriatic panel -->
+      <div id="panel-dry-to-mu">
+        <div class="inputs-grid one-col">
+          <div class="field">
+            <label for="dry-amount" id="dry-amount-label">Dry Acid Amount (lbs)</label>
+            <input inputmode="decimal" type="number" id="dry-amount" min="0" step="0.5" placeholder="e.g. 1.5 lbs" oninput="calc()">
+          </div>
+        </div>
+        <div class="field-group-label">Dry Acid Purity</div>
+        <div class="product-tabs">
+          <button class="product-tab dry-tab active" data-val="93" onclick="setDryStrength('93')">93.2% (Standard)</button>
+          <button class="product-tab dry-tab" data-val="90" onclick="setDryStrength('90')">90%</button>
+        </div>
+        <div class="section-divider"></div>
+        <div class="field-group-label">Output — Muriatic Acid Strength</div>
+        <div class="product-tabs">
+          <button class="product-tab mu-out-tab active" data-val="31" onclick="setMuStrength('31')">31.45% (Standard)</button>
+          <button class="product-tab mu-out-tab" data-val="14" onclick="setMuStrength('14')">14.5% (Diluted / Safer)</button>
+        </div>
+      </div>
+
+      <!-- Muriatic → Dry panel -->
+      <div id="panel-mu-to-dry" style="display:none">
+        <div class="inputs-grid one-col">
+          <div class="field">
+            <label for="mu-amount" id="mu-amount-label">Muriatic Acid (fl oz)</label>
+            <input inputmode="decimal" type="number" id="mu-amount" min="0" step="1" placeholder="e.g. 32 fl oz" oninput="calc()">
+          </div>
+        </div>
+        <div class="field-group-label">Muriatic Acid Strength</div>
+        <div class="product-tabs">
+          <button class="product-tab mu-in-tab active" data-val="31" onclick="setMuStrength('31')">31.45% (Standard)</button>
+          <button class="product-tab mu-in-tab" data-val="14" onclick="setMuStrength('14')">14.5% (Diluted / Safer)</button>
+        </div>
+        <div class="section-divider"></div>
+        <div class="field-group-label">Output — Dry Acid Purity</div>
+        <div class="product-tabs">
+          <button class="product-tab dry-out-tab active" data-val="93" onclick="setDryStrength('93')">93.2% (Standard)</button>
+          <button class="product-tab dry-out-tab" data-val="90" onclick="setDryStrength('90')">90%</button>
+        </div>
+      </div>
+
+      <div class="result-box empty" id="result-box">
+        <div class="result-label">Equivalent Amount</div>
+        <div class="result-primary" id="result-main">&mdash;</div>
+        <div class="result-secondary" id="result-secondary"></div>
+        <div class="result-note" id="result-note">Enter an amount above to convert</div>
+      </div>
+
+    </div><!-- /calc-card -->
+
+    <div class="cta-box">
+      <h2>Stop recalculating your pool every weekend.</h2>
+      <p>PoolChem Tracker remembers your pool size, tracks your chemistry history, and tells you exactly what to add next.</p>
+      <div style="display:flex;gap:0.75rem;justify-content:center;align-items:center;flex-wrap:wrap;"><a href="https://apps.apple.com/app/id6762652630?ct=tool" class="badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'ios'})"><img loading="lazy" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40" style="height:54px;"></a><a href="https://play.google.com/store/apps/details?id=com.poolchemtracker.app&utm_source=website&utm_medium=tool_cta" class="badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'android'})"><img loading="lazy" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="width:auto;height:54px;"></a></div>
+    </div>
+
+    <div class="info-box" style="margin-bottom:2rem">
+      <strong>How this works:</strong> The conversion is based on equivalent hydrogen ions (H⁺) — the active component that lowers pH and alkalinity. Both acids release the same amount of acidity per mole, so the math is a direct molar comparison.
+    </div>
+
+    <h2>Quick reference — dry acid vs muriatic acid</h2>
+    <p>Use the table below as a fast lookup for common amounts. All values assume 93.2% dry acid and 31.45% muriatic acid.</p>
+
+    <table class="ref-table" aria-label="Dry acid to muriatic acid conversion reference">
+      <thead>
+        <tr>
+          <th>Dry Acid (93.2%)</th>
+          <th>Muriatic Acid (31.45%)</th>
+          <th>Muriatic Acid (14.5%)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>½ lb (8 oz)</td><td>6 fl oz</td><td>14 fl oz</td></tr>
+        <tr><td>1 lb</td><td>12 fl oz (1½ cups)</td><td>28 fl oz (3½ cups)</td></tr>
+        <tr><td>1½ lbs</td><td>18 fl oz (2¼ cups)</td><td>42 fl oz (5¼ cups)</td></tr>
+        <tr><td>2 lbs</td><td>24 fl oz (3 cups)</td><td>56 fl oz (7 cups)</td></tr>
+        <tr><td>3 lbs</td><td>36 fl oz (4½ cups)</td><td>84 fl oz (2.6 qts)</td></tr>
+        <tr><td>5 lbs</td><td>60 fl oz (1.9 qts)</td><td>140 fl oz (4.4 qts)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="warn-key-fact">
+      <p class="box-heading">Dry acid adds sulfates — muriatic acid does not</p>
+      <p>Sodium bisulfate leaves sulfate ions (SO₄²⁻) in pool water that accumulate over time. High sulfates corrode metal fittings, damage pool heaters, and etch plaster — especially in saltwater pools. Muriatic acid leaves chloride ions, which are harmless at normal pool concentrations. For most pools, muriatic acid is the better long-term choice. Dry acid is ideal for spas or when fume-free storage is required.</p>
+    </div>
+
+    <h2>Dry acid vs muriatic acid — when to use each</h2>
+    <p><strong>Dry acid (sodium bisulfate, pH Down, pH Minus)</strong> — available in granular or powder form, typically 93.2% purity. Advantages: no fumes, no liquid splash risk, easier to store and transport. Disadvantages: adds sulfates that build up in pool water over time. Best for: spas, hot tubs, small pools, situations where liquid acid storage is inconvenient.</p>
+    <p><strong>Muriatic acid (hydrochloric acid)</strong> — a liquid sold in 31.45% (standard) and 14.5% (diluted/safer) concentrations. Advantages: no sulfate accumulation, cost-effective for large pools, faster-acting. Disadvantages: produces corrosive fumes, requires careful handling and ventilation. Best for: most residential and commercial pools for long-term maintenance.</p>
+
+    <div class="key-fact">
+      <h3>You can switch between them freely</h3>
+      <p>There is no chemical conflict between switching products mid-season. Use the calculator above to find the equivalent dose and apply the same way — near a return jet with the pump running. If you have been relying on dry acid heavily, periodically check your pool's sulfate level.</p>
+    </div>
+
+    <h2>How to use muriatic acid safely</h2>
+    <ul>
+      <li>Always pre-dilute in a bucket of pool water before adding to the pool</li>
+      <li>Pour acid into water — never water into acid</li>
+      <li>Wear eye protection and chemical-resistant gloves</li>
+      <li>Add near a return jet with the pump running, not near the skimmer</li>
+      <li>Never add more than 1 quart at a time — split large doses and retest</li>
+      <li>Wait 30 minutes after adding before retesting pH</li>
+    </ul>
+
+    <h2>How to use dry acid safely</h2>
+    <ul>
+      <li>Pre-dissolve in a bucket of pool water before adding — do not broadcast dry granules directly into a small spa or skimmer</li>
+      <li>Wear gloves and eye protection — sodium bisulfate is still an acid in contact with moisture</li>
+      <li>Add near a return jet with the pump running</li>
+      <li>Do not mix with chlorine products or other pool chemicals</li>
+      <li>Wait 30 minutes and retest pH before adding more</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+
+    <h3>Is dry acid the same as muriatic acid?</h3>
+    <p>No — they are different chemicals that accomplish the same thing. Dry acid is sodium bisulfate (NaHSO₄), a granular solid. Muriatic acid is hydrochloric acid (HCl), a liquid. Both lower pH and total alkalinity by releasing hydrogen ions, but their chemistry, handling requirements, and long-term effects on pool water differ.</p>
+
+    <h3>How much dry acid equals 1 quart of muriatic acid?</h3>
+    <p>1 quart (32 fl oz) of 31.45% muriatic acid is equivalent to about <strong>2.7 lbs</strong> of 93.2% dry acid. Use the calculator above for any specific amount or strength.</p>
+
+    <h3>How much muriatic acid equals 1 lb of dry acid?</h3>
+    <p><strong>1 lb of 93.2% dry acid ≈ 12 fl oz (1½ cups) of 31.45% muriatic acid</strong>, or about 28 fl oz of 14.5% muriatic acid. The conversion is based on equal hydrogen ion content — the moles of H⁺ that lower pH and alkalinity.</p>
+
+    <h3>Does dry acid add sulfates to pool water?</h3>
+    <p>Yes. Every dose of sodium bisulfate adds sulfate ions (SO₄²⁻) that do not dissipate — they accumulate over the season. Elevated sulfates are corrosive to pool heaters, metal fittings, and plaster surfaces. Muriatic acid does not add sulfates. If you regularly use dry acid, test your sulfate level periodically; levels above 300–400 ppm are cause for a partial water replacement.</p>
+
+    <h3>Can I mix dry acid and muriatic acid together?</h3>
+    <p>No. Never mix any two pool chemicals together — including two acids. Always add chemicals separately to pool water with the pump running, and allow time for them to dilute before adding another chemical.</p>
+
+    <h3>Which is cheaper — dry acid or muriatic acid?</h3>
+    <p>Muriatic acid is typically less expensive per unit of pH-lowering effect. For a 10,000-gallon pool requiring a 0.4 pH drop, expect to pay significantly less per dose with 31.45% muriatic acid than with an equivalent dry acid dose. Dry acid commands a price premium for the convenience and fume-free handling.</p>
+
+
+    <div class="related-list">
+      <p class="box-heading">More pool calculators &amp; guides</p>
+      <ul>
+        <li><a href="./">All pool chemistry calculators</a> — full reference index</li>
+        <li><a href="muriatic-acid-calculator">Muriatic acid calculator</a> — dose for pH or alkalinity</li>
+        <li><a href="pool-ph-calculator">Pool pH calculator</a> — raise or lower pH with any chemical</li>
+        <li><a href="baking-soda-calculator">Baking soda calculator</a> — raise total alkalinity</li>
+        <li><a href="pool-shock-calculator">Pool shock calculator</a></li>
+        <li><a href="../explained/ph">Pool pH explained</a></li>
+        <li><a href="../explained/total-alkalinity">Total alkalinity explained</a></li>
+        <li><a href="../blog/how-to-lower-pool-alkalinity">How to lower pool alkalinity</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="../">Home</a>
+      <a href="../blog/">Guides</a>
+      <a href="../explained/">Explained</a>
+      <a href="mailto:support@poolchemtracker.com">Support</a>
+      <a href="../privacy-website">Privacy Policy</a>
+      <a href="../terms-website">Terms of Service</a>
+    </div>
+    <p>&copy; 2026 PoolChem Tracker. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  var direction = 'dry-to-mu';
+  var dryStrength = '93';
+  var muStrength = '31';
+  var units = 'us';
+
+  var MW_NABISULFATE = 120.06;
+  var MW_HCL = 36.46;
+  var DRY_PURITY = { '93': 0.932, '90': 0.90 };
+  var MU_PROPS = {
+    '31': { conc: 0.3145, density: 1.155 },
+    '14': { conc: 0.145,  density: 1.071 }
+  };
+
+  window.setDirection = function (d) {
+    direction = d;
+    document.getElementById('btn-dry-to-mu').classList.toggle('active', d === 'dry-to-mu');
+    document.getElementById('btn-mu-to-dry').classList.toggle('active', d === 'mu-to-dry');
+    document.getElementById('panel-dry-to-mu').style.display = d === 'dry-to-mu' ? '' : 'none';
+    document.getElementById('panel-mu-to-dry').style.display = d === 'mu-to-dry' ? '' : 'none';
+    updatePlaceholders();
+    calc();
+  };
+
+  window.setDryStrength = function (s) {
+    dryStrength = s;
+    document.querySelectorAll('.dry-tab, .dry-out-tab').forEach(function (btn) {
+      btn.classList.toggle('active', btn.dataset.val === s);
+    });
+    calc();
+  };
+
+  window.setMuStrength = function (s) {
+    muStrength = s;
+    document.querySelectorAll('.mu-out-tab, .mu-in-tab').forEach(function (btn) {
+      btn.classList.toggle('active', btn.dataset.val === s);
+    });
+    calc();
+  };
+
+  window.setUnits = function (u) {
+    units = u;
+    document.getElementById('btn-us').classList.toggle('active', u === 'us');
+    document.getElementById('btn-metric').classList.toggle('active', u === 'metric');
+    updatePlaceholders();
+    calc();
+  };
+
+  function updatePlaceholders() {
+    var dryLbl = document.getElementById('dry-amount-label');
+    var muLbl  = document.getElementById('mu-amount-label');
+    var dryInp = document.getElementById('dry-amount');
+    var muInp  = document.getElementById('mu-amount');
+    if (units === 'us') {
+      dryLbl.textContent = 'Dry Acid Amount (lbs)';
+      muLbl.textContent  = 'Muriatic Acid (fl oz)';
+      dryInp.placeholder = 'e.g. 1.5 lbs';
+      muInp.placeholder  = 'e.g. 32 fl oz';
+    } else {
+      dryLbl.textContent = 'Dry Acid Amount (grams)';
+      muLbl.textContent  = 'Muriatic Acid (mL)';
+      dryInp.placeholder = 'e.g. 680 grams';
+      muInp.placeholder  = 'e.g. 950 mL';
+    }
+  }
+
+  function formatFloz(floz) {
+    if (floz < 1)   return 'Less than 1 fl oz';
+    if (floz < 8)   return floz.toFixed(1) + ' fl oz';
+    if (floz < 32)  return (floz / 8).toFixed(1) + ' cups (' + Math.round(floz) + ' fl oz)';
+    if (floz < 128) return (floz / 32).toFixed(1) + ' quarts (' + Math.round(floz) + ' fl oz)';
+    return (floz / 128).toFixed(2) + ' gallons';
+  }
+
+  function formatMl(mL) {
+    if (mL < 1000) return Math.round(mL) + ' mL';
+    return (mL / 1000).toFixed(2) + ' L (' + Math.round(mL) + ' mL)';
+  }
+
+  function formatDryOz(oz) {
+    if (oz < 1)  return 'Less than 1 oz';
+    if (oz < 16) return oz.toFixed(1) + ' oz';
+    var lbs = oz / 16;
+    return lbs.toFixed(2) + ' lbs (' + Math.round(oz) + ' oz)';
+  }
+
+  function formatDryGrams(g) {
+    if (g < 1000) return Math.round(g) + ' g';
+    return (g / 1000).toFixed(2) + ' kg (' + Math.round(g) + ' g)';
+  }
+
+  window.calc = function () {
+    var box  = document.getElementById('result-box');
+    var main = document.getElementById('result-main');
+    var sec  = document.getElementById('result-secondary');
+    var note = document.getElementById('result-note');
+
+    if (direction === 'dry-to-mu') {
+      var rawVal = parseFloat(document.getElementById('dry-amount').value);
+      if (isNaN(rawVal) || rawVal <= 0) {
+        box.classList.add('empty');
+        main.textContent = '—';
+        sec.textContent  = '';
+        note.textContent = 'Enter the amount of dry acid above';
+        return;
+      }
+      var grams = units === 'us' ? rawVal * 453.592 : rawVal;
+      var molH  = grams * DRY_PURITY[dryStrength] / MW_NABISULFATE;
+      var props = MU_PROPS[muStrength];
+      var mL    = molH * MW_HCL / (props.conc * props.density);
+      var floz  = mL / 29.5735;
+
+      box.classList.remove('empty');
+      if (units === 'us') {
+        main.textContent = formatFloz(floz);
+        sec.textContent  = Math.round(mL) + ' mL';
+      } else {
+        main.textContent = formatMl(mL);
+        sec.textContent  = formatFloz(floz);
+      }
+      note.textContent = 'of ' + (muStrength === '31' ? '31.45%' : '14.5%') + ' muriatic acid — equivalent acid strength as the dry acid entered.';
+
+    } else {
+      var rawVal = parseFloat(document.getElementById('mu-amount').value);
+      if (isNaN(rawVal) || rawVal <= 0) {
+        box.classList.add('empty');
+        main.textContent = '—';
+        sec.textContent  = '';
+        note.textContent = 'Enter the amount of muriatic acid above';
+        return;
+      }
+      var mL    = units === 'us' ? rawVal * 29.5735 : rawVal;
+      var props = MU_PROPS[muStrength];
+      var molH  = mL * props.conc * props.density / MW_HCL;
+      var grams = molH * MW_NABISULFATE / DRY_PURITY[dryStrength];
+      var oz    = grams / 28.3495;
+
+      box.classList.remove('empty');
+      if (units === 'us') {
+        main.textContent = formatDryOz(oz);
+        sec.textContent  = Math.round(grams) + ' g';
+      } else {
+        main.textContent = formatDryGrams(grams);
+        sec.textContent  = formatDryOz(oz);
+      }
+      note.textContent = 'of ' + (dryStrength === '93' ? '93.2%' : '90%') + ' dry acid (sodium bisulfate) — equivalent to the muriatic acid entered.';
+    }
+  };
+})();
+</script>
+
+</body>
+</html>

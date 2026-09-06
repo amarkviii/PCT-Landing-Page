@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Total Chlorine (TC) Explained — What It Is &amp; Why It Misleads</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta name="description" content="TC = FC + combined chlorine. On its own it's misleading — what matters is the gap between TC and FC. What TC means and when it actually matters.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-S8JT1DELF6');
+</script>
+<link rel="canonical" href="https://www.poolchemtracker.com/explained/total-chlorine">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Total Chlorine (TC) Explained">
+<meta property="og:description" content="Free chlorine plus combined chlorine. What the number means, why it misleads on its own, and how to use it to spot chloramine buildup.">
+<meta property="og:url" content="https://www.poolchemtracker.com/explained/total-chlorine">
+<meta property="og:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<meta property="og:site_name" content="PoolChem Tracker">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Total Chlorine (TC) Explained">
+<meta name="twitter:description" content="The reading that's only useful when paired with free chlorine.">
+<meta name="twitter:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"DefinedTerm","name":"Total Chlorine","alternateName":["TC","Combined + Free Chlorine"],"description":"The sum of free chlorine (FC) and combined chlorine (CC) in pool water — every chlorine molecule present, whether still active as a sanitizer or already reacted with contaminants. Total chlorine on its own is misleading; the actionable number is the gap between TC and FC, which equals combined chlorine.","inDefinedTermSet":"https://www.poolchemtracker.com/explained/","url":"https://www.poolchemtracker.com/explained/total-chlorine"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Total Chlorine (TC) Explained — What It Is & Why It Misleads","description":"Total chlorine is free chlorine plus combined chlorine. Learn what TC means, why it's misleading on its own, and how to use it to detect chloramine buildup.","datePublished":"2026-06-02","dateModified":"2026-06-22","author":{"@type":"Person","name":"Jeffrey Thompson","url":"https://www.poolchemtracker.com/about"},"publisher":{"@type":"Organization","name":"PoolChem Tracker","logo":{"@type":"ImageObject","url":"https://www.poolchemtracker.com/Logo/logo-256.webp"}},"image":"https://www.poolchemtracker.com/Screenshots/social-card.png","mainEntityOfPage":"https://www.poolchemtracker.com/explained/total-chlorine"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.poolchemtracker.com/"},{"@type":"ListItem","position":2,"name":"Pool Chemistry Explained","item":"https://www.poolchemtracker.com/explained/"},{"@type":"ListItem","position":3,"name":"Total Chlorine"}]}
+</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .skip-link { position: absolute; left: 0; top: -3rem; background: var(--accent); color: #000; padding: 0.6rem 1rem; border-radius: 0 0 8px 0; font-weight: 700; font-size: 0.9rem; text-decoration: none; z-index: 1000; transition: top 0.15s; }
+  .skip-link:focus { top: 0; }
+  main:focus { outline: none; }
+
+  :root {
+    --bg: #0a1628;
+    --bg2: #0d1f3c;
+    --card: #0f1e38;
+    --accent: #4facfe;
+    --accent2: #00f2fe;
+    --text: #e8edf5;
+    --muted: #9fb0c3;
+    --good: #2ed573;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  body { font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+  header { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+  header .header-inner { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+  .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text); }
+  .logo-icon { width: 40px; height: 40px; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
+  .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+  .logo .logo-name { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
+  .logo .logo-name span { color: var(--accent); }
+  .header-right { display: flex; align-items: center; gap: 1.5rem; }
+  .header-link { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--accent); padding: 0.4rem 1rem; border-radius: 8px; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+  .header-link:hover { background: var(--accent); color: #000; }
+  .header-badge { display: inline-flex; }
+  .header-badge img { height: 36px; }
+
+  article { padding: 3rem 0 4rem; }
+
+  .breadcrumb { font-size: 0.8rem; color: var(--muted); margin-bottom: 2rem; }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .concept-label { display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+
+  article h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 1rem; }
+  article h1 .gradient { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .meta { font-size: 0.85rem; color: var(--muted); margin-bottom: 2rem; }
+
+  .definition-box {
+    background: linear-gradient(135deg, rgba(79,172,254,0.08), rgba(0,242,254,0.04));
+    border: 1px solid rgba(79,172,254,0.25);
+    border-radius: 14px;
+    padding: 1.5rem 1.75rem;
+    margin: 0 0 2.5rem;
+  }
+  .definition-box .definition-label { font-size: 0.7rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.6rem; }
+  .definition-box p { font-size: 1.08rem; color: var(--text); line-height: 1.6; margin: 0; }
+
+  article h2 { font-size: 1.35rem; font-weight: 700; margin: 2.5rem 0 0.75rem; letter-spacing: -0.02em; }
+  article p { color: var(--text); margin-bottom: 1.25rem; font-size: 1.05rem; }
+  article ul, article ol { margin: 0 0 1.25rem 1.5rem; color: var(--text); font-size: 1.05rem; }
+  article li { margin-bottom: 0.4rem; }
+
+  .ranges-table { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+  .ranges-table table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+  .ranges-table th { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); color: var(--muted); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .ranges-table td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); }
+  .ranges-table tr:last-child td { border-bottom: none; }
+
+  .tag-bad { color: #ff6b6b; font-weight: 600; }
+  .tag-warn { color: #ffd700; font-weight: 600; }
+  .tag-good { color: #2ed573; font-weight: 600; }
+
+  .key-fact { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .key-fact h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .key-fact p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+  .key-fact a { color: var(--accent); text-decoration: none; }
+  .key-fact a:hover { text-decoration: underline; }
+
+  .formula-box {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    font-family: 'SF Mono', ui-monospace, monospace;
+    font-size: 1rem;
+    color: var(--accent);
+    text-align: center;
+    line-height: 1.8;
+  }
+
+  .action-list, .related-list { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; }
+  .action-list h3, .related-list h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.85rem; color: var(--accent); }
+  .action-list ul, .related-list ul { list-style: none; margin: 0; padding: 0; }
+  .action-list li, .related-list li { padding: 0.4rem 0; font-size: 0.95rem; }
+  .action-list a, .related-list a { color: var(--accent); text-decoration: none; }
+  .action-list a:hover, .related-list a:hover { text-decoration: underline; }
+
+  .cta-box { background: linear-gradient(135deg, rgba(79,172,254,0.08), rgba(0,242,254,0.05)); border: 1px solid rgba(79,172,254,0.25); border-radius: 14px; padding: 2rem; margin: 2.5rem 0; text-align: center; }
+  .cta-box h2 { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.5rem; }
+  .cta-box p { color: var(--muted); font-size: 0.92rem; max-width: 480px; margin: 0 auto 1.25rem; line-height: 1.6; }
+  .cta-box .badge { display: inline-block; transition: opacity 0.2s; }
+  .cta-box .badge:hover { opacity: 0.85; }
+  .cta-box .badge img { height: 44px; }
+
+  footer { padding: 2rem 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+  .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; }
+
+  @media (max-width: 640px) {
+    article { padding: 2rem 0 3rem; }
+    .header-badge { display: none; }
+    .header-link { font-size: 0.8rem; padding: 0.35rem 0.75rem; }
+    .header-right { gap: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header>
+  <div class="header-inner">
+    <a href="../" class="logo">
+      <div class="logo-icon"><img src="../Logo/logo-96.webp" alt="PoolChem Tracker" width="96" height="96"></div>
+      <span class="logo-name">Pool<span>Chem</span> Tracker</span>
+    </a>
+    <div class="header-right">
+      <a href="../blog/" class="header-link">Guides</a>
+      <a href="../features" class="header-link">Features</a>
+      <a href="../tools/" class="header-link">Tools</a>
+      <a href="../about" class="header-link">About</a>
+      <a href="../download" class="header-link">Download</a>
+    </div>
+  </div>
+</header>
+<main id="main-content" tabindex="-1">
+
+<article>
+  <div class="container">
+    <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Pool Chemistry Explained</a> &rsaquo; Total Chlorine</div>
+
+    <span class="concept-label">Pool Chemistry Explained</span>
+    <h1>Total Chlorine <span class="gradient">(TC)</span></h1>
+    <div class="meta">3 min read &middot; Sanitizers &middot; By <a href="../about" style="color:var(--muted);text-decoration:none;">Jeffrey Thompson</a></div>
+
+    <div class="definition-box">
+      <div class="definition-label">In one sentence</div>
+      <p>Total chlorine (TC) is the sum of free chlorine (FC) and combined chlorine (CC) — every chlorine molecule in your water, whether it's still actively sanitizing or already used up. On its own, TC is the least useful chlorine number; its value is in what it tells you when subtracted from FC.</p>
+    </div>
+
+    <h2>The formula</h2>
+
+    <p>Three chlorine numbers, one simple relationship:</p>
+
+    <div class="formula-box">
+      TC = FC + CC
+    </div>
+
+    <p>Or, more usefully:</p>
+
+    <div class="formula-box">
+      CC = TC &minus; FC
+    </div>
+
+    <p>You test FC and TC on a kit. CC is the difference. The difference is the actionable number.</p>
+
+    <h2>Target relationship</h2>
+
+    <p>There's no fixed TC target the way there's an FC target. What matters is how close TC is to FC.</p>
+
+    <div class="ranges-table">
+      <table>
+        <tr><th>TC vs FC</th><th>Status</th><th>What it means</th></tr>
+        <tr><td>TC = FC</td><td class="tag-good">Perfect</td><td>No combined chlorine; all chlorine is active</td></tr>
+        <tr><td>TC up to 0.5 ppm above FC</td><td class="tag-good">Normal</td><td>Minor CC; not a problem</td></tr>
+        <tr><td>TC 0.5–1.0 ppm above FC</td><td class="tag-warn">High CC</td><td>Chloramines building; shock recommended</td></tr>
+        <tr><td>TC &gt; 1.0 ppm above FC</td><td class="tag-bad">Very high CC</td><td>Strong smell, irritation; shock now</td></tr>
+      </table>
+    </div>
+
+    <div class="key-fact">
+      <h3>"My total chlorine is 3 ppm" is a misleading statement</h3>
+      <p>A reading of TC = 3 ppm tells you nothing about whether your pool is safe. If FC is 3 and CC is 0, your pool is sanitized. If FC is 1 and CC is 2, your pool is barely sanitized and reeks of chloramines. Always split TC into FC and CC before deciding what's happening.</p>
+    </div>
+
+    <h2>Why TC alone misleads</h2>
+
+    <p>Many old test kits and strips only show "chlorine" as a single number — that number is total chlorine. This created decades of confusion about what's really happening in pool water.</p>
+
+    <ul>
+      <li><strong>A high TC reading can hide low FC.</strong> A pool with TC of 4 ppm could have FC of 4 (great) or FC of 1 (bad). Same TC number; very different sanitization.</li>
+      <li><strong>"I added chlorine and the number went up" doesn't always mean what you think.</strong> If CC is rising along with FC, contaminants are still winning.</li>
+      <li><strong>Chloramines smell like chlorine but don't sanitize like it.</strong> A pool with high TC and high CC can smell strongly of chlorine while being undersanitized.</li>
+    </ul>
+
+    <p>The fix is to always read FC and TC together — never one without the other. See <a href="../blog/free-chlorine-vs-total-chlorine">free chlorine vs total chlorine</a> for the full breakdown.</p>
+
+    <h2>How TC is measured</h2>
+
+    <p>Liquid test kits use a two-step process to measure TC:</p>
+
+    <ol>
+      <li><strong>DPD-1 reagent</strong> measures free chlorine. The water sample turns pink.</li>
+      <li><strong>DPD-3 reagent</strong> is then added. It releases the combined chlorine, which reacts with the remaining DPD-1 to deepen the pink. The total color = total chlorine.</li>
+    </ol>
+
+    <p>The FAS-DPD method works similarly but uses drop-count titration for both readings, giving precision that color-matching can't.</p>
+
+    <p>Test strips read both FC and TC on adjacent color pads, but the accuracy is poor enough that the difference (CC) is often within the error bars — meaning strips can hide a real chloramine problem behind ambiguous color matching. For chloramine diagnosis, a liquid kit is essential. See <a href="../blog/test-strips-vs-liquid-test-kits">test strips vs liquid test kits</a> for the comparison.</p>
+
+    <h2>When to look at TC</h2>
+
+    <p>Two situations where TC matters:</p>
+
+    <ul>
+      <li><strong>Calculating CC.</strong> You can't get combined chlorine without subtracting FC from TC. This is the only daily-use case for TC.</li>
+      <li><strong>Validating breakpoint.</strong> After shocking, you want TC to converge with FC. Watching the gap close confirms the chloramines are gone.</li>
+    </ul>
+
+    <p>If your only chlorine reading is TC (older strips, some commercial test panels), assume some portion is locked up as CC. Switch to a kit that reports FC and TC separately as soon as practical.</p>
+
+    <div class="action-list">
+      <h3>Want to...</h3>
+      <ul>
+        <li><a href="../blog/free-chlorine-vs-total-chlorine">See how FC, TC, and CC relate in practice?</a></li>
+        <li><a href="../blog/what-causes-high-combined-chlorine">Diagnose a high TC vs FC gap?</a></li>
+        <li><a href="../blog/test-strips-vs-liquid-test-kits">Pick a test method that reads both numbers reliably?</a></li>
+        <li><a href="../blog/pool-chlorine-levels-chart">See the full pool chlorine levels chart?</a></li>
+      </ul>
+    </div>
+
+    <div class="cta-box">
+      <h2>Stop guessing what TC means</h2>
+      <p>PoolChem Tracker stores FC and TC side by side, calculates CC automatically, and flags chloramine buildup before the smell shows up.</p>
+      <div style="display:flex;gap:0.75rem;justify-content:center;align-items:center;flex-wrap:wrap;"><a href="https://apps.apple.com/app/id6762652630?ct=explained" class="badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'ios'})"><img loading="lazy" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40" style="height:54px;"></a><a href="https://play.google.com/store/apps/details?id=com.poolchemtracker.app&utm_source=website&utm_medium=explained_cta" class="badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'android'})"><img loading="lazy" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="width:auto;height:54px;"></a></div>
+    </div>
+
+    <div class="related-list">
+      <h3>Related concepts</h3>
+      <ul>
+        <li><a href="./">Pool Chemistry Explained &mdash; index</a></li>
+        <li><a href="free-chlorine">Free Chlorine (FC)</a> &mdash; the active chlorine inside TC</li>
+        <li><a href="combined-chlorine">Combined Chlorine (CC)</a> &mdash; the spent chlorine inside TC</li>
+        <li><a href="chloramines">Chloramines</a> &mdash; the compounds that make up CC</li>
+        <li><a href="cyanuric-acid">Cyanuric Acid (CYA)</a> &mdash; affects how fast TC drifts above FC</li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="../">Home</a>
+      <a href="../blog/">Guides</a>
+      <a href="./">Explained</a>
+      <a href="mailto:support@poolchemtracker.com">Support</a>
+      <a href="../privacy-website">Privacy Policy</a>
+      <a href="../terms-website">Terms of Service</a>
+    </div>
+    <p>&copy; 2026 PoolChem Tracker. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

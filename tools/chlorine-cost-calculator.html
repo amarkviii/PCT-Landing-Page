@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pool Chlorine Cost Calculator — Liquid vs Tablets vs Cal-Hypo</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta name="description" content="Seasonal cost of liquid chlorine, trichlor tablets, and cal-hypo — including hidden CYA and drain costs from tablets. Enter pool size and local prices.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-S8JT1DELF6');
+</script>
+<link rel="canonical" href="https://www.poolchemtracker.com/tools/chlorine-cost-calculator">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pool Chlorine Cost Calculator — Liquid vs Tablets vs Cal-Hypo">
+<meta property="og:description" content="Compare the true annual cost of liquid chlorine, trichlor tablets, and cal-hypo — including the hidden CYA drain cost most guides ignore.">
+<meta property="og:url" content="https://www.poolchemtracker.com/tools/chlorine-cost-calculator">
+<meta property="og:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<meta property="og:site_name" content="PoolChem Tracker">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pool Chlorine Cost Calculator — Liquid vs Tablets vs Cal-Hypo">
+<meta name="twitter:description" content="The true cost of trichlor tablets includes CYA drain costs most calculators ignore. See the full comparison.">
+<meta name="twitter:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.poolchemtracker.com/"},{"@type":"ListItem","position":2,"name":"Pool Calculators","item":"https://www.poolchemtracker.com/tools/"},{"@type":"ListItem","position":3,"name":"Chlorine Cost Calculator"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is liquid chlorine cheaper than trichlor tablets?","acceptedAnswer":{"@type":"Answer","text":"Often yes — once you include the hidden cost of trichlor. Trichlor tablets add about 0.6 ppm of CYA for every 1 ppm of FC raised. When CYA exceeds 80 ppm you must drain and refill 50–65% of the pool to reset it. That drain cost — water plus re-balancing chemicals — often reverses the apparent price advantage of tablets over a full season."}},{"@type":"Question","name":"How much does it cost to maintain a pool per month?","acceptedAnswer":{"@type":"Answer","text":"For a typical 15,000-gallon pool using liquid chlorine at $5/gallon with moderate demand, expect roughly $25–35/month in chlorine costs during swim season. Trichlor tablets may appear cheaper at $20–30/month but the true cost including periodic CYA drains is usually higher for most pool owners."}},{"@type":"Question","name":"Why do chlorine tablets cause expensive drains?","acceptedAnswer":{"@type":"Answer","text":"Trichlor is about 54% cyanuric acid (CYA) by weight. Every dose adds CYA to your pool water. CYA does not evaporate or break down — the only way to lower it is to drain and replace water. Once CYA exceeds 80 ppm, chlorine becomes too stable to kill algae effectively and a partial drain is necessary. Liquid chlorine and cal-hypo add no CYA."}},{"@type":"Question","name":"Is cal-hypo cheaper than liquid chlorine?","acceptedAnswer":{"@type":"Answer","text":"Cal-hypo can be cheaper per unit of available chlorine depending on local prices, and it adds no CYA. The trade-off is that cal-hypo raises calcium hardness with every dose. High calcium hardness eventually causes scaling on surfaces and pool equipment and may require its own partial drain."}},{"@type":"Question","name":"What is the cheapest way to chlorinate a pool?","acceptedAnswer":{"@type":"Answer","text":"Liquid chlorine (12.5% sodium hypochlorite) is typically the most cost-effective long-term option for most residential pools — no CYA buildup, no calcium accumulation, and widely available. Buy it locally in bulk when possible. Cal-hypo can beat liquid chlorine on price if purchased at a low per-pound cost. Trichlor tablets are rarely the cheapest option once CYA drain costs are included."}}]}
+</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .skip-link { position: absolute; left: 0; top: -3rem; background: var(--accent); color: #000; padding: 0.6rem 1rem; border-radius: 0 0 8px 0; font-weight: 700; font-size: 0.9rem; text-decoration: none; z-index: 1000; transition: top 0.15s; }
+  .skip-link:focus { top: 0; }
+  main:focus { outline: none; }
+
+  :root {
+    --bg: #0a1628;
+    --bg2: #0d1f3c;
+    --card: #0f1e38;
+    --accent: #4facfe;
+    --accent2: #00f2fe;
+    --text: #e8edf5;
+    --muted: #9fb0c3;
+    --good: #2ed573;
+    --warn: #ffa502;
+    --danger: #ff6b6b;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  body { font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+
+  header { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+  .header-inner { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+  .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text); }
+  .logo-icon { width: 40px; height: 40px; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
+  .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+  .logo .logo-name { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
+  .logo .logo-name span { color: var(--accent); }
+  .header-right { display: flex; align-items: center; gap: 1.5rem; }
+  .header-link { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--accent); padding: 0.4rem 1rem; border-radius: 8px; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+  .header-link:hover { background: var(--accent); color: #000; }
+  .header-badge { display: inline-flex; }
+  .header-badge img { height: 36px; }
+
+  .page { padding: 3rem 0 4rem; }
+  .breadcrumb { font-size: 0.8rem; color: var(--muted); margin-bottom: 2rem; }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .page-label { display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+  h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 0.75rem; }
+  h1 .gradient { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .page-desc { font-size: 1.05rem; color: var(--muted); margin-bottom: 2.5rem; }
+
+  .calc-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem; }
+
+  .section-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+  .inputs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+  .inputs-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
+  .field { display: flex; flex-direction: column; gap: 0.35rem; }
+  .field label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .field input { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 0.65rem 0.85rem; color: var(--text); font-size: 1rem; font-family: inherit; transition: border-color 0.15s; width: 100%; -moz-appearance: textfield; }
+  .field input::-webkit-outer-spin-button, .field input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .field input:focus { outline: none; border-color: rgba(79,172,254,0.5); }
+  .field-hint { font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem; }
+  .field-hint a { color: var(--accent); text-decoration: none; }
+  .field-hint a:hover { text-decoration: underline; }
+
+  .section-divider { border-top: 1px solid var(--border); margin: 1.5rem 0; }
+
+  .demand-btn-group { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+  .demand-btn { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 0.55rem 1.1rem; font-size: 0.85rem; font-weight: 600; color: var(--muted); cursor: pointer; transition: all 0.15s; font-family: inherit; display: flex; flex-direction: column; align-items: flex-start; gap: 0.1rem; }
+  .demand-btn .demand-label { color: inherit; }
+  .demand-btn .demand-sub { font-size: 0.7rem; font-weight: 500; opacity: 0.75; }
+  .demand-btn.active { background: rgba(79,172,254,0.12); border-color: rgba(79,172,254,0.4); color: var(--accent); }
+  .demand-btn:hover:not(.active) { border-color: rgba(79,172,254,0.25); color: var(--text); }
+
+  .prices-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .price-field { display: flex; flex-direction: column; gap: 0.35rem; }
+  .price-field label { font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .price-field .price-sub { font-size: 0.71rem; color: var(--muted); opacity: 0.8; margin-top: 0.15rem; line-height: 1.4; }
+  .price-field input { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 0.55rem 0.85rem; color: var(--text); font-size: 0.95rem; font-family: inherit; transition: border-color 0.15s; width: 100%; -moz-appearance: textfield; }
+  .price-field input::-webkit-outer-spin-button, .price-field input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .price-field input:focus { outline: none; border-color: rgba(79,172,254,0.5); }
+
+  .info-box { background: rgba(79,172,254,0.06); border: 1px solid rgba(79,172,254,0.2); border-radius: 10px; padding: 0.9rem 1.1rem; font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-top: 0.75rem; }
+  .info-box strong { color: var(--text); }
+
+  /* Results */
+  .results-section { display: none; }
+  .results-section.visible { display: block; }
+  .cost-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+
+  .cost-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; display: flex; flex-direction: column; position: relative; }
+  .cost-card.card-winner { border-color: rgba(46,213,115,0.45); background: linear-gradient(160deg, rgba(46,213,115,0.06) 0%, var(--card) 60%); }
+  .cost-card.card-worst { border-color: rgba(255,107,107,0.25); }
+
+  .winner-badge { display: none; background: var(--good); color: #000; font-size: 0.63rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 4px; margin-bottom: 0.6rem; width: fit-content; }
+  .cost-card.card-winner .winner-badge { display: block; }
+
+  .card-name { font-size: 1rem; font-weight: 700; margin-bottom: 0.1rem; }
+  .card-sub { font-size: 0.75rem; color: var(--muted); margin-bottom: 1.1rem; }
+
+  .card-week-cost { font-size: 1.9rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1; margin-bottom: 0.2rem; }
+  .card-week-label { font-size: 0.72rem; color: var(--muted); margin-bottom: 0.9rem; }
+
+  .card-breakdown { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 0.75rem; }
+  .card-line { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--muted); }
+  .card-line span:last-child { color: var(--text); font-weight: 600; }
+  .card-line.warn span { color: var(--warn); }
+  .card-line.warn span:last-child { color: var(--warn); }
+
+  .card-drain-box { background: rgba(255,165,2,0.07); border: 1px solid rgba(255,165,2,0.22); border-radius: 8px; padding: 0.6rem 0.8rem; font-size: 0.76rem; color: var(--muted); line-height: 1.55; margin: 0.5rem 0; }
+  .card-drain-box strong { color: var(--warn); }
+  .card-drain-box.urgent { background: rgba(255,107,107,0.07); border-color: rgba(255,107,107,0.25); }
+  .card-drain-box.urgent strong { color: var(--danger); }
+
+  .card-good-note { font-size: 0.76rem; color: var(--good); margin: 0.25rem 0; }
+  .card-neutral-note { font-size: 0.76rem; color: var(--muted); margin: 0.25rem 0; }
+
+  .card-true-total { margin-top: auto; padding-top: 0.85rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline; }
+  .card-true-label { font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .card-true-value { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.02em; }
+  .cost-card.card-winner .card-true-value { color: var(--good); }
+
+  .results-note { font-size: 0.8rem; color: var(--muted); text-align: center; padding: 0 1rem; line-height: 1.6; margin-bottom: 2rem; }
+
+  h2 { font-size: 1.35rem; font-weight: 700; margin: 2.5rem 0 0.75rem; letter-spacing: -0.02em; }
+  h3 { font-size: 1.05rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+  p { color: var(--text); margin-bottom: 1.25rem; font-size: 1.05rem; }
+
+  .key-fact { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .key-fact h3 { font-size: 1rem; font-weight: 700; margin: 0 0 0.4rem; }
+  .key-fact p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+
+  .warn-key-fact { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--warn); border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .warn-key-fact .box-heading { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--warn); }
+  .warn-key-fact p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+
+  .related-list { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; }
+  .related-list .box-heading { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.85rem; color: var(--accent); }
+  .related-list ul { list-style: none; margin: 0; padding: 0; }
+  .related-list li { padding: 0.4rem 0; font-size: 0.95rem; border-bottom: 1px solid var(--border); }
+  .related-list li:last-child { border-bottom: none; }
+  .related-list a { color: var(--accent); text-decoration: none; }
+  .related-list a:hover { text-decoration: underline; }
+
+  .cta-box { background: linear-gradient(135deg, rgba(79,172,254,0.08), rgba(0,242,254,0.05)); border: 1px solid rgba(79,172,254,0.25); border-radius: 14px; padding: 2rem; margin: 2.5rem 0; text-align: center; }
+  .cta-box h2 { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.5rem; }
+  .cta-box p { color: var(--muted); font-size: 0.92rem; max-width: 480px; margin: 0 auto 1.25rem; line-height: 1.6; }
+  .cta-box .badge img { height: 44px; }
+  .cta-box .badge:hover { opacity: 0.85; }
+
+  footer { padding: 2rem 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+  .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+
+  @media (max-width: 700px) {
+    .page { padding: 2rem 0 3rem; }
+    .header-badge { display: none; }
+    .header-link { font-size: 0.8rem; padding: 0.35rem 0.75rem; }
+    .header-right { gap: 0.75rem; }
+    .cost-grid { grid-template-columns: 1fr; }
+    .inputs-grid { grid-template-columns: 1fr; }
+    .inputs-grid.three-col { grid-template-columns: 1fr 1fr; }
+    .prices-grid { grid-template-columns: 1fr 1fr; }
+    .calc-card { padding: 1.25rem; }
+  }
+  @media (max-width: 480px) {
+    .prices-grid { grid-template-columns: 1fr; }
+    .inputs-grid.three-col { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header>
+  <div class="header-inner">
+    <a href="../" class="logo">
+      <div class="logo-icon"><img src="../Logo/logo-96.webp" alt="PoolChem Tracker" width="96" height="96"></div>
+      <span class="logo-name">Pool<span>Chem</span> Tracker</span>
+    </a>
+    <div class="header-right">
+      <a href="../blog/" class="header-link">Guides</a>
+      <a href="../features" class="header-link">Features</a>
+      <a href="../about" class="header-link">About</a>
+      <a href="../download" class="header-link">Download</a>
+    </div>
+  </div>
+</header>
+
+<main id="main-content" tabindex="-1">
+<div class="page">
+<div class="container">
+
+  <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Pool Calculators</a> &rsaquo; Chlorine Cost Calculator</div>
+
+  <span class="page-label">Pool Calculators</span>
+  <h1>Pool Chlorine Cost Calculator —<br><span class="gradient">Liquid vs Tablets vs Cal-Hypo</span></h1>
+  <p class="page-desc">Compare the true seasonal cost of each chlorine type — including the hidden CYA drain cost that makes trichlor tablets more expensive than they appear.</p>
+
+  <!-- ── Inputs ── -->
+  <div class="calc-card">
+
+    <div class="section-label">Your Pool</div>
+    <div class="inputs-grid three-col">
+      <div class="field">
+        <label for="pool-volume">Pool Volume (gallons)</label>
+        <input inputmode="decimal" type="number" id="pool-volume" min="0" step="500" placeholder="e.g. 15000" oninput="calc()">
+        <span class="field-hint"><a href="pool-volume-calculator">Calculate gallons &rarr;</a></span>
+      </div>
+      <div class="field">
+        <label for="current-cya">Current CYA (ppm)</label>
+        <input inputmode="decimal" type="number" id="current-cya" min="0" max="200" step="5" placeholder="e.g. 30" oninput="calc()">
+        <span class="field-hint">Used to estimate trichlor drain timing</span>
+      </div>
+      <div class="field">
+        <label for="season-weeks">Season Length (weeks)</label>
+        <input inputmode="decimal" type="number" id="season-weeks" min="1" max="52" step="1" placeholder="e.g. 20" oninput="calc()">
+        <span class="field-hint">Typical: 20 wks (May–Sep)</span>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section-label">Weekly Chlorine Demand</div>
+    <div class="demand-btn-group">
+      <button class="demand-btn" data-val="5" onclick="setDemand(5)">
+        <span class="demand-label">Low — 5 ppm/wk</span>
+        <span class="demand-sub">Cool climate, light use</span>
+      </button>
+      <button class="demand-btn active" data-val="10" onclick="setDemand(10)">
+        <span class="demand-label">Medium — 10 ppm/wk</span>
+        <span class="demand-sub">Typical outdoor pool</span>
+      </button>
+      <button class="demand-btn" data-val="15" onclick="setDemand(15)">
+        <span class="demand-label">High — 15 ppm/wk</span>
+        <span class="demand-sub">Hot/sunny climate, heavy use</span>
+      </button>
+    </div>
+    <div class="info-box">
+      <strong>What this means:</strong> Weekly demand is the total FC your pool consumes through sunlight, bather load, and organics. Most outdoor pools in temperate climates fall in the 8–12 ppm/week range. Use Medium if you're unsure — you can adjust it.
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section-label">Chemical Prices <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted)">— pre-filled with national averages, adjust to your local prices</span></div>
+    <div class="prices-grid">
+      <div class="price-field">
+        <label for="price-liquid">Liquid Chlorine (12.5%)</label>
+        <input inputmode="decimal" type="number" id="price-liquid" min="0" step="0.25" oninput="calc()">
+        <span class="price-sub">$ per gallon</span>
+      </div>
+      <div class="price-field">
+        <label for="price-trichlor">Trichlor Tablets (90%)</label>
+        <input inputmode="decimal" type="number" id="price-trichlor" min="0" step="0.25" oninput="calc()">
+        <span class="price-sub">$ per pound</span>
+      </div>
+      <div class="price-field">
+        <label for="price-calhypo">Cal-Hypo (65%)</label>
+        <input inputmode="decimal" type="number" id="price-calhypo" min="0" step="0.25" oninput="calc()">
+        <span class="price-sub">$ per pound — pool store retail. Warehouse clubs sell 25-lb buckets for $2–3/lb; adjust if buying in bulk.</span>
+      </div>
+      <div class="price-field">
+        <label for="water-rate">Water Cost</label>
+        <input inputmode="decimal" type="number" id="water-rate" min="0" step="1" oninput="calc()">
+        <span class="price-sub">$ per 1,000 gallons. Most utilities charge $10–20/1,000 gal including sewer — adjust to your bill.</span>
+      </div>
+    </div>
+
+  </div><!-- /calc-card -->
+
+  <div class="cta-box">
+    <h2>Stop recalculating your pool every weekend.</h2>
+    <p>PoolChem Tracker remembers your pool size, tracks your chemistry history, and tells you exactly what to add next.</p>
+    <div style="display:flex;gap:0.75rem;justify-content:center;align-items:center;flex-wrap:wrap;"><a href="https://apps.apple.com/app/id6762652630?ct=tool" class="badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'ios'})"><img loading="lazy" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40" style="height:54px;"></a><a href="https://play.google.com/store/apps/details?id=com.poolchemtracker.app&utm_source=website&utm_medium=tool_cta" class="badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'android'})"><img loading="lazy" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="width:auto;height:54px;"></a></div>
+  </div>
+
+  <!-- ── Results ── -->
+  <div class="results-section" id="results-section">
+
+    <div class="cost-grid">
+
+      <div class="cost-card" id="card-liquid">
+        <div class="winner-badge">Best Value</div>
+        <div class="card-name">Liquid Chlorine</div>
+        <div class="card-sub">12.5% sodium hypochlorite</div>
+        <div class="card-week-cost" id="liquid-week-cost">—</div>
+        <div class="card-week-label">per week</div>
+        <div class="card-breakdown">
+          <div class="card-line"><span>Gallons/week</span><span id="liquid-gal-week">—</span></div>
+          <div class="card-line"><span>Chemical cost/season</span><span id="liquid-chem-cost">—</span></div>
+        </div>
+        <div class="card-good-note">&#10003; No CYA buildup</div>
+        <div class="card-good-note">&#10003; No calcium accumulation</div>
+        <div class="card-true-total">
+          <span class="card-true-label">Season total</span>
+          <span class="card-true-value" id="liquid-true-total">—</span>
+        </div>
+      </div>
+
+      <div class="cost-card" id="card-trichlor">
+        <div class="winner-badge">Best Value</div>
+        <div class="card-name">Trichlor Tablets</div>
+        <div class="card-sub">90% available chlorine (3" tabs)</div>
+        <div class="card-week-cost" id="trichlor-week-cost">—</div>
+        <div class="card-week-label">per week (chemical only)</div>
+        <div class="card-breakdown">
+          <div class="card-line"><span>Lbs/week</span><span id="trichlor-lbs-week">—</span></div>
+          <div class="card-line"><span>Chemical cost/season</span><span id="trichlor-chem-cost">—</span></div>
+          <div class="card-line warn" id="trichlor-drain-row" style="display:none"><span>Drain cost/season</span><span id="trichlor-drain-cost">—</span></div>
+        </div>
+        <div class="card-drain-box" id="trichlor-drain-box" style="display:none"></div>
+        <div class="card-true-total">
+          <span class="card-true-label">True season total</span>
+          <span class="card-true-value" id="trichlor-true-total">—</span>
+        </div>
+      </div>
+
+      <div class="cost-card" id="card-calhypo">
+        <div class="winner-badge">Best Value</div>
+        <div class="card-name">Cal-Hypo</div>
+        <div class="card-sub">65% calcium hypochlorite</div>
+        <div class="card-week-cost" id="calhypo-week-cost">—</div>
+        <div class="card-week-label">per week</div>
+        <div class="card-breakdown">
+          <div class="card-line"><span>Lbs/week</span><span id="calhypo-lbs-week">—</span></div>
+          <div class="card-line"><span>Chemical cost/season</span><span id="calhypo-chem-cost">—</span></div>
+        </div>
+        <div class="card-good-note">&#10003; No CYA buildup</div>
+        <div class="card-neutral-note">&#9432; Raises calcium hardness ~0.9 ppm per ppm FC raised. In hard-water or hot climates, CH can reach 400 ppm and require a partial drain — adding costs not shown here.</div>
+        <div class="card-true-total">
+          <span class="card-true-label">Season total</span>
+          <span class="card-true-value" id="calhypo-true-total">—</span>
+        </div>
+      </div>
+
+    </div><!-- /cost-grid -->
+
+    <p class="results-note">Trichlor drain cost assumes a 62% drain to reset CYA from 80 ppm back to 30 ppm, plus $30 for re-balancing chemicals per drain event. Water cost uses the rate entered above. Demand, prices, and drain timing are estimates — actual costs vary by region and pool conditions.</p>
+
+  </div><!-- /results-section -->
+
+  <div class="warn-key-fact">
+    <p class="box-heading">The hidden cost most guides miss</p>
+    <p>Trichlor tablets are 54% cyanuric acid (CYA) by weight. Every tablet raises CYA slightly. CYA never dissipates — the only way out is draining and refilling water. At typical usage, CYA reaches the 80 ppm limit within 7–10 weeks, requiring a partial drain that costs $65–200 in water plus $20–40 to re-balance chemicals. Repeat that two or three times per season and the "cheaper" tablets become the most expensive option.</p>
+  </div>
+
+  <h2>Why trichlor tablets cost more than they appear</h2>
+  <p>Trichlor (trichloroisocyanuric acid) is about 54% cyanuric acid by molecular weight. When it dissolves, the chlorine does its job and the cyanurate ring stays in the water permanently. Most pool chlorine cost guides calculate only the sticker price of the tablets — they skip the drain.</p>
+  <p>At a typical weekly FC demand of 10 ppm/week, trichlor adds roughly 6 ppm of CYA per week. Starting from CYA 30 ppm, you hit the 80 ppm threshold in about 8 weeks. Resetting to 30 ppm means draining about 62% of the pool. In a 15,000-gallon pool at average water rates, that's $65–200 in water cost plus re-balancing chemicals — and the cycle repeats two or three times per season.</p>
+
+  <div class="key-fact">
+    <h3>Liquid chlorine adds no CYA and no calcium</h3>
+    <p>Sodium hypochlorite is the cleanest long-term option for most pools. It adds only available chlorine and water. For pools that already have high CYA from past tablet use, switching to liquid chlorine stops the accumulation immediately — no drain required just to switch products.</p>
+  </div>
+
+  <h2>Cal-hypo: the middle option</h2>
+  <p>Calcium hypochlorite adds no CYA, making it much better than trichlor for long-term use. The trade-off is calcium: every dose slightly raises calcium hardness (CH). In pools where CH is already high — especially in regions with hard fill water — repeated cal-hypo use can push CH above 400 ppm, which causes scaling on surfaces, tile, and equipment. If your source water is soft (CH below 150 ppm), cal-hypo can be an excellent and cost-effective choice.</p>
+
+  <h2>Frequently asked questions</h2>
+
+  <h3>Is liquid chlorine cheaper than trichlor tablets?</h3>
+  <p>Often yes, once CYA drain costs are factored in. Trichlor tablets frequently appear cheaper by $1–3 per week on chemical cost alone, but each partial drain to reset CYA adds $80–200 in water and re-balancing costs. Over a 20-week season, two or three drains typically erase the apparent savings.</p>
+
+  <h3>How much does it cost to maintain a pool per month?</h3>
+  <p>For a typical 15,000-gallon pool using 12.5% liquid chlorine at $5/gallon with moderate demand (10 ppm/week), expect roughly $23–30/month in chlorine during swim season. Trichlor tablets may look like $20–25/month but the true cost including partial drains is typically $50–80/month when amortized across the season.</p>
+
+  <h3>Why do trichlor tablets force partial drains?</h3>
+  <p>Trichlor is trichloroisocyanuric acid — 54% cyanuric acid by molecular weight. When the chlorine portion does its job, the CYA ring stays in the water permanently. CYA does not evaporate, break down, or leave the pool on its own. Once it exceeds 80 ppm, your minimum FC target rises proportionally, algae risk increases, and a partial drain is the only fix.</p>
+
+  <h3>Can I mix chlorine types during a season?</h3>
+  <p>Yes. You can switch between liquid chlorine, trichlor, and cal-hypo at any point — each produces the same active disinfectant (hypochlorous acid) once dissolved. If switching away from trichlor, test CYA first — you may already be close to the drain threshold.</p>
+
+  <h3>What is the cheapest way to chlorinate a pool?</h3>
+  <p>For most residential pools, 12.5% liquid chlorine purchased locally in bulk is the most cost-effective long-term option — no CYA buildup, no calcium accumulation, and widely available. Cal-hypo at low bulk prices can match or beat liquid chlorine if your calcium hardness is on the lower side. Trichlor tablets are rarely the cheapest option once CYA drain costs are included, despite having a lower sticker price per unit of chlorine.</p>
+
+
+  <div class="related-list">
+    <p class="box-heading">More pool calculators &amp; guides</p>
+    <ul>
+      <li><a href="./">All pool chemistry calculators</a></li>
+      <li><a href="chlorine-dose-calculator">Chlorine dose calculator</a> — exact dose to raise FC to target</li>
+      <li><a href="pool-chlorine-usage-calculator">Chlorine usage calculator</a> — how many gallons per week and monthly cost for your pool</li>
+      <li><a href="pool-shock-calculator">Pool shock calculator</a> — CYA-based shock level</li>
+      <li><a href="cya-dilution-calculator">CYA dilution calculator</a> — how much to drain to lower CYA</li>
+      <li><a href="pool-volume-calculator">Pool volume calculator</a> — find your gallons</li>
+      <li><a href="../blog/liquid-chlorine-vs-tablets">Liquid chlorine vs tablets</a> — full guide</li>
+      <li><a href="../explained/cyanuric-acid">Cyanuric acid explained</a></li>
+    </ul>
+  </div>
+
+</div>
+</div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="../">Home</a>
+      <a href="../blog/">Guides</a>
+      <a href="../explained/">Explained</a>
+      <a href="mailto:support@poolchemtracker.com">Support</a>
+      <a href="../privacy-website">Privacy Policy</a>
+      <a href="../terms-website">Terms of Service</a>
+    </div>
+    <p>&copy; 2026 PoolChem Tracker. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  // ppm FC per unit per 10,000 gallons
+  // 12.5% liquid: 10 fl oz per 1 ppm per 10k gal → 128/10 = 12.8
+  var LIQUID_125_PER_GAL = 12.8;
+  // Trichlor 90% available Cl, MW 232.41 → (0.9 × 453592 / 37854) = 10.78
+  var TRICHLOR_PER_LB    = 10.8;
+  // Cal-hypo 65% available Cl → (0.65 × 453592 / 37854) = 7.79
+  var CALHYPO65_PER_LB   = 7.8;
+  // ppm CYA added per ppm FC raised from trichlor (pool-size independent)
+  var CYA_PER_FC         = 0.6;
+
+  var CYA_TRIGGER  = 80;
+  var CYA_TARGET   = 30;
+  var DRAIN_FRAC   = 1 - (CYA_TARGET / CYA_TRIGGER); // 0.625
+  var REBALANCE    = 30; // $ per drain for re-balancing chemicals
+
+  var demandPPM = 10;
+
+  var DEFAULTS = {
+    priceLiquid:   5.00,
+    priceTrichlor: 4.00,
+    priceCalhypo:  4.00,
+    waterRate:     7.00,
+    seasonWeeks:   20,
+    currentCYA:    30
+  };
+
+  function getVal(id, fallback) {
+    var v = parseFloat(document.getElementById(id).value);
+    return (isNaN(v) || v < 0) ? fallback : v;
+  }
+
+  function fmtWk(n)   { return '$' + n.toFixed(2); }
+  function fmtSzn(n)  { return '$' + Math.round(n); }
+
+  function drainCount(startCYA, cyaPerWk, weeks) {
+    if (cyaPerWk <= 0) return 0;
+    var count = 0, week = 0, cya = startCYA;
+    while (week <= weeks) {
+      var toTrigger = cya >= CYA_TRIGGER ? 0 : (CYA_TRIGGER - cya) / cyaPerWk;
+      week += toTrigger;
+      if (week > weeks) break;
+      count++;
+      cya = CYA_TARGET;
+    }
+    return count;
+  }
+
+  window.setDemand = function (ppm) {
+    demandPPM = ppm;
+    document.querySelectorAll('.demand-btn').forEach(function (btn) {
+      btn.classList.toggle('active', parseFloat(btn.dataset.val) === ppm);
+    });
+    calc();
+  };
+
+  window.calc = function () {
+    var vol      = getVal('pool-volume', 0);
+    var startCYA = getVal('current-cya', DEFAULTS.currentCYA);
+    var weeks    = getVal('season-weeks', DEFAULTS.seasonWeeks);
+    var pLiq     = getVal('price-liquid',   DEFAULTS.priceLiquid);
+    var pTri     = getVal('price-trichlor', DEFAULTS.priceTrichlor);
+    var pCal     = getVal('price-calhypo',  DEFAULTS.priceCalhypo);
+    var wRate    = getVal('water-rate',     DEFAULTS.waterRate) / 1000; // per gallon
+
+    if (vol <= 0) {
+      document.getElementById('results-section').classList.remove('visible');
+      return;
+    }
+
+    var scale = vol / 10000;
+
+    // Liquid 12.5%
+    var liqGalWk  = demandPPM * scale / LIQUID_125_PER_GAL;
+    var liqWkCost = liqGalWk * pLiq;
+    var liqChem   = liqWkCost * weeks;
+    var liqTotal  = liqChem;
+
+    // Trichlor
+    var triLbsWk  = demandPPM * scale / TRICHLOR_PER_LB;
+    var triWkCost = triLbsWk * pTri;
+    var triChem   = triWkCost * weeks;
+    var cyaPerWk  = demandPPM * CYA_PER_FC; // independent of pool size
+    var drains    = drainCount(startCYA, cyaPerWk, weeks);
+    var drainGal  = vol * DRAIN_FRAC;
+    var drainEach = drainGal * wRate + REBALANCE;
+    var drainTot  = drains * drainEach;
+    var triTotal  = triChem + drainTot;
+
+    // Cal-hypo 65%
+    var calLbsWk  = demandPPM * scale / CALHYPO65_PER_LB;
+    var calWkCost = calLbsWk * pCal;
+    var calChem   = calWkCost * weeks;
+    var calTotal  = calChem;
+
+    // Winner / worst
+    var totals = { liquid: liqTotal, trichlor: triTotal, calhypo: calTotal };
+    var keys   = Object.keys(totals);
+    var winner = keys.reduce(function (a, b) { return totals[a] <= totals[b] ? a : b; });
+    var worst  = keys.reduce(function (a, b) { return totals[a] >= totals[b] ? a : b; });
+
+    // Liquid card
+    document.getElementById('liquid-week-cost').textContent  = fmtWk(liqWkCost);
+    document.getElementById('liquid-gal-week').textContent   = liqGalWk.toFixed(2) + ' gal';
+    document.getElementById('liquid-chem-cost').textContent  = fmtSzn(liqChem);
+    document.getElementById('liquid-true-total').textContent = fmtSzn(liqTotal);
+    setCard('liquid', winner === 'liquid', worst === 'liquid');
+
+    // Trichlor card
+    document.getElementById('trichlor-week-cost').textContent  = fmtWk(triWkCost);
+    document.getElementById('trichlor-lbs-week').textContent   = triLbsWk.toFixed(2) + ' lbs';
+    document.getElementById('trichlor-chem-cost').textContent  = fmtSzn(triChem);
+    document.getElementById('trichlor-true-total').textContent = fmtSzn(triTotal);
+    setCard('trichlor', winner === 'trichlor', worst === 'trichlor');
+
+    var drainRow = document.getElementById('trichlor-drain-row');
+    var drainBox = document.getElementById('trichlor-drain-box');
+    if (drains > 0) {
+      document.getElementById('trichlor-drain-cost').textContent = fmtSzn(drainTot);
+      drainRow.style.display = '';
+      var urgent = startCYA >= CYA_TRIGGER;
+      var weeksFirst = urgent ? 0 : (CYA_TRIGGER - startCYA) / cyaPerWk;
+      drainBox.className = 'card-drain-box' + (urgent ? ' urgent' : '');
+      if (urgent) {
+        drainBox.innerHTML = '<strong>CYA already at ' + startCYA + ' ppm — drain needed now.</strong> Continued trichlor use will worsen it. ' + drains + ' drain event' + (drains > 1 ? 's' : '') + ' estimated this season (' + fmtSzn(drainEach) + ' each, draining ' + Math.round(drainGal).toLocaleString() + ' gallons).';
+      } else {
+        drainBox.innerHTML = 'CYA +' + cyaPerWk.toFixed(1) + ' ppm/wk &rarr; hits 80 ppm at week ' + Math.ceil(weeksFirst) + '. <strong>' + drains + ' partial drain' + (drains > 1 ? 's' : '') + '</strong> this season (' + fmtSzn(drainEach) + ' each, draining ' + Math.round(drainGal).toLocaleString() + ' gal to reset CYA to 30 ppm).';
+      }
+      drainBox.style.display = '';
+    } else {
+      drainRow.style.display = 'none';
+      drainBox.style.display = 'none';
+    }
+
+    // Cal-hypo card
+    document.getElementById('calhypo-week-cost').textContent  = fmtWk(calWkCost);
+    document.getElementById('calhypo-lbs-week').textContent   = calLbsWk.toFixed(2) + ' lbs';
+    document.getElementById('calhypo-chem-cost').textContent  = fmtSzn(calChem);
+    document.getElementById('calhypo-true-total').textContent = fmtSzn(calTotal);
+    setCard('calhypo', winner === 'calhypo', worst === 'calhypo');
+
+    document.getElementById('results-section').classList.add('visible');
+  };
+
+  function setCard(id, isWinner, isWorst) {
+    var card = document.getElementById('card-' + id);
+    card.classList.toggle('card-winner', isWinner);
+    card.classList.toggle('card-worst', isWorst && !isWinner);
+  }
+
+  // Pre-fill defaults
+  document.getElementById('price-liquid').value   = DEFAULTS.priceLiquid.toFixed(2);
+  document.getElementById('price-trichlor').value = DEFAULTS.priceTrichlor.toFixed(2);
+  document.getElementById('price-calhypo').value  = DEFAULTS.priceCalhypo.toFixed(2);
+  document.getElementById('water-rate').value     = DEFAULTS.waterRate.toFixed(2);
+  document.getElementById('season-weeks').value   = DEFAULTS.seasonWeeks;
+  document.getElementById('current-cya').value    = DEFAULTS.currentCYA;
+
+})();
+</script>
+
+</body>
+</html>

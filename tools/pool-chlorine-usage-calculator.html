@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pool Chlorine Usage Calculator — How Much Per Week & Monthly Cost</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta name="description" content="Calculate how much liquid chlorine your pool needs per week and monthly cost — based on FC demand, pool volume, and local prices.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-S8JT1DELF6');
+</script>
+<link rel="canonical" href="https://www.poolchemtracker.com/tools/pool-chlorine-usage-calculator">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pool Chlorine Usage Calculator — How Much Per Week & Monthly Cost">
+<meta property="og:description" content="How many gallons of liquid chlorine does your pool need per week? Enter pool size, demand level, and local price — get weekly usage and monthly cost.">
+<meta property="og:url" content="https://www.poolchemtracker.com/tools/pool-chlorine-usage-calculator">
+<meta property="og:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<meta property="og:site_name" content="PoolChem Tracker">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pool Chlorine Usage Calculator — How Much Per Week & Monthly Cost">
+<meta name="twitter:description" content="Weekly liquid chlorine usage and monthly cost for your pool — based on pool size, demand level, and local price.">
+<meta name="twitter:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.poolchemtracker.com/"},{"@type":"ListItem","position":2,"name":"Pool Calculators","item":"https://www.poolchemtracker.com/tools/"},{"@type":"ListItem","position":3,"name":"Pool Chlorine Usage Calculator"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much liquid chlorine does a pool need per week?","acceptedAnswer":{"@type":"Answer","text":"It depends on pool size and chlorine demand. A typical 15,000-gallon pool with moderate demand (2–3 ppm FC lost per day) needs roughly 0.5–0.8 gallons of 10% liquid chlorine per week under normal conditions. Heavy use, hot weather, or lack of a cover can push demand to 1.5–2 gallons per week. The exact amount depends on your pool's actual FC consumption rate, which you can measure with two test readings taken 24 hours apart."}},{"@type":"Question","name":"How do I calculate my pool's chlorine demand?","acceptedAnswer":{"@type":"Answer","text":"Test your free chlorine at dusk, then test again the next morning without adding any chlorine in between. The difference in ppm is your overnight demand. For daily demand, divide the drop by the number of hours elapsed and multiply by 24. A typical pool loses 1–3 ppm of FC per day without chlorine additions. Higher losses (above 3 ppm/day) suggest heavy use, algae pressure, high organic load, or low CYA."}},{"@type":"Question","name":"What causes high chlorine demand in a pool?","acceptedAnswer":{"@type":"Answer","text":"The main drivers of high chlorine demand are: heavy swimmer load (body oils, sweat, sunscreen), high organic debris (leaves, pollen, grass), hot weather and direct sunlight (UV destroys chlorine without CYA protection), low CYA (stabilizer) allowing rapid UV breakdown, and early-stage algae growth consuming FC before it is visible. Increasing CYA to 30–50 ppm and using a solar cover can reduce demand by 30–50%."}},{"@type":"Question","name":"How much does pool chlorine cost per month?","acceptedAnswer":{"@type":"Answer","text":"For a typical 15,000-gallon pool using 10% liquid chlorine at $3.99/gallon with moderate demand, expect roughly $10–20 per month during swim season. Higher-demand pools or larger pools can run $30–50/month. Liquid chlorine is generally the most cost-effective option per unit of available chlorine, and unlike tablets it adds no CYA."}},{"@type":"Question","name":"Is 10% or 12.5% liquid chlorine better?","acceptedAnswer":{"@type":"Answer","text":"Both are sodium hypochlorite — the only difference is concentration. 12.5% (pool store or commercial grade) contains 25% more available chlorine per gallon, so you need less of it for the same dose. If your local price per gallon is similar, 12.5% is a better value. If 10% is significantly cheaper per gallon, run the numbers — you may be better off buying more of it. The calculator above handles both strengths."}},{"@type":"Question","name":"How often should I add chlorine to my pool?","acceptedAnswer":{"@type":"Answer","text":"Most pools benefit from small daily or every-other-day additions rather than large weekly doses. Adding a small amount frequently keeps FC in the target range without overshooting. If you test twice a week and top up as needed, you'll use roughly the same total chlorine as daily dosing but with wider swings. A saltwater chlorine generator (SWG) automates this — otherwise, testing 2–3 times per week gives the most control."}}]}
+</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .skip-link { position: absolute; left: 0; top: -3rem; background: var(--accent); color: #000; padding: 0.6rem 1rem; border-radius: 0 0 8px 0; font-weight: 700; font-size: 0.9rem; text-decoration: none; z-index: 1000; transition: top 0.15s; }
+  .skip-link:focus { top: 0; }
+  main:focus { outline: none; }
+
+  :root {
+    --bg: #0a1628;
+    --bg2: #0d1f3c;
+    --card: #0f1e38;
+    --accent: #4facfe;
+    --accent2: #00f2fe;
+    --text: #e8edf5;
+    --muted: #9fb0c3;
+    --good: #2ed573;
+    --warn: #ffa502;
+    --danger: #ff6b6b;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  body { font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+
+  header { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+  .header-inner { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+  .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text); }
+  .logo-icon { width: 40px; height: 40px; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
+  .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+  .logo .logo-name { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
+  .logo .logo-name span { color: var(--accent); }
+  .header-right { display: flex; align-items: center; gap: 1.5rem; }
+  .header-link { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--accent); padding: 0.4rem 1rem; border-radius: 8px; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+  .header-link:hover { background: var(--accent); color: #000; }
+  .header-badge img { height: 36px; }
+
+  .page { padding: 3rem 0 4rem; }
+  .breadcrumb { font-size: 0.8rem; color: var(--muted); margin-bottom: 2rem; }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .page-label { display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+  h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 0.75rem; }
+  h1 .gradient { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .page-desc { font-size: 1.05rem; color: var(--muted); margin-bottom: 2.5rem; }
+
+  .calc-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem; }
+  .section-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+  .section-sub { font-size: 0.78rem; font-weight: 400; color: var(--muted); text-transform: none; letter-spacing: 0; }
+  .section-divider { border-top: 1px solid var(--border); margin: 1.5rem 0; }
+
+  .inputs-grid { display: grid; gap: 1rem; }
+  .inputs-grid.two-col { grid-template-columns: 1fr 1fr; margin-bottom: 1.25rem; }
+  .inputs-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
+  .field { display: flex; flex-direction: column; gap: 0.35rem; }
+  .field label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .field input { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 0.65rem 0.85rem; color: var(--text); font-size: 1rem; font-family: inherit; transition: border-color 0.15s; width: 100%; -moz-appearance: textfield; }
+  .field input::-webkit-outer-spin-button, .field input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .field input:focus { outline: none; border-color: rgba(79,172,254,0.5); }
+  .field-hint { font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem; }
+  .field-hint a { color: var(--accent); text-decoration: none; }
+  .field-hint a:hover { text-decoration: underline; }
+
+  .toggle-group { display: flex; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .toggle-group button { flex: 1; background: none; border: none; color: var(--muted); font-size: 0.85rem; font-weight: 600; padding: 0.55rem 0.75rem; cursor: pointer; transition: background 0.15s, color 0.15s; font-family: inherit; line-height: 1.3; }
+  .toggle-group button.active { background: var(--accent); color: #000; }
+
+  /* Demand preset chips */
+  .demand-presets { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+  .preset-chip { background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; padding: 0.3rem 0.9rem; font-size: 0.8rem; font-weight: 600; color: var(--muted); cursor: pointer; transition: background 0.15s, color 0.15s, border-color 0.15s; font-family: inherit; }
+  .preset-chip:hover { border-color: rgba(79,172,254,0.4); color: var(--text); }
+  .preset-chip.active { background: rgba(79,172,254,0.12); border-color: var(--accent); color: var(--accent); }
+
+  /* Result cards */
+  .results-section { display: none; }
+  .results-section.visible { display: block; }
+
+  .metric-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 1.25rem; }
+  .metric-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem 1.25rem; text-align: center; }
+  .metric-card.highlight { background: linear-gradient(135deg, rgba(79,172,254,0.08), rgba(0,242,254,0.04)); border-color: rgba(79,172,254,0.3); }
+  .metric-label { font-size: 0.7rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.5rem; }
+  .metric-value { font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--text); }
+  .metric-value.accent { color: var(--accent); }
+  .metric-unit { font-size: 0.75rem; color: var(--muted); margin-top: 0.3rem; }
+  .metric-sub { font-size: 0.75rem; color: var(--muted); margin-top: 0.6rem; padding-top: 0.6rem; border-top: 1px solid var(--border); line-height: 1.45; }
+
+  .summary-note { background: rgba(79,172,254,0.05); border: 1px solid rgba(79,172,254,0.15); border-radius: 10px; padding: 1rem 1.25rem; font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; }
+  .summary-note strong { color: var(--text); }
+
+  .demand-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(79,172,254,0.1); border: 1px solid rgba(79,172,254,0.25); border-radius: 6px; padding: 0.25rem 0.65rem; font-size: 0.75rem; font-weight: 700; color: var(--accent); margin-bottom: 1rem; }
+
+  h2 { font-size: 1.35rem; font-weight: 700; margin: 2.5rem 0 0.75rem; letter-spacing: -0.02em; }
+  h3 { font-size: 1.05rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+  p { color: var(--text); margin-bottom: 1.25rem; font-size: 1.05rem; }
+  ol, ul { margin: 0 0 1.25rem 1.5rem; color: var(--text); font-size: 1.05rem; }
+  li { margin-bottom: 0.4rem; }
+
+  .key-fact { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .key-fact h3 { font-size: 1rem; font-weight: 700; margin: 0 0 0.4rem; }
+  .key-fact p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+
+  .demand-table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.95rem; }
+  .demand-table th { font-size: 0.72rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); }
+  .demand-table td { padding: 0.65rem 0.75rem; border-bottom: 1px solid var(--border); }
+  .demand-table tr:last-child td { border-bottom: none; }
+  .demand-table .dt-level { font-weight: 700; }
+
+  .related-list { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; }
+  .related-list .box-heading { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.85rem; color: var(--accent); }
+  .related-list ul { list-style: none; margin: 0; padding: 0; }
+  .related-list li { padding: 0.4rem 0; font-size: 0.95rem; border-bottom: 1px solid var(--border); }
+  .related-list li:last-child { border-bottom: none; }
+  .related-list a { color: var(--accent); text-decoration: none; }
+  .related-list a:hover { text-decoration: underline; }
+
+  .cta-box { background: linear-gradient(135deg, rgba(79,172,254,0.08), rgba(0,242,254,0.05)); border: 1px solid rgba(79,172,254,0.25); border-radius: 14px; padding: 2rem; margin: 2.5rem 0; text-align: center; }
+  .cta-box h2 { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.5rem; }
+  .cta-box p { color: var(--muted); font-size: 0.92rem; max-width: 480px; margin: 0 auto 1.25rem; line-height: 1.6; }
+  .cta-box .badge:hover { opacity: 0.85; }
+  .cta-box .badge img { height: 44px; }
+
+  footer { padding: 2rem 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+  .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+
+  @media (max-width: 700px) {
+    .page { padding: 2rem 0 3rem; }
+    .header-badge { display: none; }
+    .header-link { font-size: 0.8rem; padding: 0.35rem 0.75rem; }
+    .header-right { gap: 0.75rem; }
+    .inputs-grid.two-col, .inputs-grid.three-col { grid-template-columns: 1fr 1fr; }
+    .calc-card { padding: 1.25rem; }
+    .metric-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 480px) {
+    .inputs-grid.two-col, .inputs-grid.three-col { grid-template-columns: 1fr; }
+    .metric-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header>
+  <div class="header-inner">
+    <a href="../" class="logo">
+      <div class="logo-icon"><img src="../Logo/logo-96.webp" alt="PoolChem Tracker" width="96" height="96"></div>
+      <span class="logo-name">Pool<span>Chem</span> Tracker</span>
+    </a>
+    <div class="header-right">
+      <a href="../blog/" class="header-link">Guides</a>
+      <a href="../features" class="header-link">Features</a>
+      <a href="../about" class="header-link">About</a>
+      <a href="../download" class="header-link">Download</a>
+    </div>
+  </div>
+</header>
+
+<main id="main-content" tabindex="-1">
+<div class="page">
+<div class="container">
+
+  <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Pool Calculators</a> &rsaquo; Chlorine Usage Calculator</div>
+
+  <span class="page-label">Pool Calculators</span>
+  <h1>Pool Chlorine Usage Calculator —<br><span class="gradient">How Much Per Week &amp; Monthly Cost</span></h1>
+  <p class="page-desc">Find out exactly how many gallons of chlorine your pool consumes per week and what that costs you per month — based on pool size, actual demand, and your local price.</p>
+
+  <!-- ── Inputs ── -->
+  <div class="calc-card">
+
+    <div class="section-label">Pool Setup</div>
+    <div class="inputs-grid two-col">
+      <div class="field">
+        <label for="pool-volume">Pool Volume (gallons)</label>
+        <input inputmode="decimal" type="number" id="pool-volume" min="0" step="500" placeholder="e.g. 15000" oninput="calc()">
+        <span class="field-hint"><a href="pool-volume-calculator">Calculate gallons &rarr;</a></span>
+      </div>
+      <div class="field">
+        <label>Chlorine Product</label>
+        <div class="toggle-group" id="product-toggle">
+          <button class="active" onclick="setProduct('liquid10')">Liquid 10%</button>
+          <button onclick="setProduct('liquid125')">Liquid 12.5%</button>
+          <button onclick="setProduct('calhypo')">Cal-Hypo 65%</button>
+        </div>
+        <span class="field-hint">10% = hardware store; 12.5% = pool store</span>
+      </div>
+    </div>
+    <div class="inputs-grid two-col">
+      <div class="field">
+        <label for="price-per-unit" id="price-label">Price per Gallon (USD)</label>
+        <input inputmode="decimal" type="number" id="price-per-unit" min="0" step="0.25" placeholder="e.g. 3.99" oninput="calc()">
+        <span class="field-hint" id="price-hint">Typical range: $3–6/gal for liquid chlorine</span>
+      </div>
+      <div class="field">
+        <label for="season-weeks">Season Length (weeks, optional)</label>
+        <input inputmode="decimal" type="number" id="season-weeks" min="1" max="52" step="1" placeholder="e.g. 20" oninput="calc()">
+        <span class="field-hint">Adds a full-season cost total to results</span>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section-label">Daily FC Demand <span class="section-sub">— ppm of free chlorine consumed per day</span></div>
+    <div style="margin-bottom:0.6rem;">
+      <div class="demand-presets" id="demand-presets">
+        <button class="preset-chip" onclick="setPreset(1.0, this)">Low — 1 ppm/day</button>
+        <button class="preset-chip active" onclick="setPreset(2.5, this)">Moderate — 2.5 ppm/day</button>
+        <button class="preset-chip" onclick="setPreset(5.0, this)">High — 5 ppm/day</button>
+        <button class="preset-chip" onclick="setPreset(8.0, this)">Very High — 8 ppm/day</button>
+      </div>
+    </div>
+    <div class="inputs-grid two-col">
+      <div class="field">
+        <label for="demand-ppm">Custom Demand (ppm/day)</label>
+        <input inputmode="decimal" type="number" id="demand-ppm" min="0.1" max="30" step="0.1" placeholder="e.g. 2.5" oninput="onDemandInput()">
+        <span class="field-hint">Override the preset above with a measured value</span>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section-label">Measure Your Demand from Readings <span class="section-sub">— optional; don&rsquo;t add chlorine between tests</span></div>
+    <div class="inputs-grid three-col">
+      <div class="field">
+        <label for="fc-start">FC — First Reading (ppm)</label>
+        <input inputmode="decimal" type="number" id="fc-start" min="0" max="20" step="0.1" placeholder="e.g. 4.0" oninput="calcDemand()">
+      </div>
+      <div class="field">
+        <label for="fc-end">FC — Second Reading (ppm)</label>
+        <input inputmode="decimal" type="number" id="fc-end" min="0" max="20" step="0.1" placeholder="e.g. 2.5" oninput="calcDemand()">
+      </div>
+      <div class="field">
+        <label for="hours-apart">Hours Between Tests</label>
+        <input inputmode="decimal" type="number" id="hours-apart" min="1" max="72" step="1" placeholder="e.g. 24" oninput="calcDemand()">
+        <span class="field-hint">24 = overnight test</span>
+      </div>
+    </div>
+    <div id="demand-calc-result" style="font-size:0.82rem;color:var(--muted);min-height:1.4em;"></div>
+
+  </div><!-- /calc-card -->
+
+  <div class="cta-box">
+    <h2>Stop recalculating your pool every weekend.</h2>
+    <p>PoolChem Tracker remembers your pool size, tracks your chemistry history, and tells you exactly what to add next.</p>
+    <div style="display:flex;gap:0.75rem;justify-content:center;align-items:center;flex-wrap:wrap;"><a href="https://apps.apple.com/app/id6762652630?ct=tool" class="badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'ios'})"><img loading="lazy" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40" style="height:54px;"></a><a href="https://play.google.com/store/apps/details?id=com.poolchemtracker.app&utm_source=website&utm_medium=tool_cta" class="badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'android'})"><img loading="lazy" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="width:auto;height:54px;"></a></div>
+  </div>
+
+  <!-- ── Results ── -->
+  <div class="results-section" id="results-section">
+    <div id="demand-badge-row"></div>
+    <div class="metric-grid" id="metric-grid"></div>
+    <div class="summary-note" id="summary-note"></div>
+  </div>
+
+  <!-- ── Content ── -->
+
+  <h2>How much chlorine does a pool use per week?</h2>
+  <p>There is no single answer — it depends on three things: pool size (gallons), chlorine demand (how fast FC drops), and the strength of the product you&rsquo;re using. A 10,000-gallon pool with low demand uses roughly 0.2–0.3 gallons of liquid chlorine per week. A 20,000-gallon pool with heavy use in summer heat can easily use 2–3 gallons per week.</p>
+
+  <p>The most common mistake is buying based on habit rather than measurement. If you consistently over-dose, you&rsquo;re spending money on chlorine that burns off unused. If you under-dose, the pool slides into algae territory. The calculator above gives you a number calibrated to your actual pool.</p>
+
+  <div class="key-fact">
+    <h3>Demand, not pool size, drives your chlorine budget</h3>
+    <p>Two identical 15,000-gallon pools can have very different chlorine needs. A covered pool in a cool climate with light use might need 0.3 gallons per week. An uncovered pool in Arizona with daily swimmer use might need 1.5 gallons for the same volume. Demand is what matters — size just converts it to a shopping quantity.</p>
+  </div>
+
+  <h2>Chlorine demand levels — what&rsquo;s typical?</h2>
+
+  <table class="demand-table" role="table" aria-label="Chlorine demand level reference">
+    <thead>
+      <tr>
+        <th>Level</th>
+        <th>ppm/day</th>
+        <th>Pool Characteristics</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="dt-level">Low</td>
+        <td>0.5–1.5</td>
+        <td>Lightly used, solar cover, cool or temperate climate, no debris</td>
+      </tr>
+      <tr>
+        <td class="dt-level">Moderate</td>
+        <td>1.5–3.5</td>
+        <td>Typical residential pool, regular use, seasonal climate, some sun exposure</td>
+      </tr>
+      <tr>
+        <td class="dt-level">High</td>
+        <td>3.5–6</td>
+        <td>Heavy bather load, hot sunny climate, no cover, lots of debris</td>
+      </tr>
+      <tr>
+        <td class="dt-level">Very High</td>
+        <td>6–10+</td>
+        <td>Near-daily parties, tropical climate, algae pressure, high organic load</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>How to measure your pool&rsquo;s actual chlorine demand</h2>
+  <p>The most accurate way to know your demand is to measure it directly. The process is simple:</p>
+  <ol>
+    <li><strong>Test FC in the evening</strong> after the pool has been in the shade for at least an hour. Record the reading.</li>
+    <li><strong>Do not add any chlorine.</strong></li>
+    <li><strong>Test FC again the next morning</strong> before sunlight hits the pool. Record the reading.</li>
+    <li><strong>Calculate demand:</strong> (Evening FC &minus; Morning FC) &divide; hours &times; 24 = ppm per day.</li>
+  </ol>
+  <p>This overnight test captures natural chlorine consumption without UV interference. Run it two or three times to get a stable average — demand varies day to day based on temperature, swimmer load, and organic material in the water. The &ldquo;Measure from readings&rdquo; section in the calculator above does this math automatically.</p>
+
+  <h2>What drives high chlorine demand?</h2>
+  <ul>
+    <li><strong>Swimmer load</strong> — body oils, sweat, sunscreen, and urine are all chlorine-consuming compounds. A pool used heavily every day can have 3–5&times; the demand of a lightly-used pool of the same size.</li>
+    <li><strong>Sunlight</strong> — UV light destroys chlorine that isn&rsquo;t protected by CYA (stabilizer). A pool with CYA below 20 ppm can lose most of its FC to UV in a few hours of direct sun. Bringing CYA to 30–50 ppm typically reduces demand by 30–50%.</li>
+    <li><strong>Organic debris</strong> — leaves, grass, pollen, and algae all consume chlorine. A pool that gets heavy debris can see demand spike after every windstorm. Regular skimming and vacuuming reduces this load.</li>
+    <li><strong>Water temperature</strong> — warm water accelerates all chemical reactions, including chlorine demand. Pools above 85&deg;F often see meaningfully higher FC consumption.</li>
+    <li><strong>Early-stage algae</strong> — algae consuming FC often shows up as elevated demand before any green is visible. An <a href="overnight-chlorine-loss-test" style="color:var(--accent)">overnight chlorine loss test (OCLT)</a> can confirm whether algae is driving high demand before the problem becomes visible.</li>
+  </ul>
+
+  <h2>Frequently asked questions</h2>
+
+  <h3>How do I know if I&rsquo;m using the right amount of chlorine?</h3>
+  <p>Test your free chlorine 2–3 times per week. If FC is consistently dropping below the minimum for your CYA level (CYA &times; 7.5% for a standard pool), you&rsquo;re under-dosing. If FC is persistently above the maximum, you&rsquo;re over-dosing. Aim for small, frequent additions that keep FC in the middle of the target range rather than large doses that create wide swings.</p>
+
+  <h3>Does 12.5% liquid chlorine go further than 10%?</h3>
+  <p>Yes — 12.5% contains 25% more available chlorine per gallon, so you need 20% less volume for the same effect. If your pool store sells 12.5% at the same price per gallon as hardware-store 10%, the 12.5% is a better value. If it&rsquo;s more expensive per gallon, use the calculator to find the break-even price.</p>
+
+  <h3>Can I reduce how much chlorine I use?</h3>
+  <p>Yes. The biggest levers are: (1) keep CYA in the 30–50 ppm range to protect chlorine from UV; (2) use a solar cover to block sunlight and reduce evaporation; (3) shower before swimming to reduce the organic load; (4) clean the filter regularly to remove debris that otherwise decomposes in the water. Together, these can cut demand by 40–60% in many pools.</p>
+
+  <h3>How is this different from the chlorine cost calculator?</h3>
+  <p>The <a href="chlorine-cost-calculator" style="color:var(--accent)">chlorine cost calculator</a> compares the true seasonal cost of three products — liquid chlorine, trichlor tablets, and cal-hypo — including the hidden CYA drain cost from tablets. This calculator focuses on your operational question: given the product you already use, how much do you need this week and what will it cost this month? Different tools for different decisions.</p>
+
+
+  <div class="related-list">
+    <p class="box-heading">More pool calculators &amp; guides</p>
+    <ul>
+      <li><a href="./">All pool chemistry calculators</a></li>
+      <li><a href="chlorine-dose-calculator">Chlorine dose calculator</a> — exact dose for a single top-up from current FC to target</li>
+      <li><a href="chlorine-cost-calculator">Chlorine cost calculator</a> — compare liquid vs tablets vs cal-hypo over a full season</li>
+      <li><a href="pool-shock-calculator">Pool shock calculator</a> — CYA-based shock level and dose</li>
+      <li><a href="overnight-chlorine-loss-test">OCLT calculator</a> — confirm whether high demand is caused by algae</li>
+      <li><a href="pool-opening-calculator">Pool opening calculator</a> — full spring shopping list for clear, cloudy, or green pools</li>
+      <li><a href="../explained/free-chlorine">Free chlorine and CYA explained &rarr;</a></li>
+    </ul>
+  </div>
+
+</div>
+</div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="../">Home</a>
+      <a href="../blog/">Guides</a>
+      <a href="../explained/">Explained</a>
+      <a href="mailto:support@poolchemtracker.com">Support</a>
+      <a href="../privacy-website">Privacy Policy</a>
+      <a href="../terms-website">Terms of Service</a>
+    </div>
+    <p>&copy; 2026 PoolChem Tracker. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  // ── Constants ────────────────────────────────────────────────────────────────
+  // fl oz of 10% liquid chlorine to raise FC by 1 ppm in 1 gallon of pool water
+  var LIQUID10_FL_OZ_PER_PPM_PER_GAL  = 0.001190;
+  var LIQUID125_FL_OZ_PER_PPM_PER_GAL = 0.000952;
+  // lbs of 65% cal-hypo to raise FC by 1 ppm per 10k gallons
+  var CALHYPO_LBS_PER_PPM_PER_10K     = 1 / 7.8;
+
+  var product    = 'liquid10';
+  var presetDemand = 2.5; // ppm/day default (Moderate)
+
+  // ── Product toggle ───────────────────────────────────────────────────────────
+
+  window.setProduct = function (p) {
+    product = p;
+    var btns = document.querySelectorAll('#product-toggle button');
+    btns[0].classList.toggle('active', p === 'liquid10');
+    btns[1].classList.toggle('active', p === 'liquid125');
+    btns[2].classList.toggle('active', p === 'calhypo');
+    var lbl  = document.getElementById('price-label');
+    var hint = document.getElementById('price-hint');
+    if (p === 'calhypo') {
+      lbl.textContent  = 'Price per Pound (USD)';
+      hint.textContent = 'Typical range: $2–4/lb for 65% cal-hypo';
+    } else {
+      lbl.textContent  = 'Price per Gallon (USD)';
+      hint.textContent = p === 'liquid125' ? 'Typical range: $4–7/gal for 12.5% liquid chlorine' : 'Typical range: $3–6/gal for 10% liquid chlorine';
+    }
+    calc();
+  };
+
+  // ── Demand presets ───────────────────────────────────────────────────────────
+
+  window.setPreset = function (val, btn) {
+    presetDemand = val;
+    document.querySelectorAll('.preset-chip').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.getElementById('demand-ppm').value = '';
+    calc();
+  };
+
+  window.onDemandInput = function () {
+    document.querySelectorAll('.preset-chip').forEach(function (b) { b.classList.remove('active'); });
+    calc();
+  };
+
+  // ── Demand calculator from readings ─────────────────────────────────────────
+
+  window.calcDemand = function () {
+    var fc1   = parseFloat(document.getElementById('fc-start').value);
+    var fc2   = parseFloat(document.getElementById('fc-end').value);
+    var hrs   = parseFloat(document.getElementById('hours-apart').value);
+    var el    = document.getElementById('demand-calc-result');
+
+    if (isNaN(fc1) || isNaN(fc2) || isNaN(hrs) || hrs <= 0) {
+      el.textContent = '';
+      return;
+    }
+    if (fc2 >= fc1) {
+      el.innerHTML = '<span style="color:var(--warn)">Second reading must be lower than the first — make sure no chlorine was added between tests.</span>';
+      return;
+    }
+    var demandPerDay = ((fc1 - fc2) / hrs * 24);
+    el.innerHTML = 'Calculated demand: <strong style="color:var(--accent)">' + demandPerDay.toFixed(2) + ' ppm/day</strong> — click &ldquo;Custom Demand&rdquo; above or enter this value in the field to use it.';
+    // Auto-fill the custom demand field and recalc
+    document.getElementById('demand-ppm').value = demandPerDay.toFixed(2);
+    document.querySelectorAll('.preset-chip').forEach(function (b) { b.classList.remove('active'); });
+    calc();
+  };
+
+  // ── Helpers ──────────────────────────────────────────────────────────────────
+
+  function getVal(id) {
+    var v = parseFloat(document.getElementById(id).value);
+    return isNaN(v) ? null : v;
+  }
+
+  function fmtCost(n) {
+    if (n < 10) return '$' + n.toFixed(2);
+    return '$' + Math.round(n).toLocaleString();
+  }
+
+  function fmtGal(n) {
+    if (n < 0.1) return (n * 128).toFixed(0) + ' fl oz';
+    if (n < 1)   return n.toFixed(2) + ' gal';
+    return n.toFixed(1) + ' gal';
+  }
+
+  function fmtLbs(n) {
+    if (n < 0.1) return (n * 16).toFixed(1) + ' oz';
+    if (n < 1)   return n.toFixed(2) + ' lbs';
+    return n.toFixed(1) + ' lbs';
+  }
+
+  function containers(weeklyGal) {
+    var j1  = Math.ceil(weeklyGal);
+    var j25 = (weeklyGal / 2.5).toFixed(1);
+    if (weeklyGal < 0.9) return '&lt;1 jug/wk (1-gal)';
+    if (weeklyGal <= 1.3) return '1 jug/wk (1-gal) or &frac12; jug (2.5-gal)';
+    return j1 + ' jugs/wk (1-gal) &nbsp;or&nbsp; ' + j25 + ' (2.5-gal)';
+  }
+
+  function calHypoContainers(weeklyLbs) {
+    var b5  = (weeklyLbs / 5).toFixed(1);
+    var b25 = (weeklyLbs / 25).toFixed(2);
+    return weeklyLbs < 2 ? weeklyLbs.toFixed(1) + ' lb bag/wk' : b5 + ' &times; 5-lb bucket/wk (or ' + b25 + ' &times; 25-lb)';
+  }
+
+  function demandLabel(d) {
+    if (d <= 1.5)  return 'Low';
+    if (d <= 3.5)  return 'Moderate';
+    if (d <= 6.0)  return 'High';
+    return 'Very High';
+  }
+
+  // ── Main calc ────────────────────────────────────────────────────────────────
+
+  window.calc = function () {
+    var vol     = getVal('pool-volume');
+    var price   = getVal('price-per-unit');
+    var custDmd = getVal('demand-ppm');
+    var demand  = custDmd !== null ? custDmd : presetDemand;
+    var seasonWk = getVal('season-weeks');
+
+    var section = document.getElementById('results-section');
+    if (!vol || vol <= 0 || demand <= 0) { section.classList.remove('visible'); return; }
+
+    var grid        = document.getElementById('metric-grid');
+    var summaryEl   = document.getElementById('summary-note');
+    var badgeRow    = document.getElementById('demand-badge-row');
+    var dailyDose, weeklyQty, monthlyQty, seasonQty, unitLabel, containerStr, dailyLabel;
+
+    if (product === 'liquid10' || product === 'liquid125') {
+      var factor = product === 'liquid10' ? LIQUID10_FL_OZ_PER_PPM_PER_GAL : LIQUID125_FL_OZ_PER_PPM_PER_GAL;
+      var dailyFlOz = demand * vol * factor;
+      var dailyGal  = dailyFlOz / 128;
+      weeklyQty  = dailyGal * 7;
+      monthlyQty = dailyGal * 30.4;
+      seasonQty  = seasonWk !== null ? dailyGal * 7 * seasonWk : null;
+      unitLabel  = 'gallons';
+      containerStr = containers(weeklyQty);
+
+      if (dailyFlOz < 20) {
+        dailyLabel = Math.round(dailyFlOz) + ' fl oz/day';
+        dailyDose  = Math.round(dailyFlOz);
+        var dailyUnit = 'fl oz per day';
+      } else {
+        dailyDose  = dailyGal.toFixed(2);
+        dailyLabel = dailyGal.toFixed(2) + ' gal/day';
+        var dailyUnit = 'gallons per day';
+      }
+    } else {
+      // cal-hypo 65%
+      var dailyLbs  = demand * (vol / 10000) * CALHYPO_LBS_PER_PPM_PER_10K;
+      weeklyQty  = dailyLbs * 7;
+      monthlyQty = dailyLbs * 30.4;
+      seasonQty  = seasonWk !== null ? dailyLbs * 7 * seasonWk : null;
+      unitLabel  = 'lbs';
+      containerStr = calHypoContainers(weeklyQty);
+      dailyDose  = dailyLbs < 1 ? (dailyLbs * 16).toFixed(1) : dailyLbs.toFixed(2);
+      dailyUnit  = dailyLbs < 1 ? 'oz per day' : 'lbs per day';
+    }
+
+    // ── Demand badge ──────────────────────────────────────────────────────────
+    badgeRow.innerHTML = '<div class="demand-badge">&#9679; ' + demandLabel(demand) + ' demand &mdash; ' + demand.toFixed(1) + ' ppm FC / day</div>';
+
+    // ── Metric cards ──────────────────────────────────────────────────────────
+    var html = '';
+
+    // Daily dose
+    html += '<div class="metric-card highlight">' +
+      '<div class="metric-label">Daily Dose</div>' +
+      '<div class="metric-value accent">' + dailyDose + '</div>' +
+      '<div class="metric-unit">' + dailyUnit + '</div>' +
+    '</div>';
+
+    // Weekly
+    html += '<div class="metric-card">' +
+      '<div class="metric-label">Per Week</div>' +
+      '<div class="metric-value">' + (product === 'calhypo' ? fmtLbs(weeklyQty) : fmtGal(weeklyQty)) + '</div>' +
+      '<div class="metric-unit">' + (product === 'calhypo' ? '65% cal-hypo' : product === 'liquid125' ? '12.5% liquid chlorine' : '10% liquid chlorine') + '</div>' +
+      '<div class="metric-sub">' + containerStr + '</div>' +
+    '</div>';
+
+    // Monthly cost (only if price entered)
+    if (price !== null && price > 0) {
+      var weeklyCost  = weeklyQty  * price;
+      var monthlyCost = monthlyQty * price;
+      html += '<div class="metric-card">' +
+        '<div class="metric-label">Monthly Cost</div>' +
+        '<div class="metric-value">' + fmtCost(monthlyCost) + '</div>' +
+        '<div class="metric-unit">per month</div>' +
+        '<div class="metric-sub">' + fmtCost(weeklyCost) + '/week</div>' +
+      '</div>';
+
+      // Season total
+      if (seasonQty !== null) {
+        var seasonCost = seasonQty * price;
+        html += '<div class="metric-card">' +
+          '<div class="metric-label">Season Total</div>' +
+          '<div class="metric-value">' + fmtCost(seasonCost) + '</div>' +
+          '<div class="metric-unit">' + seasonWk + '-week season</div>' +
+          '<div class="metric-sub">' + (product === 'calhypo' ? fmtLbs(seasonQty) : fmtGal(seasonQty)) + ' total</div>' +
+        '</div>';
+      }
+    }
+
+    grid.innerHTML = html;
+
+    // ── Summary note ──────────────────────────────────────────────────────────
+    var prodName = product === 'calhypo' ? '65% cal-hypo' : (product === 'liquid125' ? '12.5% liquid chlorine' : '10% liquid chlorine');
+    var qtyStr   = product === 'calhypo' ? fmtLbs(weeklyQty) + ' per week' : fmtGal(weeklyQty) + ' per week';
+    var costStr  = (price !== null && price > 0) ? ', costing <strong>' + fmtCost(weeklyQty * price) + '/week</strong>' : '';
+
+    summaryEl.innerHTML =
+      'A <strong>' + Number(vol).toLocaleString() + '-gallon</strong> pool consuming <strong>' + demand.toFixed(1) + ' ppm of FC per day</strong> needs <strong>' + qtyStr + '</strong> of ' + prodName + costStr + '.';
+
+    section.classList.add('visible');
+  };
+
+  // Initialize: set preset chip display and run calc with no volume
+  document.getElementById('demand-ppm').placeholder = '2.5';
+
+})();
+</script>
+</body>
+</html>

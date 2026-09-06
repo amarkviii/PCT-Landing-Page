@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Much Liquid Chlorine to Add — Pool Chlorine Dose Calculator</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta name="description" content="Enter pool gallons, CYA, and current FC — get the exact fl oz of liquid chlorine to add (10% or 12.5%). Supports cal-hypo and trichlor. Free.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-S8JT1DELF6');
+</script>
+<link rel="canonical" href="https://www.poolchemtracker.com/tools/chlorine-dose-calculator">
+<meta property="og:type" content="website">
+<meta property="og:title" content="How Much Liquid Chlorine to Add — Pool Chlorine Dose Calculator">
+<meta property="og:description" content="Enter pool gallons, CYA, and current FC — get the exact fl oz of liquid chlorine to add (10% or 12.5%). Supports cal-hypo and trichlor. Free.">
+<meta property="og:url" content="https://www.poolchemtracker.com/tools/chlorine-dose-calculator">
+<meta property="og:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<meta property="og:site_name" content="PoolChem Tracker">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How Much Liquid Chlorine to Add — Pool Chlorine Dose Calculator">
+<meta name="twitter:description" content="Enter pool gallons, CYA, and current FC — get the exact fl oz of liquid chlorine to add (10% or 12.5%). Supports cal-hypo and trichlor. Free.">
+<meta name="twitter:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.poolchemtracker.com/"},{"@type":"ListItem","position":2,"name":"Pool Calculators","item":"https://www.poolchemtracker.com/tools/"},{"@type":"ListItem","position":3,"name":"Chlorine Dose Calculator"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","url":"https://www.poolchemtracker.com/tools/chlorine-dose-calculator","name":"Pool Chlorine Dose Calculator — How Much Liquid Chlorine to Add","dateModified":"2026-08-27"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much liquid chlorine raises FC by 1 ppm?","acceptedAnswer":{"@type":"Answer","text":"The dose depends on your pool volume and chlorine concentration — both scale linearly. A 15,000-gallon pool needs 50% more than a 10,000-gallon pool, and 10% chlorine requires more volume than 12.5% for the same FC rise. Use the calculator with your pool size, current FC, and target FC to get the exact fl oz for your situation."}},{"@type":"Question","name":"Should I use liquid chlorine or cal-hypo?","acceptedAnswer":{"@type":"Answer","text":"Liquid chlorine (sodium hypochlorite) is the preferred choice for routine dosing — it adds only chlorine, no calcium, no CYA. Cal-hypo works if your calcium hardness is low. Avoid trichlor for regular top-offs: it adds CYA with every dose and gradually raises your minimum FC target."}},{"@type":"Question","name":"What is my target FC for a pool?","acceptedAnswer":{"@type":"Answer","text":"Target FC depends on CYA level: minimum FC = CYA × 7.5% for standard pools (CYA × 5% for saltwater). At CYA 0–10, aim for 2–4 ppm. At CYA 50, aim for 5–7 ppm. At CYA 80, aim for 7–9 ppm."}},{"@type":"Question","name":"How often do I need to add chlorine?","acceptedAnswer":{"@type":"Answer","text":"Most pools need chlorine added every 2–4 days during swim season, daily during heat waves or heavy use. If FC drops more than 1–2 ppm per day, check your CYA — too-low CYA means UV is destroying chlorine before it can hold."}},{"@type":"Question","name":"Why does my pool chlorine drop so fast?","acceptedAnswer":{"@type":"Answer","text":"Fast FC loss usually means CYA is too low (UV destroying unprotected chlorine), heavy bather load, early algae growth, or pH is too high. Test CYA first — it's the most common cause of disappearing chlorine."}}]}
+</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .skip-link { position: absolute; left: 0; top: -3rem; background: var(--accent); color: #000; padding: 0.6rem 1rem; border-radius: 0 0 8px 0; font-weight: 700; font-size: 0.9rem; text-decoration: none; z-index: 1000; transition: top 0.15s; }
+  .skip-link:focus { top: 0; }
+  main:focus { outline: none; }
+
+  :root {
+    --bg: #0a1628;
+    --bg2: #0d1f3c;
+    --card: #0f1e38;
+    --accent: #4facfe;
+    --accent2: #00f2fe;
+    --text: #e8edf5;
+    --muted: #9fb0c3;
+    --good: #2ed573;
+    --warn: #ffa502;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  body { font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+  header { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+  .header-inner { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+  .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text); }
+  .logo-icon { width: 40px; height: 40px; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
+  .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+  .logo .logo-name { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
+  .logo .logo-name span { color: var(--accent); }
+  .header-right { display: flex; align-items: center; gap: 1.5rem; }
+  .header-link { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--accent); padding: 0.4rem 1rem; border-radius: 8px; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+  .header-link:hover { background: var(--accent); color: #000; }
+  .header-badge { display: inline-flex; }
+  .header-badge img { height: 36px; }
+
+  .page { padding: 3rem 0 4rem; }
+
+  .breadcrumb { font-size: 0.8rem; color: var(--muted); margin-bottom: 2rem; }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .page-label { display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+
+  h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 0.75rem; }
+  h1 .gradient { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .page-desc { font-size: 1.05rem; color: var(--muted); margin-bottom: 2.5rem; }
+
+  .calc-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; }
+
+  .field-group-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+
+  .inputs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+  .inputs-grid.one-col { grid-template-columns: 1fr; }
+  .inputs-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
+
+  .field { display: flex; flex-direction: column; gap: 0.35rem; }
+  .field label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .field input { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 0.65rem 0.85rem; color: var(--text); font-size: 1rem; font-family: inherit; transition: border-color 0.15s; width: 100%; -moz-appearance: textfield; }
+  .field input::-webkit-outer-spin-button, .field input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .field input:focus { outline: none; border-color: rgba(79,172,254,0.5); }
+  .field input::placeholder { color: var(--muted); opacity: 0.5; }
+  .field input.error { border-color: rgba(255,107,107,0.6); }
+  .field-hint { font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; }
+  .field-hint a { color: var(--accent); text-decoration: none; }
+  .field-hint a:hover { text-decoration: underline; }
+
+  .section-divider { border-top: 1px solid var(--border); margin: 1.5rem 0; }
+
+  .product-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+  .product-tab { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 600; color: var(--muted); cursor: pointer; transition: all 0.15s; font-family: inherit; }
+  .product-tab.active { background: rgba(79,172,254,0.12); border-color: rgba(79,172,254,0.4); color: var(--accent); }
+  .product-tab:hover:not(.active) { border-color: rgba(79,172,254,0.25); color: var(--text); }
+  .product-tab.warn-tab.active { background: rgba(255,165,2,0.10); border-color: rgba(255,165,2,0.4); color: var(--warn); }
+
+  .warn-box { background: rgba(255,165,2,0.07); border: 1px solid rgba(255,165,2,0.3); border-radius: 10px; padding: 1rem 1.25rem; margin-top: 0.75rem; font-size: 0.88rem; color: var(--warn); line-height: 1.6; display: none; }
+  .warn-box strong { display: block; margin-bottom: 0.25rem; }
+
+  .result-box { background: linear-gradient(135deg, rgba(79,172,254,0.10), rgba(0,242,254,0.05)); border: 1px solid rgba(79,172,254,0.3); border-radius: 12px; padding: 1.5rem; text-align: center; margin-top: 1.5rem; transition: opacity 0.2s; }
+  .result-box.empty { opacity: 0.4; }
+  .result-box.error-state { background: rgba(255,107,107,0.05); border-color: rgba(255,107,107,0.3); }
+  .result-label { font-size: 0.72rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+  .result-primary { font-size: clamp(2rem, 6vw, 3rem); font-weight: 800; letter-spacing: -0.03em; color: var(--text); line-height: 1.1; }
+  .result-secondary { font-size: 0.9rem; color: var(--muted); margin-top: 0.4rem; }
+  .result-note { font-size: 0.78rem; color: var(--muted); margin-top: 0.75rem; opacity: 0.8; }
+
+  h2 { font-size: 1.35rem; font-weight: 700; margin: 2.5rem 0 0.75rem; letter-spacing: -0.02em; }
+  p { color: var(--text); margin-bottom: 1.25rem; font-size: 1.05rem; }
+  ul { margin: 0 0 1.25rem 1.5rem; color: var(--text); font-size: 1.05rem; }
+  li { margin-bottom: 0.4rem; }
+
+  .key-fact { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .key-fact h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .key-fact p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+
+  .formula-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; font-family: 'SF Mono', ui-monospace, monospace; font-size: 0.88rem; color: var(--accent); line-height: 2; }
+  .formula-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--border); padding: 0.25rem 0; }
+  .formula-row:last-child { border-bottom: none; }
+  .formula-name { color: var(--muted); font-size: 0.78rem; white-space: nowrap; }
+
+  .related-list { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; }
+  .related-list h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.85rem; color: var(--accent); }
+  .related-list ul { list-style: none; margin: 0; padding: 0; }
+  .related-list li { padding: 0.4rem 0; font-size: 0.95rem; border-bottom: 1px solid var(--border); }
+  .related-list li:last-child { border-bottom: none; }
+  .related-list a { color: var(--accent); text-decoration: none; }
+  .related-list a:hover { text-decoration: underline; }
+
+  .cta-box { background: linear-gradient(135deg, rgba(79,172,254,0.08), rgba(0,242,254,0.05)); border: 1px solid rgba(79,172,254,0.25); border-radius: 14px; padding: 2rem; margin: 2.5rem 0; text-align: center; }
+  .cta-box h2 { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.5rem; }
+  .cta-box p { color: var(--muted); font-size: 0.92rem; max-width: 480px; margin: 0 auto 1.25rem; line-height: 1.6; }
+  .cta-box .badge { display: inline-block; transition: opacity 0.2s; }
+  .cta-box .badge:hover { opacity: 0.85; }
+  .cta-box .badge img { height: 44px; }
+
+  footer { padding: 2rem 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+  .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+
+  .answer-box {
+    background: rgba(79,172,254,0.08);
+    border: 1px solid rgba(79,172,254,0.3);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0 1.75rem;
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+
+  .toggle-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+  .toggle-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .toggle-group { display: flex; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .toggle-group button { background: none; border: none; color: var(--muted); font-size: 0.85rem; font-weight: 600; padding: 0.4rem 1rem; cursor: pointer; transition: background 0.15s, color 0.15s; font-family: inherit; }
+  .toggle-group button.active { background: var(--accent); color: #000; }
+
+  .dose-table { width: 100%; border-collapse: collapse; margin: 1.25rem 0 1.75rem; font-size: 0.92rem; }
+  .dose-table th { background: var(--bg2); color: var(--accent); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.6rem 0.85rem; text-align: left; border-bottom: 1px solid var(--border); }
+  .dose-table td { padding: 0.55rem 0.85rem; border-bottom: 1px solid var(--border); color: var(--text); }
+  .dose-table tr:last-child td { border-bottom: none; }
+  .dose-table td:first-child { color: var(--muted); font-size: 0.85rem; }
+  .dose-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  @media (max-width: 640px) {
+    .page { padding: 2rem 0 3rem; }
+    .header-badge { display: none; }
+    .header-link { font-size: 0.8rem; padding: 0.35rem 0.75rem; }
+    .header-right { gap: 0.75rem; }
+    .inputs-grid { grid-template-columns: 1fr 1fr; }
+    .inputs-grid.one-col { grid-template-columns: 1fr; }
+    .calc-card { padding: 1.25rem; }
+    .product-tabs { gap: 0.4rem; }
+    .product-tab { padding: 0.45rem 0.75rem; font-size: 0.8rem; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header>
+  <div class="header-inner">
+    <a href="../" class="logo">
+      <div class="logo-icon"><img src="../Logo/logo-96.webp" alt="PoolChem Tracker" width="96" height="96"></div>
+      <span class="logo-name">Pool<span>Chem</span> Tracker</span>
+    </a>
+    <div class="header-right">
+      <a href="../blog/" class="header-link">Guides</a>
+      <a href="../features" class="header-link">Features</a>
+      <a href="../about" class="header-link">About</a>
+      <a href="../download" class="header-link">Download</a>
+    </div>
+  </div>
+</header>
+<main id="main-content" tabindex="-1">
+
+<div class="page">
+  <div class="container">
+
+    <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Pool Calculators</a> &rsaquo; Chlorine Dose</div>
+
+    <span class="page-label">Pool Calculators</span>
+    <h1>How Much Liquid Chlorine to Add to Your Pool — <span class="gradient">Calculator</span></h1>
+    <p class="page-desc">Enter your pool volume, CYA, and current FC — the minimum FC is set automatically. Supports liquid chlorine (10%, 12.5%), cal-hypo, and trichlor.</p>
+
+    <div class="answer-box">
+      <strong>Enter your CYA below — the minimum FC is calculated automatically.</strong><br>
+      Standard pools: minimum FC = CYA × 7.5%. Saltwater / SWG pools: CYA × 5%. Many pools keep FC a little above the minimum as a daily buffer.
+    </div>
+
+    <div class="calc-card">
+
+      <div class="toggle-row">
+        <span class="toggle-label">Units</span>
+        <div class="toggle-group">
+          <button id="btn-us" class="active" onclick="setVolumeUnits('us')">Gallons</button>
+          <button id="btn-metric" onclick="setVolumeUnits('metric')">Liters</button>
+        </div>
+      </div>
+
+      <div class="inputs-grid one-col">
+        <div class="field">
+          <label for="gallons">Pool Volume</label>
+          <input inputmode="decimal" type="number" id="gallons" min="0" step="100" placeholder="e.g. 15000 gallons" oninput="calc()">
+          <span class="field-hint">Don't know your gallons? <a href="pool-volume-calculator">Use the volume calculator</a></span>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <div class="inputs-grid">
+        <div class="field">
+          <label for="cya">CYA (ppm)</label>
+          <input inputmode="decimal" type="number" id="cya" min="0" max="300" step="10" placeholder="e.g. 50" oninput="calcTarget()">
+          <span class="field-hint">Cyanuric acid stabilizer — sets your FC target</span>
+        </div>
+        <div class="field">
+          <label>Pool Type</label>
+          <div class="toggle-group" style="margin-top:0.35rem;">
+            <button id="btn-standard" class="active" onclick="setPoolType('standard')">Standard</button>
+            <button id="btn-swg" onclick="setPoolType('swg')">Saltwater / SWG</button>
+          </div>
+          <span class="field-hint">SWG pools use CYA × 5%</span>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <div class="inputs-grid">
+        <div class="field">
+          <label for="fc-current">Current FC (ppm)</label>
+          <input inputmode="decimal" type="number" id="fc-current" min="0" step="0.5" placeholder="e.g. 2" oninput="calc()">
+        </div>
+        <div class="field">
+          <label for="fc-target">Minimum FC (ppm)</label>
+          <input inputmode="decimal" type="number" id="fc-target" min="0" step="0.5" placeholder="auto from CYA" oninput="onTargetFCInput()">
+          <span class="field-hint" id="target-hint" style="display:none;">Auto-set from CYA — edit to dose to your own target</span>
+        </div>
+      </div>
+
+      <p class="field-hint" style="margin:-0.5rem 0 0.25rem;">
+        This is the <strong>minimum</strong> FC for your current CYA level. Many pools maintain FC slightly above the minimum as a daily buffer, and the PoolChem Tracker app may adjust the recommended target based on your pool's conditions. Edit the field to dose to a higher target.
+      </p>
+
+      <div class="section-divider"></div>
+
+      <div class="field-group-label">Chlorine Product</div>
+      <div class="product-tabs">
+        <button class="product-tab active" onclick="setProduct('liquid-10')">Liquid 10%</button>
+        <button class="product-tab" onclick="setProduct('liquid-12')">Liquid 12.5%</button>
+        <button class="product-tab" onclick="setProduct('calh-65')">Cal-Hypo 65%</button>
+        <button class="product-tab" onclick="setProduct('calh-73')">Cal-Hypo 73%</button>
+        <button class="product-tab warn-tab" onclick="setProduct('trichlor')">Trichlor 90%</button>
+      </div>
+
+      <div class="warn-box" id="trichlor-warn">
+        <strong>Trichlor adds CYA to your pool.</strong>
+        Every pound of trichlor raises CYA by roughly 6 oz (about 0.6 ppm per 10,000 gallons). Used regularly, CYA climbs above 80 ppm and your FC minimum rises with it. Trichlor is not recommended for routine dosing — liquid chlorine adds no CYA, stabilizer, or calcium.
+      </div>
+
+      <div class="result-box empty" id="result-box">
+        <div class="result-label">Add to Your Pool</div>
+        <div class="result-primary" id="result-main">&mdash;</div>
+        <div class="result-secondary" id="result-secondary"></div>
+        <div class="result-note" id="result-note">Enter your pool volume, CYA, and current FC above</div>
+      </div>
+
+    </div><!-- /calc-card -->
+
+    <div class="cta-box">
+      <h2>Stop recalculating your pool every weekend.</h2>
+      <p>PoolChem Tracker remembers your pool size, tracks your chemistry history, and tells you exactly what to add next.</p>
+      <div style="display:flex;gap:0.75rem;justify-content:center;align-items:center;flex-wrap:wrap;"><a href="https://apps.apple.com/app/id6762652630?ct=tool" class="badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'ios'})"><img loading="lazy" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40" style="height:54px;"></a><a href="https://play.google.com/store/apps/details?id=com.poolchemtracker.app&utm_source=website&utm_medium=tool_cta" class="badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'android'})"><img loading="lazy" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="width:auto;height:54px;"></a></div>
+    </div>
+
+    <h2>Why liquid chlorine is the preferred choice</h2>
+    <p>Liquid sodium hypochlorite (pool bleach) raises FC cleanly — it adds only chlorine and water. Cal-hypo adds calcium, which can cloud water if your calcium hardness is already high. Trichlor adds CYA with every dose, which gradually raises your FC minimum and can lock you into a high-CYA chemistry spiral.</p>
+    <p>For regular top-offs, liquid chlorine at 10% or 12.5% is the simplest and cheapest option over a season. Cal-hypo is useful if you prefer a granular product or if your calcium hardness is on the low side.</p>
+
+    <div class="key-fact">
+      <h3>Add chlorine near a return jet</h3>
+      <p>With the pump running, pour liquid chlorine near a return jet or around the perimeter of the pool — never in front of the skimmer, and never mixed with other chemicals. For granular products, pre-dissolve in a bucket of pool water before adding.</p>
+    </div>
+
+    <h2>How the chlorine dose is calculated</h2>
+    <p>All dose formulas work from the same principle: how many grams of available chlorine do you need to raise FC by the target amount, given your pool's water volume?</p>
+
+    <div class="formula-box">
+      <div class="formula-row"><span class="formula-name">Available Cl needed (g)</span><span>FC increase &times; gallons &times; 3.785 &divide; 1000</span></div>
+      <div class="formula-row"><span class="formula-name">Liquid (fl oz)</span><span>Cl needed &divide; (density &times; 29.57 &times; concentration)</span></div>
+      <div class="formula-row"><span class="formula-name">Granular (oz)</span><span>Cl needed &divide; (28.35 &times; concentration)</span></div>
+    </div>
+
+    <p>Concentrations used: Liquid 10% = 0.10 (density 1.074 g/mL), Liquid 12.5% = 0.125 (density 1.094 g/mL), Cal-Hypo 65% = 0.65, Cal-Hypo 73% = 0.73, Trichlor 90% = 0.90.</p>
+
+    <h2>Worked example</h2>
+    <p>A 15,000-gallon pool tests at FC 1.5 ppm. Target is 4.0 ppm — a rise of <strong>2.5 ppm</strong>. Using 12.5% liquid chlorine:</p>
+    <p>2.5 × 15,000 × 3.785 ÷ 1,000 = 142 g of available chlorine needed. Divided by (1.094 density × 29.57 mL/fl oz × 0.125 concentration) = <strong>about 35 fl oz</strong> — a little over 1 quart. Add near a return jet with the pump running. Wait 30 minutes and retest before assuming the job is done.</p>
+
+    <h2>How much liquid chlorine to add to a 10,000, 15,000, or 20,000-gallon pool</h2>
+    <p>These estimates assume dosing from FC 2 ppm to a typical minimum target (CYA 50 → FC 4 ppm). Your numbers may differ — use the calculator above for an exact dose based on your current FC and CYA.</p>
+
+    <table class="dose-table" aria-label="Liquid chlorine dose reference by pool size">
+      <thead>
+        <tr>
+          <th>Pool size</th>
+          <th>FC rise</th>
+          <th>10% liquid chlorine</th>
+          <th>12.5% liquid chlorine</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>10,000 gal</td><td>+1 ppm</td><td>~12 fl oz</td><td>~9.5 fl oz</td></tr>
+        <tr><td>10,000 gal</td><td>+2 ppm</td><td>~24 fl oz (1½ pints)</td><td>~19 fl oz</td></tr>
+        <tr><td>15,000 gal</td><td>+1 ppm</td><td>~18 fl oz</td><td>~14 fl oz</td></tr>
+        <tr><td>15,000 gal</td><td>+2 ppm</td><td>~36 fl oz (1 qt + 4 oz)</td><td>~28 fl oz</td></tr>
+        <tr><td>20,000 gal</td><td>+1 ppm</td><td>~24 fl oz (1½ pints)</td><td>~19 fl oz</td></tr>
+        <tr><td>20,000 gal</td><td>+2 ppm</td><td>~48 fl oz (1½ quarts)</td><td>~37 fl oz</td></tr>
+        <tr><td>25,000 gal</td><td>+1 ppm</td><td>~30 fl oz</td><td>~23 fl oz</td></tr>
+        <tr><td>25,000 gal</td><td>+2 ppm</td><td>~60 fl oz (1 qt + 1 pt)</td><td>~47 fl oz</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Frequently asked questions</h2>
+
+    <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">How much liquid chlorine raises FC by 1 ppm?</h3>
+    <p>It depends on your pool volume and chlorine concentration — both scale linearly, so a 15,000-gallon pool needs 50% more than a 10,000-gallon pool, and 10% chlorine requires more volume than 12.5% for the same FC rise. Enter your pool size, current FC, and target FC in the calculator above to get the exact fl oz for your situation.</p>
+
+    <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">Should I use liquid chlorine or cal-hypo?</h3>
+    <p>Liquid chlorine (sodium hypochlorite) is the preferred choice for routine dosing — it adds only chlorine and water, no calcium, no CYA. Cal-hypo is a reasonable alternative if your calcium hardness is below 200 ppm. Avoid trichlor for regular top-offs: it adds CYA with every dose and gradually raises your minimum FC target over the season.</p>
+
+    <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">What FC level should I be targeting?</h3>
+    <p>Enter your CYA in the calculator above and it sets your target FC automatically — CYA × 7.5% for standard pools, CYA × 5% for saltwater/SWG. At CYA 50, that's 3.5–4 ppm; at CYA 80, it's 6 ppm. See the <a href="../blog/fc-cya-chart-chlorine-levels" style="color:var(--accent)">FC/CYA chart</a> for the full table by CYA level.</p>
+
+    <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">How often do I need to add chlorine?</h3>
+    <p>Most pools need chlorine added every 2–4 days during swim season — daily during heat waves or heavy use. If FC drops more than 1–2 ppm per day without a clear cause, test your CYA level. Low CYA means sunlight is destroying chlorine faster than you're adding it.</p>
+
+    <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">Why does my pool chlorine drop so fast?</h3>
+    <p>Fast FC loss usually has one of four causes: CYA too low (UV destroying unprotected chlorine), early algae growth consuming FC overnight, heavy bather load, or pH above 8.0 (reducing chlorine's effectiveness). Test CYA first — it's the most common culprit and the easiest to fix.</p>
+
+
+    <div class="related-list">
+      <h3>More pool calculators &amp; guides</h3>
+      <ul>
+        <li><a href="../">Pool chemistry calculators &amp; guides</a> — full reference index</li>
+        <li><a href="../blog/fc-cya-chart-chlorine-levels">FC/CYA chart</a> — find your safe FC target before you dose</li>
+        <li><a href="../blog/pool-chlorine-levels-chart">Pool chlorine levels chart</a> — FC, CC, and TC ranges with CYA-adjusted targets</li>
+        <li><a href="pool-volume-calculator">Pool volume calculator</a> — find your gallons first</li>
+        <li><a href="pool-shock-calculator">Pool shock calculator — breakpoint chlorination doses</a></li>
+        <li><a href="pool-chlorine-usage-calculator">Chlorine usage calculator</a> — how many gallons per week and monthly cost based on your pool's demand</li>
+        <li><a href="../explained/free-chlorine">Free chlorine explained</a> — what FC measures and why it matters</li>
+        <li><a href="../explained/cyanuric-acid">Cyanuric acid (CYA) explained</a> — how CYA sets your minimum FC target</li>
+        <li><a href="../blog/pool-chlorine-too-low">Pool chlorine too low</a> — causes and step-by-step fix</li>
+        <li><a href="../blog/why-wont-chlorine-stay-in-pool">Why won't chlorine stay in my pool?</a> — overnight FC loss causes</li>
+        <li><a href="../blog/how-to-raise-pool-chlorine">How to raise pool chlorine safely</a> — dosing guide by method</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="../">Home</a>
+      <a href="../blog/">Guides</a>
+      <a href="../explained/">Explained</a>
+      <a href="mailto:support@poolchemtracker.com">Support</a>
+      <a href="../privacy-website">Privacy Policy</a>
+      <a href="../terms-website">Terms of Service</a>
+    </div>
+    <p>&copy; 2026 PoolChem Tracker. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  var product = 'liquid-10';
+  var units = 'us';
+  var poolType = 'standard';
+  var targetAutoSet = false;
+
+  var products = {
+    'liquid-10': { type: 'liquid', concentration: 0.10,  density: 1.074, name: 'liquid chlorine (10%)' },
+    'liquid-12': { type: 'liquid', concentration: 0.125, density: 1.094, name: 'liquid chlorine (12.5%)' },
+    'calh-65':   { type: 'granular', concentration: 0.65, name: 'cal-hypo (65%)' },
+    'calh-73':   { type: 'granular', concentration: 0.73, name: 'cal-hypo (73%)' },
+    'trichlor':  { type: 'granular', concentration: 0.90, name: 'trichlor (90%)' }
+  };
+
+  window.setProduct = function (p) {
+    product = p;
+    var keys = ['liquid-10', 'liquid-12', 'calh-65', 'calh-73', 'trichlor'];
+    document.querySelectorAll('.product-tab').forEach(function (btn, i) {
+      btn.classList.toggle('active', keys[i] === p);
+    });
+    document.getElementById('trichlor-warn').style.display = p === 'trichlor' ? 'block' : 'none';
+    calc();
+  };
+
+  window.setVolumeUnits = function (u) {
+    units = u;
+    document.getElementById('btn-us').classList.toggle('active', u === 'us');
+    document.getElementById('btn-metric').classList.toggle('active', u === 'metric');
+    var inp = document.getElementById('gallons');
+    inp.placeholder = u === 'metric' ? 'e.g. 57000 liters' : 'e.g. 15000 gallons';
+    calc();
+  };
+
+  function formatMetricLiquid(floz) {
+    var mL = floz * 29.5735;
+    if (mL < 10)   return 'Less than 10 mL';
+    if (mL < 1000) return Math.round(mL) + ' mL';
+    return (mL / 1000).toFixed(2) + ' L';
+  }
+
+  function formatMetricLiquidAlt(floz) {
+    var mL = floz * 29.5735;
+    if (mL < 100)  return '';
+    if (mL < 1000) return (mL / 1000).toFixed(2) + ' L';
+    return Math.round(mL) + ' mL';
+  }
+
+  function formatMetricPowder(oz) {
+    var g = oz * 28.3495;
+    if (g < 1)    return 'Less than 1 g';
+    if (g < 1000) return Math.round(g) + ' g';
+    return (g / 1000).toFixed(2) + ' kg';
+  }
+
+  function formatMetricPowderAlt(oz) {
+    var g = oz * 28.3495;
+    if (g < 100)  return '';
+    if (g < 1000) return (g / 1000).toFixed(2) + ' kg';
+    return Math.round(g) + ' g';
+  }
+
+  function formatLiquid(floz) {
+    if (floz < 1)   return 'Less than 1 fl oz';
+    if (floz < 8)   return floz.toFixed(1) + ' fl oz';
+    if (floz < 32)  return (floz / 8).toFixed(1) + ' cups';
+    if (floz < 128) return (floz / 32).toFixed(1) + ' quarts';
+    return (floz / 128).toFixed(2) + ' gallons';
+  }
+
+  function formatLiquidAlt(floz) {
+    if (floz < 8)   return '';
+    if (floz < 32)  return Math.round(floz) + ' fl oz';
+    if (floz < 128) return Math.round(floz) + ' fl oz';
+    return Math.round(floz) + ' fl oz (' + (floz / 32).toFixed(1) + ' quarts)';
+  }
+
+  function formatGranular(oz) {
+    if (oz < 0.25) return 'Less than ¼ oz';
+    if (oz < 16)   return oz.toFixed(1) + ' oz';
+    var lbs = Math.floor(oz / 16);
+    var rem = oz % 16;
+    if (rem < 0.25) return lbs + ' lb' + (lbs > 1 ? 's' : '');
+    return lbs + ' lb' + (lbs > 1 ? 's' : '') + ' ' + rem.toFixed(1) + ' oz';
+  }
+
+  function formatGranularAlt(oz) {
+    if (oz < 16) return '';
+    return (oz / 16).toFixed(2) + ' lbs total';
+  }
+
+  window.setPoolType = function (t) {
+    poolType = t;
+    document.getElementById('btn-standard').classList.toggle('active', t === 'standard');
+    document.getElementById('btn-swg').classList.toggle('active', t === 'swg');
+    calcTarget();
+  };
+
+  function calcTarget() {
+    var cya = parseFloat(document.getElementById('cya').value);
+    if (!isNaN(cya) && cya > 0) {
+      var target;
+      if (cya < 20) {
+        target = 2;
+      } else {
+        var ratio = poolType === 'swg' ? 0.05 : 0.075;
+        target = Math.round(cya * ratio * 2) / 2;
+      }
+      document.getElementById('fc-target').value = target;
+      document.getElementById('target-hint').style.display = '';
+      targetAutoSet = true;
+    }
+    calc();
+  }
+
+  window.calcTarget = calcTarget;
+
+  window.onTargetFCInput = function () {
+    targetAutoSet = false;
+    document.getElementById('target-hint').style.display = 'none';
+    calc();
+  };
+
+  window.calc = function () {
+    var raw       = parseFloat(document.getElementById('gallons').value)    || 0;
+    var gallons   = units === 'metric' ? raw * 0.264172 : raw;
+    var fcCurrent = parseFloat(document.getElementById('fc-current').value) || 0;
+    var fcTarget  = parseFloat(document.getElementById('fc-target').value)  || 0;
+    var box       = document.getElementById('result-box');
+    var main      = document.getElementById('result-main');
+    var secondary = document.getElementById('result-secondary');
+    var note      = document.getElementById('result-note');
+
+    document.getElementById('fc-target').classList.remove('error');
+    box.classList.remove('error-state');
+
+    if (gallons <= 0 || fcTarget <= 0) {
+      box.classList.add('empty');
+      main.textContent = '—';
+      secondary.textContent = '';
+      note.textContent = 'Enter your pool volume, CYA, and current FC above';
+      return;
+    }
+
+    if (fcTarget <= fcCurrent) {
+      document.getElementById('fc-target').classList.add('error');
+      box.classList.remove('empty');
+      box.classList.add('error-state');
+      main.textContent = 'FC already at target';
+      secondary.textContent = '';
+      note.textContent = 'Target FC must be higher than current FC.';
+      return;
+    }
+
+    var delta = fcTarget - fcCurrent;
+    var p = products[product];
+    var totalClGrams = delta * gallons * 3.78541 / 1000;
+
+    box.classList.remove('empty', 'error-state');
+
+    if (p.type === 'liquid') {
+      var floz = totalClGrams / (p.density * 29.5735 * p.concentration);
+      if (units === 'metric') {
+        main.textContent = formatMetricLiquid(floz);
+        secondary.textContent = formatMetricLiquidAlt(floz);
+      } else {
+        main.textContent = formatLiquid(floz);
+        secondary.textContent = formatLiquidAlt(floz);
+      }
+      note.textContent = 'of ' + p.name + ' to raise FC by ' + delta.toFixed(1) + ' ppm. Add near a return jet with pump running.';
+    } else {
+      var oz = totalClGrams / (28.3495 * p.concentration);
+      if (units === 'metric') {
+        main.textContent = formatMetricPowder(oz);
+        secondary.textContent = formatMetricPowderAlt(oz);
+      } else {
+        main.textContent = formatGranular(oz);
+        secondary.textContent = formatGranularAlt(oz);
+      }
+      note.textContent = 'of ' + p.name + ' to raise FC by ' + delta.toFixed(1) + ' ppm. Pre-dissolve in a bucket before adding.';
+    }
+  };
+})();
+</script>
+
+</body>
+</html>

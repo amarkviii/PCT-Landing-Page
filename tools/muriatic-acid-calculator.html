@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muriatic Acid Calculator — Lower Pool pH or Total Alkalinity</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta name="description" content="Calculate how much muriatic acid to lower pool pH or total alkalinity. Enter pool volume, current readings, and target — exact dose for 31.45% or 14.5% acid, in fl oz or mL.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-S8JT1DELF6');
+</script>
+<link rel="canonical" href="https://www.poolchemtracker.com/tools/muriatic-acid-calculator">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Muriatic Acid Calculator — How Much to Lower Pool pH or Alkalinity">
+<meta property="og:description" content="Enter your pool volume, current values, and targets to find the exact muriatic acid dose for pH or total alkalinity.">
+<meta property="og:url" content="https://www.poolchemtracker.com/tools/muriatic-acid-calculator">
+<meta property="og:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<meta property="og:site_name" content="PoolChem Tracker">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Muriatic Acid Calculator">
+<meta name="twitter:description" content="How much muriatic acid to lower pool pH or total alkalinity — enter gallons, current values, and targets.">
+<meta name="twitter:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.poolchemtracker.com/"},{"@type":"ListItem","position":2,"name":"Pool Calculators","item":"https://www.poolchemtracker.com/tools/"},{"@type":"ListItem","position":3,"name":"Muriatic Acid Calculator"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","url":"https://www.poolchemtracker.com/tools/muriatic-acid-calculator","name":"Muriatic Acid Calculator — Lower Pool pH or Total Alkalinity","dateModified":"2026-08-15"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much muriatic acid lowers pH by 0.2?","acceptedAnswer":{"@type":"Answer","text":"For a 10,000-gallon pool at TA 100 ppm: about 11 fl oz of 31.45% acid. For a 15,000-gallon pool: about 16 fl oz. The exact amount depends on your total alkalinity — higher TA means more acid is needed for the same pH drop because alkalinity buffers against pH change."}},{"@type":"Question","name":"How much muriatic acid lowers total alkalinity by 10 ppm?","acceptedAnswer":{"@type":"Answer","text":"For a 10,000-gallon pool: about 26 fl oz (just under 1 quart) of 31.45% muriatic acid lowers TA by 10 ppm. For a 15,000-gallon pool: about 39 fl oz. Add in stages of 1 quart or less, circulate for 1 hour, and retest before continuing. After TA is in range, aerate the water to raise pH back to 7.4–7.6 without raising TA again."}},{"@type":"Question","name":"How long after adding muriatic acid can I swim?","acceptedAnswer":{"@type":"Answer","text":"Wait at least 30 minutes with the pump running, then retest pH. If pH is in the 7.4–7.6 range, it is safe to swim. Never enter the pool immediately after adding acid — the localized concentration near the addition point is much higher than the overall pool reading."}},{"@type":"Question","name":"Should I lower pH or total alkalinity first?","acceptedAnswer":{"@type":"Answer","text":"Fix TA first if it is above 120 ppm. High TA is usually the root cause of pH that keeps drifting upward. Bring TA to 60–80 ppm and your pH will stabilize and require far less maintenance acid. Chasing pH when TA is high means dosing repeatedly with no lasting effect."}},{"@type":"Question","name":"What happens if I add too much muriatic acid?","acceptedAnswer":{"@type":"Answer","text":"pH crashes below 7.0, making the water corrosive — it etches plaster, damages metal fittings, and irritates swimmers. If this happens, add soda ash (sodium carbonate) to raise pH back to 7.4–7.6. To avoid it: split large doses, add no more than 1 quart at a time, and retest after each dose."}},{"@type":"Question","name":"Is dry acid (sodium bisulfate) a substitute for muriatic acid?","acceptedAnswer":{"@type":"Answer","text":"Yes — dry acid does the same job and is safer to handle. The trade-off: it adds sulfates to your pool water, which build up over time and can damage plaster and pool heaters. For most pools, muriatic acid is the better long-term choice. Dry acid works well for spas or when liquid acid storage is not practical."}}]}
+</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .skip-link { position: absolute; left: 0; top: -3rem; background: var(--accent); color: #000; padding: 0.6rem 1rem; border-radius: 0 0 8px 0; font-weight: 700; font-size: 0.9rem; text-decoration: none; z-index: 1000; transition: top 0.15s; }
+  .skip-link:focus { top: 0; }
+  main:focus { outline: none; }
+
+  :root {
+    --bg: #0a1628;
+    --bg2: #0d1f3c;
+    --card: #0f1e38;
+    --accent: #4facfe;
+    --accent2: #00f2fe;
+    --text: #e8edf5;
+    --muted: #9fb0c3;
+    --good: #2ed573;
+    --warn: #ffa502;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  body { font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+  header { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+  .header-inner { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+  .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text); }
+  .logo-icon { width: 40px; height: 40px; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
+  .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+  .logo .logo-name { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
+  .logo .logo-name span { color: var(--accent); }
+  .header-right { display: flex; align-items: center; gap: 1.5rem; }
+  .header-link { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--accent); padding: 0.4rem 1rem; border-radius: 8px; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+  .header-link:hover { background: var(--accent); color: #000; }
+  .header-badge { display: inline-flex; }
+  .header-badge img { height: 36px; }
+
+  .page { padding: 3rem 0 4rem; }
+
+  .breadcrumb { font-size: 0.8rem; color: var(--muted); margin-bottom: 2rem; }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .page-label { display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+
+  h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 0.75rem; }
+  h1 .gradient { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .page-desc { font-size: 1.05rem; color: var(--muted); margin-bottom: 2.5rem; }
+
+  .calc-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; }
+
+  .toggle-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; }
+  .toggle-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .toggle-group { display: flex; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .toggle-group button { background: none; border: none; color: var(--muted); font-size: 0.85rem; font-weight: 600; padding: 0.4rem 1rem; cursor: pointer; transition: background 0.15s, color 0.15s; font-family: inherit; white-space: nowrap; }
+  .toggle-group button.active { background: var(--accent); color: #000; }
+
+  .field-group-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+
+  .inputs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+  .inputs-grid.one-col { grid-template-columns: 1fr; }
+  .inputs-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
+
+  .field { display: flex; flex-direction: column; gap: 0.35rem; }
+  .field label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .field input { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 0.65rem 0.85rem; color: var(--text); font-size: 1rem; font-family: inherit; transition: border-color 0.15s; width: 100%; -moz-appearance: textfield; }
+  .field input::-webkit-outer-spin-button, .field input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .field input:focus { outline: none; border-color: rgba(79,172,254,0.5); }
+  .field input::placeholder { color: var(--muted); opacity: 0.5; }
+  .field input.error { border-color: rgba(255,107,107,0.6); }
+  .field-hint { font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; }
+  .field-hint a { color: var(--accent); text-decoration: none; }
+  .field-hint a:hover { text-decoration: underline; }
+
+  .section-divider { border-top: 1px solid var(--border); margin: 1.5rem 0; }
+
+  .product-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+  .product-tab { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 600; color: var(--muted); cursor: pointer; transition: all 0.15s; font-family: inherit; }
+  .product-tab.active { background: rgba(79,172,254,0.12); border-color: rgba(79,172,254,0.4); color: var(--accent); }
+  .product-tab:hover:not(.active) { border-color: rgba(79,172,254,0.25); color: var(--text); }
+
+  .info-box { background: rgba(79,172,254,0.06); border: 1px solid rgba(79,172,254,0.2); border-radius: 10px; padding: 0.9rem 1.1rem; margin-top: 0.75rem; font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+  .info-box strong { color: var(--text); }
+
+  .result-box { background: linear-gradient(135deg, rgba(79,172,254,0.10), rgba(0,242,254,0.05)); border: 1px solid rgba(79,172,254,0.3); border-radius: 12px; padding: 1.5rem; text-align: center; margin-top: 1.5rem; transition: opacity 0.2s; }
+  .result-box.empty { opacity: 0.4; }
+  .result-box.error-state { background: rgba(255,107,107,0.05); border-color: rgba(255,107,107,0.3); }
+  .result-label { font-size: 0.72rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+  .result-primary { font-size: clamp(2rem, 6vw, 3rem); font-weight: 800; letter-spacing: -0.03em; color: var(--text); line-height: 1.1; }
+  .result-secondary { font-size: 0.9rem; color: var(--muted); margin-top: 0.4rem; }
+  .result-note { font-size: 0.78rem; color: var(--muted); margin-top: 0.75rem; opacity: 0.8; line-height: 1.5; }
+
+  h2 { font-size: 1.35rem; font-weight: 700; margin: 2.5rem 0 0.75rem; letter-spacing: -0.02em; }
+  p { color: var(--text); margin-bottom: 1.25rem; font-size: 1.05rem; }
+  ul { margin: 0 0 1.25rem 1.5rem; color: var(--text); font-size: 1.05rem; }
+  li { margin-bottom: 0.4rem; }
+
+  .key-fact { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .key-fact h3, .key-fact .box-heading { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .key-fact p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+
+  .warn-key-fact { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--warn); border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .warn-key-fact h3, .warn-key-fact .box-heading { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--warn); }
+  .warn-key-fact p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+
+  .related-list { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; }
+  .related-list h3, .related-list .box-heading { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.85rem; color: var(--accent); }
+  .related-list ul { list-style: none; margin: 0; padding: 0; }
+  .related-list li { padding: 0.4rem 0; font-size: 0.95rem; border-bottom: 1px solid var(--border); }
+  .related-list li:last-child { border-bottom: none; }
+  .related-list a { color: var(--accent); text-decoration: none; }
+  .related-list a:hover { text-decoration: underline; }
+
+  .cta-box { background: linear-gradient(135deg, rgba(79,172,254,0.08), rgba(0,242,254,0.05)); border: 1px solid rgba(79,172,254,0.25); border-radius: 14px; padding: 2rem; margin: 2.5rem 0; text-align: center; }
+  .cta-box h2 { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.5rem; }
+  .cta-box p { color: var(--muted); font-size: 0.92rem; max-width: 480px; margin: 0 auto 1.25rem; line-height: 1.6; }
+  .cta-box .badge { display: inline-block; transition: opacity 0.2s; }
+  .cta-box .badge:hover { opacity: 0.85; }
+  .cta-box .badge img { height: 44px; }
+
+  footer { padding: 2rem 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+  .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+
+  @media (max-width: 640px) {
+    .page { padding: 2rem 0 3rem; }
+    .header-badge { display: none; }
+    .header-link { font-size: 0.8rem; padding: 0.35rem 0.75rem; }
+    .header-right { gap: 0.75rem; }
+    .inputs-grid { grid-template-columns: 1fr 1fr; }
+    .inputs-grid.one-col { grid-template-columns: 1fr; }
+    .calc-card { padding: 1.25rem; }
+    .toggle-group button { padding: 0.4rem 0.75rem; font-size: 0.82rem; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header>
+  <div class="header-inner">
+    <a href="../" class="logo">
+      <div class="logo-icon"><img src="../Logo/logo-96.webp" alt="PoolChem Tracker" width="96" height="96"></div>
+      <span class="logo-name">Pool<span>Chem</span> Tracker</span>
+    </a>
+    <div class="header-right">
+      <a href="../blog/" class="header-link">Guides</a>
+      <a href="../features" class="header-link">Features</a>
+      <a href="../about" class="header-link">About</a>
+      <a href="../download" class="header-link">Download</a>
+    </div>
+  </div>
+</header>
+<main id="main-content" tabindex="-1">
+
+<div class="page">
+  <div class="container">
+
+    <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Pool Calculators</a> &rsaquo; Muriatic Acid</div>
+
+    <span class="page-label">Pool Calculators</span>
+    <h1>How Much Muriatic Acid to Add to Your Pool — <span class="gradient">Calculator</span></h1>
+    <p class="page-desc">Calculate how much muriatic acid to add to lower your pool's pH or total alkalinity.</p>
+
+    <div class="calc-card">
+
+      <div class="toggle-row">
+        <span class="toggle-label">Goal</span>
+        <div class="toggle-group">
+          <button id="btn-ph" class="active" onclick="setMode('ph')">Lower pH</button>
+          <button id="btn-ta" onclick="setMode('ta')">Lower Alkalinity</button>
+        </div>
+      </div>
+
+      <div class="toggle-row" style="margin-bottom:1rem">
+        <span class="toggle-label">Units</span>
+        <div class="toggle-group">
+          <button id="btn-us" class="active" onclick="setVolumeUnits('us')">Gallons</button>
+          <button id="btn-metric" onclick="setVolumeUnits('metric')">Liters</button>
+        </div>
+      </div>
+
+      <div class="inputs-grid one-col">
+        <div class="field">
+          <label for="gallons">Pool Volume</label>
+          <input inputmode="decimal" type="number" id="gallons" min="0" step="100" placeholder="e.g. 15000 gallons" oninput="calc()">
+          <span class="field-hint">Don't know your gallons? <a href="pool-volume-calculator">Use the volume calculator</a></span>
+        </div>
+      </div>
+
+      <!-- pH mode inputs -->
+      <div id="panel-ph">
+        <div class="inputs-grid three-col">
+          <div class="field">
+            <label for="ph-current">Current pH</label>
+            <input inputmode="decimal" type="number" id="ph-current" min="6" max="9" step="0.1" placeholder="e.g. 7.8" oninput="calc()">
+          </div>
+          <div class="field">
+            <label for="ph-target">Target pH</label>
+            <input inputmode="decimal" type="number" id="ph-target" min="6" max="9" step="0.1" placeholder="e.g. 7.4" oninput="calc()">
+          </div>
+          <div class="field">
+            <label for="ph-ta">Total Alkalinity (ppm)</label>
+            <input inputmode="decimal" type="number" id="ph-ta" min="0" step="5" placeholder="e.g. 100" oninput="calc()">
+          </div>
+        </div>
+        <div class="info-box">
+          <strong>Why TA is needed:</strong> Higher alkalinity buffers pH more strongly, so the same pH drop requires more acid. Leaving TA blank assumes 80 ppm.
+        </div>
+      </div>
+
+      <!-- TA mode inputs -->
+      <div id="panel-ta" style="display:none">
+        <div class="inputs-grid">
+          <div class="field">
+            <label for="ta-current">Current TA (ppm)</label>
+            <input inputmode="decimal" type="number" id="ta-current" min="0" step="5" placeholder="e.g. 140" oninput="calc()">
+          </div>
+          <div class="field">
+            <label for="ta-target">Target TA (ppm)</label>
+            <input inputmode="decimal" type="number" id="ta-target" min="0" step="5" placeholder="e.g. 80" oninput="calc()">
+          </div>
+        </div>
+        <div class="info-box">
+          <strong>After adding acid to lower TA:</strong> pH will also drop. Aerate the water (waterfall, jets, air bubbler) to raise pH back to 7.4–7.6 without raising TA again. Do not add baking soda or soda ash — that would undo the TA reduction.
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <div class="field-group-label">Acid Strength</div>
+      <div class="product-tabs">
+        <button class="product-tab active" onclick="setStrength('31')">31.45% (Standard)</button>
+        <button class="product-tab" onclick="setStrength('14')">14.5% (Diluted / Safer)</button>
+      </div>
+
+      <div class="result-box empty" id="result-box">
+        <div class="result-label">Add to Your Pool</div>
+        <div class="result-primary" id="result-main">&mdash;</div>
+        <div class="result-secondary" id="result-secondary"></div>
+        <div class="result-note" id="result-note">Enter your pool volume and values above</div>
+      </div>
+
+    </div><!-- /calc-card -->
+
+    <div class="cta-box">
+      <h2>Stop recalculating your pool every weekend.</h2>
+      <p>PoolChem Tracker remembers your pool size, tracks your chemistry history, and tells you exactly what to add next.</p>
+      <div style="display:flex;gap:0.75rem;justify-content:center;align-items:center;flex-wrap:wrap;"><a href="https://apps.apple.com/app/id6762652630?ct=tool" class="badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'ios'})"><img loading="lazy" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40" style="height:54px;"></a><a href="https://play.google.com/store/apps/details?id=com.poolchemtracker.app&utm_source=website&utm_medium=tool_cta" class="badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'android'})"><img loading="lazy" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="width:auto;height:54px;"></a></div>
+    </div>
+
+    <div class="warn-key-fact">
+      <p class="box-heading">Safety first — muriatic acid is corrosive</p>
+      <p>Always pre-dilute in a bucket of pool water before adding. Pour acid into water, never water into acid. Wear eye protection and gloves. Add near a return jet with the pump running, never near the skimmer. Never mix with chlorine or other chemicals.</p>
+    </div>
+
+    <h2>Lower pH vs lower total alkalinity — what's the difference?</h2>
+    <p>Both use the same chemical (muriatic acid), but the goal determines how much you add and what you do next.</p>
+    <p><strong>Lowering pH</strong> is the most common use. If your pH is above 7.8, acid brings it back into the 7.4–7.6 target range. Adding acid also drops TA slightly, which is usually fine unless your TA is already low.</p>
+    <p><strong>Lowering total alkalinity</strong> uses a larger acid dose to deliberately reduce TA. Because this also drops pH sharply, you then aerate the water to drive CO₂ off and raise pH back to 7.4–7.6 — without raising TA. This is the correct sequence when TA is high and causing persistent pH drift upward.</p>
+
+    <div class="key-fact">
+      <h3>Fix TA before chasing pH</h3>
+      <p>If your pH keeps drifting up no matter how much acid you add, high total alkalinity is almost always the cause. Bring TA to 60–80 ppm first — then pH stabilizes and requires far less maintenance acid over the season.</p>
+    </div>
+
+    <h2>How the muriatic acid dose is calculated</h2>
+    <p><strong>For pH:</strong> The acid dose is proportional to the pH drop and the current alkalinity. Higher TA means more buffering capacity, so more acid is required for the same pH change.</p>
+    <p><strong>For TA:</strong> The relationship is direct — each ppm of TA reduction in a given volume requires a fixed amount of acid.</p>
+
+    <h2>Worked example: lowering pH</h2>
+    <p>A 15,000-gallon pool tests at pH 7.9 with TA 100 ppm. Target is pH 7.4 — a drop of <strong>0.5 pH units</strong>.</p>
+    <p>Dose = 0.5 × 100 × 0.534 × (15,000 ÷ 10,000) = <strong>~40 fl oz (1.25 quarts)</strong> of 31.45% acid. Split into two doses of ~20 fl oz each. Add the first dose near a return jet, circulate for 1 hour, retest — then add the second if pH is still above target. Never add more than 1 quart at a time to avoid overshooting.</p>
+
+    <h2>Worked example: lowering total alkalinity</h2>
+    <p>A 10,000-gallon pool tests at TA 120 ppm. Target is TA 80 ppm — a reduction of <strong>40 ppm</strong>.</p>
+    <p>Dose = 40 × (10,000 ÷ 10,000) × 2.6 = <strong>~104 fl oz (3.25 quarts)</strong> of 31.45% acid. Split into 3–4 doses of ~1 quart each. Add each dose near a return jet, circulate for 1 hour, retest TA before continuing. Once TA reaches 80 ppm, aerate — run a waterfall, jets, or air bubbler for several hours to drive off CO₂ and bring pH back to 7.4–7.6. Do not add soda ash or baking soda to recover pH after a TA reduction — that undoes the TA correction.</p>
+
+    <h2>Frequently asked questions</h2>
+
+    <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">How much muriatic acid lowers pH by 0.2?</h3>
+    <p>For a 10,000-gallon pool at TA 100 ppm: about 11 fl oz of 31.45% acid. For a 15,000-gallon pool: about 16 fl oz. The exact amount varies with your total alkalinity — higher TA means more buffering, so more acid is needed for the same pH drop. Use the calculator above for your specific numbers.</p>
+
+    <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">How much muriatic acid lowers total alkalinity by 10 ppm?</h3>
+    <p>For a 10,000-gallon pool: about 26 fl oz (just under 1 quart) of 31.45% muriatic acid lowers TA by 10 ppm. For a 15,000-gallon pool: about 39 fl oz. Add in stages of 1 quart or less, circulate for 1 hour, and retest before continuing. After TA is in range, aerate the water — waterfall, jets, or air bubbler — to raise pH back to 7.4–7.6 without raising TA again.</p>
+
+    <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">How long after adding muriatic acid can I swim?</h3>
+    <p>Wait at least 30 minutes with the pump running, then retest pH before swimming. If pH is in the 7.4–7.6 range, it's safe. Never enter the pool immediately after adding acid — the localized concentration near the addition point is far higher than the overall pool reading, even with the pump on.</p>
+
+    <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">Should I lower pH or total alkalinity first?</h3>
+    <p>If TA is above 120 ppm, fix TA first. High TA is the root cause of pH that drifts upward no matter how much acid you add. Use the "Lower Alkalinity" mode, bring TA to 60–80 ppm, then aerate to recover pH. Once TA is in range, pH becomes stable and needs far less maintenance acid.</p>
+
+    <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">What happens if I add too much acid?</h3>
+    <p>pH crashes below 7.0, making the water corrosive — it etches plaster, damages metal fittings, and irritates swimmers. If this happens, add soda ash (sodium carbonate) to bring pH back to 7.4–7.6. To prevent it: split large doses, add no more than 1 quart at a time, and retest after each dose before continuing.</p>
+
+    <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">Is dry acid (sodium bisulfate) a substitute for muriatic acid?</h3>
+    <p>Yes — it does the same job and is safer to handle, with no fumes. The trade-off: it adds sulfates to your water, which accumulate over time and can damage plaster and pool heaters, especially in saltwater pools. For most residential pools, muriatic acid is the better long-term choice. Dry acid works well for spas or when liquid acid storage isn't practical.</p>
+
+
+    <div class="related-list">
+      <h3>More pool calculators &amp; guides</h3>
+      <ul>
+        <li><a href="../">Pool chemistry calculators &amp; guides</a> — full reference index</li>
+        <li><a href="pool-volume-calculator">Pool volume calculator</a> — find your gallons first</li>
+        <li><a href="chlorine-dose-calculator">Chlorine dose calculator</a></li>
+        <li><a href="pool-shock-calculator">Pool shock calculator</a></li>
+        <li><a href="../explained/ph">pH explained</a></li>
+        <li><a href="../explained/total-alkalinity">Total alkalinity explained</a></li>
+        <li><a href="../blog/how-to-lower-pool-alkalinity">How to lower pool alkalinity</a></li>
+        <li><a href="../blog/pool-ph-too-high">How to lower pool pH</a></li>
+        <li><a href="pool-ph-calculator">Pool pH calculator</a> — raise or lower pH in one tool</li>
+        <li><a href="pool-chemical-addition-order">Chemical addition order calculator</a> — full step-by-step treatment plan from your readings</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="../">Home</a>
+      <a href="../blog/">Guides</a>
+      <a href="../explained/">Explained</a>
+      <a href="mailto:support@poolchemtracker.com">Support</a>
+      <a href="../privacy-website">Privacy Policy</a>
+      <a href="../terms-website">Terms of Service</a>
+    </div>
+    <p>&copy; 2026 PoolChem Tracker. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  var mode = 'ph';
+  var strength = '31';
+  var units = 'us';
+
+  window.setMode = function (m) {
+    mode = m;
+    document.getElementById('btn-ph').classList.toggle('active', m === 'ph');
+    document.getElementById('btn-ta').classList.toggle('active', m === 'ta');
+    document.getElementById('panel-ph').style.display = m === 'ph' ? '' : 'none';
+    document.getElementById('panel-ta').style.display = m === 'ta' ? '' : 'none';
+    calc();
+  };
+
+  window.setStrength = function (s) {
+    strength = s;
+    document.querySelectorAll('.product-tab').forEach(function (btn, i) {
+      btn.classList.toggle('active', (i === 0 && s === '31') || (i === 1 && s === '14'));
+    });
+    calc();
+  };
+
+  window.setVolumeUnits = function (u) {
+    units = u;
+    document.getElementById('btn-us').classList.toggle('active', u === 'us');
+    document.getElementById('btn-metric').classList.toggle('active', u === 'metric');
+    var inp = document.getElementById('gallons');
+    inp.placeholder = u === 'metric' ? 'e.g. 57000 liters' : 'e.g. 15000 gallons';
+    calc();
+  };
+
+  function formatMetricLiquid(floz) {
+    var mL = floz * 29.5735;
+    if (mL < 10)   return 'Less than 10 mL';
+    if (mL < 1000) return Math.round(mL) + ' mL';
+    return (mL / 1000).toFixed(2) + ' L';
+  }
+
+  function formatMetricLiquidAlt(floz) {
+    var mL = floz * 29.5735;
+    if (mL < 100)  return '';
+    if (mL < 1000) return (mL / 1000).toFixed(2) + ' L';
+    return Math.round(mL) + ' mL';
+  }
+
+  function flOzForStrength(floz31) {
+    return strength === '31' ? floz31 : floz31 * (31.45 / 14.5);
+  }
+
+  function formatLiquid(floz) {
+    if (floz < 1)   return 'Less than 1 fl oz';
+    if (floz < 8)   return floz.toFixed(1) + ' fl oz';
+    if (floz < 32)  return (floz / 8).toFixed(1) + ' cups';
+    if (floz < 128) return (floz / 32).toFixed(1) + ' quarts';
+    return (floz / 128).toFixed(2) + ' gallons';
+  }
+
+  function formatAlt(floz) {
+    if (floz < 8)   return '';
+    if (floz < 128) return Math.round(floz) + ' fl oz';
+    return Math.round(floz) + ' fl oz (' + (floz / 32).toFixed(1) + ' quarts)';
+  }
+
+  window.calc = function () {
+    var raw     = parseFloat(document.getElementById('gallons').value) || 0;
+    var gallons = units === 'metric' ? raw * 0.264172 : raw;
+    var box     = document.getElementById('result-box');
+    var main    = document.getElementById('result-main');
+    var sec     = document.getElementById('result-secondary');
+    var note    = document.getElementById('result-note');
+
+    box.classList.remove('error-state');
+
+    if (gallons <= 0) {
+      box.classList.add('empty');
+      main.textContent = '—';
+      sec.textContent = '';
+      note.textContent = 'Enter your pool volume and values above';
+      return;
+    }
+
+    var floz31 = 0;
+    var noteText = '';
+
+    if (mode === 'ph') {
+      var phCurrent = parseFloat(document.getElementById('ph-current').value);
+      var phTarget  = parseFloat(document.getElementById('ph-target').value);
+      var ta        = parseFloat(document.getElementById('ph-ta').value) || 80;
+
+      document.getElementById('ph-current').classList.remove('error');
+      document.getElementById('ph-target').classList.remove('error');
+
+      if (isNaN(phCurrent) || isNaN(phTarget)) {
+        box.classList.add('empty');
+        main.textContent = '—';
+        sec.textContent = '';
+        note.textContent = 'Enter your pool volume and values above';
+        return;
+      }
+      if (phTarget >= phCurrent) {
+        document.getElementById('ph-target').classList.add('error');
+        box.classList.remove('empty');
+        box.classList.add('error-state');
+        main.textContent = 'pH already at target';
+        sec.textContent = '';
+        note.textContent = 'Target pH must be lower than current pH.';
+        return;
+      }
+      if (phTarget < 7.0) {
+        document.getElementById('ph-target').classList.add('error');
+        box.classList.remove('empty');
+        box.classList.add('error-state');
+        main.textContent = 'Target pH too low';
+        sec.textContent = '';
+        note.textContent = 'Avoid targeting pH below 7.0 — corrosive water damages surfaces and equipment.';
+        return;
+      }
+
+      var deltaPH = phCurrent - phTarget;
+      floz31 = deltaPH * ta * 0.534 * (gallons / 10000);
+      noteText = 'of ' + (strength === '31' ? '31.45%' : '14.5%') + ' muriatic acid to lower pH from ' + phCurrent.toFixed(1) + ' to ' + phTarget.toFixed(1) + '. Add near a return jet, retest after 1 hour.';
+
+    } else {
+      var taCurrent = parseFloat(document.getElementById('ta-current').value);
+      var taTarget  = parseFloat(document.getElementById('ta-target').value);
+
+      document.getElementById('ta-current').classList.remove('error');
+      document.getElementById('ta-target').classList.remove('error');
+
+      if (isNaN(taCurrent) || isNaN(taTarget)) {
+        box.classList.add('empty');
+        main.textContent = '—';
+        sec.textContent = '';
+        note.textContent = 'Enter your pool volume and values above';
+        return;
+      }
+      if (taTarget >= taCurrent) {
+        document.getElementById('ta-target').classList.add('error');
+        box.classList.remove('empty');
+        box.classList.add('error-state');
+        main.textContent = 'TA already at target';
+        sec.textContent = '';
+        note.textContent = 'Target TA must be lower than current TA.';
+        return;
+      }
+
+      var deltaTA = taCurrent - taTarget;
+      floz31 = deltaTA * (gallons / 10000) * 2.6;
+      noteText = 'of ' + (strength === '31' ? '31.45%' : '14.5%') + ' muriatic acid to lower TA from ' + taCurrent + ' to ' + taTarget + ' ppm. Aerate after to raise pH back to 7.4–7.6.';
+    }
+
+    var floz = flOzForStrength(floz31);
+    box.classList.remove('empty', 'error-state');
+    if (units === 'metric') {
+      main.textContent = formatMetricLiquid(floz);
+      sec.textContent  = formatMetricLiquidAlt(floz);
+    } else {
+      main.textContent = formatLiquid(floz);
+      sec.textContent  = formatAlt(floz);
+    }
+    note.textContent = noteText;
+  };
+})();
+</script>
+
+</body>
+</html>

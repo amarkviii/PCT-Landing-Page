@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Overnight Chlorine Loss Test (OCLT) Calculator — Pass or Fail?</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta name="description" content="Enter dusk and dawn FC readings for an instant OCLT pass/fail verdict — what your chlorine loss means and whether to shock before treating for algae.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-S8JT1DELF6');
+</script>
+<link rel="canonical" href="https://www.poolchemtracker.com/tools/overnight-chlorine-loss-test">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Overnight Chlorine Loss Test (OCLT) Calculator — Pass or Fail?">
+<meta property="og:description" content="Enter your evening and morning FC readings to get an instant OCLT pass/fail verdict and find out whether your pool has an algae or organic demand problem.">
+<meta property="og:url" content="https://www.poolchemtracker.com/tools/overnight-chlorine-loss-test">
+<meta property="og:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<meta property="og:site_name" content="PoolChem Tracker">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OCLT Calculator — Pool Overnight Chlorine Loss Test">
+<meta name="twitter:description" content="Enter your dusk and dawn FC readings — get an instant OCLT pass/fail verdict and shock recommendation if needed.">
+<meta name="twitter:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.poolchemtracker.com/"},{"@type":"ListItem","position":2,"name":"Pool Calculators","item":"https://www.poolchemtracker.com/tools/"},{"@type":"ListItem","position":3,"name":"OCLT Calculator"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an overnight chlorine loss test?","acceptedAnswer":{"@type":"Answer","text":"An overnight chlorine loss test (OCLT) measures how much free chlorine your pool consumes between dusk and dawn — when UV is not a factor. A loss of 1 ppm or less means your chlorine is only consumed by normal background demand. A loss greater than 1 ppm indicates active organic demand, typically from algae, bacteria, or biofilm, and means the pool needs to be shocked before it is safe to swim in or close for winter."}},{"@type":"Question","name":"What is a passing OCLT result?","acceptedAnswer":{"@type":"Answer","text":"An overnight FC loss of 1 ppm or less is a passing result. This means your pool does not have significant active organic demand. A loss of 1–2 ppm is borderline — conditions (wind, rain, temperature swings) can sometimes explain it, but the test should be repeated before concluding the pool is clean. A loss greater than 2 ppm is a clear fail: the pool has organic demand and needs shocking."}},{"@type":"Question","name":"How do I run an OCLT correctly?","acceptedAnswer":{"@type":"Answer","text":"(1) Test FC after sunset, once direct sunlight is fully off the pool. Record the value. (2) Do not add any chemicals, do not allow swimming, and keep the pump running overnight. (3) Test FC again in the morning before sunrise or before direct sunlight hits the water. (4) Subtract: overnight loss = evening FC minus morning FC. Starting FC should be at least 2 ppm; ideally 4–6 ppm. Results from pools with very low starting FC are unreliable."}},{"@type":"Question","name":"When should I run an OCLT?","acceptedAnswer":{"@type":"Answer","text":"Run an OCLT before closing your pool for winter — it confirms there is no active algae demand that would bloom under the cover. Also run it any time your water looks hazy, has a chlorine smell, your FC keeps dropping faster than expected, or after a period of heavy use or rain. It is also the standard test to confirm an algae treatment was successful before returning to normal FC maintenance."}},{"@type":"Question","name":"What does a failed OCLT mean?","acceptedAnswer":{"@type":"Answer","text":"A failed OCLT means your pool has active organic demand — something is consuming chlorine overnight. This is most commonly algae (even early-stage algae that hasn't turned the water green yet), bacteria, or organic biofilm. The remedy is to shock the pool to the shock level for your CYA (CYA × 40%), hold FC at that level until the water clears and a retest passes, then resume normal maintenance."}},{"@type":"Question","name":"How much starting FC do I need for a valid OCLT?","acceptedAnswer":{"@type":"Answer","text":"You need at least 2 ppm FC at dusk to run a meaningful test. If your pool only has 1 ppm at the start and loses 0.8 ppm overnight, that is not a reliable pass — the pool may simply have run out of chlorine to lose. A starting FC of 4–6 ppm gives you a clear buffer: if you still only lose 0.5–1 ppm from that level, the result is unambiguous."}}]}
+</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .skip-link { position: absolute; left: 0; top: -3rem; background: var(--accent); color: #000; padding: 0.6rem 1rem; border-radius: 0 0 8px 0; font-weight: 700; font-size: 0.9rem; text-decoration: none; z-index: 1000; transition: top 0.15s; }
+  .skip-link:focus { top: 0; }
+  main:focus { outline: none; }
+
+  :root {
+    --bg: #0a1628;
+    --bg2: #0d1f3c;
+    --card: #0f1e38;
+    --accent: #4facfe;
+    --accent2: #00f2fe;
+    --text: #e8edf5;
+    --muted: #9fb0c3;
+    --good: #2ed573;
+    --warn: #ffa502;
+    --danger: #ff6b6b;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  body { font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+
+  header { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+  .header-inner { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+  .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text); }
+  .logo-icon { width: 40px; height: 40px; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
+  .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+  .logo .logo-name { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
+  .logo .logo-name span { color: var(--accent); }
+  .header-right { display: flex; align-items: center; gap: 1.5rem; }
+  .header-link { color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--accent); padding: 0.4rem 1rem; border-radius: 8px; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+  .header-link:hover { background: var(--accent); color: #000; }
+  .header-badge img { height: 36px; }
+
+  .page { padding: 3rem 0 4rem; }
+  .breadcrumb { font-size: 0.8rem; color: var(--muted); margin-bottom: 2rem; }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .page-label { display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+  h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 0.75rem; }
+  h1 .gradient { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .page-desc { font-size: 1.05rem; color: var(--muted); margin-bottom: 2.5rem; }
+
+  .calc-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem; }
+  .section-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+  .section-sub { font-size: 0.78rem; font-weight: 400; color: var(--muted); text-transform: none; letter-spacing: 0; }
+  .section-divider { border-top: 1px solid var(--border); margin: 1.5rem 0; }
+
+  .inputs-grid { display: grid; gap: 1rem; }
+  .inputs-grid.two-col { grid-template-columns: 1fr 1fr; margin-bottom: 1.25rem; }
+  .inputs-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
+  .field { display: flex; flex-direction: column; gap: 0.35rem; }
+  .field label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .field input { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 0.65rem 0.85rem; color: var(--text); font-size: 1rem; font-family: inherit; transition: border-color 0.15s; width: 100%; -moz-appearance: textfield; }
+  .field input::-webkit-outer-spin-button, .field input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .field input:focus { outline: none; border-color: rgba(79,172,254,0.5); }
+  .field-hint { font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem; }
+  .field-hint a { color: var(--accent); text-decoration: none; }
+  .field-hint a:hover { text-decoration: underline; }
+
+  /* Result card */
+  .results-section { display: none; }
+  .results-section.visible { display: block; }
+
+  .verdict-card { border-radius: 16px; padding: 1.75rem 2rem; margin-bottom: 1.5rem; border: 1px solid; }
+  .verdict-card.pass { background: rgba(46,213,115,0.06); border-color: rgba(46,213,115,0.3); }
+  .verdict-card.borderline { background: rgba(255,165,2,0.06); border-color: rgba(255,165,2,0.3); }
+  .verdict-card.fail { background: rgba(255,107,107,0.06); border-color: rgba(255,107,107,0.3); }
+  .verdict-card.invalid { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.12); }
+
+  .verdict-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem; }
+  .verdict-badge { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.25rem 0.75rem; border-radius: 6px; flex-shrink: 0; }
+  .verdict-card.pass .verdict-badge { background: rgba(46,213,115,0.2); color: var(--good); }
+  .verdict-card.borderline .verdict-badge { background: rgba(255,165,2,0.2); color: var(--warn); }
+  .verdict-card.fail .verdict-badge { background: rgba(255,107,107,0.2); color: var(--danger); }
+  .verdict-card.invalid .verdict-badge { background: rgba(255,255,255,0.08); color: var(--muted); }
+
+  .verdict-loss { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
+  .verdict-card.pass .verdict-loss { color: var(--good); }
+  .verdict-card.borderline .verdict-loss { color: var(--warn); }
+  .verdict-card.fail .verdict-loss { color: var(--danger); }
+  .verdict-card.invalid .verdict-loss { color: var(--muted); }
+
+  .verdict-label { font-size: 0.85rem; color: var(--muted); margin-top: 0.2rem; }
+  .verdict-explain { font-size: 0.95rem; color: var(--text); line-height: 1.65; }
+  .verdict-explain strong { color: var(--text); }
+
+  .next-steps { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; }
+  .next-steps-heading { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.85rem; }
+
+  .step-row { display: flex; align-items: flex-start; gap: 0.85rem; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+  .step-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .step-num { width: 1.6rem; height: 1.6rem; border-radius: 50%; background: rgba(79,172,254,0.15); color: var(--accent); font-size: 0.75rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; }
+  .step-text { font-size: 0.9rem; color: var(--text); line-height: 1.6; }
+  .step-text strong { color: var(--text); }
+
+  .shock-dose-card { background: rgba(255,107,107,0.04); border: 1px solid rgba(255,107,107,0.2); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; }
+  .shock-dose-heading { font-size: 0.78rem; font-weight: 700; color: var(--danger); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+  .dose-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.45rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .dose-row:last-child { border-bottom: none; }
+  .dose-label { font-size: 0.88rem; color: var(--muted); }
+  .dose-value { font-size: 1.05rem; font-weight: 700; color: var(--text); }
+
+  .info-row { background: rgba(79,172,254,0.05); border: 1px solid rgba(79,172,254,0.18); border-radius: 10px; padding: 0.9rem 1.1rem; font-size: 0.85rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.5rem; }
+  .info-row strong { color: var(--text); }
+
+  h2 { font-size: 1.35rem; font-weight: 700; margin: 2.5rem 0 0.75rem; letter-spacing: -0.02em; }
+  h3 { font-size: 1.05rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+  p { color: var(--text); margin-bottom: 1.25rem; font-size: 1.05rem; }
+  ol, ul { margin: 0 0 1.25rem 1.5rem; color: var(--text); font-size: 1.05rem; }
+  li { margin-bottom: 0.4rem; }
+
+  .key-fact { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .key-fact h3 { font-size: 1rem; font-weight: 700; margin: 0 0 0.4rem; }
+  .key-fact p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+
+  .loss-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 1.25rem 0; }
+  .loss-table th { text-align: left; font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); }
+  .loss-table td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  .loss-table tr:last-child td { border-bottom: none; }
+  .loss-table .pill { display: inline-block; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 5px; }
+  .loss-table .pill.pass { background: rgba(46,213,115,0.15); color: var(--good); }
+  .loss-table .pill.borderline { background: rgba(255,165,2,0.15); color: var(--warn); }
+  .loss-table .pill.fail { background: rgba(255,107,107,0.15); color: var(--danger); }
+  .loss-table .pill.invalid { background: rgba(255,255,255,0.08); color: var(--muted); }
+
+  .related-list { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; }
+  .related-list .box-heading { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.85rem; color: var(--accent); }
+  .related-list ul { list-style: none; margin: 0; padding: 0; }
+  .related-list li { padding: 0.4rem 0; font-size: 0.95rem; border-bottom: 1px solid var(--border); }
+  .related-list li:last-child { border-bottom: none; }
+  .related-list a { color: var(--accent); text-decoration: none; }
+  .related-list a:hover { text-decoration: underline; }
+
+  .cta-box { background: linear-gradient(135deg, rgba(79,172,254,0.08), rgba(0,242,254,0.05)); border: 1px solid rgba(79,172,254,0.25); border-radius: 14px; padding: 2rem; margin: 2.5rem 0; text-align: center; }
+  .cta-box h2 { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.5rem; }
+  .cta-box p { color: var(--muted); font-size: 0.92rem; max-width: 480px; margin: 0 auto 1.25rem; line-height: 1.6; }
+  .cta-box .badge:hover { opacity: 0.85; }
+  .cta-box .badge img { height: 44px; }
+
+  footer { padding: 2rem 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+  .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+
+  @media (max-width: 700px) {
+    .page { padding: 2rem 0 3rem; }
+    .header-badge { display: none; }
+    .header-link { font-size: 0.8rem; padding: 0.35rem 0.75rem; }
+    .header-right { gap: 0.75rem; }
+    .inputs-grid.two-col, .inputs-grid.three-col { grid-template-columns: 1fr 1fr; }
+    .calc-card { padding: 1.25rem; }
+    .verdict-loss { font-size: 2rem; }
+  }
+  @media (max-width: 480px) {
+    .inputs-grid.two-col, .inputs-grid.three-col { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header>
+  <div class="header-inner">
+    <a href="../" class="logo">
+      <div class="logo-icon"><img src="../Logo/logo-96.webp" alt="PoolChem Tracker" width="96" height="96"></div>
+      <span class="logo-name">Pool<span>Chem</span> Tracker</span>
+    </a>
+    <div class="header-right">
+      <a href="../blog/" class="header-link">Guides</a>
+      <a href="../features" class="header-link">Features</a>
+      <a href="../about" class="header-link">About</a>
+      <a href="../download" class="header-link">Download</a>
+    </div>
+  </div>
+</header>
+
+<main id="main-content" tabindex="-1">
+<div class="page">
+<div class="container">
+
+  <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Pool Calculators</a> &rsaquo; OCLT Calculator</div>
+
+  <span class="page-label">Pool Calculators</span>
+  <h1>Overnight Chlorine Loss Test —<br><span class="gradient">Pass or Fail?</span></h1>
+  <p class="page-desc">Enter your free chlorine readings from dusk and dawn to get an instant pass/fail verdict and find out whether your pool has an algae or organic demand problem.</p>
+
+  <!-- ── Inputs ── -->
+  <div class="calc-card">
+
+    <div class="section-label">FC Readings</div>
+    <div class="inputs-grid two-col">
+      <div class="field">
+        <label for="fc-evening">FC at Dusk (ppm)</label>
+        <input inputmode="decimal" type="number" id="fc-evening" min="0" max="30" step="0.5" placeholder="e.g. 5.0" oninput="calc()">
+        <span class="field-hint">Test after sunset — no direct sunlight on water</span>
+      </div>
+      <div class="field">
+        <label for="fc-morning">FC at Dawn (ppm)</label>
+        <input inputmode="decimal" type="number" id="fc-morning" min="0" max="30" step="0.5" placeholder="e.g. 4.0" oninput="calc()">
+        <span class="field-hint">Test before sunrise or before sun hits the pool</span>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section-label">Optional — for shock dose if test fails <span class="section-sub">(leave blank to skip)</span></div>
+    <div class="inputs-grid three-col">
+      <div class="field">
+        <label for="cya">CYA (ppm)</label>
+        <input inputmode="decimal" type="number" id="cya" min="0" max="200" step="5" placeholder="e.g. 40" oninput="calc()">
+        <span class="field-hint">Sets shock target FC level</span>
+      </div>
+      <div class="field">
+        <label for="pool-volume">Pool Volume (gallons)</label>
+        <input inputmode="decimal" type="number" id="pool-volume" min="0" step="500" placeholder="e.g. 15000" oninput="calc()">
+        <span class="field-hint"><a href="pool-volume-calculator">Calculate gallons &rarr;</a></span>
+      </div>
+      <div class="field">
+        <label for="chlorine-type">Chlorine Product</label>
+        <div class="toggle-group" id="chlorine-toggle" style="flex-direction:column;align-items:stretch;">
+          <button class="active" onclick="setChlorine('lc10')" style="text-align:left;padding:0.5rem 0.75rem;font-size:0.8rem;">Liquid 10%</button>
+          <button onclick="setChlorine('lc125')" style="text-align:left;padding:0.5rem 0.75rem;font-size:0.8rem;">Liquid 12.5%</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /calc-card -->
+
+  <div class="cta-box">
+    <h2>Stop recalculating your pool every weekend.</h2>
+    <p>PoolChem Tracker remembers your pool size, tracks your chemistry history, and tells you exactly what to add next.</p>
+    <div style="display:flex;gap:0.75rem;justify-content:center;align-items:center;flex-wrap:wrap;"><a href="https://apps.apple.com/app/id6762652630?ct=tool" class="badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'ios'})"><img loading="lazy" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40" style="height:54px;"></a><a href="https://play.google.com/store/apps/details?id=com.poolchemtracker.app&utm_source=website&utm_medium=tool_cta" class="badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'android'})"><img loading="lazy" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="width:auto;height:54px;"></a></div>
+  </div>
+
+  <!-- ── Results ── -->
+  <div class="results-section" id="results-section">
+    <div id="verdict-card-container"></div>
+    <div id="info-row-container"></div>
+    <div id="shock-dose-container"></div>
+    <div id="next-steps-container"></div>
+  </div>
+
+  <!-- ── Reference table ── -->
+  <h2>OCLT result reference</h2>
+  <p>Pool chemistry is not a fixed overnight loss — it depends on your starting FC and what is actually consuming chlorine. Use this table as a guide.</p>
+  <table class="loss-table" aria-label="OCLT pass/fail thresholds">
+    <thead>
+      <tr>
+        <th>Overnight FC Loss</th>
+        <th>Verdict</th>
+        <th>What it means</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0–1 ppm</td>
+        <td><span class="pill pass">Pass</span></td>
+        <td>Normal background demand. No active algae. Safe to swim or close.</td>
+      </tr>
+      <tr>
+        <td>1–2 ppm</td>
+        <td><span class="pill borderline">Borderline</span></td>
+        <td>May be normal with low starting FC, wind, or rain. Retest with higher starting FC before concluding.</td>
+      </tr>
+      <tr>
+        <td>&gt; 2 ppm</td>
+        <td><span class="pill fail">Fail</span></td>
+        <td>Active organic demand — algae, bacteria, or biofilm. Shock the pool before closing or swimming.</td>
+      </tr>
+      <tr>
+        <td>FC hit 0 overnight</td>
+        <td><span class="pill invalid">Invalid / Fail</span></td>
+        <td>Pool ran out of chlorine before dawn. Start FC higher (at least 4–6 ppm) and retest after shocking.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>What is an overnight chlorine loss test?</h2>
+  <p>An overnight chlorine loss test (OCLT) is a simple diagnostic that isolates organic chlorine demand from UV-driven chlorine loss. During daylight hours, ultraviolet light destroys free chlorine — that's normal and unavoidable. But after the sun goes down, UV is no longer a factor. Any chlorine lost between dusk and dawn was consumed by something in the water: algae, bacteria, organic biofilm, or combined chlorine demand.</p>
+  <p>A well-maintained pool in clean condition will lose no more than 1 ppm FC overnight. A pool with active algae — even early-stage algae that hasn't yet turned the water green — will lose 2 ppm or more. The test distinguishes between a pool that looks fine and a pool that actually is fine.</p>
+
+  <div class="key-fact">
+    <h3>The OCLT is especially important before closing</h3>
+    <p>Closing a pool over active algae is one of the most common causes of a "swamp" at spring opening. The algae continues to grow under the cover all winter — there's no UV to destroy it, but also no functioning chlorine to stop it. Run an OCLT in the weeks before closing while you still have time to shock and retest.</p>
+  </div>
+
+  <h2>How to run an OCLT</h2>
+  <ol>
+    <li><strong>Check starting FC.</strong> You need at least 2 ppm at dusk. Ideally 4–6 ppm. If FC is very low, add chlorine a few hours before sunset and let the pump run. Do not test the same evening you add chlorine — wait until the next night.</li>
+    <li><strong>Test at dusk.</strong> Wait until the sun has fully set and no direct sunlight is hitting the pool surface. Test and record free chlorine.</li>
+    <li><strong>Do nothing overnight.</strong> No swimming, no added chemicals. Keep the pump running (it doesn't affect the result, but it keeps the water circulating normally).</li>
+    <li><strong>Test at dawn.</strong> Before direct sunlight hits the water — ideally before sunrise, or at minimum within 30 minutes of first light reaching the pool surface.</li>
+    <li><strong>Calculate the loss.</strong> Subtract morning FC from evening FC. That's your overnight loss.</li>
+  </ol>
+
+  <h2>What to do after a failed OCLT</h2>
+  <p>A failed OCLT means the pool has an active organic demand problem that normal chlorine maintenance won't resolve on its own. The treatment is to shock the pool — raise FC to the shock level for your CYA (CYA &times; 40%, with a floor of 10 ppm FC) and hold it there until the water clears and an OCLT retest passes.</p>
+  <ol>
+    <li><strong>Brush the pool thoroughly</strong> — algae clings to surfaces and is protected from chlorine there. Brushing exposes it.</li>
+    <li><strong>Shock to the correct level.</strong> For CYA 40 ppm, shock target is 16 ppm FC. For CYA 50, it's 20 ppm. Use the <a href="pool-shock-calculator" style="color:var(--accent);">shock calculator</a> for an exact dose.</li>
+    <li><strong>Retest FC frequently.</strong> If FC drops below the shock target within 4–6 hours, re-dose. Active algae consumes chlorine quickly. Keep dosing until FC holds at shock level overnight.</li>
+    <li><strong>Run the OCLT again.</strong> Once the water has cleared and FC holds at shock level overnight with no additional dosing, repeat the test. A passing result (≤ 1 ppm loss) confirms the algae is gone.</li>
+    <li><strong>Return to normal maintenance.</strong> Once the OCLT passes, you can bring FC back down to your normal target range.</li>
+  </ol>
+
+  <h2>Common questions</h2>
+
+  <h3>Can I run the test if it rained overnight?</h3>
+  <p>Heavy rain dilutes the water and also adds organic load (debris, runoff), which can cause a borderline fail unrelated to algae. If it rained significantly, retest on a dry night before drawing conclusions. A light rain — a few minutes of drizzle — is unlikely to materially affect the result.</p>
+
+  <h3>Does it matter if the pump ran all night?</h3>
+  <p>No. Running the pump overnight does not consume extra chlorine. You should keep the pump running for normal circulation. The result would be similar either way, but running the pump gives you more representative results because water is actually contacting the skimmer, filter, and returns where biofilm can live.</p>
+
+  <h3>My FC went up overnight — is that possible?</h3>
+  <p>Not under normal circumstances. If your morning reading is higher than your evening reading, it's almost certainly a testing error — either inconsistent technique, reagents, or the test kit. Take both readings again on the next test night with careful technique. This is also a good reminder to keep your test kit reagents fresh and store them away from heat and sunlight.</p>
+
+  <h3>How often should I run an OCLT?</h3>
+  <p>Most pool owners run an OCLT only when they suspect a problem — hazy water, unexpectedly fast FC consumption, or visible algae starting. The two most useful scheduled times are: at the start of algae season (late spring through summer), and in the weeks before closing to confirm there's nothing growing before you cover the pool for winter.</p>
+
+
+  <div class="related-list">
+    <p class="box-heading">More pool calculators &amp; guides</p>
+    <ul>
+      <li><a href="./">All pool chemistry calculators</a></li>
+      <li><a href="pool-opening-calculator">Pool opening calculator</a> — spring shopping list; size shock for clear, cloudy, or green pools</li>
+      <li><a href="pool-shock-calculator">Pool shock calculator</a> — CYA-based shock level and dose</li>
+      <li><a href="pool-closing-calculator">Pool closing calculator</a> — exact winterizing shopping list</li>
+      <li><a href="chlorine-dose-calculator">Chlorine dose calculator</a> — how much liquid chlorine or cal-hypo to add</li>
+      <li><a href="pool-chlorine-usage-calculator">Chlorine usage calculator</a> — gallons per week and monthly cost based on your pool's demand</li>
+      <li><a href="cya-dilution-calculator">CYA dilution calculator</a> — how much to drain to lower CYA</li>
+      <li><a href="../explained/free-chlorine">Free chlorine explained &rarr;</a></li>
+    </ul>
+  </div>
+
+</div>
+</div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="../">Home</a>
+      <a href="../blog/">Guides</a>
+      <a href="../explained/">Explained</a>
+      <a href="mailto:support@poolchemtracker.com">Support</a>
+      <a href="../privacy-website">Privacy Policy</a>
+      <a href="../terms-website">Terms of Service</a>
+    </div>
+    <p>&copy; 2026 PoolChem Tracker. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  // fl oz of liquid chlorine per 1 ppm FC per 10,000 gallons
+  var LC_DOSES = { lc10: 12.8, lc125: 10.24 };
+  var LC_LABELS = { lc10: '10% liquid chlorine', lc125: '12.5% liquid chlorine' };
+  var SHOCK_MIN_FC = 10;
+
+  var chlorineType = 'lc10';
+
+  window.setChlorine = function (type) {
+    chlorineType = type;
+    var btns = document.querySelectorAll('#chlorine-toggle button');
+    btns[0].classList.toggle('active', type === 'lc10');
+    btns[1].classList.toggle('active', type === 'lc125');
+    calc();
+  };
+
+  // Wire up toggle-group style to the chlorine selector
+  document.getElementById('chlorine-toggle').style.flexDirection = '';
+  document.getElementById('chlorine-toggle').style.alignItems = '';
+
+  function getVal(id) {
+    var v = parseFloat(document.getElementById(id).value);
+    return isNaN(v) ? null : v;
+  }
+
+  function fmtFlOz(n) {
+    n = Math.round(n);
+    if (n >= 128) {
+      var gal = (n / 128).toFixed(1);
+      return gal + ' gal (' + n + ' fl oz)';
+    }
+    if (n >= 32) {
+      var qt = (n / 32).toFixed(1);
+      return qt + ' qt (' + n + ' fl oz)';
+    }
+    if (n >= 16) return n + ' fl oz (1 pt)';
+    return n + ' fl oz';
+  }
+
+  window.calc = function () {
+    var fcEvening = getVal('fc-evening');
+    var fcMorning  = getVal('fc-morning');
+    var cya        = getVal('cya');
+    var vol        = getVal('pool-volume');
+
+    if (fcEvening === null || fcMorning === null) {
+      document.getElementById('results-section').classList.remove('visible');
+      return;
+    }
+
+    var loss = fcEvening - fcMorning;
+
+    var verdictClass, verdictBadge, verdictLossText, verdictExplain;
+
+    if (fcMorning <= 0 && fcEvening > 0) {
+      // Chlorine exhausted — definitive fail, test invalid
+      verdictClass   = 'invalid';
+      verdictBadge   = 'Invalid / Fail';
+      verdictLossText = 'FC hit 0';
+      verdictExplain = '<strong>The pool ran out of chlorine before dawn.</strong> This is a definitive fail — the demand was so high that all available chlorine was consumed before morning. Start with a higher FC (at least 4&ndash;6 ppm) after shocking and retest.';
+    } else if (loss < 0) {
+      // Morning > evening — testing error
+      verdictClass   = 'invalid';
+      verdictBadge   = 'Check readings';
+      verdictLossText = '—';
+      verdictExplain = '<strong>Morning FC cannot be higher than evening FC under normal conditions.</strong> This usually indicates a testing error — inconsistent technique, reagents, or kit. Retest both readings carefully on the next test night.';
+    } else if (loss <= 1) {
+      verdictClass   = 'pass';
+      verdictBadge   = 'Pass';
+      verdictLossText = loss.toFixed(1) + ' ppm';
+      verdictExplain = '<strong>Your pool passed the overnight test.</strong> An FC loss of ' + loss.toFixed(1) + ' ppm is within the normal range for background chlorine demand. There is no indication of active algae or significant organic demand. The pool is ready to swim in or close for winter.';
+    } else if (loss <= 2) {
+      verdictClass   = 'borderline';
+      verdictBadge   = 'Borderline';
+      verdictLossText = loss.toFixed(1) + ' ppm';
+      if (fcEvening < 3) {
+        verdictExplain = '<strong>Borderline result — low starting FC may be a factor.</strong> With only ' + fcEvening.toFixed(1) + ' ppm FC at dusk, a ' + loss.toFixed(1) + ' ppm loss is harder to interpret. Add chlorine to bring starting FC to 4&ndash;6 ppm and retest on a dry, calm night before drawing conclusions.';
+      } else {
+        verdictExplain = '<strong>Borderline result — retest recommended.</strong> A ' + loss.toFixed(1) + ' ppm overnight loss is slightly above the normal threshold. Wind, rain, or a heavy swimmer load earlier that day can sometimes explain it. Repeat the test on a dry, calm night with a starting FC of 4&ndash;6 ppm.';
+      }
+    } else {
+      verdictClass   = 'fail';
+      verdictBadge   = 'Fail';
+      verdictLossText = loss.toFixed(1) + ' ppm';
+      verdictExplain = '<strong>Your pool failed the overnight test.</strong> An FC loss of ' + loss.toFixed(1) + ' ppm indicates active organic demand — most likely algae, bacteria, or biofilm. Shocking is required before closing or swimming. Do not close the pool over this result.';
+    }
+
+    // Build verdict card HTML
+    document.getElementById('verdict-card-container').innerHTML =
+      '<div class="verdict-card ' + verdictClass + '">' +
+        '<div class="verdict-header">' +
+          '<div>' +
+            '<div class="verdict-loss">' + verdictLossText + '</div>' +
+            '<div class="verdict-label">overnight FC loss</div>' +
+          '</div>' +
+          '<div class="verdict-badge">' + verdictBadge + '</div>' +
+        '</div>' +
+        '<div class="verdict-explain">' + verdictExplain + '</div>' +
+      '</div>';
+
+    // Low starting FC warning
+    var infoHtml = '';
+    if (verdictClass !== 'invalid' && fcEvening < 2) {
+      infoHtml = '<div class="info-row"><strong>Low starting FC.</strong> Results from tests that start below 2 ppm are unreliable — the pool may simply not have had enough chlorine to lose. Raise FC to 4&ndash;6 ppm and retest before concluding anything.</div>';
+    }
+    document.getElementById('info-row-container').innerHTML = infoHtml;
+
+    // Shock dose card (only if fail and optional inputs provided)
+    var shockDoseHtml = '';
+    if ((verdictClass === 'fail' || verdictClass === 'invalid') && cya !== null && vol !== null && vol > 0) {
+      var shockTarget  = Math.max(SHOCK_MIN_FC, cya * 0.4);
+      var startingFC   = fcMorning > 0 ? fcMorning : 0;
+      var fcNeeded     = Math.max(0, shockTarget - startingFC);
+      var scale        = vol / 10000;
+      var flOz         = fcNeeded * scale * LC_DOSES[chlorineType];
+
+      shockDoseHtml = '<div class="shock-dose-card">' +
+        '<div class="shock-dose-heading">Shock Dose — ' + LC_LABELS[chlorineType] + '</div>' +
+        '<div class="dose-row"><span class="dose-label">CYA</span><span class="dose-value">' + cya + ' ppm</span></div>' +
+        '<div class="dose-row"><span class="dose-label">Shock target FC</span><span class="dose-value">' + shockTarget.toFixed(0) + ' ppm <span style="font-size:0.8rem;font-weight:400;color:var(--muted);">(CYA &times; 40%' + (cya * 0.4 < SHOCK_MIN_FC ? ', floor ' + SHOCK_MIN_FC + ' ppm' : '') + ')</span></span></div>' +
+        '<div class="dose-row"><span class="dose-label">Current FC (morning)</span><span class="dose-value">' + startingFC.toFixed(1) + ' ppm</span></div>' +
+        '<div class="dose-row"><span class="dose-label">FC to add</span><span class="dose-value">' + fcNeeded.toFixed(1) + ' ppm</span></div>' +
+        '<div class="dose-row" style="background:rgba(255,107,107,0.05);border-radius:6px;padding:0.65rem 0.75rem;margin-top:0.25rem;border-bottom:none;"><span class="dose-label" style="font-weight:700;color:var(--text);">Dose to add</span><span class="dose-value" style="font-size:1.2rem;">' + fmtFlOz(flOz) + '</span></div>' +
+        '<div style="font-size:0.8rem;color:var(--muted);margin-top:0.75rem;line-height:1.6;">Add to pool with pump running, broadcast around perimeter. Retest FC in 4&ndash;6 hours and re-dose if FC drops below shock target before passing an OCLT retest.</div>' +
+      '</div>';
+    } else if ((verdictClass === 'fail' || verdictClass === 'invalid') && (cya === null || vol === null)) {
+      shockDoseHtml = '<div class="info-row"><strong>Enter CYA and pool volume above</strong> to calculate your shock dose.</div>';
+    }
+    document.getElementById('shock-dose-container').innerHTML = shockDoseHtml;
+
+    // Next steps
+    var nextStepsHtml = '';
+    if (verdictClass === 'pass') {
+      nextStepsHtml = '<div class="next-steps">' +
+        '<div class="next-steps-heading">What to do next</div>' +
+        '<div class="step-row"><div class="step-num">1</div><div class="step-text">Maintain FC in your normal target range. No shock needed.</div></div>' +
+        '<div class="step-row"><div class="step-num">2</div><div class="step-text"><strong>Closing the pool?</strong> Use the <a href="pool-closing-calculator" style="color:var(--accent);">closing calculator</a> to get your winterizing chemical list.</div></div>' +
+      '</div>';
+    } else if (verdictClass === 'borderline') {
+      nextStepsHtml = '<div class="next-steps">' +
+        '<div class="next-steps-heading">What to do next</div>' +
+        '<div class="step-row"><div class="step-num">1</div><div class="step-text">Raise FC to 4&ndash;6 ppm and run the test again on a dry, calm night.</div></div>' +
+        '<div class="step-row"><div class="step-num">2</div><div class="step-text">If the retest also shows 1&ndash;2 ppm loss, treat it as a fail and shock the pool.</div></div>' +
+        '<div class="step-row"><div class="step-num">3</div><div class="step-text">If the retest passes (&le;1 ppm), the pool is in good condition.</div></div>' +
+      '</div>';
+    } else if (verdictClass === 'fail' || verdictClass === 'invalid') {
+      nextStepsHtml = '<div class="next-steps">' +
+        '<div class="next-steps-heading">What to do next</div>' +
+        '<div class="step-row"><div class="step-num">1</div><div class="step-text"><strong>Brush the entire pool</strong> — walls, floor, and steps. Algae protects itself on surfaces.</div></div>' +
+        '<div class="step-row"><div class="step-num">2</div><div class="step-text"><strong>Shock to target FC</strong> (CYA &times; 40%). Use the <a href="pool-shock-calculator" style="color:var(--accent);">shock calculator</a> for an exact dose' + (cya !== null && vol !== null ? ' — or use the dose shown above' : '') + '.</div></div>' +
+        '<div class="step-row"><div class="step-num">3</div><div class="step-text">Retest FC every 4&ndash;6 hours. If FC drops below shock target, re-dose.</div></div>' +
+        '<div class="step-row"><div class="step-num">4</div><div class="step-text"><strong>Run the OCLT again</strong> once the water has cleared. Only close or return to normal maintenance after a passing retest.</div></div>' +
+      '</div>';
+    }
+    document.getElementById('next-steps-container').innerHTML = nextStepsHtml;
+
+    document.getElementById('results-section').classList.add('visible');
+  };
+
+  // Fix the toggle-group flex direction for the chlorine selector
+  (function fixToggle() {
+    var tg = document.getElementById('chlorine-toggle');
+    tg.style.flexDirection = 'column';
+    tg.style.height = 'auto';
+  })();
+
+})();
+</script>
+</body>
+</html>
