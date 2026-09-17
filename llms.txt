@@ -20,6 +20,7 @@ PoolChem Tracker helps residential pool owners monitor and balance their water c
 - [Download](https://www.poolchemtracker.com/download): Download the app for iOS and Android
 - [Features](https://www.poolchemtracker.com/features): Detailed feature list with screenshots
 - [About](https://www.poolchemtracker.com/about): The story behind PoolChem Tracker — why it was built, who it is for, the free calculators and guides, and why all data stays on-device
+- [Methodology](https://www.poolchemtracker.com/methodology): How every number on the site is derived — sources (ANSI/APSP/ICC-11, CDC MAHC), the FC/CYA formulas (min FC = CYA × 7.5%, shock = CYA × 40%), pH/TA/CH targets, the LSI formula and CYA correction (effective TA = TA − CYA/3), dosing assumptions, limits, and who writes and reviews the content
 - [Demo](https://www.poolchemtracker.com/demo/): Interactive demo of the app dashboard
 - [Privacy Policy](https://www.poolchemtracker.com/privacy): Privacy policy
 - [Terms of Service](https://www.poolchemtracker.com/terms): Terms of service

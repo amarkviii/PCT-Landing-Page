@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How We Calculate Our Numbers — Methodology &amp; Sources</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="description" content="How every pool chemistry number on this site is derived — sources (ANSI/APSP/ICC-11, CDC), the FC/CYA and LSI formulas, worked examples, assumptions, and limits.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-S8JT1DELF6');
+</script>
+<link rel="canonical" href="https://www.poolchemtracker.com/methodology">
+<meta property="og:type" content="website">
+<meta property="og:title" content="How We Calculate Our Numbers — Methodology &amp; Sources">
+<meta property="og:description" content="How every pool chemistry number on this site is derived — sources, the FC/CYA and LSI formulas, worked examples, assumptions, and limits.">
+<meta property="og:url" content="https://www.poolchemtracker.com/methodology">
+<meta property="og:site_name" content="PoolChem Tracker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How We Calculate Our Numbers — Methodology &amp; Sources">
+<meta name="twitter:description" content="How every pool chemistry number on this site is derived — sources, the FC/CYA and LSI formulas, worked examples, assumptions, and limits.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"How We Calculate Our Numbers — Methodology & Sources","description":"How every pool chemistry number on PoolChem Tracker is derived: published sources, the FC/CYA and LSI formulas, worked examples, assumptions, and limits.","url":"https://www.poolchemtracker.com/methodology","datePublished":"2026-09-17","dateModified":"2026-09-17","lastReviewed":"2026-09-17","author":{"@type":"Person","name":"Jeffrey Thompson","url":"https://www.poolchemtracker.com/about"},"publisher":{"@type":"Organization","name":"PoolChem Tracker","logo":{"@type":"ImageObject","url":"https://www.poolchemtracker.com/Logo/logo-256.webp"}},"isPartOf":{"@type":"WebSite","name":"PoolChem Tracker","url":"https://www.poolchemtracker.com/"},"citation":["ANSI/APSP/ICC-11 American National Standard for Water Quality in Public Pools and Spas","CDC Model Aquatic Health Code (MAHC)"]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.poolchemtracker.com/"},{"@type":"ListItem","position":2,"name":"Methodology"}]}
+</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .skip-link { position: absolute; left: 0; top: -3rem; background: var(--accent); color: #000; padding: 0.6rem 1rem; border-radius: 0 0 8px 0; font-weight: 700; font-size: 0.9rem; text-decoration: none; z-index: 1000; transition: top 0.15s; }
+  .skip-link:focus { top: 0; }
+  main:focus { outline: none; }
+
+  :root {
+    --bg: #0a1628;
+    --bg2: #0d1f3c;
+    --card: #0f1e38;
+    --accent: #4facfe;
+    --accent2: #00f2fe;
+    --text: #e8edf5;
+    --muted: #9fb0c3;
+    --good: #2ed573;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  body {
+    font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Header */
+  header {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  header .header-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .logo .logo-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .logo .logo-name span { color: var(--accent); }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .header-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--accent);
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+
+  .header-link:hover {
+    background: var(--accent);
+    color: #000;
+  }
+
+  .header-badge { display: inline-flex; }
+  .header-badge img { height: 36px; }
+
+  .app-store-badge {
+    display: inline-block;
+    transition: opacity 0.2s;
+  }
+
+  .app-store-badge:hover { opacity: 0.85; }
+  .app-store-badge img { height: 54px; }
+
+  /* Page header */
+  .page-header {
+    padding: 5rem 0 1.5rem;
+    text-align: center;
+  }
+
+  .page-header h1 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+
+  .page-header h1 .gradient {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .page-header p {
+    color: var(--muted);
+    font-size: 1.1rem;
+  }
+
+  .byline {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .byline a { color: var(--muted); text-decoration: none; }
+  .byline a:hover { color: var(--text); }
+
+  /* Content */
+  .content {
+    padding: 2rem 0 1rem;
+  }
+
+  .content h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 2.5rem 0 0.75rem;
+  }
+
+  .content h2:first-child {
+    margin-top: 0;
+  }
+
+  .content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 1.5rem 0 0.5rem;
+  }
+
+  .content p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  .content p strong { color: var(--text); font-weight: 600; }
+
+  .content a { color: var(--accent); text-decoration: none; font-weight: 600; }
+  .content a:hover { text-decoration: underline; }
+
+  .content ul { color: var(--muted); font-size: 0.95rem; margin: 0 0 1rem 1.25rem; }
+  .content ul li { margin-bottom: 0.5rem; }
+
+  /* Formula callout */
+  .formula {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+    font-size: 1rem;
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .formula span { color: var(--muted); font-weight: 400; font-size: 0.85rem; display: block; margin-top: 0.4rem; }
+
+  /* Tables */
+  .table-wrap { overflow-x: auto; margin: 1rem 0 1.5rem; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  th {
+    color: var(--text);
+    font-weight: 700;
+    background: var(--card);
+  }
+
+  td { color: var(--muted); }
+
+  /* Sources list */
+  .sources {
+    list-style: none;
+    margin: 1rem 0;
+    padding: 0;
+  }
+
+  .sources li {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .sources li strong { color: var(--text); display: block; margin-bottom: 0.25rem; }
+  .sources li span { color: var(--muted); font-size: 0.9rem; }
+
+  /* Note box */
+  .note {
+    background: rgba(79,172,254,0.08);
+    border: 1px solid rgba(79,172,254,0.25);
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+  }
+
+  .note p { margin-bottom: 0; }
+
+  /* CTA */
+  .cta {
+    padding: 3.5rem 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+
+  .cta h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+  .cta p { color: var(--muted); margin-bottom: 1.5rem; font-size: 1rem; }
+
+  /* Footer */
+  footer {
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    .page-header { padding: 3rem 0 1rem; }
+    .header-badge { display: none; }
+    .header-link { font-size: 0.8rem; padding: 0.35rem 0.75rem; }
+    .header-right { gap: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header>
+  <div class="header-inner">
+    <a href="./" class="logo">
+      <div class="logo-icon"><img src="Logo/logo-96.webp" alt="PoolChem Tracker" width="96" height="96"></div>
+      <span class="logo-name">Pool<span>Chem</span> Tracker</span>
+    </a>
+    <div class="header-right">
+      <a href="features" class="header-link">Features</a>
+      <a href="blog/" class="header-link">Guides</a>
+      <a href="tools/" class="header-link">Tools</a>
+      <a href="download" class="header-link">Download</a>
+    </div>
+  </div>
+</header>
+<main id="main-content" tabindex="-1">
+
+<section class="page-header">
+  <div class="container">
+    <h1>How we calculate <span class="gradient">our numbers</span></h1>
+    <p>Every target range and formula on this site is derived from published standards — not invented. Here is exactly where the numbers come from.</p>
+  </div>
+</section>
+<div class="byline">By <a href="about">Jeffrey Thompson</a> &middot; Last reviewed September 17, 2026</div>
+
+<section class="content">
+  <div class="container">
+
+    <h2>Our sources</h2>
+    <p>Where the pool industry has an established standard, we follow it. Where practitioners disagree, we say so and explain which convention we use and why.</p>
+    <ul class="sources">
+      <li><strong>ANSI/APSP/ICC-11 &mdash; Water Quality in Public Pools and Spas</strong><span>The American National Standard maintained by the Pool &amp; Hot Tub Alliance (PHTA). Basis for our water-balance approach and LSI usage, including the guidance against manipulating inputs to reach a target index.</span></li>
+      <li><strong>CDC Model Aquatic Health Code (MAHC)</strong><span>Public-health guidance for disinfection and contamination response — the basis for our shock and fecal/vomit-contamination recommendations.</span></li>
+      <li><strong>Chlorine / cyanuric-acid equilibrium chemistry</strong><span>The FC-depends-on-CYA relationship (minimum FC and shock levels scale with CYA) comes from the well-documented HOCl / chlorocyanurate equilibrium.</span></li>
+      <li><strong>Manufacturer dosing data</strong><span>Product strengths (e.g. 10% and 12.5% liquid chlorine, 31.45% and 14.5% muriatic acid) and dose math use published product concentrations.</span></li>
+    </ul>
+
+    <h2>Free chlorine and CYA</h2>
+    <p>The single most important rule on the site: safe free chlorine is not a fixed number — it depends on your stabilizer (CYA) level.</p>
+    <div class="formula">
+      Minimum FC = CYA &times; 7.5%&nbsp;&nbsp;(&times;&nbsp;5% for saltwater / SWG)<br>
+      Shock FC = CYA &times; 40%
+      <span>Example: at CYA 50, minimum FC = 3.75 ppm, target 5&ndash;7 ppm, and shock = 20 ppm.</span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>CYA (ppm)</th><th>Minimum FC</th><th>Target FC</th><th>Shock FC</th></tr></thead>
+        <tbody>
+          <tr><td>30</td><td>2.25 ppm</td><td>3&ndash;5 ppm</td><td>12 ppm</td></tr>
+          <tr><td>50</td><td>3.75 ppm</td><td>5&ndash;7 ppm</td><td>20 ppm</td></tr>
+          <tr><td>80</td><td>6 ppm</td><td>7&ndash;9 ppm</td><td>32 ppm</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>These values define every FC minimum, target, and shock number used across the site. The complete chart at every CYA value from 0&ndash;100 is on the <a href="blog/fc-cya-chart-chlorine-levels">FC/CYA chart</a>, and the underlying reason CYA changes the target is explained in <a href="explained/fc-cya-ratio">FC/CYA ratio</a>.</p>
+
+    <h2>pH, alkalinity, and calcium targets</h2>
+    <p>Our standing target ranges, used consistently on every guide and calculator:</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Parameter</th><th>Target</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>pH</td><td>7.4&ndash;7.8</td><td>7.5&ndash;7.6 sweet spot. Fix alkalinity first when both are off.</td></tr>
+          <tr><td>Total alkalinity</td><td>60&ndash;120 ppm</td><td>60&ndash;80 ppm for saltwater pools to slow pH rise.</td></tr>
+          <tr><td>Calcium hardness</td><td>200&ndash;400 ppm (plaster)</td><td>150&ndash;250 ppm for vinyl/fiberglass. Biggest single LSI lever.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Langelier Saturation Index (LSI)</h2>
+    <p>We calculate LSI from the values you actually test &mdash; <strong>pH, calcium hardness, total alkalinity, water temperature, and total dissolved solids (TDS)</strong> &mdash; using the full formula, not a simplified approximation. We also apply the CYA correction to carbonate alkalinity:</p>
+    <div class="formula">
+      Effective TA = TA &minus; (CYA &divide; 3)
+      <span>Balanced water target: LSI between &minus;0.3 and +0.3. Below that range water is corrosive; above it, scale-forming.</span>
+    </div>
+    <p>The full equation, the temperature and TDS factors, and a per-factor breakdown are shown on the <a href="explained/lsi">LSI explainer</a> and computed live by the <a href="tools/lsi-calculator">LSI calculator</a>. Two calculators can return different LSI values for the same water; the four reasons why are documented in <a href="blog/why-lsi-calculators-disagree">why LSI calculators disagree</a>.</p>
+    <div class="note">
+      <p><strong>We do not let you "tune" inputs to hit a perfect LSI.</strong> The correct method is to test your water first, then calculate LSI from those real measurements. The Pool &amp; Hot Tub Alliance specifically warns against adjusting inputs just to reach a desired index, because that is inconsistent with the ANSI/APSP/ICC-11 standard. Our tools follow that approach.</p>
+    </div>
+
+    <h2>Dosing assumptions and limits</h2>
+    <ul>
+      <li>Doses assume <strong>well-mixed water</strong> and the product strength you select (e.g. 10% vs 12.5% liquid chlorine, 31.45% vs 14.5% muriatic acid).</li>
+      <li>Target ranges are <strong>general guidance, not a substitute for testing your own water.</strong> Always test before dosing, and re-test after.</li>
+      <li><strong>Climate matters.</strong> High-evaporation, hard-fill-water, and high-UV pools (e.g. desert pools) often need different CYA and calcium targets than national averages; those cases are called out where relevant.</li>
+      <li>Calculators round to practical measuring increments; small differences from a hand calculation are expected.</li>
+    </ul>
+
+    <h2>What this site is and isn&rsquo;t</h2>
+    <p>This is plain-language pool-owner education built on established chemistry and industry standards. It is <strong>not</strong> professional water-treatment consulting, and it is not medical or safety advice. For commercial pools, unusual water sources, or health-related questions, consult a licensed pool professional or your local health authority.</p>
+
+    <h2>Who writes and maintains this</h2>
+    <p>PoolChem Tracker is written and maintained by <a href="about">Jeffrey Thompson</a>, a pool owner and developer who has published 50+ guides on pool chemistry. I am not a chemist and do not claim to be one &mdash; everything here is built on established pool-chemistry principles, the industry standards listed above, and years of testing, tracking, and maintaining a real saltwater pool in the California desert.</p>
+    <p>Found something that looks wrong or out of date? I read every email and correct errors: <a href="mailto:support@poolchemtracker.com">support@poolchemtracker.com</a></p>
+
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2>See the chemistry in action</h2>
+    <p>PoolChem Tracker applies these same formulas to your actual readings and tracks them over time.</p>
+    <div style="display:flex;gap:0.75rem;justify-content:center;align-items:center;flex-wrap:wrap;">
+      <a href="https://apps.apple.com/app/id6762652630?ct=web_methodology" class="app-store-badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'ios'})"><img loading="lazy" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.poolchemtracker.app&utm_source=website&utm_medium=methodology_cta" class="app-store-badge" target="_blank" rel="noopener" onclick="gtag('event','store_click',{'platform':'android'})"><img loading="lazy" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="width:auto;"></a>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="./">Home</a>
+      <a href="about">About</a>
+      <a href="methodology">Methodology</a>
+      <a href="blog/">Guides</a>
+      <a href="mailto:support@poolchemtracker.com">Support</a>
+      <a href="legal">Legal</a>
+    </div>
+    <p>&copy; 2026 PoolChem Tracker. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
