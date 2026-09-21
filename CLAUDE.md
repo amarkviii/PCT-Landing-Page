@@ -1,7 +1,7 @@
 # PCT Landing Page
 
 ## Location
-`/Users/jeffreythompson/PoolChem-iOS-Web/landing-page/`
+`/Users/jeffreythompson/PoolChem-Web`
 GitHub: `git@github.com:amarkviii/PCT-Landing-Page.git`
 
 ## Deploy
