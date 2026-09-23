@@ -23,11 +23,11 @@ index.html          — Homepage (problem-centric hub)
 features.html       — Feature overview
 about.html          — About the app
 download.html       — Download / app page
-tools/              — Pool calculators (13)
+methodology.html    — How the numbers are calculated
+tools/              — Pool calculators (18)
 explained/          — Chemistry reference (13 pages)
-blog/               — Pool care guides (56 articles)
+blog/               — Pool care guides (84 articles + topic hubs)
 demo/               — Seeded interactive demo
-app/                — Standalone web app (PWA)
 privacy-app.html    — App privacy policy
 privacy-website.html — Website privacy policy
 terms-app.html      — App terms of service

@@ -5,7 +5,7 @@
 GitHub: `git@github.com:amarkviii/PCT-Landing-Page.git`
 
 ## Deploy
-Cloudflare Pages — auto-deploys from `main` branch.
+Cloudflare **Workers** (Static Assets), worker `pct-landing-page` — push to `main` auto-builds via `npx wrangler deploy`. `wrangler.jsonc` must stay at repo root. `.assetsignore` keeps `*.md` and other internal files off the live site.
 
 ## Structure
 - `blog/` — blog posts
