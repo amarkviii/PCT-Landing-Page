@@ -314,7 +314,7 @@ Health Score: **100 (Excellent)** — 146 internal URLs (152 × 2xx, 4 × 3xx), 
 
 | Issue | Count | Change | Priority | Notes |
 |-------|-------|--------|----------|-------|
-| Meta description too long | 5 | +1 | **Fixed Sep 23 (new one)** | New: `/methodology` (161 chars, from the Sep 20–21 edits) → trimmed to 148. Other 4 are older: `muriatic-acid-calculator` (173, protected, do not touch), `pool-closing-chemicals-checklist` (175), `low-cya-in-pool` (190), `what-is-lsi` (163). |
+| Meta description too long | 5 | +1 | **Fixed Sep 23 (4 of 5)** | `/methodology` 161→148, `low-cya-in-pool` 190→154, `pool-closing-chemicals-checklist` 175→151, `what-is-lsi` 163→151 (og/twitter copies updated where identical). Left: `muriatic-acid-calculator` (173, protected, do not touch). Expect 1 remaining next crawl. |
 | Open Graph tags incomplete | 7 | +1 | **Fixed Sep 23 (new one)** | New: `/methodology` had no `og:image` → added og:image + twitter:image (social-card.png). Other 6 are legal/about pages (about, legal, privacy-app, privacy-website, terms-app, terms-website), all missing only og:image. Low value, optional. |
 | Changed pages not submitted to IndexNow | 47 | +45 | Info | Expected after the Sep 17–21 edit batch. Pages were submitted by hand to GSC + Bing. An IndexNow ping would speed up Bing. |
 | Pages dropped from Top 10 | 8 | +5 | Watch | Was 3. Consistent with the known Aug-15 eligibility loss. Drill down in Ahrefs to list the 8 URLs and cross-check against the trust-line experiment (HOLD until Oct 15). |
