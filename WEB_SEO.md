@@ -28,7 +28,7 @@ Newest weekly report is first. Data history lives in the Performance History tab
 - **Seasonal pool-closing signal on every channel:** Bing pool-closing-calculator L7 clicks 5→20; Copilot how-to-close-a-pool-for-winter 30d 223→3,832; GA4 users on pool-closing-calculator and pool-closing-chemicals-checklist went from 0 to positive. **Watch whether GSC shows a matching move Oct 3** — that would be the first cross-channel confirmation.
 - **Content opportunities (report's own read):** only `/tools/pool-ph-calculator` (pos 8.95, 38 impr, 0% CTR) and `/tools/dry-acid-calculator` (pos 2.61, 28 impr, 0% CTR) are worth a title/meta look. pool-ph-calculator is on hold (do not touch before Oct 15); dry-acid volume is too thin to act on. Pages in the pos 8–15 band all just dropped into it from better positions — none has sat there across runs, so the internal-link/refresh rule doesn't apply yet.
 - **Newer severe decliners:** `/explained/cyanuric-acid` 21.24→67.15, `/blog/what-is-lsi` 17.64→86.08 (Sep 6 batch), `/blog/pool-cloudy-after-shocking` 7.45→41.67, `/blog/pool-startup-chemicals-checklist` 19.38→41.76 (Sep 6 batch).
-- **Apps:** iOS 28d conversion 6.23% (5th straight decline). Google Play Installs 18 days stale; Sales report now correctly formatted but only through Aug 30.
+- **Apps:** iOS 28d conversion 6.23% (5th straight decline). Google Play Installs 18 days stale; Sales report now correctly formatted but only through Aug 30. The staleness is at the Play Console, not a missed export.
 - **Report recommends no new content or technical work.**
 
 ---
@@ -37,10 +37,10 @@ Newest weekly report is first. Data history lives in the Performance History tab
 
 All manual, outside the repo, unless noted.
 
-1. Export a fresh Google Play Installs overview (through Sep 25) and a September Sales report.
-2. Check that scheduled tasks run on the new computer, so the Oct 3 run isn't missed or duplicated.
-3. Confirm whether the Swim University nudge (scheduled Sep 9) was sent — unconfirmed for 3 runs.
-4. Ahrefs: list the 8 "Pages dropped from Top 10" URLs, the 7 "Organic traffic dropped" URLs, and the new "SERP title changed" URL (Sep 22 audit). Cross-check against the trust-line experiment.
+1. Check that scheduled tasks run on the new computer, so the Oct 3 run isn't missed or duplicated.
+2. Ahrefs: wait for the Tue Sep 29 crawl, then list the "Pages dropped from Top 10", "Organic traffic dropped" and new "SERP title changed" URLs from that audit (Sep 22 counts: 8, 7, 1). Cross-check against the trust-line experiment. No drill-down on the Sep 22 audit.
+3. Google Play: the Play Console itself hasn't published newer data (Installs stop at Sep 8, Sales at Aug 30) — not a missed export. Re-export once the Console updates. Treat Play as stale until then; no action needed per report.
+4. Swim University follow-up: deliberately held until after the Oct 15 read (the Sep 9 nudge was not sent). Not an open item before then.
 5. Re-check `/tools/pool-chemical-addition-order` indexing on Google (still "Discovered - currently not indexed" as of Sep 20; don't spend more effort before Oct 15).
 6. Re-check Bing crawl of `baking-soda-vs-soda-ash` and the 4 document-size-0 pages (see Watch List).
 7. Still owed from the Sep 17 audit: GSC query-level check on the homepage 36.5→78 position drop; query-level GSC before/after Aug 15 + live AIO-occupancy check on vanished informational queries (would move Event 1's cause from Likely to Confirmed).
@@ -65,8 +65,8 @@ All manual, outside the repo, unless noted.
 - **`/explained/ph`** — confirmed AIO absorption. Citation authority only; no title/meta changes.
 - **iOS conversion rate** — 28d 13.02→12.14→8.20→7.04→**6.23%** (Sep 26). Five straight declines, not stabilized.
 - **GA4 key events** — 28d 17→27→**35**. Genuine, growing metric (`store_click` starred Aug 29).
-- **Google Play data** — Installs latest Sep 8 with an Aug 22–31 gap; Sales only through Aug 30. Needs September exports.
-- **Swim University (Matt Giovanisci)** — highest-leverage backlink target; Sep 9 nudge unconfirmed.
+- **Google Play data** — Installs latest Sep 8 with an Aug 22–31 gap; Sales only through Aug 30. Stale at the source (Play Console hasn't updated), not a missed export. Re-export when the Console catches up.
+- **Swim University (Matt Giovanisci)** — highest-leverage backlink target. Follow-up held until after Oct 15 (Sep 9 nudge not sent).
 - **August 2026 spam update (Aug 18–21)** — Possible-tier link to Event 2. Recovery, if applicable, takes weeks.
 - **Bing crawl gaps** — `baking-soda-vs-soda-ash` "Discovered but not crawled" (Request Indexing clicked Sep 17 and Sep 20). Document-size-0: `lsi-pool-surface-types`, `year-round-pool-maintenance-desert-pools`, `cya-effect-on-lsi`, `saltwater-pool-salt-calculator` (resubmitted Sep 12; not verifiable from report data).
 - **No action needed:** `/demo` and `/demo/` blocked by robots.txt (JS app, intentional); 27 redirect pages "Failed" GSC validation (expected).
@@ -237,8 +237,8 @@ Conversion = first-time downloads ÷ unique-device impressions. 7-day conversion
 | Meta description too long | 5 | Fixed 4 on Sep 23 (/methodology, low-cya-in-pool, pool-closing-chemicals-checklist, what-is-lsi). `muriatic-acid-calculator` (173 chars) left — protected. |
 | Open Graph incomplete | 7 | /methodology og:image fixed Sep 23. Other 6 are legal/about pages missing only og:image — optional. |
 | Changed pages not submitted to IndexNow | 47 | Info. Pages were submitted by hand to GSC + Bing. |
-| Pages dropped from Top 10 | 8 (was 3) | Identify URLs — Open Action 4. |
-| Organic traffic dropped | 7 (was 0) | Identify URLs — Open Action 4. |
+| Pages dropped from Top 10 | 8 (was 3) | Identify URLs from the Sep 29 audit — Open Action 2. |
+| Organic traffic dropped | 7 (was 0) | Identify URLs from the Sep 29 audit — Open Action 2. |
 | SERP title changed | 2 (was 1) | baking-soda-calculator fixed Sep 15; find the new URL. |
 | Pages added to sitemaps | 1 | Probably /methodology. |
 
@@ -252,7 +252,7 @@ Earlier fixes confirmed: Sep 8 slow pages (Cache-Control in `_headers`) and what
 
 | Target | Priority | Status |
 |--------|----------|--------|
-| Swim University | High | Responded 2026-08-21: "still battle-testing it." Nudge scheduled 2026-09-09 — unconfirmed whether sent. Matt is cited in AIO for baking soda + chlorine queries. |
+| Swim University | High | Responded 2026-08-21: "still battle-testing it." The Sep 9 nudge was not sent — follow-up held until after the Oct 15 read. Matt is cited in AIO for baking soda + chlorine queries. |
 | Leisure Pools USA | High | Not contacted |
 | Poolburg | Medium | Not contacted |
 | Swimmer Living | Medium | Not contacted |
