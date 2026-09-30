@@ -67,7 +67,7 @@ All manual, outside the repo, unless noted.
 - **GA4 key events** — 28d 17→27→**35**. Genuine, growing metric (`store_click` starred Aug 29).
 - **Google Play data** — Installs latest Sep 8 with an Aug 22–31 gap; Sales only through Aug 30. Stale at the source (Play Console hasn't updated), not a missed export. Re-export when the Console catches up.
 - **New referring domain (Sep 29 Ahrefs)** — `/blog/pool-chlorine-levels-chart` gained 1 dofollow referring domain (0→1). Same crawl: `/blog/pool-chemistry-heat-wave` lost 1 of its 2 referring domains. Not identified from Backlinks page 1. Pool-industry editorial links already exist (Shasta Pool Supply, Pool Bros Texas, saltwaterpoolanswers — see Backlinks & Outreach).
-- **Homepage spam-link wave** — 418 referring domains total; the newest 50 are all spam, first seen Sep 28–29 (~25/day), nearly all nofollow. Dofollow spam so far: forbesstories.com, murvi.shop, nimbra.shop, archive-hu.com, betulcrime.com, corvio.shop, cartermanageus.com. Next Tuesday: note the referring-domain total to see whether the wave continues. Decide on a domain-level disavow after the Oct 15 read, not before.
+- **Homepage spam-link wave** — 418 referring domains total; the newest 50 are all spam, first seen Sep 28–29 (~25/day), nearly all nofollow. Dofollow spam so far: forbesstories.com, murvi.shop, nimbra.shop, archive-hu.com, betulcrime.com, corvio.shop, cartermanageus.com. Next Tuesday: note the referring-domain total to see whether the wave continues. Decide on a domain-level disavow after the Oct 15 read, not before. GSC Links (Sep 29) shows none of the `.shop` spam — Google appears to be ignoring it, so a disavow may not be needed at all.
 - **Swim University (Matt Giovanisci)** — highest-leverage backlink target. Follow-up held until after Oct 15 (Sep 9 nudge not sent).
 - **August 2026 spam update (Aug 18–21)** — Possible-tier link to Event 2. Recovery, if applicable, takes weeks.
 - **Bing crawl gaps** — `baking-soda-vs-soda-ash` "Discovered but not crawled" (Request Indexing clicked Sep 17 and Sep 20). Document-size-0: `lsi-pool-surface-types`, `year-round-pool-maintenance-desert-pools`, `cya-effect-on-lsi`, `saltwater-pool-salt-calculator` (resubmitted Sep 12; not verifiable from report data).
@@ -322,6 +322,27 @@ Earlier fixes confirmed: Sep 8 slow pages (Cache-Control in `_headers`) and what
   - `calculatedhome.com` (DR 1.2) — 4 calculator pages → fc-cya-chart and how-to-raise-pool-alkalinity.
 - **Spam wave to the homepage:** Referring domains total **418**. Sorted by first seen, the newest 50 (page 1) are **all** Ahrefs-tagged SPAM and all first seen Sep 28–29 — ~25 new spam domains per day, 1 link each, 49 of 50 nofollow. The one dofollow is `forbesstories.com` (DR 12, SPAM — a Forbes lookalike, not Forbes), Sep 29. Mostly `.shop` domains on an identical template (`/1uu8h02-…`). ~6 are dofollow (murvi.shop, nimbra.shop, archive-hu.com, betulcrime.com, corvio.shop, cartermanageus.com); archive-hu first seen Aug 13, two days before the collapse. Google says it ignores links like these. **No disavow before Oct 15** — a sitewide change would confound the experiment read. Revisit then (domain-level disavow of the dofollow spam only).
 - The pool-chlorine-levels-chart gain / pool-chemistry-heat-wave loss from the Site Audit didn't appear on page 1; not identified.
+
+**Sep 29 GSC Links → Top linking sites (what Google actually counts):** 208 total external links (Aug 16: 133), 18 sites.
+
+| Site | Linking pages | Target pages | Note |
+|------|------|------|------|
+| apple.com | 84 | 1 | App Store |
+| reddit.com | 77 | 7 | |
+| bsky.app | 13 | 12 | Own profile |
+| **saltwaterpoolanswers.com** | **10** | 1 | Pool content site — Google sees 10 pages (Ahrefs showed 3) |
+| appagg.com | 5 | 1 | App directory |
+| **calculatedhome.com** | 3 | 2 | Calculator site |
+| linkedin.com | 3 | 1 | |
+| fieldwynn.com | 2 | 1 | Unknown — not yet checked |
+| google.com | 2 | 2 | |
+| alternativeto.net, chrome-stats.com, github.com | 1 each | 1 | Directories/tools |
+| **azpooladvisor.com, azpoolsmagazine.com, paradisepoolaz.com** | 1 each | 1 | **Arizona pool sites** — fits the desert-pools content |
+| **randrswimmingpools.com** | 1 | 1 | Pool builder/service |
+| **shastapoolsupply.com** | 1 | 1 | **Confirmed counted by Google** (Ahrefs first seen Jul 29) |
+| digivsf.ir | 1 | 1 | Likely spam — the only one |
+
+Read: Google counts **~7 pool-industry sites** (saltwaterpoolanswers, calculatedhome, Shasta, 3 Arizona pool sites, R&R Swimming Pools). **None of the ~400 `.shop` spam domains appear** — Google is ignoring them, which further lowers the case for a disavow. `poolbrostx.com` (Ahrefs Sep 16) isn't listed yet — too new or not indexed. GSC doesn't show first-seen dates, so it can't say when the Arizona/R&R links appeared.
 
 | Target | Priority | Status |
 |--------|----------|--------|
