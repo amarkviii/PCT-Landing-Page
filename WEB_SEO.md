@@ -101,6 +101,23 @@ All manual, outside the repo, unless noted.
 
 ---
 
+## iOS V2 Launch Plan (target: end of 2026)
+
+V2 of the iOS app ("more native iOS") is planned for completion by end of 2026. Aim to be live by Dec–Jan so ratings and fixes settle before the Apr–May 2027 pool-opening season.
+
+**Why it matters for SEO/growth (Sep 29 read):** the site is a weak direct download driver. 28d GA4 users fell ~95% (4,205 → 191) while iOS 28d downloads fell ~55% (~42 → 19, partly seasonal). iOS conversion (13.02% → 6.23%, five straight declines) is the more controllable lever. Plan Google recovery as upside, not the base case.
+
+**Tie-ins at V2 launch:**
+1. **App Store listing refresh** — new native screenshots, subtitle, keywords; use Product Page Optimization (A/B tests) to compare against the current listing.
+2. **In-app rating prompt** (`SKStoreReviewController`) — more ratings for App Store conversion, and makes an honest `aggregateRating` on `/download` possible (fixes the Ahrefs rich-results error without fake markup).
+3. **Site refresh as one post-Oct-15 batch** — `/download` schema `softwareVersion` (currently 1.20.4), screenshots, features page, `llms.txt`.
+4. **Swim University follow-up** — use V2 as the reason (their Aug 21 reply was "still battle-testing it").
+5. **Android stays on V1** — decided Sep 29: V2 is iOS-only for now; get iOS right first, no Android V2 planned yet. At launch, site copy that describes V2 features (features page, `/download`, screenshots, schema) must say they're iOS, so Android visitors aren't promised features the Play app doesn't have. Keep the Play badges and the Android app's own description accurate to V1.
+
+**Winter focus (low search demand until ~March):** App Store conversion, V2, and outreach/backlinks — not new Google-specific site changes.
+
+---
+
 ## Pending Checks (pre-experiment fixes)
 
 | Page | Change | Status |
