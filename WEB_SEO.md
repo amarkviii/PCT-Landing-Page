@@ -38,7 +38,7 @@ Newest weekly report is first. Data history lives in the Performance History tab
 All manual, outside the repo, unless noted.
 
 1. Check that scheduled tasks run on the new computer, so the Oct 3 run isn't missed or duplicated.
-2. Ahrefs: wait for the Tue Sep 29 crawl, then list the "Pages dropped from Top 10", "Organic traffic dropped" and new "SERP title changed" URLs from that audit (Sep 22 counts: 8, 7, 1). Cross-check against the trust-line experiment. No drill-down on the Sep 22 audit.
+2. Ahrefs: Sep 29 crawl is in. "Pages dropped from Top 10" and "Organic traffic dropped" URLs logged (see Ahrefs Site Audits). Referring-domain loss is `/blog/pool-chemistry-heat-wave` (2→1). "SERP title changed" cleared. Backlinks page 1 reviewed (see Backlinks & Outreach) — found real pool-industry links and a homepage spam wave. The specific gained/lost domain stays unidentified: Referring domains page 1 is all Sep 28–29 spam, so the real one is buried. Closed — not worth more digging. Rich-results error is `/download` (missing rating/review in SoftwareApplication schema) — logged, low priority.
 3. Google Play: the Play Console itself hasn't published newer data (Installs stop at Sep 8, Sales at Aug 30) — not a missed export. Re-export once the Console updates. Treat Play as stale until then; no action needed per report.
 4. Swim University follow-up: deliberately held until after the Oct 15 read (the Sep 9 nudge was not sent). Not an open item before then.
 5. Re-check `/tools/pool-chemical-addition-order` indexing on Google (still "Discovered - currently not indexed" as of Sep 20; don't spend more effort before Oct 15).
@@ -66,6 +66,8 @@ All manual, outside the repo, unless noted.
 - **iOS conversion rate** — 28d 13.02→12.14→8.20→7.04→**6.23%** (Sep 26). Five straight declines, not stabilized.
 - **GA4 key events** — 28d 17→27→**35**. Genuine, growing metric (`store_click` starred Aug 29).
 - **Google Play data** — Installs latest Sep 8 with an Aug 22–31 gap; Sales only through Aug 30. Stale at the source (Play Console hasn't updated), not a missed export. Re-export when the Console catches up.
+- **New referring domain (Sep 29 Ahrefs)** — `/blog/pool-chlorine-levels-chart` gained 1 dofollow referring domain (0→1). Same crawl: `/blog/pool-chemistry-heat-wave` lost 1 of its 2 referring domains. Not identified from Backlinks page 1. Pool-industry editorial links already exist (Shasta Pool Supply, Pool Bros Texas, saltwaterpoolanswers — see Backlinks & Outreach).
+- **Homepage spam-link wave** — 418 referring domains total; the newest 50 are all spam, first seen Sep 28–29 (~25/day), nearly all nofollow. Dofollow spam so far: forbesstories.com, murvi.shop, nimbra.shop, archive-hu.com, betulcrime.com, corvio.shop, cartermanageus.com. Next Tuesday: note the referring-domain total to see whether the wave continues. Decide on a domain-level disavow after the Oct 15 read, not before.
 - **Swim University (Matt Giovanisci)** — highest-leverage backlink target. Follow-up held until after Oct 15 (Sep 9 nudge not sent).
 - **August 2026 spam update (Aug 18–21)** — Possible-tier link to Event 2. Recovery, if applicable, takes weeks.
 - **Bing crawl gaps** — `baking-soda-vs-soda-ash` "Discovered but not crawled" (Request Indexing clicked Sep 17 and Sep 20). Document-size-0: `lsi-pool-surface-types`, `year-round-pool-maintenance-desert-pools`, `cya-effect-on-lsi`, `saltwater-pool-salt-calculator` (resubmitted Sep 12; not verifiable from report data).
@@ -228,7 +230,52 @@ Conversion = first-time downloads ÷ unique-device impressions. 7-day conversion
 |------|--------|------|--------|----------|---------|--------------|
 | Sep 8 | 100 | 148 | 0 | 21 | 36 | 57 |
 | Sep 15 | 100 | 148 | 0 | 18 | 25 | 43 |
-| **Sep 22** | **100** | **146** | **0** | **18** | **76** | **94** |
+| Sep 22 | 100 | 146 | 0 | 18 | 76 | 94 |
+| **Sep 29** | **100** | **151** | **0** | **13** | **35** | **48** |
+
+**Sep 29 "What's new" vs Sep 22** (from the Overview PDF, `~/Claude CoWork/Ahrefs Reports/Overview - Poolchemtracker.pdf`; 151 = 143 internal + 8 resources; 152 × 2xx, 1 × 3xx; 3,402 links found, 19 blocked by robots.txt):
+
+| Issue | Count | Change | Status |
+|-------|-------|--------|--------|
+| Meta description changed | 4 | New | Expected — the Sep 23 meta fixes (4 pages). |
+| No. of referring domains dropped | 1 | New | `/blog/pool-chemistry-heat-wave` — referring domains 2→1, backlinks 2→1 (dofollow 2→1). No Ahrefs traffic, no Top 10 keywords, only 2 internal inlinks (cloudy-pool-after-rain, pool-maintenance hub). Control page, untouched since the Sep 6 batch (1e2798d). Which domain was lost: check Site Explorer → Backlinks → Lost. |
+| Pages dropped from Top 10 | 10 | +2 (was 8) | URLs below. Sep 22 URLs were never pulled, so the 2 new ones can't be named. |
+| Organic traffic dropped | 8 | +1 (was 7) | 7 overlap the Top 10 list (all except pool-ph-calculator, baking-soda-calculator, /blog/ph/). Only new URL: `/tools/calcium-hardness-calculator` (below). |
+
+**Sep 29 "Pages dropped from Top 10" — all 10 URLs** (Ahrefs estimates, not GSC; Sep 22 → Sep 29):
+
+| Page | Group | Ahrefs traffic | Top 10 kws | Top 3 kws | Top keyword (pos) |
+|------|-------|------|------|------|------|
+| `/tools/muriatic-acid-calculator` | On hold (protected) | 126→88 | 11→5 | 5→3 | "how much muriatic acid do i add to my pool" (3; was 2 for "…to lower ph in pool") |
+| `/tools/chlorine-dose-calculator` | On hold | 13→6 | 5→3 | 1→0 | "how much liquid chlorine to add to pool" (9) |
+| `/tools/pool-ph-calculator` | On hold | 0→0 | 1→0 | 1→0 | "how much acid to lower ph calculator" (1) |
+| `/tools/baking-soda-calculator` | On hold | 0→0 | 1→0 | 0 | "baking soda pool calculator" (7) |
+| `/blog/pool-chlorine-levels-chart` | Treatment (Sep 20) | 14→3 | 10→3 | 0 | "pool chlorine level chart" (5). **Gained its first referring domain (0→1, dofollow).** |
+| `/blog/baking-soda-vs-soda-ash` | Treatment (Sep 17) | 6→1 | 4→3 | 2→2 | "sodium bisulfate vs baking soda" (6; was 7) |
+| `/explained/ph` | Treatment (Sep 17) | 3→0 | 1→0 | 0 | "7.8 ph" (6) |
+| `/tools/pool-shock-calculator` | Contaminated control (5b53f18 methodology link) | 2→0 | 3→0 | 1→0 | "liquid chlorine shock calculator" (9) |
+| `/blog/what-is-lsi` | Control, edited (Sep 6 batch; Sep 23 meta trim 9cb2183) | 2→0 | 1→0 | 0 | none |
+| `/blog/ph/` (hub) | Hub — neither group | 0→0 | 1→0 | 1→0 | "bring.ph" (2) — junk query |
+
+**"Organic traffic dropped" — the one URL not in the table above:** `/tools/calcium-hardness-calculator` — contaminated control (5b53f18 methodology link) — Ahrefs traffic 2→1, Top 10 kws 0, top keyword "how much calcium chloride to add to pool" (11). Already in the Watch List "ranking regression" group.
+
+Read: all 4 on-hold calculators and 3 of the 16 treatment pages are on the list; only 1 clean-ish control page (what-is-lsi). Most drops are 1–3 keywords off a tiny base, so this is the ongoing collapse, not a trust-line effect in either direction. Log only — no page changes before Oct 15. Muriatic still matches the "rank held, footprint shrank" signature (Top 10 kws 11→5, top-keyword pos 2→3).
+
+**Sep 29 full issue list** (All issues: 17 active, 2 new, 179 tracked). Confirms the Sep 23 fixes landed:
+
+| Issue | Count | Change vs Sep 22 | Status |
+|-------|-------|--------|--------|
+| Meta description too long | 1 | −4 (was 5) | Sep 23 fixes confirmed. Remaining 1 = `muriatic-acid-calculator` (protected). |
+| Open Graph tags incomplete | 6 | −1 (was 7) | /methodology og:image fix confirmed. Other 6 = legal/about pages, optional. |
+| Changed pages not submitted to IndexNow | 4 | −43 (was 47) | Noise clearing, as expected. |
+| SERP title changed | — | Gone (was 2) | Cleared — no longer an active issue. |
+| Slow page | 2 | −1 (2 added, 3 removed) | Rotating pages; not investigated. |
+| Slow server response for AI crawlers | 1 | 0 (1 added, 1 removed) | Different page than Sep 22; not investigated. |
+| Page and SERP titles do not match | 3 | 0 | Unchanged. URLs not pulled. |
+| Structured data has Google rich results validation error | 1 | 0 | `/download` — SoftwareApplication schema has no `aggregateRating` or `review`, which Google requires for the app rich result (name + offers.price are present). Not a hold page, 0 Ahrefs traffic. Only fix honestly: show real App Store ratings on the page and mark those up. Don't add rating markup without visible ratings. Low priority; no change now. |
+| Page has only one dofollow incoming internal link | 2 | 0 | Unchanged. |
+| Meta description too short / Title too short / X card missing | 1 each | 0 | Unchanged. |
+| 3XX redirect / HTTP→HTTPS redirect | 1 each | 0 | Expected. |
 
 **Sep 22 issues** (the notice jump is IndexNow/rank-tracking noise from the Sep 17–21 edits, not defects):
 
@@ -249,6 +296,15 @@ Earlier fixes confirmed: Sep 8 slow pages (Cache-Control in `_headers`) and what
 ## Backlinks & Outreach
 
 **External link profile (Aug 16):** 133 external links, 116 from app stores/directories/social (apple.com 64, reddit.com 52, appagg.com 5, calculatedhome.com 2, google.com 1). **Zero pool-industry editorial sites.**
+
+**Sep 29 Ahrefs Site Explorer → Backlinks (page 1 of 10 only; 456 link groups; New/Lost tabs not available on the plan):**
+- **Pool-industry editorial links now exist** — the Aug 16 "zero" is out of date:
+  - `shastapoolsupply.com` (DR 21, pool retailer; article by Bryan Ashbaugh) → `/blog/pool-cloudy-after-shocking`. First seen Jul 29.
+  - `poolbrostx.com` (DR 0.4, pool service co.) → `/blog/pool-water-green-but-chlorine-is-high`. First seen Sep 16.
+  - `saltwaterpoolanswers.com` (DR 0) — 3 articles → `/blog/fc-cya-chart-chlorine-levels`. First seen Sep 18. Their copy describes our chart as reproducing the "Trouble Free Pool methodology" — their wording, not ours (our pages have no TFP/SLAM, checked Sep 29).
+  - `calculatedhome.com` (DR 1.2) — 4 calculator pages → fc-cya-chart and how-to-raise-pool-alkalinity.
+- **Spam wave to the homepage:** Referring domains total **418**. Sorted by first seen, the newest 50 (page 1) are **all** Ahrefs-tagged SPAM and all first seen Sep 28–29 — ~25 new spam domains per day, 1 link each, 49 of 50 nofollow. The one dofollow is `forbesstories.com` (DR 12, SPAM — a Forbes lookalike, not Forbes), Sep 29. Mostly `.shop` domains on an identical template (`/1uu8h02-…`). ~6 are dofollow (murvi.shop, nimbra.shop, archive-hu.com, betulcrime.com, corvio.shop, cartermanageus.com); archive-hu first seen Aug 13, two days before the collapse. Google says it ignores links like these. **No disavow before Oct 15** — a sitewide change would confound the experiment read. Revisit then (domain-level disavow of the dofollow spam only).
+- The pool-chlorine-levels-chart gain / pool-chemistry-heat-wave loss from the Site Audit didn't appear on page 1; not identified.
 
 | Target | Priority | Status |
 |--------|----------|--------|
