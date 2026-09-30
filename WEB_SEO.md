@@ -1,6 +1,6 @@
 ---
 name: seo-priorities-and-status
-description: "Sep 26: Week 8 of the Google collapse (since Aug 15–16). Floor holding in a lower band (44–68 impr/day), no recovery. GA4 7d users 36→104 from seasonal pool-closing demand (lower engagement). Trust-line experiment (16 pages) and the 4 on-hold calculators on HOLD until Oct 15. No new site work recommended. Last site changes: Sep 23 meta/og fixes (032a034, 9cb2183)."
+description: "Sep 26: Week 8 of the Google collapse (since Aug 15–16). Floor holding in a lower band (44–68 impr/day), no recovery. GA4 7d users 36→104 from seasonal pool-closing demand (lower engagement). Trust-line experiment (16 pages) and the 4 on-hold calculators on HOLD until the Oct 17 report. No new site work recommended. Last site changes: Sep 23 meta/og fixes (032a034, 9cb2183)."
 metadata: 
   node_type: memory
   type: project
@@ -11,7 +11,7 @@ metadata:
 
 Newest weekly report is first. Data history lives in the Performance History tables below and in the CoWork history CSVs (`gsc_history.csv`, `gsc_daily_history.csv`, `bing_history.csv`, `ai_visibility_history.csv`, `engagement_history.csv`, etc.).
 
-**Standing rule until Oct 15:** no broad site changes. Do not touch the 16 trust-line pages or the 4 on-hold calculators (muriatic-acid, chlorine-dose, baking-soda, pool-ph).
+**Standing rule until the Oct 17 report:** no broad site changes. (Moved from Oct 15 on Sep 30: GSC lags 2–3 days, and Oct 17 is the first run whose L28 prior window is fully post-collapse.) Do not touch the 16 trust-line pages or the 4 on-hold calculators (muriatic-acid, chlorine-dose, baking-soda, pool-ph).
 
 ---
 
@@ -40,11 +40,11 @@ All manual, outside the repo, unless noted.
 1. Check that scheduled tasks run on the new computer, so the Oct 3 run isn't missed or duplicated.
 2. Ahrefs: Sep 29 crawl is in. "Pages dropped from Top 10" and "Organic traffic dropped" URLs logged (see Ahrefs Site Audits). Referring-domain loss is `/blog/pool-chemistry-heat-wave` (2→1). "SERP title changed" cleared. Backlinks page 1 reviewed (see Backlinks & Outreach) — found real pool-industry links and a homepage spam wave. The specific gained/lost domain stays unidentified: Referring domains page 1 is all Sep 28–29 spam, so the real one is buried. Closed — not worth more digging. Rich-results error is `/download` (missing rating/review in SoftwareApplication schema) — logged, low priority.
 3. Google Play: the Play Console itself hasn't published newer data (Installs stop at Sep 8, Sales at Aug 30) — not a missed export. Re-export once the Console updates. Treat Play as stale until then; no action needed per report.
-4. Swim University follow-up: deliberately held until after the Oct 15 read (the Sep 9 nudge was not sent). Not an open item before then.
-5. Re-check `/tools/pool-chemical-addition-order` indexing on Google (still "Discovered - currently not indexed" as of Sep 20; don't spend more effort before Oct 15).
+4. Swim University follow-up: deliberately held until after the Oct 17 read (the Sep 9 nudge was not sent). Not an open item before then.
+5. Re-check `/tools/pool-chemical-addition-order` indexing on Google (still "Discovered - currently not indexed" as of Sep 20; don't spend more effort before the Oct 17 report).
 6. Re-check Bing crawl of `baking-soda-vs-soda-ash` and the 4 document-size-0 pages (see Watch List).
 7. Still owed from the Sep 17 audit: GSC query-level check on the homepage 36.5→78 position drop; query-level GSC before/after Aug 15 + live AIO-occupancy check on vanished informational queries (would move Event 1's cause from Likely to Confirmed).
-8. **Oct 15:** read the trust-line experiment (see below), then decide on the deferred work list.
+8. **Oct 17 report:** read the trust-line experiment (see below) and confirm the floor held, then decide on the deferred work list. Execute the deferred batch (incl. page consolidation) the week of Oct 19 — unless Oct 17 shows a new decline, in which case keep holding.
 9. ~~Pre-consolidation URL Inspections~~ — done Sep 30. `/explained/free-chlorine` (GSC): indexed, Google-selected canonical = inspected URL, last crawl Sep 25. `/blog/best-time-to-test-pool-water` (Bing): indexed, no SEO/GEO issues, JSON-LD + OpenGraph detected. Neither is a technical problem (see Consolidation Plan).
 
 ---
@@ -52,10 +52,10 @@ All manual, outside the repo, unless noted.
 ## Watch List
 
 - **⚠️ ONGOING COLLAPSE — TOP ITEM.** Sep 26: 8th week. Floor 44–68 impr/day (lower than the 51–124 band of Aug 28–Sep 19). 69 L28 losers, 0 winners. Stabilizing, not a confirmed bottom. L28 comparisons stay distorted until the prior window is fully post-collapse (mid-October). **Hold all broad changes.**
-- **⚠️ Trust-line experiment** — HOLD until 2026-10-15. See Trust-Line Experiment.
+- **⚠️ Trust-line experiment** — HOLD until the Oct 17 report. See Trust-Line Experiment.
 - **⚠️ pool-ph-keeps-rising** — Google L28 pos 21.70→67.71 (Sep 19). Google-specific: Bing L28 clicks 24→39 (Sep 26). In the treatment group since Sep 20. HOLD.
 - **⚠️ pool-alkalinity-vs-ph** — Google L28 pos 19.27→67.49 (Sep 19), 65.97 (Sep 26). In the treatment group since Sep 20. HOLD.
-- **⚠️ Newer severe decliners (Sep 26)** — `/explained/cyanuric-acid`, `/blog/what-is-lsi`, `/blog/pool-cloudy-after-shocking`, `/blog/pool-startup-chemicals-checklist`. Monitor; no action before Oct 15.
+- **⚠️ Newer severe decliners (Sep 26)** — `/explained/cyanuric-acid`, `/blog/what-is-lsi`, `/blog/pool-cloudy-after-shocking`, `/blog/pool-startup-chemicals-checklist`. Monitor; no action before the Oct 17 report.
 - **⚠️ Aug 15 fix batch** (chlorine-dose, baking-soda, pool-ph, muriatic-acid calculators; pool-alkalinity-vs-ph; fc-cya-chart; /explained/lsi) — collapse still masks any fix signal. Hold.
 - **⚠️ Sep 6 fix batch** (homepage, pool-startup-chemicals-checklist, pool-volume-calculator, what-is-lsi, algae/alkalinity hubs) — all continued declining, swamped by the broader event. Re-check when the floor is confirmed.
 - **⚠️ Homepage ranking** — L28 pos 78.07 (was 36.52) as of Sep 19. Trust strip added Sep 20 (ff2e446). Do not credit the Sep 6 guides relink yet. The pre-Sep-6 homepage isn't in git (history starts at 1e2798d).
@@ -68,15 +68,15 @@ All manual, outside the repo, unless noted.
 - **GA4 key events** — 28d 17→27→**35**. Genuine, growing metric (`store_click` starred Aug 29).
 - **Google Play data** — Installs latest Sep 8 with an Aug 22–31 gap; Sales only through Aug 30. Stale at the source (Play Console hasn't updated), not a missed export. Re-export when the Console catches up.
 - **New referring domain (Sep 29 Ahrefs)** — `/blog/pool-chlorine-levels-chart` gained 1 dofollow referring domain (0→1). Same crawl: `/blog/pool-chemistry-heat-wave` lost 1 of its 2 referring domains. Not identified from Backlinks page 1. Pool-industry editorial links already exist (Shasta Pool Supply, Pool Bros Texas, saltwaterpoolanswers — see Backlinks & Outreach).
-- **Homepage spam-link wave** — 418 referring domains total; the newest 50 are all spam, first seen Sep 28–29 (~25/day), nearly all nofollow. Dofollow spam so far: forbesstories.com, murvi.shop, nimbra.shop, archive-hu.com, betulcrime.com, corvio.shop, cartermanageus.com. Next Tuesday: note the referring-domain total to see whether the wave continues. Decide on a domain-level disavow after the Oct 15 read, not before. GSC Links (Sep 29) shows none of the `.shop` spam — Google appears to be ignoring it, so a disavow may not be needed at all.
-- **Swim University (Matt Giovanisci)** — highest-leverage backlink target. Follow-up held until after Oct 15 (Sep 9 nudge not sent).
+- **Homepage spam-link wave** — 418 referring domains total; the newest 50 are all spam, first seen Sep 28–29 (~25/day), nearly all nofollow. Dofollow spam so far: forbesstories.com, murvi.shop, nimbra.shop, archive-hu.com, betulcrime.com, corvio.shop, cartermanageus.com. Next Tuesday: note the referring-domain total to see whether the wave continues. Decide on a domain-level disavow after the Oct 17 read, not before. GSC Links (Sep 29) shows none of the `.shop` spam — Google appears to be ignoring it, so a disavow may not be needed at all.
+- **Swim University (Matt Giovanisci)** — highest-leverage backlink target. Follow-up held until after the Oct 17 read (Sep 9 nudge not sent).
 - **August 2026 spam update (Aug 18–21)** — Possible-tier link to Event 2. Recovery, if applicable, takes weeks.
 - **Bing crawl gaps** — `baking-soda-vs-soda-ash` "Discovered but not crawled" (Request Indexing clicked Sep 17 and Sep 20). Document-size-0: `lsi-pool-surface-types`, `year-round-pool-maintenance-desert-pools`, `cya-effect-on-lsi`, `saltwater-pool-salt-calculator` (resubmitted Sep 12; not verifiable from report data).
 - **No action needed:** `/demo` and `/demo/` blocked by robots.txt (JS app, intentional); 27 redirect pages "Failed" GSC validation (expected).
 
 ---
 
-## Trust-Line Experiment — HOLD until 2026-10-15
+## Trust-Line Experiment — HOLD until the Oct 17 report
 
 **Hypothesis:** a visible reliability signal plus /methodology links helps restore Google's informational/YMYL eligibility.
 
@@ -89,7 +89,7 @@ All manual, outside the repo, unless noted.
 
 **Indexing:** all Sep 17 pages + /methodology confirmed indexed on Google Sep 20. All indexed on Bing except `baking-soda-vs-soda-ash`. All later pages submitted to GSC + Bing Sep 20–21.
 
-**Read on Oct 15:** do the 16 recover impressions faster than the control pages? If yes, roll the trust line wider (remaining ~36 informational pages). If no divergence, the trust line alone isn't the lever — focus on external authority/backlinks.
+**Read with the Oct 17 report:** do the 16 recover impressions faster than the control pages? If yes, roll the trust line wider (remaining ~36 informational pages). If no divergence, the trust line alone isn't the lever — focus on external authority/backlinks.
 
 **Caveats for the read:**
 - Wording differs: the homepage strip, `pool-chlorine-levels-chart` and `pool-chemistry-beginners` say "published standards and other reputable pool chemistry sources — including ANSI/APSP/ICC-11 and CDC guidance". The other 14 keep "Based on published standards — ANSI/APSP/ICC-11 and CDC guidance" until after the read.
@@ -98,11 +98,11 @@ All manual, outside the repo, unless noted.
 - The 4 on-hold calculators briefly had the methodology link (5b53f18 → reverted in 88a180b, Sep 20). Treat them as untouched.
 - Homepage got a trust strip (ff2e446) — neither treatment nor control.
 
-**Deferred until after Oct 15:** blog "Related reading" (54) / "Keep reading" (30) methodology links; homepage directional FAQ schema; homepage links to desert-pools/ and spa/ hubs; missing calculators on the homepage grid (dry-acid, pool-closing, pool-opening, water-replacement, chlorine-cost, chlorine-usage, overnight-chlorine-loss-test); audit Part 2 (page-type citation-vs-click reformatting); trust-line rollout to remaining informational pages; page consolidation batch (see Page Consolidation Plan).
+**Deferred until after the Oct 17 report (execute week of Oct 19):** blog "Related reading" (54) / "Keep reading" (30) methodology links; homepage directional FAQ schema; homepage links to desert-pools/ and spa/ hubs; missing calculators on the homepage grid (dry-acid, pool-closing, pool-opening, water-replacement, chlorine-cost, chlorine-usage, overnight-chlorine-loss-test); audit Part 2 (page-type citation-vs-click reformatting); trust-line rollout to remaining informational pages; page consolidation batch (see Page Consolidation Plan).
 
 ---
 
-## Page Consolidation Plan — execute after Oct 15 as one batch
+## Page Consolidation Plan — execute week of Oct 19 as one batch (after the Oct 17 read)
 
 **Audit Sep 30.** Sources: GSC Pages + Queries (Jun 1–Aug 14, the last pre-collapse window with real volume), GSC per-URL query exports for the LSI trio and the chart pair, Bing Pages (Jun 30–Sep 27), Ahrefs Best by links (Sep 30, 25 URLs with external links), and a TF-IDF text-similarity pass over all 95 blog/explained pages. No page is thin (all 1,600+ words) and no pair is a near-duplicate (max similarity 0.73), so the merges are about split search intent, not content quality.
 
@@ -356,7 +356,7 @@ Earlier fixes confirmed: Sep 8 slow pages (Cache-Control in `_headers`) and what
   - `poolbrostx.com` (DR 0.4, pool service co.) → `/blog/pool-water-green-but-chlorine-is-high`. First seen Sep 16.
   - `saltwaterpoolanswers.com` (DR 0) — 3 articles → `/blog/fc-cya-chart-chlorine-levels`. First seen Sep 18. Their copy describes our chart as reproducing the "Trouble Free Pool methodology" — their wording, not ours (our pages have no TFP/SLAM, checked Sep 29).
   - `calculatedhome.com` (DR 1.2) — 4 calculator pages → fc-cya-chart and how-to-raise-pool-alkalinity.
-- **Spam wave to the homepage:** Referring domains total **418**. Sorted by first seen, the newest 50 (page 1) are **all** Ahrefs-tagged SPAM and all first seen Sep 28–29 — ~25 new spam domains per day, 1 link each, 49 of 50 nofollow. The one dofollow is `forbesstories.com` (DR 12, SPAM — a Forbes lookalike, not Forbes), Sep 29. Mostly `.shop` domains on an identical template (`/1uu8h02-…`). ~6 are dofollow (murvi.shop, nimbra.shop, archive-hu.com, betulcrime.com, corvio.shop, cartermanageus.com); archive-hu first seen Aug 13, two days before the collapse. Google says it ignores links like these. **No disavow before Oct 15** — a sitewide change would confound the experiment read. Revisit then (domain-level disavow of the dofollow spam only).
+- **Spam wave to the homepage:** Referring domains total **418**. Sorted by first seen, the newest 50 (page 1) are **all** Ahrefs-tagged SPAM and all first seen Sep 28–29 — ~25 new spam domains per day, 1 link each, 49 of 50 nofollow. The one dofollow is `forbesstories.com` (DR 12, SPAM — a Forbes lookalike, not Forbes), Sep 29. Mostly `.shop` domains on an identical template (`/1uu8h02-…`). ~6 are dofollow (murvi.shop, nimbra.shop, archive-hu.com, betulcrime.com, corvio.shop, cartermanageus.com); archive-hu first seen Aug 13, two days before the collapse. Google says it ignores links like these. **No disavow before the Oct 17 read** — a sitewide change would confound the experiment read. Revisit then (domain-level disavow of the dofollow spam only).
 - The pool-chlorine-levels-chart gain / pool-chemistry-heat-wave loss from the Site Audit didn't appear on page 1; not identified.
 
 **Sep 29 GSC Links → Top linking sites (what Google actually counts):** 208 total external links (Aug 16: 133), 18 sites.
@@ -382,7 +382,7 @@ Read: Google counts **~7 pool-industry sites** (saltwaterpoolanswers, calculated
 
 | Target | Priority | Status |
 |--------|----------|--------|
-| Swim University | High | Responded 2026-08-21: "still battle-testing it." The Sep 9 nudge was not sent — follow-up held until after the Oct 15 read. Matt is cited in AIO for baking soda + chlorine queries. |
+| Swim University | High | Responded 2026-08-21: "still battle-testing it." The Sep 9 nudge was not sent — follow-up held until after the Oct 17 read. Matt is cited in AIO for baking soda + chlorine queries. |
 | Leisure Pools USA | High | Not contacted |
 | Poolburg | Medium | Not contacted |
 | Swimmer Living | Medium | Not contacted |
