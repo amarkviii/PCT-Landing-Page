@@ -45,6 +45,7 @@ All manual, outside the repo, unless noted.
 6. Re-check Bing crawl of `baking-soda-vs-soda-ash` and the 4 document-size-0 pages (see Watch List).
 7. Still owed from the Sep 17 audit: GSC query-level check on the homepage 36.5→78 position drop; query-level GSC before/after Aug 15 + live AIO-occupancy check on vanished informational queries (would move Event 1's cause from Likely to Confirmed).
 8. **Oct 15:** read the trust-line experiment (see below), then decide on the deferred work list.
+9. ~~Pre-consolidation URL Inspections~~ — done Sep 30. `/explained/free-chlorine` (GSC): indexed, Google-selected canonical = inspected URL, last crawl Sep 25. `/blog/best-time-to-test-pool-water` (Bing): indexed, no SEO/GEO issues, JSON-LD + OpenGraph detected. Neither is a technical problem (see Consolidation Plan).
 
 ---
 
@@ -97,7 +98,42 @@ All manual, outside the repo, unless noted.
 - The 4 on-hold calculators briefly had the methodology link (5b53f18 → reverted in 88a180b, Sep 20). Treat them as untouched.
 - Homepage got a trust strip (ff2e446) — neither treatment nor control.
 
-**Deferred until after Oct 15:** blog "Related reading" (54) / "Keep reading" (30) methodology links; homepage directional FAQ schema; homepage links to desert-pools/ and spa/ hubs; missing calculators on the homepage grid (dry-acid, pool-closing, pool-opening, water-replacement, chlorine-cost, chlorine-usage, overnight-chlorine-loss-test); audit Part 2 (page-type citation-vs-click reformatting); trust-line rollout to remaining informational pages.
+**Deferred until after Oct 15:** blog "Related reading" (54) / "Keep reading" (30) methodology links; homepage directional FAQ schema; homepage links to desert-pools/ and spa/ hubs; missing calculators on the homepage grid (dry-acid, pool-closing, pool-opening, water-replacement, chlorine-cost, chlorine-usage, overnight-chlorine-loss-test); audit Part 2 (page-type citation-vs-click reformatting); trust-line rollout to remaining informational pages; page consolidation batch (see Page Consolidation Plan).
+
+---
+
+## Page Consolidation Plan — execute after Oct 15 as one batch
+
+**Audit Sep 30.** Sources: GSC Pages + Queries (Jun 1–Aug 14, the last pre-collapse window with real volume), GSC per-URL query exports for the LSI trio and the chart pair, Bing Pages (Jun 30–Sep 27), Ahrefs Best by links (Sep 30, 25 URLs with external links), and a TF-IDF text-similarity pass over all 95 blog/explained pages. No page is thin (all 1,600+ words) and no pair is a near-duplicate (max similarity 0.73), so the merges are about split search intent, not content quality.
+
+**Merge (keep ← retire, 301 the retired URL):**
+
+| Keep | Retire | Evidence (Google Jun 1–Aug 14 impr; Bing L3M impr) |
+|------|--------|------|
+| `explained/lsi` | `blog/what-is-lsi` | All 3 LSI pages split "what is lsi" (~1,400 impr, 0 clicks, pos 17/27/70). 85–95% of each page's impressions are on shared queries. Keep the explained URL (glossary structure, calculator/hub links, owns "langelier saturation index"); fold in what-is-lsi's "what bad LSI costs" content. Bing: 10 / none. `explained/lsi` is a treatment page. |
+| `blog/csi-vs-lsi` (trim, don't retire) | — | Cut its general "what is LSI" section (95% of its impressions) and link to `explained/lsi`. Keep the CSI comparison — owns "lsi vs csi" / "csi vs lsi" at pos 3–4. |
+| `blog/free-chlorine-vs-total-chlorine` | `explained/total-chlorine` | 10,702 vs **0**; Bing 2,500 vs 2. Google already serves the blog page. |
+| `blog/pool-chlorine-too-low` | `blog/how-to-raise-pool-chlorine` | 2,451 / 16 clicks vs 1,575 / 4; Bing 78 vs 1. |
+| `blog/calcium-hardness-in-pools` | `blog/how-to-lower-calcium-hardness` | 1,573 vs 186; Bing 167 vs none. |
+| `blog/best-time-to-test-pool-water` | `blog/how-often-to-test-pool-water` | 4,667 / 46 clicks vs 395 / 1. Bing absence checked Sep 30: indexed, no issues — just not ranking on Bing. |
+| `explained/combined-chlorine` | `explained/chloramines` | 50 vs 8; Bing 16 vs 32. Both tiny; `what-causes-high-combined-chlorine` (484) is Google's preferred CC page. |
+| `blog/how-to-track-pool-chemicals` | `blog/why-track-pool-chemistry-over-time` | 0 vs 13; both absent on Bing. |
+| `blog/why-arizona-pools-have-high-calcium` | `blog/calcium-creep-explained` | 51 vs 16; both absent on Bing. Alternative target: `desert-pool-chemistry`. |
+
+**Backlinks:** none of the retired URLs has external backlinks (Ahrefs Sep 30), so no link equity is at risk.
+
+**Checklist per merge:** move the unique content into the kept page; add a 301 in `_redirects`; update internal links sitewide (`rg` the retired slug); remove from `sitemap.xml` and `llms.txt`; update hub pages; submit the kept URL in GSC + Bing/IndexNow.
+
+**Keep both — not cannibalizing:** `blog/fc-cya-chart-chlorine-levels` and `blog/pool-chlorine-levels-chart`. Only 3% of levels-chart's visible impressions are on shared queries, and Google already splits them: fc-cya wins CYA-chart queries (pos 5–7 vs 12–17); levels-chart wins "pool chlorine levels" / "safe chlorine level" / 248 CDC queries (~5,100 impr, 29% of the export). Levels-chart's 102,850 impressions were the collapsed YMYL cluster. fc-cya has the stronger links (3 RDs / 24 links vs 1 / 1) and CTR (Google 1.85% vs 0.47%; Bing 3.3% vs 2.2%). Optional: add a clear cross-link between the two.
+
+**Re-check before deciding (not enough data yet):**
+- **CYA cluster** (7 pages, published Aug 23, never saw pre-collapse Google). Bing shows only `cya-pool-stabilizer` with real impressions (171); `how-to-lower-cya` 25, `how-much-stabilizer-to-add` 1, and `high-cya-in-pool`, `low-cya-in-pool`, `how-to-raise-cya`, `best-cya-level-for-liquid-chlorine` absent. Candidates if it stays thin: `high-cya-in-pool` → `how-to-lower-cya`; `low-cya-in-pool` + `how-much-stabilizer-to-add` → `how-to-raise-cya`.
+- **Hot-tub pages** (published Sep 16) — too new.
+- **Desert cluster** — absent on Bing, but likely the document-size-0 crawl issue (Watch List), not weakness. Fix the Bing crawl first.
+- **`explained/free-chlorine`** — 0 Google impressions Jun 1–Aug 14, but URL Inspection (Sep 30) shows it indexed with our canonical. Google prefers our own blog pages for FC queries (`free-chlorine-vs-total-chlorine`, `pool-chlorine-levels-chart`, `pool-chlorine-too-low`). Keep as the glossary/hub entry (Bing 15 impr, pos 3.4); don't count it as a failure and don't merge.
+- **Weak, no obvious merge target:** `what-chemicals-do-i-need-for-a-pool` (17), `saltwater-vs-chlorine-pools` (25, pos 36), `year-round-pool-maintenance-desert-pools` (25).
+
+**Do not touch:** the 4 on-hold calculators; Bing/Copilot performers (`pool-scale-calcium-deposits`, `black-algae-in-pool`, the pool-closing pages); the 8 cloudy-water pages (distinct symptom intents).
 
 ---
 
