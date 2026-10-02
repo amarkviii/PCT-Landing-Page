@@ -40,7 +40,8 @@ All manual, outside the repo, unless noted.
 1. Check that scheduled tasks run on the new computer, so the Oct 3 run isn't missed or duplicated.
 2. Ahrefs: Sep 29 crawl is in. "Pages dropped from Top 10" and "Organic traffic dropped" URLs logged (see Ahrefs Site Audits). Referring-domain loss is `/blog/pool-chemistry-heat-wave` (2→1). "SERP title changed" cleared. Backlinks page 1 reviewed (see Backlinks & Outreach) — found real pool-industry links and a homepage spam wave. The specific gained/lost domain stays unidentified: Referring domains page 1 is all Sep 28–29 spam, so the real one is buried. Closed — not worth more digging. Rich-results error is `/download` (missing rating/review in SoftwareApplication schema) — logged, low priority.
 3. Google Play: the Play Console itself hasn't published newer data (Installs stop at Sep 8, Sales at Aug 30) — not a missed export. Re-export once the Console updates. Treat Play as stale until then; no action needed per report.
-4. Swim University follow-up: deliberately held until after the Oct 17 read (the Sep 9 nudge was not sent). Not an open item before then.
+4. Swim University: their "6 Best Pool Chemical Calculator Apps" list was refreshed Sep 1 without poolchemtracker.com, with Swim University's own app ranked #1 (monthly competitor report, logged Oct 1). Treat that as a soft no on the list. Downgraded to unlikely (see Backlinks & Outreach). The V2 follow-up still happens, with a guide citation as the main ask.
+4a. **Outreach to uncontacted targets — do now, not after Oct 17** (off-site, so the site hold doesn't apply): Leisure Pools USA (High), Poolburg, Swimmer Living (Medium).
 5. Re-check `/tools/pool-chemical-addition-order` indexing on Google (still "Discovered - currently not indexed" as of Sep 20; don't spend more effort before the Oct 17 report).
 6. Re-check Bing crawl of `baking-soda-vs-soda-ash` and the 4 document-size-0 pages (see Watch List).
 7. Still owed from the Sep 17 audit: GSC query-level check on the homepage 36.5→78 position drop; query-level GSC before/after Aug 15 + live AIO-occupancy check on vanished informational queries (would move Event 1's cause from Likely to Confirmed).
@@ -69,7 +70,7 @@ All manual, outside the repo, unless noted.
 - **Google Play data** — Installs latest Sep 8 with an Aug 22–31 gap; Sales only through Aug 30. Stale at the source (Play Console hasn't updated), not a missed export. Re-export when the Console catches up.
 - **New referring domain (Sep 29 Ahrefs)** — `/blog/pool-chlorine-levels-chart` gained 1 dofollow referring domain (0→1). Same crawl: `/blog/pool-chemistry-heat-wave` lost 1 of its 2 referring domains. Not identified from Backlinks page 1. Pool-industry editorial links already exist (Shasta Pool Supply, Pool Bros Texas, saltwaterpoolanswers — see Backlinks & Outreach).
 - **Homepage spam-link wave** — 418 referring domains total; the newest 50 are all spam, first seen Sep 28–29 (~25/day), nearly all nofollow. Dofollow spam so far: forbesstories.com, murvi.shop, nimbra.shop, archive-hu.com, betulcrime.com, corvio.shop, cartermanageus.com. Next Tuesday: note the referring-domain total to see whether the wave continues. Decide on a domain-level disavow after the Oct 17 read, not before. GSC Links (Sep 29) shows none of the `.shop` spam — Google appears to be ignoring it, so a disavow may not be needed at all.
-- **Swim University (Matt Giovanisci)** — highest-leverage backlink target. Follow-up held until after the Oct 17 read (Sep 9 nudge not sent).
+- **Swim University (Matt Giovanisci)** — downgraded Oct 1: high value but unlikely. They are a competitor (own app, ranked #1 on their Sep 1 calculator-apps refresh, which left poolchemtracker.com off). Still cited in AIO, so a guide citation is worth pursuing at V2. No site changes in response.
 - **August 2026 spam update (Aug 18–21)** — Possible-tier link to Event 2. Recovery, if applicable, takes weeks.
 - **Bing crawl gaps** — `baking-soda-vs-soda-ash` "Discovered but not crawled" (Request Indexing clicked Sep 17 and Sep 20). Document-size-0: `lsi-pool-surface-types`, `year-round-pool-maintenance-desert-pools`, `cya-effect-on-lsi`, `saltwater-pool-salt-calculator` (resubmitted Sep 12; not verifiable from report data).
 - **No action needed:** `/demo` and `/demo/` blocked by robots.txt (JS app, intentional); 27 redirect pages "Failed" GSC validation (expected).
@@ -147,7 +148,7 @@ V2 of the iOS app ("more native iOS") is planned for completion by end of 2026. 
 1. **App Store listing refresh** — new native screenshots, subtitle, keywords; use Product Page Optimization (A/B tests) to compare against the current listing.
 2. **In-app rating prompt** (`SKStoreReviewController`) — more ratings for App Store conversion, and makes an honest `aggregateRating` on `/download` possible (fixes the Ahrefs rich-results error without fake markup).
 3. **Site refresh as one post-Oct-15 batch** — `/download` schema `softwareVersion` (currently 1.20.4), screenshots, features page, `llms.txt`.
-4. **Swim University follow-up** — use V2 as the reason (their Aug 21 reply was "still battle-testing it").
+4. **Swim University follow-up** — use V2 as the reason (their Aug 21 reply was "still battle-testing it"). Main ask: a citation from one of their chemistry guides (baking soda / chlorine, where they're cited in AIO), since that link doesn't compete with their app. Secondary ask: inclusion on the calculator-apps list (Sep 1 refresh excluded us and ranks their own app #1). Keep expectations low.
 5. **Android stays on V1** — decided Sep 29: V2 is iOS-only for now; get iOS right first, no Android V2 planned yet. At launch, site copy that describes V2 features (features page, `/download`, screenshots, schema) must say they're iOS, so Android visitors aren't promised features the Play app doesn't have. Keep the Play badges and the Android app's own description accurate to V1.
 
 **Winter focus (low search demand until ~March):** App Store conversion, V2, and outreach/backlinks — not new Google-specific site changes.
@@ -382,7 +383,7 @@ Read: Google counts **~7 pool-industry sites** (saltwaterpoolanswers, calculated
 
 | Target | Priority | Status |
 |--------|----------|--------|
-| Swim University | High | Responded 2026-08-21: "still battle-testing it." The Sep 9 nudge was not sent — follow-up held until after the Oct 17 read. Matt is cited in AIO for baking soda + chlorine queries. |
+| Swim University | High value, unlikely | Responded 2026-08-21: "still battle-testing it." Sep 1 refresh of their "6 Best Pool Chemical Calculator Apps" list left poolchemtracker.com off and ranks their own app #1 — competitor with a conflict of interest; treat as a soft no on the list. Sep 9 nudge not sent. V2 follow-up: ask for a guide citation first, list inclusion second. Matt is cited in AIO for baking soda + chlorine queries. |
 | Leisure Pools USA | High | Not contacted |
 | Poolburg | Medium | Not contacted |
 | Swimmer Living | Medium | Not contacted |
