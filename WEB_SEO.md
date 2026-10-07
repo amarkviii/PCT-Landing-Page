@@ -1,6 +1,6 @@
 ---
 name: seo-priorities-and-status
-description: "Sep 26: Week 8 of the Google collapse (since Aug 15–16). Floor holding in a lower band (44–68 impr/day), no recovery. GA4 7d users 36→104 from seasonal pool-closing demand (lower engagement). Trust-line experiment (16 pages) and the 4 on-hold calculators on HOLD until the Oct 17 report. No new site work recommended. Last site changes: Sep 23 meta/og fixes (032a034, 9cb2183)."
+description: "Oct 3: Week 9 of the Google collapse (since Aug 15–16). L7 impressions up for the first time (424→712) but clicks at a series low (10) — muriatic seasonal fade plus a short zero-click burst; not a recovery. Google September 2026 spam update started Sep 24 (confound for the Oct 17 read). Trust-line experiment (16 pages) and the 4 on-hold calculators on HOLD until the Oct 17 report. No new site work recommended. Last site changes: Sep 23 meta/og fixes (032a034, 9cb2183)."
 metadata: 
   node_type: memory
   type: project
@@ -12,6 +12,26 @@ metadata:
 Newest weekly report is first. Data history lives in the Performance History tables below and in the CoWork history CSVs (`gsc_history.csv`, `gsc_daily_history.csv`, `bing_history.csv`, `ai_visibility_history.csv`, `engagement_history.csv`, etc.).
 
 **Standing rule until the Oct 17 report:** no broad site changes. (Moved from Oct 15 on Sep 30: GSC lags 2–3 days, and Oct 17 is the first run whose L28 prior window is fully post-collapse.) Do not touch the 16 trust-line pages or the 4 on-hold calculators (muriatic-acid, chlorine-dose, baking-soda, pool-ph).
+
+---
+
+## Oct 3 Weekly Report
+
+**9th week of the collapse. Impressions rose for the first time, clicks hit a series low. Not a recovery and no new cause.** Confidence: Medium (App Store file missing, Bing query export looks broken, L28 still distorted).
+
+- **GSC:** L7 10 clicks / 712 impr / pos 13.88 (prior week 24 / 424 / 17.49). L28 90 / 2,440 (flat vs 2,472 last run; −98% is still the window artifact). Daily impressions Sep 23–29: 49, 70, 135, 176, 131, 68, 72 — a 3-day bump Sep 25–27, then back to the band. Daily clicks 0–3, no cliff.
+- **Click loss is one page:** muriatic-acid-calculator 20→7 clicks (−13 of −14), impressions −36% at unchanged pos ~1.4–2.5. Bing (235→89 impr) and Copilot softened on the same query. [Likely] seasonal pH-lowering demand as pools close.
+- **Impression rise is narrow and zero-click:** `pool-chlorine-levels-chart` 11→186 (Sep 25–27 burst, now faded; trust-line page — don't read it early), `pool-startup-chemicals-checklist` 48→143 (pos 51→19 on new pool-opening queries; [Possible] off-season demand or the Sep 6 edit), `what-causes-high-combined-chlorine` 2→62. L7 distinct queries 52→132. Sitewide CTR fell 5.66%→1.40% from the mix, not AIO (site AIO 7d also fell 156→109).
+- **Google September 2026 spam update** — confirmed, started Sep 24. Overlaps this window and the Oct 17 trust-line read → name it as a confound. Link to the burst is Possible at most. No page action.
+- **Pending check (Oct 3) — Contradicted:** Google still shows the pool-closing pages 0 times in L28 while Bing (pool-closing-calculator 43 clicks) and Copilot (how-to-close-a-pool-for-winter 30d 5,326) reward them. Further supports the Google-specific eligibility diagnosis.
+- **Winners/losers:** L7 2 impression-only winners (above), 1 loser (muriatic). L28 losers 82 (window artifact).
+- **Close to page one 2+ runs:** pool-ph-calculator (on hold), does-liquid-chlorine-raise-cya, pool-water-green-but-chlorine-is-high — now qualify for internal-link/refresh review. Queue for the week-of-Oct-19 batch.
+- **Bing:** L7 clicks 81→52 (pool-closing-calculator 24→8), position steady 4.43. Seasonal crest passing. Query-level compare export repeats identical cur/prev values on most rows — don't trust Bing query deltas this run.
+- **Copilot:** 7d pages −21%, queries −11%; 30d still ~2×. First CYA-cluster pickup: "cyanuric acid" 0→90, `cya-pool-stabilizer` +57 (7d).
+- **GA4:** 7d users 33→15 (muriatic 27→7). Engagement up (traffic-mix effect at tiny volume). Key events 28d **41** (5th straight rise); 14 of 16 7d events attributed to pool-ph-keeps-rising with 0 users — likely an attribution artifact. **Consistency flag:** last run's 7d users (104 in report, 74 in CSV) don't match this file's prior week (33).
+- **iOS:** 28d first-time downloads 17 vs 38. Export is missing "Impressions (Unique Devices)" (Product Page Views (Unique Devices) exported instead), so the conversion series breaks this run.
+- **Google Play:** Installs still Sep 8; Store Performance through Sep 24; Sales through Aug 30 (September not yet expected).
+- **Report recommends no on-page work before Oct 17.** Top actions: (1) extend per-page daily GSC data to all treatment + control URLs before Oct 17, (2) Google Trends check on muriatic seasonality, (3) re-export iOS unique-device impressions, (4) outreach.
 
 ---
 
@@ -37,7 +57,7 @@ Newest weekly report is first. Data history lives in the Performance History tab
 
 All manual, outside the repo, unless noted.
 
-1. Check that scheduled tasks run on the new computer, so the Oct 3 run isn't missed or duplicated.
+1. ~~Check that scheduled tasks run on the new computer~~ — resolved Oct 3: GSC, GA4 and daily-history pulls ran at 06:00 and the report completed.
 2. Ahrefs: Sep 29 crawl is in. "Pages dropped from Top 10" and "Organic traffic dropped" URLs logged (see Ahrefs Site Audits). Referring-domain loss is `/blog/pool-chemistry-heat-wave` (2→1). "SERP title changed" cleared. Backlinks page 1 reviewed (see Backlinks & Outreach) — found real pool-industry links and a homepage spam wave. The specific gained/lost domain stays unidentified: Referring domains page 1 is all Sep 28–29 spam, so the real one is buried. Closed — not worth more digging. Rich-results error is `/download` (missing rating/review in SoftwareApplication schema) — logged, low priority.
 3. Google Play: the Play Console itself hasn't published newer data (Installs stop at Sep 8, Sales at Aug 30) — not a missed export. Re-export once the Console updates. Treat Play as stale until then; no action needed per report.
 4. Swim University: their "6 Best Pool Chemical Calculator Apps" list was refreshed Sep 1 without poolchemtracker.com, with Swim University's own app ranked #1 (monthly competitor report, logged Oct 1). Treat that as a soft no on the list. Downgraded to unlikely (see Backlinks & Outreach). The V2 follow-up still happens, with a guide citation as the main ask.
@@ -45,31 +65,39 @@ All manual, outside the repo, unless noted.
 5. Re-check `/tools/pool-chemical-addition-order` indexing on Google (still "Discovered - currently not indexed" as of Sep 20; don't spend more effort before the Oct 17 report).
 6. Re-check Bing crawl of `baking-soda-vs-soda-ash` and the 4 document-size-0 pages (see Watch List).
 7. Still owed from the Sep 17 audit: GSC query-level check on the homepage 36.5→78 position drop; query-level GSC before/after Aug 15 + live AIO-occupancy check on vanished informational queries (would move Event 1's cause from Likely to Confirmed).
-8. **Oct 17 report:** read the trust-line experiment (see below) and confirm the floor held, then decide on the deferred work list. Execute the deferred batch (incl. page consolidation) the week of Oct 19 — unless Oct 17 shows a new decline, in which case keep holding.
+7a. **Before Oct 17 — make the trust-line read possible:** `gsc_daily_page_history.csv` only tracks the top 20 pages by clicks, which misses most of the 16 treatment and ~34 control pages. Extend the daily per-page pull, or do a one-off GSC per-URL export for every treatment + control URL from ~Sep 1 (Oct 3 report, action #1).
+7b. Google Trends check: "muriatic acid pool" / "lower pool ph", Aug–Oct, to confirm the muriatic decline is seasonal (Oct 3 report).
+7c. Re-export App Store "Impressions (Unique Devices)" for Jul 4–Oct 1 into AppStore Reports/ (the Oct 3 run got Product Page Views (Unique Devices) instead).
+7d. GA4 consistency: reconcile last run's 7d users (104 report / 74 CSV) with this run's prior week (33) before trusting GA4 week-over-week moves.
+8. **Oct 17 report:** read the trust-line experiment (see below; name the Sep 24 spam update as a confound) and confirm the floor held, then decide on the deferred work list. Execute the deferred batch (incl. page consolidation) the week of Oct 19 — unless Oct 17 shows a new decline, in which case keep holding.
 9. ~~Pre-consolidation URL Inspections~~ — done Sep 30. `/explained/free-chlorine` (GSC): indexed, Google-selected canonical = inspected URL, last crawl Sep 25. `/blog/best-time-to-test-pool-water` (Bing): indexed, no SEO/GEO issues, JSON-LD + OpenGraph detected. Neither is a technical problem (see Consolidation Plan).
 
 ---
 
 ## Watch List
 
-- **⚠️ ONGOING COLLAPSE — TOP ITEM.** Sep 26: 8th week. Floor 44–68 impr/day (lower than the 51–124 band of Aug 28–Sep 19). 69 L28 losers, 0 winners. Stabilizing, not a confirmed bottom. L28 comparisons stay distorted until the prior window is fully post-collapse (mid-October). **Hold all broad changes.**
-- **⚠️ Trust-line experiment** — HOLD until the Oct 17 report. See Trust-Line Experiment.
+- **⚠️ ONGOING COLLAPSE — TOP ITEM.** Oct 3: 9th week. L7 impressions up for the first time (424→712; daily 49–176) but clicks at a series low (10), and the rise rests on a 3-day burst on one page. Inconclusive — not a recovery, but the floor didn't break lower. Sep 26: 8th week. Floor 44–68 impr/day (lower than the 51–124 band of Aug 28–Sep 19). 69 L28 losers, 0 winners. Stabilizing, not a confirmed bottom. L28 comparisons stay distorted until the prior window is fully post-collapse (mid-October). **Hold all broad changes.**
+- **⚠️ Trust-line experiment** — HOLD until the Oct 17 report. See Trust-Line Experiment. `pool-chlorine-levels-chart` (treatment) had a 186-impr, 0-click burst Sep 25–27, now faded — not an early signal.
+- **⚠️ September 2026 spam update** (Google-confirmed, started Sep 24) — overlaps the trust-line read window. Watch daily impressions 2–3 weeks; no per-page action.
+- **muriatic-acid-calculator seasonal fade** — L7 clicks 20→7, impressions −36% at pos ~2.5 (Oct 3). [Likely] seasonal. Protected; check whether impressions stabilize.
 - **⚠️ pool-ph-keeps-rising** — Google L28 pos 21.70→67.71 (Sep 19). Google-specific: Bing L28 clicks 24→39 (Sep 26). In the treatment group since Sep 20. HOLD.
 - **⚠️ pool-alkalinity-vs-ph** — Google L28 pos 19.27→67.49 (Sep 19), 65.97 (Sep 26). In the treatment group since Sep 20. HOLD.
-- **⚠️ Newer severe decliners (Sep 26)** — `/explained/cyanuric-acid`, `/blog/what-is-lsi`, `/blog/pool-cloudy-after-shocking`, `/blog/pool-startup-chemicals-checklist`. Monitor; no action before the Oct 17 report.
+- **⚠️ Newer severe decliners (Sep 26)** — `/explained/cyanuric-acid`, `/blog/what-is-lsi`, `/blog/pool-cloudy-after-shocking`, `/blog/pool-startup-chemicals-checklist`. Oct 3: cyanuric-acid L7 pos 43.6→20.8 and pool-startup-chemicals-checklist 51→19 (improving); pool-cloudy-after-shocking flat at 31.2; what-is-lsi absent from L7. Monitor; no action before the Oct 17 report.
 - **⚠️ Aug 15 fix batch** (chlorine-dose, baking-soda, pool-ph, muriatic-acid calculators; pool-alkalinity-vs-ph; fc-cya-chart; /explained/lsi) — collapse still masks any fix signal. Hold.
 - **⚠️ Sep 6 fix batch** (homepage, pool-startup-chemicals-checklist, pool-volume-calculator, what-is-lsi, algae/alkalinity hubs) — all continued declining, swamped by the broader event. Re-check when the floor is confirmed.
 - **⚠️ Homepage ranking** — L28 pos 78.07 (was 36.52) as of Sep 19. Trust strip added Sep 20 (ff2e446). Do not credit the Sep 6 guides relink yet. The pre-Sep-6 homepage isn't in git (history starts at 1e2798d).
 - **⚠️ Mixed decline signature** — narrowing (muriatic, pool-shock calculators: rank fine, footprint shrank) vs. ranking regression (chlorine-dose, pool-ph, calcium-hardness calculators: rank and CTR both worse). Both still active.
-- **Seasonal pool-closing content** — `/tools/pool-closing-calculator` (Bing L7 5→20, GA4 0→6; not on the homepage grid — deferred), `/blog/how-to-close-a-pool-for-winter` (Copilot 30d 3,832), `/blog/pool-closing-chemicals-checklist` (Copilot 30d 1,820). Watch for a Google move.
+- **Seasonal pool-closing content** — `/tools/pool-closing-calculator` (Bing L7 5→20→8, GA4 0→6; not on the homepage grid — deferred), `/blog/how-to-close-a-pool-for-winter` (Copilot 30d 3,832→5,326), `/blog/pool-closing-chemicals-checklist` (Copilot 30d 1,820→2,648). Oct 3: no Google move (0 impressions L28) — contradicts a cross-channel recovery. Bing/Copilot 7d past the crest; expect tapering into the off-season.
 - **Bing/AI-only performers** — `/blog/pool-scale-calcium-deposits` (Copilot 30d 2,180; invisible on Google organic), `/blog/black-algae-in-pool` (Copilot 30d 1,033). Continue building links.
 - **`/explained/lsi`** — pos regressed to 23.27 (was 17.46 after the Aug 16 fix). Monitor.
 - **`/explained/ph`** — confirmed AIO absorption. Citation authority only; no title/meta changes.
-- **iOS conversion rate** — 28d 13.02→12.14→8.20→7.04→**6.23%** (Sep 26). Five straight declines, not stabilized.
-- **GA4 key events** — 28d 17→27→**35**. Genuine, growing metric (`store_click` starred Aug 29).
+- **iOS conversion rate** — 28d 13.02→12.14→8.20→7.04→**6.23%** (Sep 26). Five straight declines, not stabilized. Oct 3: not computable (unique-device impressions file missing); 28d first-time downloads 17 vs 38.
+- **GA4 key events** — 28d 17→27→35→**41**. Genuine, growing metric (`store_click` starred Aug 29). Oct 3 7d: 14 of 16 on pool-ph-keeps-rising with 0 users — likely an attribution artifact.
+- **Bing export quirk (Oct 3)** — most query rows and some page rows repeat identical cur/prev values. Check the compare export before trusting Bing query deltas.
+- **Copilot CYA pickup (Oct 3)** — "cyanuric acid" 0→90, `cya-pool-stabilizer` +57 (7d). First signal for the Aug 23 CYA cluster; feeds the consolidation plan's CYA re-check.
 - **Google Play data** — Installs latest Sep 8 with an Aug 22–31 gap; Sales only through Aug 30. Stale at the source (Play Console hasn't updated), not a missed export. Re-export when the Console catches up.
 - **New referring domain (Sep 29 Ahrefs)** — `/blog/pool-chlorine-levels-chart` gained 1 dofollow referring domain (0→1). Same crawl: `/blog/pool-chemistry-heat-wave` lost 1 of its 2 referring domains. Not identified from Backlinks page 1. Pool-industry editorial links already exist (Shasta Pool Supply, Pool Bros Texas, saltwaterpoolanswers — see Backlinks & Outreach).
-- **Homepage spam-link wave** — 418 referring domains total; the newest 50 are all spam, first seen Sep 28–29 (~25/day), nearly all nofollow. Dofollow spam so far: forbesstories.com, murvi.shop, nimbra.shop, archive-hu.com, betulcrime.com, corvio.shop, cartermanageus.com. Next Tuesday: note the referring-domain total to see whether the wave continues. Decide on a domain-level disavow after the Oct 17 read, not before. GSC Links (Sep 29) shows none of the `.shop` spam — Google appears to be ignoring it, so a disavow may not be needed at all.
+- **Homepage spam-link wave** — 418 referring domains total; the newest 50 are all spam, first seen Sep 28–29 (~25/day), nearly all nofollow. Dofollow spam so far: forbesstories.com, murvi.shop, nimbra.shop, archive-hu.com, betulcrime.com, corvio.shop, cartermanageus.com. Next Tuesday: note the referring-domain total to see whether the wave continues. **Oct 6: 419 referring domains (+1 vs 418) — the wave has stalled.** Same view (sorted by DR) shows `mavaquadoc.com` (DR 36, ~10k traffic, 3 dofollow links, first seen Sep 23) — the only new non-spam-looking dofollow domain. It does not appear in the Backlinks report, so its links may already be lost or not live. Unconfirmed — not counted as a real link and not linked to the Sep 29 pool-chlorine-levels-chart gain. Not worth more digging (same call as Open Action 2). Decide on a domain-level disavow after the Oct 17 read, not before. GSC Links (Sep 29) shows none of the `.shop` spam — Google appears to be ignoring it, so a disavow may not be needed at all.
 - **Swim University (Matt Giovanisci)** — downgraded Oct 1: high value but unlikely. They are a competitor (own app, ranked #1 on their Sep 1 calculator-apps refresh, which left poolchemtracker.com off). Still cited in AIO, so a guide citation is worth pursuing at V2. No site changes in response.
 - **August 2026 spam update (Aug 18–21)** — Possible-tier link to Event 2. Recovery, if applicable, takes weeks.
 - **Bing crawl gaps** — `baking-soda-vs-soda-ash` "Discovered but not crawled" (Request Indexing clicked Sep 17 and Sep 20). Document-size-0: `lsi-pool-surface-types`, `year-round-pool-maintenance-desert-pools`, `cya-effect-on-lsi`, `saltwater-pool-salt-calculator` (resubmitted Sep 12; not verifiable from report data).
@@ -223,7 +251,8 @@ Informational/educational queries vanished; calculator queries where the site ra
 | Sep 5 | 36 | 934 | 3.85% | 25.50 | 1,426 | 137,135 | 1.04% | 7.85 |
 | Sep 12 | 21 | 742 | 2.83% | 18.01 | 464 | 41,267 | 1.12% | 8.66 |
 | Sep 19 | 32 | 523 | 6.12% | 21.19 | 161 | 3,835 | 4.20% | 18.74 |
-| **Sep 26** | **25** | **421** | **5.94%** | **16.82** | **114** | **2,620** | **4.35%** | **21.12** |
+| Sep 26 | 25 | 421 | 5.94% | 16.82 | 114 | 2,620 | 4.35% | 21.12 |
+| **Oct 3** | **10** | **712** | **1.40%** | **13.88** | **90** | **2,440** | **3.69%** | **17.58** |
 
 ### Bing Webmaster Tools
 
@@ -231,9 +260,12 @@ Informational/educational queries vanished; calculator queries where the site ra
 |-----|------|------|------|------|------|------|
 | Sep 12 | 69 / 76 | 2,534 / 2,716 | 362 / 392 | 11,539 / 11,950 | 3.14% | 4.73 |
 | Sep 19 | 54 / 84 | 2,216 / 2,832 | 349 / 363 | 11,455 / 11,861 | 3.05% | 4.63 |
-| **Sep 26** | **72 / 71** | **2,520 / 2,553** | **334 / 402** | **11,540 / 12,363** | **2.89%** | **4.61** |
+| Sep 26 | 72 / 71 | 2,520 / 2,553 | 334 / 402 | 11,540 / 12,363 | 2.89% | 4.61 |
+| **Oct 3** | **52 / 81** | **1,585 / 2,761** | **300 / 397** | **10,769 / 12,225** | **2.79%** | **4.56** |
 
 Sep 26 top L7 Bing pages (clicks cur/prev): pool-closing-calculator 20/5, pool-ph-keeps-rising 7/8, chlorine-dose-calculator 6/4, pool-scale-calcium-deposits 6/5, how-to-close-a-pool-for-winter 4/4, how-to-balance-pool-water 4/8.
+
+Oct 3 top L7 Bing pages: pool-closing-calculator 8/24, pool-scale-calcium-deposits 5/6, chlorine-dose-calculator 4/7, how-to-balance-pool-water 4/4, pool-shock-calculator 4/3.
 
 Google-vs-Bing gaps: chlorine-dose-calculator Google L28 ≈ 0 (35 impr) vs Bing L28 42 clicks / 1,114 impr; pool-ph-keeps-rising Google pos 8.82→67.71 while Bing clicks rose.
 
@@ -243,7 +275,8 @@ Google-vs-Bing gaps: chlorine-dose-calculator Google L28 ≈ 0 (35 impr) vs Bing
 |-----|-----|-----|-----|-----|-----|-----|
 | Sep 12 | 230 | 7,633 | 5,959 | 19,383 | 3,004 | 7,454 |
 | Sep 19 | 149 | 853 | 4,876 | 22,924 | 1,830 | 8,843 |
-| **Sep 26** | **168** | **680** | **6,308** | **26,254** | **2,269** | **10,181** |
+| Sep 26 | 168 | 680 | 6,308 | 26,254 | 2,269 | 10,181 |
+| **Oct 3** | **109** | **651** | **5,939** | **27,636** | **2,386** | **11,064** |
 
 GSC AIO 7d moves are noise off a collapsed base (peak 14,914). Sep 26 top 30d Copilot gainers: how-to-close-a-pool-for-winter +3,609 (→3,832), pool-scale-calcium-deposits +1,965, pool-closing-chemicals-checklist +1,820, "remove calcium carbonate…pumice stone" +1,659, black-algae-in-pool +835, "black algae in pool" +720, "pool closing chemicals" +539.
 
@@ -253,9 +286,10 @@ GSC AIO 7d moves are noise off a collapsed base (peak 14,914). Sep 26 top 30d Co
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Sep 12 (Sep 10) | 5 | 83 | 27 | 25 | 305 | 78 | 6 | 30 | 8.20% |
 | Sep 19 (Sep 17) | 8 | 53 | 22 | 20 | 284 | 75 | 4 | 20 | 7.04% |
-| **Sep 26 (Sep 24)** | **2** | **66** | **19** | **17** | **273** | **68** | **6** | **30** | **6.23%** |
+| Sep 26 (Sep 24) | 2 | 66 | 19 | 17 | 273 | 68 | 6 | 30 | 6.23% |
+| **Oct 3 (Oct 1)** | **4** | **79** | **19** | **17** | **348\*** | **73** | **3** | **15** | **n/a** |
 
-Conversion = first-time downloads ÷ unique-device impressions. 7-day conversion is noise at single-digit volumes.
+Conversion = first-time downloads ÷ unique-device impressions. 7-day conversion is noise at single-digit volumes. \*Oct 3: all-device impressions (unique-device file missing) — not comparable to earlier rows.
 
 ### Google Play
 
@@ -285,7 +319,22 @@ Conversion = first-time downloads ÷ unique-device impressions. 7-day conversion
 | Sep 8 | 100 | 148 | 0 | 21 | 36 | 57 |
 | Sep 15 | 100 | 148 | 0 | 18 | 25 | 43 |
 | Sep 22 | 100 | 146 | 0 | 18 | 76 | 94 |
-| **Sep 29** | **100** | **151** | **0** | **13** | **35** | **48** |
+| Sep 29 | 100 | 151 | 0 | 13 | 35 | 48 |
+| **Oct 6** | **100** | **154** | **0** | **13** | **19** | **32** |
+
+**Oct 6 vs Sep 29** (Overview PDF only; 154 = 146 internal + 8 resources; 152 × 2xx, 4 × 3xx; 3,402 links found, 2,959 crawled, 424 uncrawled, 19 blocked by robots.txt). The PDF drops the +/− signs on the Change column, so direction below is inferred from the Sep 29 counts:
+
+| Issue | Count | Change vs Sep 29 | Status |
+|-------|-------|--------|--------|
+| Pages dropped from Top 10 | 5 | −5 (was 10) | Fewer pages dropping this week. URLs not in the Overview — pull from the issue page if needed. |
+| Organic traffic dropped | 5 | −3 (was 8) | Same. Ahrefs estimates, not GSC; fits the Oct 3 GSC read (narrow muriatic seasonal fade, no new decline). |
+| Page and SERP titles do not match | 2 | −1 (1 removed) | URLs not pulled. |
+| Meta description too long | 1 | 0 | Still `muriatic-acid-calculator` (protected). |
+| Open Graph tags incomplete | 6 | 0 | Legal/about pages, optional. |
+| 3XX redirect / HTTP→HTTPS redirect | 4 / 2 | 0 per Ahrefs | Logged as 1 / 1 on Sep 29, yet Ahrefs shows no change. Probably counted differently last week (the Sep 29 crawl had 1 × 3xx). No new redirects were added to the site. Check the issue page if it grows. |
+| Meta description too short / Title too short / only one dofollow internal link | 1 / 1 / 2 | 0 | Unchanged. |
+
+Notices fell 35→19; the Top 10 and traffic-drop counts explain 8 of that, and the rest isn't shown in the Overview (likely IndexNow noise clearing). No new issue types and no errors. Log only — no page changes before the Oct 17 report. Not in this PDF: the referring-domain total for the homepage spam-wave check (Site Explorer → Overview).
 
 **Sep 29 "What's new" vs Sep 22** (from the Overview PDF, `~/Claude CoWork/Ahrefs Reports/Overview - Poolchemtracker.pdf`; 151 = 143 internal + 8 resources; 152 × 2xx, 1 × 3xx; 3,402 links found, 19 blocked by robots.txt):
 
@@ -313,7 +362,7 @@ Conversion = first-time downloads ÷ unique-device impressions. 7-day conversion
 
 **"Organic traffic dropped" — the one URL not in the table above:** `/tools/calcium-hardness-calculator` — contaminated control (5b53f18 methodology link) — Ahrefs traffic 2→1, Top 10 kws 0, top keyword "how much calcium chloride to add to pool" (11). Already in the Watch List "ranking regression" group.
 
-Read: all 4 on-hold calculators and 3 of the 16 treatment pages are on the list; only 1 clean-ish control page (what-is-lsi). Most drops are 1–3 keywords off a tiny base, so this is the ongoing collapse, not a trust-line effect in either direction. Log only — no page changes before Oct 15. Muriatic still matches the "rank held, footprint shrank" signature (Top 10 kws 11→5, top-keyword pos 2→3).
+Read: all 4 on-hold calculators and 3 of the 16 treatment pages are on the list; only 1 clean-ish control page (what-is-lsi). Most drops are 1–3 keywords off a tiny base, so this is the ongoing collapse, not a trust-line effect in either direction. Log only — no page changes before Oct 17. Muriatic still matches the "rank held, footprint shrank" signature (Top 10 kws 11→5, top-keyword pos 2→3).
 
 **Sep 29 full issue list** (All issues: 17 active, 2 new, 179 tracked). Confirms the Sep 23 fixes landed:
 
