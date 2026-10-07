@@ -65,7 +65,7 @@ All manual, outside the repo, unless noted.
 5. Re-check `/tools/pool-chemical-addition-order` indexing on Google (still "Discovered - currently not indexed" as of Sep 20; don't spend more effort before the Oct 17 report).
 6. Re-check Bing crawl of `baking-soda-vs-soda-ash` and the 4 document-size-0 pages (see Watch List).
 7. Still owed from the Sep 17 audit: GSC query-level check on the homepage 36.5→78 position drop; query-level GSC before/after Aug 15 + live AIO-occupancy check on vanished informational queries (would move Event 1's cause from Likely to Confirmed).
-7a. **Before Oct 17 — make the trust-line read possible:** `gsc_daily_page_history.csv` only tracks the top 20 pages by clicks, which misses most of the 16 treatment and ~34 control pages. Extend the daily per-page pull, or do a one-off GSC per-URL export for every treatment + control URL from ~Sep 1 (Oct 3 report, action #1).
+7a. ~~Make the trust-line read possible~~ — done Oct 6: control group defined, `pull_trustline_experiment.py` pulls daily GSC data for all 93 experiment pages, and the report skill has a conditional Experiment Read section (see Trust-Line Experiment).
 7b. Google Trends check: "muriatic acid pool" / "lower pool ph", Aug–Oct, to confirm the muriatic decline is seasonal (Oct 3 report).
 7c. Re-export App Store "Impressions (Unique Devices)" for Jul 4–Oct 1 into AppStore Reports/ (the Oct 3 run got Product Page Views (Unique Devices) instead).
 7d. GA4 consistency: reconcile last run's 7d users (104 report / 74 CSV) with this run's prior week (33) before trusting GA4 week-over-week moves.
@@ -114,7 +114,9 @@ All manual, outside the repo, unless noted.
 - Sep 20 batch 2 (fce9274): `pool-ph-keeps-rising`, `pool-alkalinity-vs-ph`, `how-long-after-shocking-can-you-swim`, `how-to-shock-a-pool`, `spa-chemistry-basics`, `hot-tub-chlorine-vs-bromine`, `how-to-shock-a-hot-tub`, `how-often-to-change-hot-tub-water`.
 - Sep 20 (5d6576d): `pool-chlorine-levels-chart`, `pool-chemistry-beginners`.
 
-**Control group:** ~34 untouched informational pages.
+**Control group (defined Oct 6):** 66 untouched blog pages (`control`) + 11 explained/ pages that got only the 5b53f18 methodology link (`control_methodology_link` — reported separately, never merged). Left out: hub/index pages and 4 non-treatment pages edited after Sep 17 (`why-does-my-pool-smell-like-chlorine` 791a92b; `what-is-lsi`, `pool-closing-chemicals-checklist`, `low-cya-in-pool` 9cb2183 meta trims). Exact list: `~/Claude CoWork/SEO Reports/inbox/Trust-Line Experiment/trustline_groups.csv`. Replaces the earlier "~34 control pages" estimate.
+
+**Data for the read:** `pull_trustline_experiment.py` pulls daily GSC data for all 93 pages from Sep 1 into `trustline_daily_page_history.csv` (same folder). Verified Oct 6 against the top-20 file. 39 of the 93 pages had 0 Google impressions Sep 1–Oct 4 (3 treatment, 29 control, 7 methodology-link), so the read effectively rests on ~54 pages. The report skill's new conditional section 2a runs the read (Before = Sep 1–16, After = Sep 21 on, Sep 17–20 left out; group totals + median per-page change + a check without the top page).
 
 **Indexing:** all Sep 17 pages + /methodology confirmed indexed on Google Sep 20. All indexed on Bing except `baking-soda-vs-soda-ash`. All later pages submitted to GSC + Bing Sep 20–21.
 
