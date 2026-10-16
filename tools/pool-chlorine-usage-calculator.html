@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-<meta name="description" content="Calculate how much liquid chlorine your pool needs per week and monthly cost — based on FC demand, pool volume, and local prices.">
+<meta name="description" content="Calculate how much liquid chlorine your pool needs per week and monthly cost, based on FC demand, pool volume, and local prices.">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
 <script>
 window.dataLayer=window.dataLayer||[];
@@ -18,13 +18,13 @@ gtag('config','G-S8JT1DELF6');
 <link rel="canonical" href="https://www.poolchemtracker.com/tools/pool-chlorine-usage-calculator">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Pool Chlorine Usage Calculator — How Much Per Week & Monthly Cost">
-<meta property="og:description" content="How many gallons of liquid chlorine does your pool need per week? Enter pool size, demand level, and local price — get weekly usage and monthly cost.">
+<meta property="og:description" content="How many gallons of liquid chlorine does your pool need per week? Enter pool size, demand level, and local price to get weekly usage and monthly cost.">
 <meta property="og:url" content="https://www.poolchemtracker.com/tools/pool-chlorine-usage-calculator">
 <meta property="og:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
 <meta property="og:site_name" content="PoolChem Tracker">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Pool Chlorine Usage Calculator — How Much Per Week & Monthly Cost">
-<meta name="twitter:description" content="Weekly liquid chlorine usage and monthly cost for your pool — based on pool size, demand level, and local price.">
+<meta name="twitter:description" content="Weekly liquid chlorine usage and monthly cost for your pool, based on pool size, demand level, and local price.">
 <meta name="twitter:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.poolchemtracker.com/"},{"@type":"ListItem","position":2,"name":"Pool Calculators","item":"https://www.poolchemtracker.com/tools/"},{"@type":"ListItem","position":3,"name":"Pool Chlorine Usage Calculator"}]}
@@ -196,8 +196,8 @@ gtag('config','G-S8JT1DELF6');
   <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Pool Calculators</a> &rsaquo; Chlorine Usage Calculator</div>
 
   <span class="page-label">Pool Calculators</span>
-  <h1>Pool Chlorine Usage Calculator —<br><span class="gradient">How Much Per Week &amp; Monthly Cost</span></h1>
-  <p class="page-desc">Find out exactly how many gallons of chlorine your pool consumes per week and what that costs you per month — based on pool size, actual demand, and your local price.</p>
+  <h1>Pool Chlorine Usage Calculator:<br><span class="gradient">How Much Per Week &amp; Monthly Cost</span></h1>
+  <p class="page-desc">Find out exactly how many gallons of chlorine your pool consumes per week and what that costs you per month, based on pool size, actual demand, and your local price.</p>
 
   <!-- ── Inputs ── -->
   <div class="calc-card">
@@ -234,13 +234,13 @@ gtag('config','G-S8JT1DELF6');
 
     <div class="section-divider"></div>
 
-    <div class="section-label">Daily FC Demand <span class="section-sub">— ppm of free chlorine consumed per day</span></div>
+    <div class="section-label">Daily FC Demand <span class="section-sub">(ppm of free chlorine consumed per day)</span></div>
     <div style="margin-bottom:0.6rem;">
       <div class="demand-presets" id="demand-presets">
-        <button class="preset-chip" onclick="setPreset(1.0, this)">Low — 1 ppm/day</button>
-        <button class="preset-chip active" onclick="setPreset(2.5, this)">Moderate — 2.5 ppm/day</button>
-        <button class="preset-chip" onclick="setPreset(5.0, this)">High — 5 ppm/day</button>
-        <button class="preset-chip" onclick="setPreset(8.0, this)">Very High — 8 ppm/day</button>
+        <button class="preset-chip" onclick="setPreset(1.0, this)">Low: 1 ppm/day</button>
+        <button class="preset-chip active" onclick="setPreset(2.5, this)">Moderate: 2.5 ppm/day</button>
+        <button class="preset-chip" onclick="setPreset(5.0, this)">High: 5 ppm/day</button>
+        <button class="preset-chip" onclick="setPreset(8.0, this)">Very High: 8 ppm/day</button>
       </div>
     </div>
     <div class="inputs-grid two-col">
@@ -253,14 +253,14 @@ gtag('config','G-S8JT1DELF6');
 
     <div class="section-divider"></div>
 
-    <div class="section-label">Measure Your Demand from Readings <span class="section-sub">— optional; don&rsquo;t add chlorine between tests</span></div>
+    <div class="section-label">Measure Your Demand from Readings <span class="section-sub">(optional; don&rsquo;t add chlorine between tests)</span></div>
     <div class="inputs-grid three-col">
       <div class="field">
-        <label for="fc-start">FC — First Reading (ppm)</label>
+        <label for="fc-start">FC: First Reading (ppm)</label>
         <input inputmode="decimal" type="number" id="fc-start" min="0" max="20" step="0.1" placeholder="e.g. 4.0" oninput="calcDemand()">
       </div>
       <div class="field">
-        <label for="fc-end">FC — Second Reading (ppm)</label>
+        <label for="fc-end">FC: Second Reading (ppm)</label>
         <input inputmode="decimal" type="number" id="fc-end" min="0" max="20" step="0.1" placeholder="e.g. 2.5" oninput="calcDemand()">
       </div>
       <div class="field">
@@ -289,16 +289,16 @@ gtag('config','G-S8JT1DELF6');
   <!-- ── Content ── -->
 
   <h2>How much chlorine does a pool use per week?</h2>
-  <p>There is no single answer — it depends on three things: pool size (gallons), chlorine demand (how fast FC drops), and the strength of the product you&rsquo;re using. A 10,000-gallon pool with low demand uses roughly 0.2–0.3 gallons of liquid chlorine per week. A 20,000-gallon pool with heavy use in summer heat can easily use 2–3 gallons per week.</p>
+  <p>There is no single answer. It depends on three things: pool size (gallons), chlorine demand (how fast FC drops), and the strength of the product you&rsquo;re using. A 10,000-gallon pool with low demand uses roughly 0.2–0.3 gallons of liquid chlorine per week. A 20,000-gallon pool with heavy use in summer heat can easily use 2–3 gallons per week.</p>
 
   <p>The most common mistake is buying based on habit rather than measurement. If you consistently over-dose, you&rsquo;re spending money on chlorine that burns off unused. If you under-dose, the pool slides into algae territory. The calculator above gives you a number calibrated to your actual pool.</p>
 
   <div class="key-fact">
     <h3>Demand, not pool size, drives your chlorine budget</h3>
-    <p>Two identical 15,000-gallon pools can have very different chlorine needs. A covered pool in a cool climate with light use might need 0.3 gallons per week. An uncovered pool in Arizona with daily swimmer use might need 1.5 gallons for the same volume. Demand is what matters — size just converts it to a shopping quantity.</p>
+    <p>Two identical 15,000-gallon pools can have very different chlorine needs. A covered pool in a cool climate with light use might need 0.3 gallons per week. An uncovered pool in Arizona with daily swimmer use might need 1.5 gallons for the same volume. Demand is what matters; size just converts it to a shopping quantity.</p>
   </div>
 
-  <h2>Chlorine demand levels — what&rsquo;s typical?</h2>
+  <h2>Chlorine demand levels: what&rsquo;s typical?</h2>
 
   <table class="demand-table" role="table" aria-label="Chlorine demand level reference">
     <thead>
@@ -340,15 +340,15 @@ gtag('config','G-S8JT1DELF6');
     <li><strong>Test FC again the next morning</strong> before sunlight hits the pool. Record the reading.</li>
     <li><strong>Calculate demand:</strong> (Evening FC &minus; Morning FC) &divide; hours &times; 24 = ppm per day.</li>
   </ol>
-  <p>This overnight test captures natural chlorine consumption without UV interference. Run it two or three times to get a stable average — demand varies day to day based on temperature, swimmer load, and organic material in the water. The &ldquo;Measure from readings&rdquo; section in the calculator above does this math automatically.</p>
+  <p>This overnight test captures natural chlorine consumption without UV interference. Run it two or three times to get a stable average, because demand varies day to day based on temperature, swimmer load, and organic material in the water. The &ldquo;Measure from readings&rdquo; section in the calculator above does this math automatically.</p>
 
   <h2>What drives high chlorine demand?</h2>
   <ul>
-    <li><strong>Swimmer load</strong> — body oils, sweat, sunscreen, and urine are all chlorine-consuming compounds. A pool used heavily every day can have 3–5&times; the demand of a lightly-used pool of the same size.</li>
-    <li><strong>Sunlight</strong> — UV light destroys chlorine that isn&rsquo;t protected by CYA (stabilizer). A pool with CYA below 20 ppm can lose most of its FC to UV in a few hours of direct sun. Bringing CYA to 30–50 ppm typically reduces demand by 30–50%.</li>
-    <li><strong>Organic debris</strong> — leaves, grass, pollen, and algae all consume chlorine. A pool that gets heavy debris can see demand spike after every windstorm. Regular skimming and vacuuming reduces this load.</li>
-    <li><strong>Water temperature</strong> — warm water accelerates all chemical reactions, including chlorine demand. Pools above 85&deg;F often see meaningfully higher FC consumption.</li>
-    <li><strong>Early-stage algae</strong> — algae consuming FC often shows up as elevated demand before any green is visible. An <a href="overnight-chlorine-loss-test" style="color:var(--accent)">overnight chlorine loss test (OCLT)</a> can confirm whether algae is driving high demand before the problem becomes visible.</li>
+    <li><strong>Swimmer load:</strong> body oils, sweat, sunscreen, and urine are all chlorine-consuming compounds. A pool used heavily every day can have 3–5&times; the demand of a lightly-used pool of the same size.</li>
+    <li><strong>Sunlight:</strong> UV light destroys chlorine that isn&rsquo;t protected by CYA (stabilizer). A pool with CYA below 20 ppm can lose most of its FC to UV in a few hours of direct sun. Bringing CYA to 30–50 ppm typically reduces demand by 30–50%.</li>
+    <li><strong>Organic debris:</strong> leaves, grass, pollen, and algae all consume chlorine. A pool that gets heavy debris can see demand spike after every windstorm. Regular skimming and vacuuming reduces this load.</li>
+    <li><strong>Water temperature:</strong> warm water accelerates all chemical reactions, including chlorine demand. Pools above 85&deg;F often see meaningfully higher FC consumption.</li>
+    <li><strong>Early-stage algae:</strong> algae consuming FC often shows up as elevated demand before any green is visible. An <a href="overnight-chlorine-loss-test" style="color:var(--accent)">overnight chlorine loss test (OCLT)</a> can confirm whether algae is driving high demand before the problem becomes visible.</li>
   </ul>
 
   <h2>Frequently asked questions</h2>
@@ -357,25 +357,25 @@ gtag('config','G-S8JT1DELF6');
   <p>Test your free chlorine 2–3 times per week. If FC is consistently dropping below the minimum for your CYA level (CYA &times; 7.5% for a standard pool), you&rsquo;re under-dosing. If FC is persistently above the maximum, you&rsquo;re over-dosing. Aim for small, frequent additions that keep FC in the middle of the target range rather than large doses that create wide swings.</p>
 
   <h3>Does 12.5% liquid chlorine go further than 10%?</h3>
-  <p>Yes — 12.5% contains 25% more available chlorine per gallon, so you need 20% less volume for the same effect. If your pool store sells 12.5% at the same price per gallon as hardware-store 10%, the 12.5% is a better value. If it&rsquo;s more expensive per gallon, use the calculator to find the break-even price.</p>
+  <p>Yes. 12.5% contains 25% more available chlorine per gallon, so you need 20% less volume for the same effect. If your pool store sells 12.5% at the same price per gallon as hardware-store 10%, the 12.5% is a better value. If it&rsquo;s more expensive per gallon, use the calculator to find the break-even price.</p>
 
   <h3>Can I reduce how much chlorine I use?</h3>
   <p>Yes. The biggest levers are: (1) keep CYA in the 30–50 ppm range to protect chlorine from UV; (2) use a solar cover to block sunlight and reduce evaporation; (3) shower before swimming to reduce the organic load; (4) clean the filter regularly to remove debris that otherwise decomposes in the water. Together, these can cut demand by 40–60% in many pools.</p>
 
   <h3>How is this different from the chlorine cost calculator?</h3>
-  <p>The <a href="chlorine-cost-calculator" style="color:var(--accent)">chlorine cost calculator</a> compares the true seasonal cost of three products — liquid chlorine, trichlor tablets, and cal-hypo — including the hidden CYA drain cost from tablets. This calculator focuses on your operational question: given the product you already use, how much do you need this week and what will it cost this month? Different tools for different decisions.</p>
+  <p>The <a href="chlorine-cost-calculator" style="color:var(--accent)">chlorine cost calculator</a> compares the true seasonal cost of three products (liquid chlorine, trichlor tablets, and cal-hypo), including the hidden CYA drain cost from tablets. This calculator focuses on your operational question: given the product you already use, how much do you need this week and what will it cost this month? Different tools for different decisions.</p>
 
 
   <div class="related-list">
     <p class="box-heading">More pool calculators &amp; guides</p>
     <ul>
-      <li><a href="../methodology">Methodology &amp; sources</a> &mdash; how every number on this site is calculated</li>
+      <li><a href="../methodology">Methodology &amp; sources</a>: how every number on this site is calculated</li>
       <li><a href="./">All pool chemistry calculators</a></li>
-      <li><a href="chlorine-dose-calculator">Chlorine dose calculator</a> — exact dose for a single top-up from current FC to target</li>
-      <li><a href="chlorine-cost-calculator">Chlorine cost calculator</a> — compare liquid vs tablets vs cal-hypo over a full season</li>
-      <li><a href="pool-shock-calculator">Pool shock calculator</a> — CYA-based shock level and dose</li>
-      <li><a href="overnight-chlorine-loss-test">OCLT calculator</a> — confirm whether high demand is caused by algae</li>
-      <li><a href="pool-opening-calculator">Pool opening calculator</a> — full spring shopping list for clear, cloudy, or green pools</li>
+      <li><a href="chlorine-dose-calculator">Chlorine dose calculator</a>: exact dose for a single top-up from current FC to target</li>
+      <li><a href="chlorine-cost-calculator">Chlorine cost calculator</a>: compare liquid vs tablets vs cal-hypo over a full season</li>
+      <li><a href="pool-shock-calculator">Pool shock calculator</a>: CYA-based shock level and dose</li>
+      <li><a href="overnight-chlorine-loss-test">OCLT calculator</a>: confirm whether high demand is caused by algae</li>
+      <li><a href="pool-opening-calculator">Pool opening calculator</a>: full spring shopping list for clear, cloudy, or green pools</li>
       <li><a href="../explained/free-chlorine">Free chlorine and CYA explained &rarr;</a></li>
     </ul>
   </div>
@@ -460,11 +460,11 @@ gtag('config','G-S8JT1DELF6');
       return;
     }
     if (fc2 >= fc1) {
-      el.innerHTML = '<span style="color:var(--warn)">Second reading must be lower than the first — make sure no chlorine was added between tests.</span>';
+      el.innerHTML = '<span style="color:var(--warn)">Second reading must be lower than the first. Make sure no chlorine was added between tests.</span>';
       return;
     }
     var demandPerDay = ((fc1 - fc2) / hrs * 24);
-    el.innerHTML = 'Calculated demand: <strong style="color:var(--accent)">' + demandPerDay.toFixed(2) + ' ppm/day</strong> — click &ldquo;Custom Demand&rdquo; above or enter this value in the field to use it.';
+    el.innerHTML = 'Calculated demand: <strong style="color:var(--accent)">' + demandPerDay.toFixed(2) + ' ppm/day</strong>. Click &ldquo;Custom Demand&rdquo; above or enter this value in the field to use it.';
     // Auto-fill the custom demand field and recalc
     document.getElementById('demand-ppm').value = demandPerDay.toFixed(2);
     document.querySelectorAll('.preset-chip').forEach(function (b) { b.classList.remove('active'); });
@@ -565,7 +565,7 @@ gtag('config','G-S8JT1DELF6');
     }
 
     // ── Demand badge ──────────────────────────────────────────────────────────
-    badgeRow.innerHTML = '<div class="demand-badge">&#9679; ' + demandLabel(demand) + ' demand &mdash; ' + demand.toFixed(1) + ' ppm FC / day</div>';
+    badgeRow.innerHTML = '<div class="demand-badge">&#9679; ' + demandLabel(demand) + ' demand: ' + demand.toFixed(1) + ' ppm FC / day</div>';
 
     // ── Metric cards ──────────────────────────────────────────────────────────
     var html = '';

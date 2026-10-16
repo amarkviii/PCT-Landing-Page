@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-<meta name="description" content="Enter pool gallons, CYA, and current FC — get the exact fl oz of liquid chlorine to add (10% or 12.5%). Supports cal-hypo and trichlor. Free.">
+<meta name="description" content="Enter pool gallons, CYA, and current FC to get the exact fl oz of liquid chlorine to add (10% or 12.5%). Supports cal-hypo and trichlor. Free.">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
 <script>
 window.dataLayer=window.dataLayer||[];
@@ -18,13 +18,13 @@ gtag('config','G-S8JT1DELF6');
 <link rel="canonical" href="https://www.poolchemtracker.com/tools/chlorine-dose-calculator">
 <meta property="og:type" content="website">
 <meta property="og:title" content="How Much Liquid Chlorine to Add — Pool Chlorine Dose Calculator">
-<meta property="og:description" content="Enter pool gallons, CYA, and current FC — get the exact fl oz of liquid chlorine to add (10% or 12.5%). Supports cal-hypo and trichlor. Free.">
+<meta property="og:description" content="Enter pool gallons, CYA, and current FC to get the exact fl oz of liquid chlorine to add (10% or 12.5%). Supports cal-hypo and trichlor. Free.">
 <meta property="og:url" content="https://www.poolchemtracker.com/tools/chlorine-dose-calculator">
 <meta property="og:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
 <meta property="og:site_name" content="PoolChem Tracker">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="How Much Liquid Chlorine to Add — Pool Chlorine Dose Calculator">
-<meta name="twitter:description" content="Enter pool gallons, CYA, and current FC — get the exact fl oz of liquid chlorine to add (10% or 12.5%). Supports cal-hypo and trichlor. Free.">
+<meta name="twitter:description" content="Enter pool gallons, CYA, and current FC to get the exact fl oz of liquid chlorine to add (10% or 12.5%). Supports cal-hypo and trichlor. Free.">
 <meta name="twitter:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.poolchemtracker.com/"},{"@type":"ListItem","position":2,"name":"Pool Calculators","item":"https://www.poolchemtracker.com/tools/"},{"@type":"ListItem","position":3,"name":"Chlorine Dose Calculator"}]}
@@ -216,11 +216,11 @@ gtag('config','G-S8JT1DELF6');
     <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Pool Calculators</a> &rsaquo; Chlorine Dose</div>
 
     <span class="page-label">Pool Calculators</span>
-    <h1>How Much Liquid Chlorine to Add to Your Pool — <span class="gradient">Calculator</span></h1>
-    <p class="page-desc">Enter your pool volume, CYA, and current FC — the minimum FC is set automatically. Supports liquid chlorine (10%, 12.5%), cal-hypo, and trichlor.</p>
+    <h1>How Much Liquid Chlorine to Add to Your Pool: <span class="gradient">Calculator</span></h1>
+    <p class="page-desc">Enter your pool volume, CYA, and current FC, and the minimum FC is set automatically. Supports liquid chlorine (10%, 12.5%), cal-hypo, and trichlor.</p>
 
     <div class="answer-box">
-      <strong>Enter your CYA below — the minimum FC is calculated automatically.</strong><br>
+      <strong>Enter your CYA below and the minimum FC is calculated automatically.</strong><br>
       Standard pools: minimum FC = CYA × 7.5%. Saltwater / SWG pools: CYA × 5%. Many pools keep FC a little above the minimum as a daily buffer.
     </div>
 
@@ -248,7 +248,7 @@ gtag('config','G-S8JT1DELF6');
         <div class="field">
           <label for="cya">CYA (ppm)</label>
           <input inputmode="decimal" type="number" id="cya" min="0" max="300" step="10" placeholder="e.g. 50" oninput="calcTarget()">
-          <span class="field-hint">Cyanuric acid stabilizer — sets your FC target</span>
+          <span class="field-hint">Cyanuric acid stabilizer; sets your FC target</span>
         </div>
         <div class="field">
           <label>Pool Type</label>
@@ -270,7 +270,7 @@ gtag('config','G-S8JT1DELF6');
         <div class="field">
           <label for="fc-target">Minimum FC (ppm)</label>
           <input inputmode="decimal" type="number" id="fc-target" min="0" step="0.5" placeholder="auto from CYA" oninput="onTargetFCInput()">
-          <span class="field-hint" id="target-hint" style="display:none;">Auto-set from CYA — edit to dose to your own target</span>
+          <span class="field-hint" id="target-hint" style="display:none;">Auto-set from CYA. Edit to dose to your own target</span>
         </div>
       </div>
 
@@ -291,7 +291,7 @@ gtag('config','G-S8JT1DELF6');
 
       <div class="warn-box" id="trichlor-warn">
         <strong>Trichlor adds CYA to your pool.</strong>
-        Every pound of trichlor raises CYA by roughly 6 oz (about 0.6 ppm per 10,000 gallons). Used regularly, CYA climbs above 80 ppm and your FC minimum rises with it. Trichlor is not recommended for routine dosing — liquid chlorine adds no CYA, stabilizer, or calcium.
+        Every pound of trichlor raises CYA by roughly 6 oz (about 0.6 ppm per 10,000 gallons). Used regularly, CYA climbs above 80 ppm and your FC minimum rises with it. Trichlor is not recommended for routine dosing, because liquid chlorine adds no CYA, stabilizer, or calcium.
       </div>
 
       <div class="result-box empty" id="result-box">
@@ -310,12 +310,12 @@ gtag('config','G-S8JT1DELF6');
     </div>
 
     <h2>Why liquid chlorine is the preferred choice</h2>
-    <p>Liquid sodium hypochlorite (pool bleach) raises FC cleanly — it adds only chlorine and water. Cal-hypo adds calcium, which can cloud water if your calcium hardness is already high. Trichlor adds CYA with every dose, which gradually raises your FC minimum and can lock you into a high-CYA chemistry spiral.</p>
+    <p>Liquid sodium hypochlorite (pool bleach) raises FC cleanly. It adds only chlorine and water. Cal-hypo adds calcium, which can cloud water if your calcium hardness is already high. Trichlor adds CYA with every dose, which gradually raises your FC minimum and can lock you into a high-CYA chemistry spiral.</p>
     <p>For regular top-offs, liquid chlorine at 10% or 12.5% is the simplest and cheapest option over a season. Cal-hypo is useful if you prefer a granular product or if your calcium hardness is on the low side.</p>
 
     <div class="key-fact">
       <h3>Add chlorine near a return jet</h3>
-      <p>With the pump running, pour liquid chlorine near a return jet or around the perimeter of the pool — never in front of the skimmer, and never mixed with other chemicals. For granular products, pre-dissolve in a bucket of pool water before adding.</p>
+      <p>With the pump running, pour liquid chlorine near a return jet or around the perimeter of the pool, never in front of the skimmer, and never mixed with other chemicals. For granular products, pre-dissolve in a bucket of pool water before adding.</p>
     </div>
 
     <h2>How the chlorine dose is calculated</h2>
@@ -330,11 +330,11 @@ gtag('config','G-S8JT1DELF6');
     <p>Concentrations used: Liquid 10% = 0.10 (density 1.074 g/mL), Liquid 12.5% = 0.125 (density 1.094 g/mL), Cal-Hypo 65% = 0.65, Cal-Hypo 73% = 0.73, Trichlor 90% = 0.90.</p>
 
     <h2>Worked example</h2>
-    <p>A 15,000-gallon pool tests at FC 1.5 ppm. Target is 4.0 ppm — a rise of <strong>2.5 ppm</strong>. Using 12.5% liquid chlorine:</p>
-    <p>2.5 × 15,000 × 3.785 ÷ 1,000 = 142 g of available chlorine needed. Divided by (1.094 density × 29.57 mL/fl oz × 0.125 concentration) = <strong>about 35 fl oz</strong> — a little over 1 quart. Add near a return jet with the pump running. Wait 30 minutes and retest before assuming the job is done.</p>
+    <p>A 15,000-gallon pool tests at FC 1.5 ppm. Target is 4.0 ppm, a rise of <strong>2.5 ppm</strong>. Using 12.5% liquid chlorine:</p>
+    <p>2.5 × 15,000 × 3.785 ÷ 1,000 = 142 g of available chlorine needed. Divided by (1.094 density × 29.57 mL/fl oz × 0.125 concentration) = <strong>about 35 fl oz</strong>, a little over 1 quart. Add near a return jet with the pump running. Wait 30 minutes and retest before assuming the job is done.</p>
 
     <h2>How much liquid chlorine to add to a 10,000, 15,000, or 20,000-gallon pool</h2>
-    <p>These estimates assume dosing from FC 2 ppm to a typical minimum target (CYA 50 → FC 4 ppm). Your numbers may differ — use the calculator above for an exact dose based on your current FC and CYA.</p>
+    <p>These estimates assume dosing from FC 2 ppm to a typical minimum target (CYA 50 → FC 4 ppm). Your numbers may differ, so use the calculator above for an exact dose based on your current FC and CYA.</p>
 
     <table class="dose-table" aria-label="Liquid chlorine dose reference by pool size">
       <thead>
@@ -360,35 +360,35 @@ gtag('config','G-S8JT1DELF6');
     <h2>Frequently asked questions</h2>
 
     <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">How much liquid chlorine raises FC by 1 ppm?</h3>
-    <p>It depends on your pool volume and chlorine concentration — both scale linearly, so a 15,000-gallon pool needs 50% more than a 10,000-gallon pool, and 10% chlorine requires more volume than 12.5% for the same FC rise. Enter your pool size, current FC, and target FC in the calculator above to get the exact fl oz for your situation.</p>
+    <p>It depends on your pool volume and chlorine concentration. Both scale linearly, so a 15,000-gallon pool needs 50% more than a 10,000-gallon pool, and 10% chlorine requires more volume than 12.5% for the same FC rise. Enter your pool size, current FC, and target FC in the calculator above to get the exact fl oz for your situation.</p>
 
     <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">Should I use liquid chlorine or cal-hypo?</h3>
-    <p>Liquid chlorine (sodium hypochlorite) is the preferred choice for routine dosing — it adds only chlorine and water, no calcium, no CYA. Cal-hypo is a reasonable alternative if your calcium hardness is below 200 ppm. Avoid trichlor for regular top-offs: it adds CYA with every dose and gradually raises your minimum FC target over the season.</p>
+    <p>Liquid chlorine (sodium hypochlorite) is the preferred choice for routine dosing. It adds only chlorine and water, no calcium, no CYA. Cal-hypo is a reasonable alternative if your calcium hardness is below 200 ppm. Avoid trichlor for regular top-offs: it adds CYA with every dose and gradually raises your minimum FC target over the season.</p>
 
     <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">What FC level should I be targeting?</h3>
-    <p>Enter your CYA in the calculator above and it sets your target FC automatically — CYA × 7.5% for standard pools, CYA × 5% for saltwater/SWG. At CYA 50, that's 3.5–4 ppm; at CYA 80, it's 6 ppm. See the <a href="../blog/fc-cya-chart-chlorine-levels" style="color:var(--accent)">FC/CYA chart</a> for the full table by CYA level.</p>
+    <p>Enter your CYA in the calculator above and it sets your target FC automatically: CYA × 7.5% for standard pools, CYA × 5% for saltwater/SWG. At CYA 50, that's 3.5–4 ppm; at CYA 80, it's 6 ppm. See the <a href="../blog/fc-cya-chart-chlorine-levels" style="color:var(--accent)">FC/CYA chart</a> for the full table by CYA level.</p>
 
     <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">How often do I need to add chlorine?</h3>
-    <p>Most pools need chlorine added every 2–4 days during swim season — daily during heat waves or heavy use. If FC drops more than 1–2 ppm per day without a clear cause, test your CYA level. Low CYA means sunlight is destroying chlorine faster than you're adding it.</p>
+    <p>Most pools need chlorine added every 2–4 days during swim season, or daily during heat waves or heavy use. If FC drops more than 1–2 ppm per day without a clear cause, test your CYA level. Low CYA means sunlight is destroying chlorine faster than you're adding it.</p>
 
     <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">Why does my pool chlorine drop so fast?</h3>
-    <p>Fast FC loss usually has one of four causes: CYA too low (UV destroying unprotected chlorine), early algae growth consuming FC overnight, heavy bather load, or pH above 8.0 (reducing chlorine's effectiveness). Test CYA first — it's the most common culprit and the easiest to fix.</p>
+    <p>Fast FC loss usually has one of four causes: CYA too low (UV destroying unprotected chlorine), early algae growth consuming FC overnight, heavy bather load, or pH above 8.0 (reducing chlorine's effectiveness). Test CYA first. It's the most common culprit and the easiest to fix.</p>
 
 
     <div class="related-list">
       <h3>More pool calculators &amp; guides</h3>
       <ul>
-        <li><a href="../">Pool chemistry calculators &amp; guides</a> — full reference index</li>
-        <li><a href="../blog/fc-cya-chart-chlorine-levels">FC/CYA chart</a> — find your safe FC target before you dose</li>
-        <li><a href="../blog/pool-chlorine-levels-chart">Pool chlorine levels chart</a> — FC, CC, and TC ranges with CYA-adjusted targets</li>
-        <li><a href="pool-volume-calculator">Pool volume calculator</a> — find your gallons first</li>
-        <li><a href="pool-shock-calculator">Pool shock calculator — breakpoint chlorination doses</a></li>
-        <li><a href="pool-chlorine-usage-calculator">Chlorine usage calculator</a> — how many gallons per week and monthly cost based on your pool's demand</li>
-        <li><a href="../explained/free-chlorine">Free chlorine explained</a> — what FC measures and why it matters</li>
-        <li><a href="../explained/cyanuric-acid">Cyanuric acid (CYA) explained</a> — how CYA sets your minimum FC target</li>
-        <li><a href="../blog/pool-chlorine-too-low">Pool chlorine too low</a> — causes and step-by-step fix</li>
-        <li><a href="../blog/why-wont-chlorine-stay-in-pool">Why won't chlorine stay in my pool?</a> — overnight FC loss causes</li>
-        <li><a href="../blog/how-to-raise-pool-chlorine">How to raise pool chlorine safely</a> — dosing guide by method</li>
+        <li><a href="../">Pool chemistry calculators &amp; guides</a>: full reference index</li>
+        <li><a href="../blog/fc-cya-chart-chlorine-levels">FC/CYA chart</a>: find your safe FC target before you dose</li>
+        <li><a href="../blog/pool-chlorine-levels-chart">Pool chlorine levels chart</a>: FC, CC, and TC ranges with CYA-adjusted targets</li>
+        <li><a href="pool-volume-calculator">Pool volume calculator</a>: find your gallons first</li>
+        <li><a href="pool-shock-calculator">Pool shock calculator: breakpoint chlorination doses</a></li>
+        <li><a href="pool-chlorine-usage-calculator">Chlorine usage calculator</a>: how many gallons per week and monthly cost based on your pool's demand</li>
+        <li><a href="../explained/free-chlorine">Free chlorine explained</a>: what FC measures and why it matters</li>
+        <li><a href="../explained/cyanuric-acid">Cyanuric acid (CYA) explained</a>: how CYA sets your minimum FC target</li>
+        <li><a href="../blog/pool-chlorine-too-low">Pool chlorine too low</a>: causes and step-by-step fix</li>
+        <li><a href="../blog/why-wont-chlorine-stay-in-pool">Why won't chlorine stay in my pool?</a>: overnight FC loss causes</li>
+        <li><a href="../blog/how-to-raise-pool-chlorine">How to raise pool chlorine safely</a>: dosing guide by method</li>
       </ul>
     </div>
 

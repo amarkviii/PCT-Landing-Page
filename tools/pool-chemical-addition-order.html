@@ -24,7 +24,7 @@ gtag('config','G-S8JT1DELF6');
 <meta property="og:site_name" content="PoolChem Tracker">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Pool Chemical Addition Order Calculator — What to Add First">
-<meta name="twitter:description" content="Which pool chemicals go in first? Enter your readings — get a suggested sequence with estimated doses and wait times.">
+<meta name="twitter:description" content="Which pool chemicals go in first? Enter your readings to get a suggested sequence with estimated doses and wait times.">
 <meta name="twitter:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.poolchemtracker.com/"},{"@type":"ListItem","position":2,"name":"Pool Calculators","item":"https://www.poolchemtracker.com/tools/"},{"@type":"ListItem","position":3,"name":"Chemical Addition Order Calculator"}]}
@@ -227,7 +227,7 @@ gtag('config','G-S8JT1DELF6');
   <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Pool Calculators</a> &rsaquo; Chemical Addition Order</div>
 
   <span class="page-label">Pool Calculators</span>
-  <h1>Pool Chemical Addition Order —<br><span class="gradient">Step-by-Step Treatment Plan</span></h1>
+  <h1>Pool Chemical Addition Order:<br><span class="gradient">Step-by-Step Treatment Plan</span></h1>
   <p class="page-desc">Enter your pool readings to get a prioritized workflow: which chemicals to add, in what order, with estimated doses and wait times between each step.</p>
 
   <!-- ── Inputs ── -->
@@ -253,7 +253,7 @@ gtag('config','G-S8JT1DELF6');
         <label>Saltwater Pool (SWG)?</label>
         <div class="toggle-group" id="swg-toggle">
           <button class="active" onclick="setSWG(false)">No</button>
-          <button onclick="setSWG(true)">Yes — SWG</button>
+          <button onclick="setSWG(true)">Yes, SWG</button>
         </div>
         <span class="field-hint">Adjusts FC and CYA targets</span>
       </div>
@@ -261,14 +261,14 @@ gtag('config','G-S8JT1DELF6');
 
     <div class="section-divider"></div>
 
-    <div class="section-label">Current Readings <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:0.8rem;"> — enter what you've tested; leave blanks unassessed</span></div>
+    <div class="section-label">Current Readings <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:0.8rem;"> (enter what you've tested; leave blanks unassessed)</span></div>
     <div class="inputs-grid three-col">
       <div class="field">
-        <label for="fc-current">FC — Free Chlorine <span class="field-opt">(ppm)</span></label>
+        <label for="fc-current">FC: Free Chlorine <span class="field-opt">(ppm)</span></label>
         <input inputmode="decimal" type="number" id="fc-current" min="0" max="30" step="0.1" placeholder="e.g. 1.5" oninput="calc()">
       </div>
       <div class="field">
-        <label for="tc-current">TC — Total Chlorine <span class="field-opt">(ppm, optional)</span></label>
+        <label for="tc-current">TC: Total Chlorine <span class="field-opt">(ppm, optional)</span></label>
         <input inputmode="decimal" type="number" id="tc-current" min="0" max="30" step="0.1" placeholder="e.g. 2.5" oninput="calc()">
         <span class="field-hint">Needed to detect combined chlorine (CC)</span>
       </div>
@@ -278,17 +278,17 @@ gtag('config','G-S8JT1DELF6');
         <span class="field-hint">Target: 7.4–7.6</span>
       </div>
       <div class="field">
-        <label for="ta-current">TA — Total Alkalinity <span class="field-opt">(ppm)</span></label>
+        <label for="ta-current">TA: Total Alkalinity <span class="field-opt">(ppm)</span></label>
         <input inputmode="decimal" type="number" id="ta-current" min="0" max="300" step="5" placeholder="e.g. 80" oninput="calc()">
         <span class="field-hint">Target: 60–90 ppm</span>
       </div>
       <div class="field">
-        <label for="ch-current">CH — Calcium Hardness <span class="field-opt">(ppm)</span></label>
+        <label for="ch-current">CH: Calcium Hardness <span class="field-opt">(ppm)</span></label>
         <input inputmode="decimal" type="number" id="ch-current" min="0" max="800" step="10" placeholder="e.g. 250" oninput="calc()">
         <span class="field-hint">Plaster: 200–400 · Vinyl: 150–250</span>
       </div>
       <div class="field">
-        <label for="cya-current">CYA — Stabilizer <span class="field-opt">(ppm)</span></label>
+        <label for="cya-current">CYA: Stabilizer <span class="field-opt">(ppm)</span></label>
         <input inputmode="decimal" type="number" id="cya-current" min="0" max="200" step="5" placeholder="e.g. 40" oninput="calc()">
         <span class="field-hint">Ideal: 30–50 (standard) · 60–80 (SWG)</span>
       </div>
@@ -311,12 +311,12 @@ gtag('config','G-S8JT1DELF6');
 
   <!-- ── Content ── -->
   <h2>Why pool chemical addition order matters</h2>
-  <p>Most guides tell you <em>what</em> pool chemicals to add. This calculator tells you the <em>order</em> — and the order is where most mistakes happen.</p>
-  <p>The fundamental problem: pool chemistry parameters are interdependent. The correct dose of muriatic acid to fix your pH depends on your current total alkalinity. If you fix alkalinity first and then calculate the pH dose, you get the right amount. If you do it in the opposite order, you either over- or under-dose the acid — and risk chasing pH corrections for days.</p>
+  <p>Most guides tell you <em>what</em> pool chemicals to add. This calculator tells you the <em>order</em>, and the order is where most mistakes happen.</p>
+  <p>The fundamental problem: pool chemistry parameters are interdependent. The correct dose of muriatic acid to fix your pH depends on your current total alkalinity. If you fix alkalinity first and then calculate the pH dose, you get the right amount. If you do it in the opposite order, you either over- or under-dose the acid and risk chasing pH corrections for days.</p>
 
   <div class="key-fact">
     <h3>The golden rule of pool chemistry</h3>
-    <p>Add one chemical at a time. Add it to moving water (near a return jet). Wait at least 30 minutes. Retest. Then — and only then — add the next chemical. Never pre-mix chemicals before adding them to the pool.</p>
+    <p>Add one chemical at a time. Add it to moving water (near a return jet). Wait at least 30 minutes. Retest. Then, and only then, add the next chemical. Never pre-mix chemicals before adding them to the pool.</p>
   </div>
 
   <h2>The correct pool chemical addition sequence</h2>
@@ -376,41 +376,41 @@ gtag('config','G-S8JT1DELF6');
   </table>
 
   <h3>Why alkalinity comes before pH</h3>
-  <p>Total alkalinity is the pool water's buffer — it determines how strongly the water resists pH changes. The correct acid dose to drop pH from 7.9 to 7.5 in a pool with TA 140 ppm requires roughly twice as much acid as the same correction in a pool with TA 70 ppm. If you don't fix TA first, you'll calculate the wrong pH dose. Fixing TA first makes every subsequent step more accurate.</p>
+  <p>Total alkalinity is the pool water's buffer. It determines how strongly the water resists pH changes. The correct acid dose to drop pH from 7.9 to 7.5 in a pool with TA 140 ppm requires roughly twice as much acid as the same correction in a pool with TA 70 ppm. If you don't fix TA first, you'll calculate the wrong pH dose. Fixing TA first makes every subsequent step more accurate.</p>
 
   <h3>The TA-lowering technique: acid and aerate</h3>
-  <p>Lowering high total alkalinity requires a two-step process: muriatic acid drops both TA and pH simultaneously, then aeration (running a waterfall, pointing return jets up, or running a fountain or spa blower) drives CO₂ off the water and raises pH back to target — without raising TA. This acid-then-aerate cycle is repeated over several days until TA reaches range. You do not add a separate pH dose during this process.</p>
+  <p>Lowering high total alkalinity requires a two-step process: muriatic acid drops both TA and pH simultaneously, then aeration (running a waterfall, pointing return jets up, or running a fountain or spa blower) drives CO₂ off the water and raises pH back to target without raising TA. This acid-then-aerate cycle is repeated over several days until TA reaches range. You do not add a separate pH dose during this process.</p>
 
   <h3>Why chlorine goes last</h3>
-  <p>Acid and chlorine are chemical opposites — adding them close together wastes both. Acid added near residual chlorine will consume some of that chlorine; chlorine added to low-pH water off-gases rapidly. Chlorine is also most effective at pH 7.4–7.6. Adding it last, after pH is correct, means every unit of chlorine you add is actually working for you.</p>
+  <p>Acid and chlorine are chemical opposites, so adding them close together wastes both. Acid added near residual chlorine will consume some of that chlorine; chlorine added to low-pH water off-gases rapidly. Chlorine is also most effective at pH 7.4–7.6. Adding it last, after pH is correct, means every unit of chlorine you add is actually working for you.</p>
 
   <div class="warn-fact">
     <h3>One exception: critically low FC</h3>
-    <p>If FC is below 0.5 ppm and the pool is in use, add enough chlorine to reach 1–2 ppm immediately — before doing any balance corrections. An unprotected pool can go green within hours in summer heat. Balance corrections can wait a day; biological contamination cannot.</p>
+    <p>If FC is below 0.5 ppm and the pool is in use, add enough chlorine to reach 1–2 ppm immediately, before doing any balance corrections. An unprotected pool can go green within hours in summer heat. Balance corrections can wait a day; biological contamination cannot.</p>
   </div>
 
   <h2>Chemicals you should never mix</h2>
   <p>These combinations are dangerous outside the pool and should never be added to the pool in rapid succession:</p>
   <ul>
-    <li><strong>Muriatic acid + any chlorine product</strong> — releases toxic chlorine gas. Always add them at least 30 minutes apart. Never add acid directly to a chlorinator or skimmer basket holding pucks.</li>
-    <li><strong>Cal-hypo + muriatic acid</strong> — the dry granular and the liquid acid are explosive when combined directly. Never pre-mix.</li>
-    <li><strong>Cal-hypo + trichlor (tablets)</strong> — mixing these two products dry can cause fire. Store separately.</li>
-    <li><strong>Two different chlorine products together</strong> — even liquid chlorine and granular chlorine should be added to different areas of the pool, minutes apart.</li>
+    <li><strong>Muriatic acid + any chlorine product:</strong> releases toxic chlorine gas. Always add them at least 30 minutes apart. Never add acid directly to a chlorinator or skimmer basket holding pucks.</li>
+    <li><strong>Cal-hypo + muriatic acid:</strong> the dry granular and the liquid acid are explosive when combined directly. Never pre-mix.</li>
+    <li><strong>Cal-hypo + trichlor (tablets):</strong> mixing these two products dry can cause fire. Store separately.</li>
+    <li><strong>Two different chlorine products together:</strong> even liquid chlorine and granular chlorine should be added to different areas of the pool, minutes apart.</li>
   </ul>
 
 
   <div class="related-list">
     <p class="box-heading">More pool chemistry calculators</p>
     <ul>
-      <li><a href="../methodology">Methodology &amp; sources</a> &mdash; how every number on this site is calculated</li>
+      <li><a href="../methodology">Methodology &amp; sources</a>: how every number on this site is calculated</li>
       <li><a href="./">All pool chemistry calculators</a></li>
-      <li><a href="muriatic-acid-calculator">Muriatic acid calculator</a> — precise pH and TA dose</li>
-      <li><a href="baking-soda-calculator">Baking soda calculator</a> — raise total alkalinity</li>
-      <li><a href="pool-ph-calculator">Pool pH calculator</a> — acid or soda ash dose for pH</li>
-      <li><a href="calcium-hardness-calculator">Calcium hardness calculator</a> — raise CH with calcium chloride</li>
-      <li><a href="pool-shock-calculator">Pool shock calculator</a> — shock dose based on CYA</li>
-      <li><a href="overnight-chlorine-loss-test">OCLT calculator</a> — detect active algae before shocking</li>
-      <li><a href="water-replacement-calculator">Water replacement calculator</a> — drain plan to lower CYA or CH</li>
+      <li><a href="muriatic-acid-calculator">Muriatic acid calculator</a>: precise pH and TA dose</li>
+      <li><a href="baking-soda-calculator">Baking soda calculator</a>: raise total alkalinity</li>
+      <li><a href="pool-ph-calculator">Pool pH calculator</a>: acid or soda ash dose for pH</li>
+      <li><a href="calcium-hardness-calculator">Calcium hardness calculator</a>: raise CH with calcium chloride</li>
+      <li><a href="pool-shock-calculator">Pool shock calculator</a>: shock dose based on CYA</li>
+      <li><a href="overnight-chlorine-loss-test">OCLT calculator</a>: detect active algae before shocking</li>
+      <li><a href="water-replacement-calculator">Water replacement calculator</a>: drain plan to lower CYA or CH</li>
     </ul>
   </div>
 
@@ -600,9 +600,9 @@ gtag('config','G-S8JT1DELF6');
           chemical: 'Liquid Chlorine (10%)',
           dose: fmtFlOz(urgentFlOz),
           doseAlt: fmtFlOzAlt(urgentFlOz),
-          title: 'Add Chlorine Now — Pool is Unprotected',
-          context: 'FC is ' + fc.toFixed(1) + ' ppm — below 1 ppm the pool is not sanitized',
-          note: 'FC is critically low. Add this dose immediately to protect the pool. The balance corrections below can follow afterward — but do not skip this step.',
+          title: 'Add Chlorine Now: Pool is Unprotected',
+          context: 'FC is ' + fc.toFixed(1) + ' ppm. Below 1 ppm, the pool is not sanitized',
+          note: 'FC is critically low. Add this dose immediately to protect the pool. The balance corrections below can follow afterward, but do not skip this step.',
           wait: 'Run pump for 1 hour, then proceed with balance steps below'
         });
       }
@@ -617,9 +617,9 @@ gtag('config','G-S8JT1DELF6');
 
       var taLowNote;
       if (phHigh) {
-        taLowNote = 'Stabilize TA before addressing pH — this baking soda dose raises TA with minimal pH impact. pH may rise slightly but will be corrected by the acid step below. For doses over 2–3 lbs, split over 4–6 hours and retest between additions.';
+        taLowNote = 'Stabilize TA before addressing pH. This baking soda dose raises TA with minimal pH impact. pH may rise slightly but will be corrected by the acid step below. For doses over 2–3 lbs, split over 4–6 hours and retest between additions.';
       } else if (phLow) {
-        taLowNote = 'Add baking soda to stabilize TA first — it also raises pH slightly, which may partially correct your low pH. After this step, retest pH: if still below 7.2, the soda ash step below covers the remaining gap. For doses over 2–3 lbs, split and retest.';
+        taLowNote = 'Add baking soda to stabilize TA first. It also raises pH slightly, which may partially correct your low pH. After this step, retest pH: if still below 7.2, the soda ash step below covers the remaining gap. For doses over 2–3 lbs, split and retest.';
       } else {
         taLowNote = 'Broadcast around the pool perimeter or pre-dissolve in a bucket of pool water. For large doses (over 2–3 lbs), split into multiple additions 4–6 hours apart and retest TA between doses.';
       }
@@ -644,12 +644,12 @@ gtag('config','G-S8JT1DELF6');
         steps.push({
           order: 10,
           aerate: true,
-          chemical: 'No chemical — aeration only',
+          chemical: 'No chemical (aeration only)',
           dose: 'Aerate first',
           doseAlt: '',
           title: 'Raise pH via Aeration Before Treating TA',
-          context: 'pH ' + pH.toFixed(1) + ' is already low — muriatic acid would worsen it',
-          note: 'Do not add muriatic acid while pH is below 7.2. Acid lowers both pH and TA — adding it now would push pH into corrosive territory (below 7.0), which etches plaster and damages metal fittings. Instead, aerate: point return jets upward, run a waterfall, fountain, or spa blower. Aeration drives CO₂ off the water and raises pH without any chemical addition. Once pH recovers to 7.2 or above, use the acid-then-aerate cycle to bring TA down over several days.',
+          context: 'pH ' + pH.toFixed(1) + ' is already low, and muriatic acid would worsen it',
+          note: 'Do not add muriatic acid while pH is below 7.2. Acid lowers both pH and TA, so adding it now would push pH into corrosive territory (below 7.0), which etches plaster and damages metal fittings. Instead, aerate: point return jets upward, run a waterfall, fountain, or spa blower. Aeration drives CO₂ off the water and raises pH without any chemical addition. Once pH recovers to 7.2 or above, use the acid-then-aerate cycle to bring TA down over several days.',
           wait: 'Aerate several hours; retest pH before any acid addition'
         });
         // No acid added, no effectiveTA update (TA will be addressed after pH recovers)
@@ -668,7 +668,7 @@ gtag('config','G-S8JT1DELF6');
           doseAlt: fmtFlOzAlt(taAcidFlOz),
           title: 'Lower Total Alkalinity',
           context: 'Current TA: ' + ta + ' ppm → target: ' + taTarget + ' ppm',
-          note: 'After adding acid, aerate the pool (point return jets upward, run a waterfall or fountain) for 1–2 hours. Aeration raises pH back to target without raising TA. Retest TA and pH after aerating — if TA is still high, repeat the cycle the next day. For TA above 150 ppm, two or three cycles may be needed.',
+          note: 'After adding acid, aerate the pool (point return jets upward, run a waterfall or fountain) for 1–2 hours. Aeration raises pH back to target without raising TA. Retest TA and pH after aerating. If TA is still high, repeat the cycle the next day. For TA above 150 ppm, two or three cycles may be needed.',
           wait: 'Then aerate 1–2 hours; retest TA and pH before next step'
         });
 
@@ -688,10 +688,10 @@ gtag('config','G-S8JT1DELF6');
       var phHighNote, phHighWait;
       if (taHigh) {
         // phHighAndTaHigh: use pH dose as the cycle dose; note TA also comes down over time
-        phHighNote = 'This acid dose also lowers TA each cycle — use the same dose each session. After adding, aerate (point return jets upward, run a waterfall or fountain) for 1–2 hours to raise pH back to target without raising TA. Repeat the acid-then-aerate cycle over several sessions until TA reaches 60–90 ppm. Do not add a separate large TA acid dose all at once — the pH dose corrects both parameters over time.';
+        phHighNote = 'This acid dose also lowers TA each cycle, so use the same dose each session. After adding, aerate (point return jets upward, run a waterfall or fountain) for 1–2 hours to raise pH back to target without raising TA. Repeat the acid-then-aerate cycle over several sessions until TA reaches 60–90 ppm. Do not add a separate large TA acid dose all at once. The pH dose corrects both parameters over time.';
         phHighWait = 'Then aerate 1–2 hours; retest pH and TA before repeating cycle';
       } else {
-        phHighNote = 'Add near a return jet with pump running. Never add more than 1 quart at a time — split large doses with 30–60 min between additions. Retest pH after each dose before continuing. If TA drops below 60 ppm from this addition, add baking soda to bring it back.';
+        phHighNote = 'Add near a return jet with pump running. Never add more than 1 quart at a time. Split large doses with 30–60 min between additions. Retest pH after each dose before continuing. If TA drops below 60 ppm from this addition, add baking soda to bring it back.';
         phHighWait = 'Wait 30–60 min and retest pH before next step';
       }
 
@@ -719,9 +719,9 @@ gtag('config','G-S8JT1DELF6');
 
       var phLowNote;
       if (taLow) {
-        phLowNote = 'Retest pH after the baking soda step — it may have partially raised pH. Add only the soda ash needed to reach 7.4–7.6. Broadcast around the pool or pre-dissolve in a bucket; split large doses and retest after 30 min.';
+        phLowNote = 'Retest pH after the baking soda step, since it may have partially raised pH. Add only the soda ash needed to reach 7.4–7.6. Broadcast around the pool or pre-dissolve in a bucket; split large doses and retest after 30 min.';
       } else {
-        phLowNote = 'Broadcast around the pool or pre-dissolve in a bucket of pool water. Add with pump running, retest after 30 min. For large doses, split and retest after each addition — soda ash can temporarily cloud the water and it is easy to overshoot.';
+        phLowNote = 'Broadcast around the pool or pre-dissolve in a bucket of pool water. Add with pump running, retest after 30 min. For large doses, split and retest after each addition, because soda ash can temporarily cloud the water and it is easy to overshoot.';
       }
 
       steps.push({
@@ -745,10 +745,10 @@ gtag('config','G-S8JT1DELF6');
       var cyaNote;
       var cyaWait;
       if (needShock) {
-        cyaNote = 'Pour into a fine mesh sock or old nylon stocking and place in front of a return jet. Run pump for 24–48 hours to dissolve. Retest CYA before adding chlorine — CYA is slow to fully dissolve.';
+        cyaNote = 'Pour into a fine mesh sock or old nylon stocking and place in front of a return jet. Run pump for 24–48 hours to dissolve. Retest CYA before adding chlorine, because CYA is slow to fully dissolve.';
         cyaWait = 'Wait 24–48 hours for CYA to dissolve; retest before shock step';
       } else {
-        cyaNote = 'Pour into a fine mesh sock or old nylon stocking and place in front of a return jet. Run pump for 24–48 hours to fully dissolve before retesting. Do not add the chlorine step until CYA has dissolved — the chlorine dose depends on your CYA level.';
+        cyaNote = 'Pour into a fine mesh sock or old nylon stocking and place in front of a return jet. Run pump for 24–48 hours to fully dissolve before retesting. Do not add the chlorine step until CYA has dissolved, because the chlorine dose depends on your CYA level.';
         cyaWait = 'Wait 24–48 hours for CYA to dissolve; retest before chlorine step';
       }
 
@@ -767,7 +767,7 @@ gtag('config','G-S8JT1DELF6');
     if (cyaHigh) {
       drainNotes.push({
         title: 'CYA Too High',
-        text: 'CYA is ' + cya + ' ppm — well above the ideal range (' + (swg ? '60–80' : '30–50') + ' ppm for ' + (swg ? 'SWG' : 'standard') + ' pools). There is no chemical that lowers CYA. A partial drain and refill is the only fix. At very high CYA, chlorine becomes significantly less effective regardless of FC level. <a href="water-replacement-calculator">Calculate your drain →</a>'
+        text: 'CYA is ' + cya + ' ppm, well above the ideal range (' + (swg ? '60–80' : '30–50') + ' ppm for ' + (swg ? 'SWG' : 'standard') + ' pools). There is no chemical that lowers CYA. A partial drain and refill is the only fix. At very high CYA, chlorine becomes significantly less effective regardless of FC level. <a href="water-replacement-calculator">Calculate your drain →</a>'
       });
     }
 
@@ -784,7 +784,7 @@ gtag('config','G-S8JT1DELF6');
         doseAlt: fmtLbsAlt(chLbs),
         title: 'Raise Calcium Hardness',
         context: 'Current CH: ' + ch + ' ppm → target: ' + chTarget + ' ppm (' + surface + ')',
-        note: 'Pre-dissolve in a bucket of pool water before adding (calcium chloride releases significant heat — use cool water and stir slowly). Pour around the pool perimeter with pump running. For large increases (more than 50 ppm), split the dose over 2–3 days and retest CH between additions. <strong>Check balance first:</strong> this workflow orders your chemicals using calcium hardness on its own, but the right calcium level depends on your overall water balance (LSI, which also factors in temperature and salt). Before finalizing a calcium addition, confirm your water isn’t already scale-forming with the <a href="lsi-calculator">LSI calculator</a> — adding calcium to scale-forming water can increase scale risk.',
+        note: 'Pre-dissolve in a bucket of pool water before adding (calcium chloride releases significant heat, so use cool water and stir slowly). Pour around the pool perimeter with pump running. For large increases (more than 50 ppm), split the dose over 2–3 days and retest CH between additions. <strong>Check balance first:</strong> this workflow orders your chemicals using calcium hardness on its own, but the right calcium level depends on your overall water balance (LSI, which also factors in temperature and salt). Before finalizing a calcium addition, confirm your water isn’t already scale-forming with the <a href="lsi-calculator">LSI calculator</a>. Adding calcium to scale-forming water can increase scale risk.',
         wait: 'Wait 1–2 hours before adding other chemicals'
       });
     }
@@ -792,7 +792,7 @@ gtag('config','G-S8JT1DELF6');
     if (chHigh) {
       drainNotes.push({
         title: 'Calcium Hardness Too High',
-        text: 'CH is ' + ch + ' ppm — above the ' + chMin + '–' + chMax + ' ppm target range for ' + surface + ' pools. There is no chemical that lowers calcium hardness. A partial drain and refill is the only fix. High CH is mainly a concern when your overall water balance is scale-forming — check the <a href="lsi-calculator">LSI calculator</a> to confirm before draining. <a href="water-replacement-calculator">Calculate your drain →</a>'
+        text: 'CH is ' + ch + ' ppm, above the ' + chMin + '–' + chMax + ' ppm target range for ' + surface + ' pools. There is no chemical that lowers calcium hardness. A partial drain and refill is the only fix. High CH is mainly a concern when your overall water balance is scale-forming. Check the <a href="lsi-calculator">LSI calculator</a> to confirm before draining. <a href="water-replacement-calculator">Calculate your drain →</a>'
       });
     }
 
@@ -803,7 +803,7 @@ gtag('config','G-S8JT1DELF6');
         var shockFlOz = shockRise * vol * 0.001190;
         chlorineFlOzTotal += shockFlOz;
         var shockCtx = cc !== null
-          ? 'CC is ' + cc.toFixed(1) + ' ppm (TC − FC) — shock target: ' + shockTarget.toFixed(0) + ' ppm FC'
+          ? 'CC is ' + cc.toFixed(1) + ' ppm (TC − FC). Shock target: ' + shockTarget.toFixed(0) + ' ppm FC'
           : 'Shock target: ' + shockTarget.toFixed(0) + ' ppm FC';
         if (cya !== null) shockCtx += ' (CYA × 40%)';
 
@@ -814,7 +814,7 @@ gtag('config','G-S8JT1DELF6');
           doseAlt: fmtFlOzAlt(shockFlOz),
           title: 'Shock the Pool',
           context: shockCtx,
-          note: 'Add at dusk with pump running — UV light destroys chlorine rapidly. Split into 2–3 additions poured around the pool edge near return jets; never dump in one spot. Run the pump overnight. Test FC and CC the next morning. Repeat if CC is still above 0.5 ppm. Do not swim until FC drops back to the normal range.',
+          note: 'Add at dusk with pump running, because UV light destroys chlorine rapidly. Split into 2–3 additions poured around the pool edge near return jets; never dump in one spot. Run the pump overnight. Test FC and CC the next morning. Repeat if CC is still above 0.5 ppm. Do not swim until FC drops back to the normal range.',
           wait: 'Run pump 8–12 hours; retest FC and CC before swimming'
         });
       }
@@ -832,7 +832,7 @@ gtag('config','G-S8JT1DELF6');
           doseAlt: fmtFlOzAlt(fcFlOz),
           title: 'Add Chlorine',
           context: 'Current FC: ' + fc.toFixed(1) + ' ppm → target: ≥' + fcMin + ' ppm',
-          note: 'Add near a return jet with pump running. Retest FC after 1 hour. If CYA was added in the previous step, wait for CYA to fully dissolve before adding chlorine — the dose here assumes your full CYA target is in place.',
+          note: 'Add near a return jet with pump running. Retest FC after 1 hour. If CYA was added in the previous step, wait for CYA to fully dissolve before adding chlorine. The dose here assumes your full CYA target is in place.',
           wait: null
         });
       }
@@ -871,7 +871,7 @@ gtag('config','G-S8JT1DELF6');
 
     /* Step list */
     if (steps.length > 0) {
-      html += '<div class="steps-heading">Treatment plan — add in this order</div>';
+      html += '<div class="steps-heading">Treatment plan: add in this order</div>';
       steps.forEach(function (step, i) {
         var cardClass = 'step-card' + (step.urgent ? ' urgent' : '') + (step.aerate ? ' aerate' : '');
         html += '<div class="' + cardClass + '">' +

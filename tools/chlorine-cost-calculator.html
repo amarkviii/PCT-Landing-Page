@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-<meta name="description" content="Seasonal cost of liquid chlorine, trichlor tablets, and cal-hypo — including hidden CYA and drain costs from tablets. Enter pool size and local prices.">
+<meta name="description" content="Seasonal cost of liquid chlorine, trichlor tablets, and cal-hypo, including hidden CYA and drain costs from tablets. Enter pool size and local prices.">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
 <script>
 window.dataLayer=window.dataLayer||[];
@@ -18,7 +18,7 @@ gtag('config','G-S8JT1DELF6');
 <link rel="canonical" href="https://www.poolchemtracker.com/tools/chlorine-cost-calculator">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Pool Chlorine Cost Calculator — Liquid vs Tablets vs Cal-Hypo">
-<meta property="og:description" content="Compare the true annual cost of liquid chlorine, trichlor tablets, and cal-hypo — including the hidden CYA drain cost most guides ignore.">
+<meta property="og:description" content="Compare the true annual cost of liquid chlorine, trichlor tablets, and cal-hypo, including the hidden CYA drain cost most guides ignore.">
 <meta property="og:url" content="https://www.poolchemtracker.com/tools/chlorine-cost-calculator">
 <meta property="og:image" content="https://www.poolchemtracker.com/Screenshots/social-card.png">
 <meta property="og:site_name" content="PoolChem Tracker">
@@ -223,8 +223,8 @@ gtag('config','G-S8JT1DELF6');
   <div class="breadcrumb"><a href="../">Home</a> &rsaquo; <a href="./">Pool Calculators</a> &rsaquo; Chlorine Cost Calculator</div>
 
   <span class="page-label">Pool Calculators</span>
-  <h1>Pool Chlorine Cost Calculator —<br><span class="gradient">Liquid vs Tablets vs Cal-Hypo</span></h1>
-  <p class="page-desc">Compare the true seasonal cost of each chlorine type — including the hidden CYA drain cost that makes trichlor tablets more expensive than they appear.</p>
+  <h1>Pool Chlorine Cost Calculator:<br><span class="gradient">Liquid vs Tablets vs Cal-Hypo</span></h1>
+  <p class="page-desc">Compare the true seasonal cost of each chlorine type, including the hidden CYA drain cost that makes trichlor tablets more expensive than they appear.</p>
 
   <!-- ── Inputs ── -->
   <div class="calc-card">
@@ -253,25 +253,25 @@ gtag('config','G-S8JT1DELF6');
     <div class="section-label">Weekly Chlorine Demand</div>
     <div class="demand-btn-group">
       <button class="demand-btn" data-val="5" onclick="setDemand(5)">
-        <span class="demand-label">Low — 5 ppm/wk</span>
+        <span class="demand-label">Low: 5 ppm/wk</span>
         <span class="demand-sub">Cool climate, light use</span>
       </button>
       <button class="demand-btn active" data-val="10" onclick="setDemand(10)">
-        <span class="demand-label">Medium — 10 ppm/wk</span>
+        <span class="demand-label">Medium: 10 ppm/wk</span>
         <span class="demand-sub">Typical outdoor pool</span>
       </button>
       <button class="demand-btn" data-val="15" onclick="setDemand(15)">
-        <span class="demand-label">High — 15 ppm/wk</span>
+        <span class="demand-label">High: 15 ppm/wk</span>
         <span class="demand-sub">Hot/sunny climate, heavy use</span>
       </button>
     </div>
     <div class="info-box">
-      <strong>What this means:</strong> Weekly demand is the total FC your pool consumes through sunlight, bather load, and organics. Most outdoor pools in temperate climates fall in the 8–12 ppm/week range. Use Medium if you're unsure — you can adjust it.
+      <strong>What this means:</strong> Weekly demand is the total FC your pool consumes through sunlight, bather load, and organics. Most outdoor pools in temperate climates fall in the 8–12 ppm/week range. Use Medium if you're unsure. You can adjust it.
     </div>
 
     <div class="section-divider"></div>
 
-    <div class="section-label">Chemical Prices <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted)">— pre-filled with national averages, adjust to your local prices</span></div>
+    <div class="section-label">Chemical Prices <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted)">(pre-filled with national averages; adjust to your local prices)</span></div>
     <div class="prices-grid">
       <div class="price-field">
         <label for="price-liquid">Liquid Chlorine (12.5%)</label>
@@ -286,12 +286,12 @@ gtag('config','G-S8JT1DELF6');
       <div class="price-field">
         <label for="price-calhypo">Cal-Hypo (65%)</label>
         <input inputmode="decimal" type="number" id="price-calhypo" min="0" step="0.25" oninput="calc()">
-        <span class="price-sub">$ per pound — pool store retail. Warehouse clubs sell 25-lb buckets for $2–3/lb; adjust if buying in bulk.</span>
+        <span class="price-sub">$ per pound, pool store retail. Warehouse clubs sell 25-lb buckets for $2–3/lb; adjust if buying in bulk.</span>
       </div>
       <div class="price-field">
         <label for="water-rate">Water Cost</label>
         <input inputmode="decimal" type="number" id="water-rate" min="0" step="1" oninput="calc()">
-        <span class="price-sub">$ per 1,000 gallons. Most utilities charge $10–20/1,000 gal including sewer — adjust to your bill.</span>
+        <span class="price-sub">$ per 1,000 gallons. Most utilities charge $10–20/1,000 gal including sewer. Adjust to your bill.</span>
       </div>
     </div>
 
@@ -355,7 +355,7 @@ gtag('config','G-S8JT1DELF6');
           <div class="card-line"><span>Chemical cost/season</span><span id="calhypo-chem-cost">—</span></div>
         </div>
         <div class="card-good-note">&#10003; No CYA buildup</div>
-        <div class="card-neutral-note">&#9432; Raises calcium hardness ~0.9 ppm per ppm FC raised. In hard-water or hot climates, CH can reach 400 ppm and require a partial drain — adding costs not shown here.</div>
+        <div class="card-neutral-note">&#9432; Raises calcium hardness ~0.9 ppm per ppm FC raised. In hard-water or hot climates, CH can reach 400 ppm and require a partial drain, adding costs not shown here.</div>
         <div class="card-true-total">
           <span class="card-true-label">Season total</span>
           <span class="card-true-value" id="calhypo-true-total">—</span>
@@ -364,26 +364,26 @@ gtag('config','G-S8JT1DELF6');
 
     </div><!-- /cost-grid -->
 
-    <p class="results-note">Trichlor drain cost assumes a 62% drain to reset CYA from 80 ppm back to 30 ppm, plus $30 for re-balancing chemicals per drain event. Water cost uses the rate entered above. Demand, prices, and drain timing are estimates — actual costs vary by region and pool conditions.</p>
+    <p class="results-note">Trichlor drain cost assumes a 62% drain to reset CYA from 80 ppm back to 30 ppm, plus $30 for re-balancing chemicals per drain event. Water cost uses the rate entered above. Demand, prices, and drain timing are estimates. Actual costs vary by region and pool conditions.</p>
 
   </div><!-- /results-section -->
 
   <div class="warn-key-fact">
     <p class="box-heading">The hidden cost most guides miss</p>
-    <p>Trichlor tablets are 54% cyanuric acid (CYA) by weight. Every tablet raises CYA slightly. CYA never dissipates — the only way out is draining and refilling water. At typical usage, CYA reaches the 80 ppm limit within 7–10 weeks, requiring a partial drain that costs $65–200 in water plus $20–40 to re-balance chemicals. Repeat that two or three times per season and the "cheaper" tablets become the most expensive option.</p>
+    <p>Trichlor tablets are 54% cyanuric acid (CYA) by weight. Every tablet raises CYA slightly. CYA never dissipates. The only way out is draining and refilling water. At typical usage, CYA reaches the 80 ppm limit within 7–10 weeks, requiring a partial drain that costs $65–200 in water plus $20–40 to re-balance chemicals. Repeat that two or three times per season and the "cheaper" tablets become the most expensive option.</p>
   </div>
 
   <h2>Why trichlor tablets cost more than they appear</h2>
-  <p>Trichlor (trichloroisocyanuric acid) is about 54% cyanuric acid by molecular weight. When it dissolves, the chlorine does its job and the cyanurate ring stays in the water permanently. Most pool chlorine cost guides calculate only the sticker price of the tablets — they skip the drain.</p>
-  <p>At a typical weekly FC demand of 10 ppm/week, trichlor adds roughly 6 ppm of CYA per week. Starting from CYA 30 ppm, you hit the 80 ppm threshold in about 8 weeks. Resetting to 30 ppm means draining about 62% of the pool. In a 15,000-gallon pool at average water rates, that's $65–200 in water cost plus re-balancing chemicals — and the cycle repeats two or three times per season.</p>
+  <p>Trichlor (trichloroisocyanuric acid) is about 54% cyanuric acid by molecular weight. When it dissolves, the chlorine does its job and the cyanurate ring stays in the water permanently. Most pool chlorine cost guides calculate only the sticker price of the tablets. They skip the drain.</p>
+  <p>At a typical weekly FC demand of 10 ppm/week, trichlor adds roughly 6 ppm of CYA per week. Starting from CYA 30 ppm, you hit the 80 ppm threshold in about 8 weeks. Resetting to 30 ppm means draining about 62% of the pool. In a 15,000-gallon pool at average water rates, that's $65–200 in water cost plus re-balancing chemicals, and the cycle repeats two or three times per season.</p>
 
   <div class="key-fact">
     <h3>Liquid chlorine adds no CYA and no calcium</h3>
-    <p>Sodium hypochlorite is the cleanest long-term option for most pools. It adds only available chlorine and water. For pools that already have high CYA from past tablet use, switching to liquid chlorine stops the accumulation immediately — no drain required just to switch products.</p>
+    <p>Sodium hypochlorite is the cleanest long-term option for most pools. It adds only available chlorine and water. For pools that already have high CYA from past tablet use, switching to liquid chlorine stops the accumulation immediately, with no drain required just to switch products.</p>
   </div>
 
   <h2>Cal-hypo: the middle option</h2>
-  <p>Calcium hypochlorite adds no CYA, making it much better than trichlor for long-term use. The trade-off is calcium: every dose slightly raises calcium hardness (CH). In pools where CH is already high — especially in regions with hard fill water — repeated cal-hypo use can push CH above 400 ppm, which causes scaling on surfaces, tile, and equipment. If your source water is soft (CH below 150 ppm), cal-hypo can be an excellent and cost-effective choice.</p>
+  <p>Calcium hypochlorite adds no CYA, making it much better than trichlor for long-term use. The trade-off is calcium: every dose slightly raises calcium hardness (CH). In pools where CH is already high (especially in regions with hard fill water), repeated cal-hypo use can push CH above 400 ppm, which causes scaling on surfaces, tile, and equipment. If your source water is soft (CH below 150 ppm), cal-hypo can be an excellent and cost-effective choice.</p>
 
   <h2>Frequently asked questions</h2>
 
@@ -394,26 +394,26 @@ gtag('config','G-S8JT1DELF6');
   <p>For a typical 15,000-gallon pool using 12.5% liquid chlorine at $5/gallon with moderate demand (10 ppm/week), expect roughly $23–30/month in chlorine during swim season. Trichlor tablets may look like $20–25/month but the true cost including partial drains is typically $50–80/month when amortized across the season.</p>
 
   <h3>Why do trichlor tablets force partial drains?</h3>
-  <p>Trichlor is trichloroisocyanuric acid — 54% cyanuric acid by molecular weight. When the chlorine portion does its job, the CYA ring stays in the water permanently. CYA does not evaporate, break down, or leave the pool on its own. Once it exceeds 80 ppm, your minimum FC target rises proportionally, algae risk increases, and a partial drain is the only fix.</p>
+  <p>Trichlor is trichloroisocyanuric acid, which is 54% cyanuric acid by molecular weight. When the chlorine portion does its job, the CYA ring stays in the water permanently. CYA does not evaporate, break down, or leave the pool on its own. Once it exceeds 80 ppm, your minimum FC target rises proportionally, algae risk increases, and a partial drain is the only fix.</p>
 
   <h3>Can I mix chlorine types during a season?</h3>
-  <p>Yes. You can switch between liquid chlorine, trichlor, and cal-hypo at any point — each produces the same active disinfectant (hypochlorous acid) once dissolved. If switching away from trichlor, test CYA first — you may already be close to the drain threshold.</p>
+  <p>Yes. You can switch between liquid chlorine, trichlor, and cal-hypo at any point. Each produces the same active disinfectant (hypochlorous acid) once dissolved. If switching away from trichlor, test CYA first, since you may already be close to the drain threshold.</p>
 
   <h3>What is the cheapest way to chlorinate a pool?</h3>
-  <p>For most residential pools, 12.5% liquid chlorine purchased locally in bulk is the most cost-effective long-term option — no CYA buildup, no calcium accumulation, and widely available. Cal-hypo at low bulk prices can match or beat liquid chlorine if your calcium hardness is on the lower side. Trichlor tablets are rarely the cheapest option once CYA drain costs are included, despite having a lower sticker price per unit of chlorine.</p>
+  <p>For most residential pools, 12.5% liquid chlorine purchased locally in bulk is the most cost-effective long-term option: no CYA buildup, no calcium accumulation, and widely available. Cal-hypo at low bulk prices can match or beat liquid chlorine if your calcium hardness is on the lower side. Trichlor tablets are rarely the cheapest option once CYA drain costs are included, despite having a lower sticker price per unit of chlorine.</p>
 
 
   <div class="related-list">
     <p class="box-heading">More pool calculators &amp; guides</p>
     <ul>
-      <li><a href="../methodology">Methodology &amp; sources</a> &mdash; how every number on this site is calculated</li>
+      <li><a href="../methodology">Methodology &amp; sources</a>: how every number on this site is calculated</li>
       <li><a href="./">All pool chemistry calculators</a></li>
-      <li><a href="chlorine-dose-calculator">Chlorine dose calculator</a> — exact dose to raise FC to target</li>
-      <li><a href="pool-chlorine-usage-calculator">Chlorine usage calculator</a> — how many gallons per week and monthly cost for your pool</li>
-      <li><a href="pool-shock-calculator">Pool shock calculator</a> — CYA-based shock level</li>
-      <li><a href="cya-dilution-calculator">CYA dilution calculator</a> — how much to drain to lower CYA</li>
-      <li><a href="pool-volume-calculator">Pool volume calculator</a> — find your gallons</li>
-      <li><a href="../blog/liquid-chlorine-vs-tablets">Liquid chlorine vs tablets</a> — full guide</li>
+      <li><a href="chlorine-dose-calculator">Chlorine dose calculator</a>: exact dose to raise FC to target</li>
+      <li><a href="pool-chlorine-usage-calculator">Chlorine usage calculator</a>: how many gallons per week and monthly cost for your pool</li>
+      <li><a href="pool-shock-calculator">Pool shock calculator</a>: CYA-based shock level</li>
+      <li><a href="cya-dilution-calculator">CYA dilution calculator</a>: how much to drain to lower CYA</li>
+      <li><a href="pool-volume-calculator">Pool volume calculator</a>: find your gallons</li>
+      <li><a href="../blog/liquid-chlorine-vs-tablets">Liquid chlorine vs tablets</a>: full guide</li>
       <li><a href="../explained/cyanuric-acid">Cyanuric acid explained</a></li>
     </ul>
   </div>
@@ -563,7 +563,7 @@ gtag('config','G-S8JT1DELF6');
       var weeksFirst = urgent ? 0 : (CYA_TRIGGER - startCYA) / cyaPerWk;
       drainBox.className = 'card-drain-box' + (urgent ? ' urgent' : '');
       if (urgent) {
-        drainBox.innerHTML = '<strong>CYA already at ' + startCYA + ' ppm — drain needed now.</strong> Continued trichlor use will worsen it. ' + drains + ' drain event' + (drains > 1 ? 's' : '') + ' estimated this season (' + fmtSzn(drainEach) + ' each, draining ' + Math.round(drainGal).toLocaleString() + ' gallons).';
+        drainBox.innerHTML = '<strong>CYA already at ' + startCYA + ' ppm: drain needed now.</strong> Continued trichlor use will worsen it. ' + drains + ' drain event' + (drains > 1 ? 's' : '') + ' estimated this season (' + fmtSzn(drainEach) + ' each, draining ' + Math.round(drainGal).toLocaleString() + ' gallons).';
       } else {
         drainBox.innerHTML = 'CYA +' + cyaPerWk.toFixed(1) + ' ppm/wk &rarr; hits 80 ppm at week ' + Math.ceil(weeksFirst) + '. <strong>' + drains + ' partial drain' + (drains > 1 ? 's' : '') + '</strong> this season (' + fmtSzn(drainEach) + ' each, draining ' + Math.round(drainGal).toLocaleString() + ' gal to reset CYA to 30 ppm).';
       }

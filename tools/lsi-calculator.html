@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-<meta name="description" content="Enter pH, alkalinity, calcium, and temperature to get your pool's LSI score — balanced, scaling, or corrosive verdict plus factor breakdown.">
+<meta name="description" content="Enter pH, alkalinity, calcium, and temperature to get your pool's LSI score: balanced, scaling, or corrosive verdict plus factor breakdown.">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S8JT1DELF6"></script>
 <script>
 window.dataLayer=window.dataLayer||[];
@@ -211,7 +211,7 @@ gtag('config','G-S8JT1DELF6');
 
     <span class="page-label">Pool Calculators</span>
     <h1>Pool <span class="gradient">LSI Calculator</span></h1>
-    <p class="page-desc">Enter your current readings to get your Langelier Saturation Index — with the full factor breakdown and CYA-corrected alkalinity.</p>
+    <p class="page-desc">Enter your current readings to get your Langelier Saturation Index, with the full factor breakdown and CYA-corrected alkalinity.</p>
 
     <div class="calc-card">
 
@@ -291,26 +291,26 @@ gtag('config','G-S8JT1DELF6');
       </div>
 
       <div class="advice-box advice-corrosive" id="advice-corrosive">
-        <div class="advice-title" style="color:#ff4757">Water is corrosive — what to do</div>
+        <div class="advice-title" style="color:#ff4757">Water is corrosive: what to do</div>
         <ul>
-          <li>Raise <strong>pH</strong> with soda ash — fastest single lever (<a href="../blog/baking-soda-vs-soda-ash">soda ash vs baking soda</a>)</li>
-          <li>Raise <strong>calcium hardness</strong> with calcium chloride — low CH is the most common cause of persistent negative LSI</li>
+          <li>Raise <strong>pH</strong> with soda ash, the fastest single lever (<a href="../blog/baking-soda-vs-soda-ash">soda ash vs baking soda</a>)</li>
+          <li>Raise <strong>calcium hardness</strong> with calcium chloride, since low CH is the most common cause of persistent negative LSI</li>
           <li>Raise <strong>total alkalinity</strong> with baking soda if TA is below 80 ppm</li>
         </ul>
       </div>
 
       <div class="advice-box advice-scale" id="advice-scale">
-        <div class="advice-title" style="color:#ff6b35">Water is scale-forming — what to do</div>
+        <div class="advice-title" style="color:#ff6b35">Water is scale-forming: what to do</div>
         <ul>
-          <li>Lower <strong>pH</strong> with muriatic acid — fastest lever (<a href="../blog/pool-ph-too-high">how to lower pH</a>)</li>
-          <li>Lower <strong>total alkalinity</strong> if above 120 ppm — see <a href="../blog/how-to-lower-pool-alkalinity">how to lower alkalinity</a></li>
-          <li>If calcium hardness is above 500 ppm, a <strong>partial drain and refill</strong> is the only option — no chemical removes calcium</li>
+          <li>Lower <strong>pH</strong> with muriatic acid, the fastest lever (<a href="../blog/pool-ph-too-high">how to lower pH</a>)</li>
+          <li>Lower <strong>total alkalinity</strong> if above 120 ppm: see <a href="../blog/how-to-lower-pool-alkalinity">how to lower alkalinity</a></li>
+          <li>If calcium hardness is above 500 ppm, a <strong>partial drain and refill</strong> is the only option, since no chemical removes calcium</li>
         </ul>
       </div>
 
       <div class="advice-box advice-ok" id="advice-ok">
         <div class="advice-title" style="color:#2ed573">Water is balanced</div>
-        <p style="margin:0;font-size:0.9rem;color:var(--muted)">Your LSI is in the target range. Water is neither corroding surfaces nor depositing scale. Keep testing regularly — temperature swings and rain can shift LSI without any chemical changes.</p>
+        <p style="margin:0;font-size:0.9rem;color:var(--muted)">Your LSI is in the target range. Water is neither corroding surfaces nor depositing scale. Keep testing regularly, because temperature swings and rain can shift LSI without any chemical changes.</p>
       </div>
 
     </div><!-- /calc-card -->
@@ -328,7 +328,7 @@ gtag('config','G-S8JT1DELF6');
         <tr><th>LSI Value</th><th>Status</th><th>What it means for your pool</th></tr>
         <tr><td class="tag-bad">&lt; &minus;0.5</td><td>Highly corrosive</td><td>Aggressively dissolves plaster, etches grout, attacks metal fittings and heater coils</td></tr>
         <tr><td class="tag-warn">&minus;0.5 to &minus;0.3</td><td>Corrosive</td><td>Slow but measurable surface damage over weeks and months</td></tr>
-        <tr><td class="tag-good">&minus;0.3 to +0.3</td><td>Balanced ✓</td><td>Target range — water is satisfied, neither dissolving surfaces nor depositing scale</td></tr>
+        <tr><td class="tag-good">&minus;0.3 to +0.3</td><td>Balanced ✓</td><td>Target range. Water is satisfied, neither dissolving surfaces nor depositing scale</td></tr>
         <tr><td class="tag-warn">+0.3 to +0.5</td><td>Scale-forming</td><td>Calcium starts precipitating on surfaces and inside equipment</td></tr>
         <tr><td class="tag-bad">&gt; +0.5</td><td>Heavily scale-forming</td><td>Visible scale on tile and grout, salt cells clogging, heater coil damage, cloudy water</td></tr>
       </table>
@@ -339,8 +339,8 @@ gtag('config','G-S8JT1DELF6');
     <p>Most LSI calculators use a simplified version of the Langelier formula. This one uses the exact formula from the PoolChem Tracker app, with two details that other tools commonly skip:</p>
 
     <ul>
-      <li><strong>CYA-corrected alkalinity</strong> — instead of plugging in raw TA, the formula uses TA &minus; (CYA &divide; 3). At CYA 60 ppm and TA 100 ppm, this drops the effective alkalinity to 80 ppm. Skipping this step makes water appear more balanced than it is, especially in stabilized pools running CYA 50&ndash;80. Leave the CYA field blank if you have no stabilizer.</li>
-      <li><strong>Quadratic temperature factor</strong> — temperature converts to a factor using a continuous quadratic fit to the APSP/Taylor reference table (max residual error &asymp;&plusmn;0.02). Many tools use stepped lookup tables that produce small jumps at integer temperatures; this formula is smooth across the full range.</li>
+      <li><strong>CYA-corrected alkalinity:</strong> instead of plugging in raw TA, the formula uses TA &minus; (CYA &divide; 3). At CYA 60 ppm and TA 100 ppm, this drops the effective alkalinity to 80 ppm. Skipping this step makes water appear more balanced than it is, especially in stabilized pools running CYA 50&ndash;80. Leave the CYA field blank if you have no stabilizer.</li>
+      <li><strong>Quadratic temperature factor:</strong> temperature converts to a factor using a continuous quadratic fit to the APSP/Taylor reference table (max residual error &asymp;&plusmn;0.02). Many tools use stepped lookup tables that produce small jumps at integer temperatures; this formula is smooth across the full range.</li>
     </ul>
 
     <div class="formula-box">
@@ -353,7 +353,7 @@ gtag('config','G-S8JT1DELF6');
 
     <div class="key-fact">
       <h3>Why this differs from most apps and websites</h3>
-      <p>Industry standard tools often use raw total alkalinity and a step-table temperature factor. The CYA correction matters most for pools with stabilizer — at CYA 80 ppm, skipping it overstates the alkalinity factor by about 0.13 LSI units. See the <a href="../blog/what-is-lsi">full LSI guide</a> for a worked example showing the difference.</p>
+      <p>Industry standard tools often use raw total alkalinity and a step-table temperature factor. The CYA correction matters most for pools with stabilizer. At CYA 80 ppm, skipping it overstates the alkalinity factor by about 0.13 LSI units. See the <a href="../blog/what-is-lsi">full LSI guide</a> for a worked example showing the difference.</p>
     </div>
 
     <h2>Frequently asked questions</h2>
@@ -362,36 +362,36 @@ gtag('config','G-S8JT1DELF6');
     <p>The target range is <strong>&minus;0.3 to +0.3</strong>. Zero is perfect balance. Below &minus;0.3, water is corrosive; above +0.3, it is scale-forming. Many pool professionals target &minus;0.1 to +0.1 as a tighter goal.</p>
 
     <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">Why do different LSI calculators give different results?</h3>
-    <p>Two reasons. First, most calculators use raw total alkalinity instead of CYA-corrected alkalinity. At CYA 60 ppm, this error alone overstates LSI by about 0.09 units. Second, the temperature factor varies by implementation — stepped lookup tables produce small jumps at integer temperatures while a polynomial is continuous. These differences are why pool owners sometimes see conflicting readings from different tools.</p>
+    <p>Two reasons. First, most calculators use raw total alkalinity instead of CYA-corrected alkalinity. At CYA 60 ppm, this error alone overstates LSI by about 0.09 units. Second, the temperature factor varies by implementation. Stepped lookup tables produce small jumps at integer temperatures while a polynomial is continuous. These differences are why pool owners sometimes see conflicting readings from different tools.</p>
 
     <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">What does a negative LSI mean?</h3>
-    <p>Your water is corrosive — undersaturated with calcium. It will pull minerals from whatever surfaces it contacts, etching plaster, dissolving grout, and corroding heat exchanger coils over time. Raise calcium hardness, pH, or alkalinity to bring LSI up. Low calcium hardness is the most common cause of persistently negative LSI.</p>
+    <p>Your water is corrosive, meaning undersaturated with calcium. It will pull minerals from whatever surfaces it contacts, etching plaster, dissolving grout, and corroding heat exchanger coils over time. Raise calcium hardness, pH, or alkalinity to bring LSI up. Low calcium hardness is the most common cause of persistently negative LSI.</p>
 
     <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">What does a positive LSI mean?</h3>
-    <p>Your water is scale-forming — it holds more dissolved calcium than it can keep in solution. Calcium precipitates out as white deposits on tile, inside pipes, on heater coils, and clogging salt cell plates. Lower pH with muriatic acid first (fastest lever), then alkalinity if elevated. If calcium is above 500 ppm, a partial drain and refill is the only solution.</p>
+    <p>Your water is scale-forming. It holds more dissolved calcium than it can keep in solution. Calcium precipitates out as white deposits on tile, inside pipes, on heater coils, and clogging salt cell plates. Lower pH with muriatic acid first (fastest lever), then alkalinity if elevated. If calcium is above 500 ppm, a partial drain and refill is the only solution.</p>
 
     <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">Does CYA affect LSI?</h3>
-    <p>Yes. CYA adds cyanurate alkalinity that shows up on your TA test but does not buffer pH the same way carbonate alkalinity does. The correct formula subtracts CYA &divide; 3 from TA before plugging in. Pools running CYA 80 ppm with TA 100 ppm have an effective alkalinity of about 73 ppm — not 100. Skipping this makes water appear more balanced than it is. See <a href="../blog/what-is-lsi" style="color:var(--accent)">the full LSI guide</a> for a worked step-by-step example.</p>
+    <p>Yes. CYA adds cyanurate alkalinity that shows up on your TA test but does not buffer pH the same way carbonate alkalinity does. The correct formula subtracts CYA &divide; 3 from TA before plugging in. Pools running CYA 80 ppm with TA 100 ppm have an effective alkalinity of about 73 ppm, not 100. Skipping this makes water appear more balanced than it is. See <a href="../blog/what-is-lsi" style="color:var(--accent)">the full LSI guide</a> for a worked step-by-step example.</p>
 
     <h3 style="font-size:1.05rem;font-weight:700;margin:1.5rem 0 0.5rem;">How often should I calculate LSI?</h3>
-    <p>Every time you test your water. If you are already measuring pH, alkalinity, calcium hardness, and temperature, LSI calculation takes no extra effort — it is just math on numbers you already have. Pay special attention after heavy rain, seasonal temperature swings, adding calcium or acid, and after any partial drain and refill.</p>
+    <p>Every time you test your water. If you are already measuring pH, alkalinity, calcium hardness, and temperature, LSI calculation takes no extra effort. It is just math on numbers you already have. Pay special attention after heavy rain, seasonal temperature swings, adding calcium or acid, and after any partial drain and refill.</p>
 
 
     <div class="related-list">
       <h3>Learn more about LSI</h3>
       <ul>
-        <li><a href="../methodology">Methodology &amp; sources</a> &mdash; how every number on this site is calculated</li>
-        <li><a href="../explained/lsi">Langelier Saturation Index — definition, formula &amp; target ranges</a></li>
-        <li><a href="../explained/ph">How pH affects your pool</a> — the fastest lever for LSI adjustment</li>
-        <li><a href="../explained/total-alkalinity">Total alkalinity explained</a> — alkalinity's role in water balance</li>
-        <li><a href="../explained/calcium-hardness">Calcium hardness explained</a> — how CH drives scale and corrosion</li>
+        <li><a href="../methodology">Methodology &amp; sources</a>: how every number on this site is calculated</li>
+        <li><a href="../explained/lsi">Langelier Saturation Index: definition, formula &amp; target ranges</a></li>
+        <li><a href="../explained/ph">How pH affects your pool</a>: the fastest lever for LSI adjustment</li>
+        <li><a href="../explained/total-alkalinity">Total alkalinity explained</a>: alkalinity's role in water balance</li>
+        <li><a href="../explained/calcium-hardness">Calcium hardness explained</a>: how CH drives scale and corrosion</li>
         <li><a href="../blog/what-is-lsi">What is LSI? Pool owner&rsquo;s guide with worked example</a></li>
-        <li><a href="../blog/csi-vs-lsi">CSI vs. LSI</a> &mdash; same formula, different name</li>
-        <li><a href="../blog/lsi-saltwater-pools">LSI and saltwater pools — why SWG owners need to watch it more closely</a></li>
-        <li><a href="../blog/pool-scale-calcium-deposits">Pool scale and calcium deposits</a> — what high LSI does to your pool</li>
-        <li><a href="../blog/corrosive-pool-water">Corrosive pool water</a> — what low LSI does to surfaces</li>
-        <li><a href="muriatic-acid-calculator">Muriatic acid calculator</a> — how much acid to lower pH or alkalinity</li>
-        <li><a href="calcium-hardness-calculator">Calcium hardness calculator</a> — raise CH to target with calcium chloride</li>
+        <li><a href="../blog/csi-vs-lsi">CSI vs. LSI</a>: same formula, different name</li>
+        <li><a href="../blog/lsi-saltwater-pools">LSI and saltwater pools: why SWG owners need to watch it more closely</a></li>
+        <li><a href="../blog/pool-scale-calcium-deposits">Pool scale and calcium deposits</a>: what high LSI does to your pool</li>
+        <li><a href="../blog/corrosive-pool-water">Corrosive pool water</a>: what low LSI does to surfaces</li>
+        <li><a href="muriatic-acid-calculator">Muriatic acid calculator</a>: how much acid to lower pH or alkalinity</li>
+        <li><a href="calcium-hardness-calculator">Calcium hardness calculator</a>: raise CH to target with calcium chloride</li>
         <li><a href="./">All pool calculators</a></li>
       </ul>
     </div>
@@ -535,13 +535,13 @@ gtag('config','G-S8JT1DELF6');
     document.getElementById('bval-tds').textContent = fmt4(res.tdsF);
     document.getElementById('bdet-tds').textContent = salt > 0
       ? '0.012 × log₁₀(' + salt + ')'
-      : 'no salt — factor = 0';
+      : 'no salt, factor = 0';
     document.getElementById('bval-ca').textContent  = fmt4(res.caF);
     document.getElementById('bdet-ca').textContent  = 'log₁₀(' + ch + ') − 0.4';
     document.getElementById('bval-alk').textContent = fmt4(res.alkF);
     document.getElementById('bdet-alk').textContent = cya > 0
       ? 'corrTA = ' + ta + ' − ' + cya + '/3 = ' + res.corrTA.toFixed(1) + ' ppm'
-      : 'log₁₀(' + ta + ') — no CYA entered';
+      : 'log₁₀(' + ta + ') (no CYA entered)';
     document.getElementById('bval-lsi').textContent = sign(lsi) + lsi.toFixed(2);
     document.getElementById('bval-lsi').style.color = color;
 
