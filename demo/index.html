@@ -514,7 +514,7 @@
       <p style="margin-bottom:0.75rem">🔁 <strong style="color:var(--text)">Adjust one parameter at a time.</strong> Wait 4–6 hours after adding chemicals before retesting.</p>
       <p>🧪 <strong style="color:var(--text)">When in doubt, consult a pool professional</strong> or your local pool supply store.</p>
     </div>
-    <button class="btn btn-primary" style="width:100%" onclick="dismissDisclaimer()">I understand — Let's go</button>
+    <button class="btn btn-primary" style="width:100%" onclick="dismissDisclaimer()">I understand. Let's go</button>
   </div>
 </div>
 
@@ -568,7 +568,7 @@
       <div class="field">
         <label>Combined Chlorine (CC)</label>
         <input type="number" id="log-cc-calc" placeholder="--" step="0.1" oninput="calcChlorineField('cc')">
-        <span class="ideal">Ideal: 0 ppm — auto-calculates from FC & TC or enter directly</span>
+        <span class="ideal">Ideal: 0 ppm; auto-calculates from FC & TC or enter directly</span>
       </div>
       <div class="field">
         <label>pH <sup>†</sup></label>
@@ -625,7 +625,7 @@
       <button class="btn btn-secondary" id="cancel-edit-btn" style="display:none" onclick="cancelEdit()">Cancel Edit</button>
     </div>
     <div id="validation-warnings" style="display:none;margin-top:1rem"></div>
-    <div style="font-size:0.72rem;color:var(--muted);font-style:italic;margin-top:0.75rem;padding-top:0.5rem;border-top:1px solid var(--border)"><sup>†</sup> Required for LSI (Langelier Saturation Index) calculation — not required to save a reading. LSI uses Temp, pH, TA, CH, and CYA to determine water balance. Salt/TDS is optional but improves accuracy.<br>Salt range varies by SWG manufacturer. Always check your owner's manual for the recommended salt level for your specific unit.</div>
+    <div style="font-size:0.72rem;color:var(--muted);font-style:italic;margin-top:0.75rem;padding-top:0.5rem;border-top:1px solid var(--border)"><sup>†</sup> Required for LSI (Langelier Saturation Index) calculation, but not required to save a reading. LSI uses Temp, pH, TA, CH, and CYA to determine water balance. Salt/TDS is optional but improves accuracy.<br>Salt range varies by SWG manufacturer. Always check your owner's manual for the recommended salt level for your specific unit.</div>
   </div>
 
   <div class="card" id="recs-card" style="display:none">
@@ -664,11 +664,11 @@
           <input type="number" id="lsi-ch" placeholder="--" oninput="calcLSI()">
         </div>
         <div class="field">
-          <label>CYA (ppm) — for corrected TA</label>
+          <label>CYA (ppm), for corrected TA</label>
           <input type="number" id="lsi-cya" placeholder="--" oninput="calcLSI()">
         </div>
         <div class="field">
-          <label>Salt (ppm) — TDS Factor</label>
+          <label>Salt (ppm): TDS Factor</label>
           <input type="number" id="lsi-salt" placeholder="--" oninput="calcLSI()">
         </div>
       </div>
@@ -701,7 +701,7 @@
   </div>
 
   <div class="card" id="lsi-whatif-card" style="display:none">
-    <div class="card-title">What If? — LSI Simulator</div>
+    <div class="card-title">What If? LSI Simulator</div>
     <div style="font-size:0.8rem;color:var(--muted);margin-bottom:0.75rem">Adjust values to see how changes affect your LSI before adding chemicals.</div>
     <div id="lsi-whatif-controls" style="display:flex;flex-direction:column;gap:0.6rem"></div>
     <div id="lsi-whatif-result" style="margin-top:0.75rem;padding:0.75rem;background:var(--bg2);border:1px solid var(--border);border-radius:10px;text-align:center;display:none">
@@ -716,10 +716,10 @@
     <div class="card-title">What is LSI?</div>
     <div style="font-size:0.82rem;color:var(--muted);line-height:1.7">
       <p style="margin:0 0 0.5rem">The <strong style="color:var(--text)">Langelier Saturation Index</strong> measures whether your pool water is balanced, corrosive, or scale-forming. It combines pH, temperature, alkalinity, calcium hardness, and TDS into a single number.</p>
-      <p style="margin:0 0 0.5rem"><strong style="color:var(--good)">LSI near 0.0</strong> — Balanced water. Won't damage surfaces or equipment.</p>
-      <p style="margin:0 0 0.5rem"><strong style="color:var(--warn)">LSI below −0.3</strong> — Corrosive. Can etch plaster, dissolve grout, and damage concrete and tile surfaces.</p>
-      <p style="margin:0 0 0.5rem"><strong style="color:var(--warn)">LSI above +0.3</strong> — Scale-forming. Calcium deposits build up on tile, heater elements, and salt cells.</p>
-      <p style="margin:0.6rem 0 0;font-style:italic;font-size:0.76rem">Your pool surface sets your recommended target LSI band — a tighter, more conservative window inside the broad −0.3 to +0.3 balanced zone — with a small downward shift in hot, arid climates where evaporation naturally pushes LSI up. Always confirm actual balance with the full calculation: pH, total alkalinity, calcium hardness, water temperature, and salt/TDS.</p>
+      <p style="margin:0 0 0.5rem"><strong style="color:var(--good)">LSI near 0.0</strong>: Balanced water. Won't damage surfaces or equipment.</p>
+      <p style="margin:0 0 0.5rem"><strong style="color:var(--warn)">LSI below −0.3</strong>: Corrosive. Can etch plaster, dissolve grout, and damage concrete and tile surfaces.</p>
+      <p style="margin:0 0 0.5rem"><strong style="color:var(--warn)">LSI above +0.3</strong>: Scale-forming. Calcium deposits build up on tile, heater elements, and salt cells.</p>
+      <p style="margin:0.6rem 0 0;font-style:italic;font-size:0.76rem">Your pool surface sets your recommended target LSI band: a tighter, more conservative window inside the broad −0.3 to +0.3 balanced zone, with a small downward shift in hot, arid climates where evaporation naturally pushes LSI up. Always confirm actual balance with the full calculation: pH, total alkalinity, calcium hardness, water temperature, and salt/TDS.</p>
     </div>
   </div>
 </div>
@@ -765,7 +765,7 @@
   </div>
   <div class="card" id="chart-radar-card">
     <div class="flex-between mb-1">
-      <div class="card-title" style="margin-bottom:0">All Parameters — vs Ideal</div>
+      <div class="card-title" style="margin-bottom:0">All Parameters vs Ideal</div>
       <select id="radar-date" onchange="renderCharts()" style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text);padding:0.3rem 0.6rem;font-family:var(--mono);font-size:0.8rem"></select>
     </div>
     <div class="chart-wrap"><canvas id="radar-chart"></canvas></div>
@@ -815,7 +815,7 @@
           <option value="Enzyme Treatment">Enzyme Treatment</option>
           <option value="Filter Cleaner">Filter Cleaner</option>
           <option value="Pool Flocculant">Pool Flocculant</option>
-          <option value="__custom__">— Enter custom name —</option>
+          <option value="__custom__">Enter custom name…</option>
         </select>
         <input type="text" id="inv-name-custom" placeholder="Chemical name" autocomplete="off" style="display:none;margin-top:0.5rem">
       </div>
@@ -825,7 +825,7 @@
       </div>
       <div class="field">
         <label>Last Added / Notes</label>
-        <input type="text" id="inv-notes" placeholder="e.g. 4/15 — added 1 gal">
+        <input type="text" id="inv-notes" placeholder="e.g. 4/15: added 1 gal">
       </div>
     </div>
     <div class="mt-2">
@@ -901,7 +901,7 @@
   <div class="card" style="background:rgba(0,212,255,0.04);border-color:rgba(0,212,255,0.2)">
     <div class="card-title">New to Pool Chemistry?</div>
     <div style="font-size:0.82rem;color:var(--muted);line-height:1.7;display:flex;flex-direction:column;gap:0.5rem">
-      <div>Start here — these guides cover the basics of keeping your pool safe and balanced:</div>
+      <div>Start here. These guides cover the basics of keeping your pool safe and balanced:</div>
       <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.25rem">
         <a href="https://poolchemtracker.com/blog/pool-chemistry-beginners" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.85rem;background:var(--bg2);border:1px solid var(--border);border-radius:8px;color:var(--accent);text-decoration:none;font-size:0.8rem;font-weight:600">🎓 Pool Chemistry Basics</a>
         <a href="https://poolchemtracker.com/blog/what-chemicals-do-i-need-for-a-pool" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.85rem;background:var(--bg2);border:1px solid var(--border);border-radius:8px;color:var(--accent);text-decoration:none;font-size:0.8rem;font-weight:600">🧪 What Chemicals Do I Need?</a>
@@ -919,7 +919,7 @@
       <div style="font-size:0.82rem;color:var(--muted);line-height:1.7;display:flex;flex-direction:column;gap:0.75rem">
         <div style="display:flex;gap:0.75rem;align-items:flex-start">
           <span style="font-size:1.1rem;flex-shrink:0">⚙️</span>
-          <div><strong style="color:var(--text)">1. Set Up Your Pool</strong><br>Go to Settings and enter your pool volume, surface type, and climate zone. Your surface (plaster, pebble, vinyl, or fiberglass) sets your LSI water-balance targets (and the calcium range for vinyl and fiberglass). If you have a salt water generator (SWG), enter the brand — this enables salt-specific recommendations and adjusts your FC target (SWG pools run a lower minimum FC: 5% of CYA, vs. 7.5% for non-SWG). Accurate settings directly affect dosing amounts and ideal ranges. Set up your water-test, inventory, and equipment-maintenance reminders on the <strong style="color:var(--text)">Tasks</strong> tab.</div>
+          <div><strong style="color:var(--text)">1. Set Up Your Pool</strong><br>Go to Settings and enter your pool volume, surface type, and climate zone. Your surface (plaster, pebble, vinyl, or fiberglass) sets your LSI water-balance targets (and the calcium range for vinyl and fiberglass). If you have a salt water generator (SWG), enter the brand. This enables salt-specific recommendations and adjusts your FC target (SWG pools run a lower minimum FC: 5% of CYA, vs. 7.5% for non-SWG). Accurate settings directly affect dosing amounts and ideal ranges. Set up your water-test, inventory, and equipment-maintenance reminders on the <strong style="color:var(--text)">Tasks</strong> tab.</div>
         </div>
         <div style="display:flex;gap:0.75rem;align-items:flex-start">
           <span style="font-size:1.1rem;flex-shrink:0">🧪</span>
@@ -927,7 +927,7 @@
         </div>
         <div style="display:flex;gap:0.75rem;align-items:flex-start">
           <span style="font-size:1.1rem;flex-shrink:0">📝</span>
-          <div><strong style="color:var(--text)">3. Log Your Reading</strong><br>Tap <strong>+ Log Reading</strong> and enter your test results. You don't need every field — just enter what you have. Not every parameter needs to be tested every time:
+          <div><strong style="color:var(--text)">3. Log Your Reading</strong><br>Tap <strong>+ Log Reading</strong> and enter your test results. You don't need every field. Just enter what you have. Not every parameter needs to be tested every time:
             <div style="margin-top:0.4rem;font-size:0.75rem;line-height:1.6">
               <strong style="color:var(--text)">Weekly:</strong> Free Chlorine, pH, Total Alkalinity<br>
               <strong style="color:var(--text)">Monthly:</strong> CYA, Calcium Hardness, Salt<br>
@@ -935,7 +935,7 @@
               At minimum, <strong style="color:var(--text)">Free Chlorine and pH</strong> will give you a health score and recommendations.
             </div>
             <div style="margin-top:0.5rem;font-size:0.75rem;line-height:1.6">
-              <strong style="color:var(--text)">Chlorine fields:</strong> Enter <strong style="color:var(--text)">FC</strong> plus either <strong style="color:var(--text)">TC</strong> (from a pool store report) or <strong style="color:var(--text)">CC</strong> (from a DPD drop test) — the app calculates the other automatically. If your DPD test shows no CC, enter 0.<br>
+              <strong style="color:var(--text)">Chlorine fields:</strong> Enter <strong style="color:var(--text)">FC</strong> plus either <strong style="color:var(--text)">TC</strong> (from a pool store report) or <strong style="color:var(--text)">CC</strong> (from a DPD drop test): the app calculates the other automatically. If your DPD test shows no CC, enter 0.<br>
               <strong style="color:var(--text)">Better recommendations:</strong> Adding <strong style="color:var(--text)">CYA</strong> along with FC gives you an accurate chlorine target range. Entering both <strong style="color:var(--text)">pH and TA</strong> together ensures the correct treatment order. The app will remind you if these are missing when you save.<br>
               <strong style="color:var(--text)">Log often:</strong> The more readings you log, the better the app can detect trends, spot patterns, and refine your health score. Weekly testing is ideal during pool season.
             </div>
@@ -983,11 +983,11 @@
         </div>
         <div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1rem">
           <div style="font-weight:700;font-size:0.85rem;margin-bottom:0.25rem">💧 Liquid Color-Match Test Kit (e.g., 4-way or 5-way kits)</div>
-          <div style="font-size:0.78rem;color:var(--muted);line-height:1.5">Uses liquid reagents with a color chart to estimate chlorine, pH, and other parameters. More reliable than test strips, but less precise than FAS-DPD methods — especially at higher chlorine levels.</div>
+          <div style="font-size:0.78rem;color:var(--muted);line-height:1.5">Uses liquid reagents with a color chart to estimate chlorine, pH, and other parameters. More reliable than test strips, but less precise than FAS-DPD methods, especially at higher chlorine levels.</div>
         </div>
         <div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1rem">
           <div style="font-weight:700;font-size:0.85rem;margin-bottom:0.25rem">💊 DPD Color-Match Test Kit</div>
-          <div style="font-size:0.78rem;color:var(--muted);line-height:1.5">Uses DPD reagents (liquid or tablets) with a color chart to estimate chlorine levels. Reliable for routine use, but less precise than FAS-DPD methods — especially at higher chlorine levels.</div>
+          <div style="font-size:0.78rem;color:var(--muted);line-height:1.5">Uses DPD reagents (liquid or tablets) with a color chart to estimate chlorine levels. Reliable for routine use, but less precise than FAS-DPD methods, especially at higher chlorine levels.</div>
         </div>
         <div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1rem">
           <div style="font-weight:700;font-size:0.85rem;margin-bottom:0.25rem">📋 Test Strips</div>
@@ -1010,7 +1010,7 @@
       <div style="font-size:0.82rem;color:var(--muted);line-height:1.7;display:flex;flex-direction:column;gap:0.75rem">
         <div style="display:flex;gap:0.75rem;align-items:flex-start">
           <span style="font-size:1.1rem;flex-shrink:0">📦</span>
-          <div><strong style="color:var(--text)">Add a Chemical</strong><br>Under <strong style="color:var(--text)">Add / Update Chemical</strong>, pick an item from the dropdown — or choose <em>Enter custom name</em> for anything not listed. Enter how much you have on hand (free-form, e.g. "2 gallons" or "3 tablets"), then tap <strong style="color:var(--text)">+ Add to Inventory</strong>.</div>
+          <div><strong style="color:var(--text)">Add a Chemical</strong><br>Under <strong style="color:var(--text)">Add / Update Chemical</strong>, pick an item from the dropdown, or choose <em>Enter custom name</em> for anything not listed. Enter how much you have on hand (free-form, e.g. "2 gallons" or "3 tablets"), then tap <strong style="color:var(--text)">+ Add to Inventory</strong>.</div>
         </div>
         <div style="display:flex;gap:0.75rem;align-items:flex-start">
           <span style="font-size:1.1rem;flex-shrink:0">🔄</span>
@@ -1018,7 +1018,7 @@
         </div>
         <div style="display:flex;gap:0.75rem;align-items:flex-start">
           <span style="font-size:1.1rem;flex-shrink:0">📝</span>
-          <div><strong style="color:var(--text)">Add Notes</strong><br>Use the <strong style="color:var(--text)">Last Added / Notes</strong> field to record when you last purchased or added a chemical — e.g. "4/15 — added 1 gal" — helpful for tracking usage over time.</div>
+          <div><strong style="color:var(--text)">Add Notes</strong><br>Use the <strong style="color:var(--text)">Last Added / Notes</strong> field to record when you last purchased or added a chemical (e.g. "4/15: added 1 gal"), helpful for tracking usage over time.</div>
         </div>
         <div style="display:flex;gap:0.75rem;align-items:flex-start">
           <span style="font-size:1.1rem;flex-shrink:0">🔔</span>
@@ -1037,7 +1037,7 @@
       <div style="font-size:0.82rem;color:var(--muted);line-height:1.7;display:flex;flex-direction:column;gap:0.75rem">
         <div style="display:flex;gap:0.75rem;align-items:flex-start">
           <span style="font-size:1.1rem;flex-shrink:0">⬇️</span>
-          <div><strong style="color:var(--text)">Export</strong><br>Tap <em>Export CSV</em> on the History tab to save a backup of all your readings. Export regularly — your data is stored on-device only.</div>
+          <div><strong style="color:var(--text)">Export</strong><br>Tap <em>Export CSV</em> on the History tab to save a backup of all your readings. Export regularly, because your data is stored on-device only.</div>
         </div>
         <div style="display:flex;gap:0.75rem;align-items:flex-start">
           <span style="font-size:1.1rem;flex-shrink:0">⬆️</span>
@@ -1046,9 +1046,9 @@
         <div style="display:flex;gap:0.75rem;align-items:flex-start">
           <span style="font-size:1.1rem;flex-shrink:0">📋</span>
           <div><strong style="color:var(--text)">CSV Format</strong><br>Two layouts are supported:<br>
-            <strong style="color:var(--text)">Column layout</strong> — Header row with columns like <span style="font-family:var(--mono);font-size:0.75rem;color:var(--text)">Date, FC, TC, pH, TA, CH, CYA, Salt, Temp, Phosphates, Iron, Copper, Notes</span>. Only Date is required — other columns are optional.<br>
-            <strong style="color:var(--text)">Spreadsheet layout</strong> — Dates across the top row with parameters down the first column (the format used by many pool spreadsheets). Extra columns (like "Range") are ignored.<br>
-            <strong style="color:var(--text)">Recognized labels</strong> — The app matches common names: <span style="font-family:var(--mono);font-size:0.75rem;color:var(--text)">Free Chlorine, Total Chlorine, pH, Total Alkalinity, Alkalinity, Calcium Hardness, CYA, Stabilizer, Cyanuric Acid, Salt, Phosphates, Iron, Copper, Water Temp, Temperature, Notes</span>. Calculation rows (like Temp Factor or LSI) are ignored.<br>
+            <strong style="color:var(--text)">Column layout</strong>: Header row with columns like <span style="font-family:var(--mono);font-size:0.75rem;color:var(--text)">Date, FC, TC, pH, TA, CH, CYA, Salt, Temp, Phosphates, Iron, Copper, Notes</span>. Only Date is required; other columns are optional.<br>
+            <strong style="color:var(--text)">Spreadsheet layout</strong>: Dates across the top row with parameters down the first column (the format used by many pool spreadsheets). Extra columns (like "Range") are ignored.<br>
+            <strong style="color:var(--text)">Recognized labels</strong>: The app matches common names: <span style="font-family:var(--mono);font-size:0.75rem;color:var(--text)">Free Chlorine, Total Chlorine, pH, Total Alkalinity, Alkalinity, Calcium Hardness, CYA, Stabilizer, Cyanuric Acid, Salt, Phosphates, Iron, Copper, Water Temp, Temperature, Notes</span>. Calculation rows (like Temp Factor or LSI) are ignored.<br>
             Dates can be <span style="font-family:var(--mono);font-size:0.75rem;color:var(--text)">M/D/YYYY</span>, <span style="font-family:var(--mono);font-size:0.75rem;color:var(--text)">M/D/YY</span>, or <span style="font-family:var(--mono);font-size:0.75rem;color:var(--text)">YYYY-MM-DD</span>.</div>
         </div>
         <div style="display:flex;gap:0.75rem;align-items:flex-start">
@@ -1061,7 +1061,7 @@
 
   <div class="grid-2">
     <div class="card">
-      <div class="card-title">Target Ranges <span style="font-weight:400;font-size:0.72rem;color:var(--muted)">— based on your settings</span></div>
+      <div class="card-title">Target Ranges <span style="font-weight:400;font-size:0.72rem;color:var(--muted)">(based on your settings)</span></div>
       <div class="range-guide">
         <div class="range-row"><span>Free Chlorine (FC)</span><span class="rng" id="ref-fc-range">1–3 ppm</span></div>
         <div class="range-row"><span>Total Chlorine</span><span class="rng">Within 0.2 ppm of FC</span></div>
@@ -1102,7 +1102,7 @@
       </div>
     </div>
     <div class="card" style="grid-column:1/-1">
-      <div class="card-title">Dosing Reference — <span id="ref-gallon-label">18,000</span> <span id="ref-gallon-unit">Gallon</span> Pool</div>
+      <div class="card-title">Dosing Reference: <span id="ref-gallon-label">18,000</span> <span id="ref-gallon-unit">Gallon</span> Pool</div>
       <div id="ref-dosing-guide" class="range-guide"></div>
     </div>
     <div class="card" style="grid-column:1/-1">
@@ -1142,7 +1142,7 @@
         <div class="field">
           <label>SWG / Salt Cell Brand</label>
           <input type="text" id="setting-swg" placeholder="e.g. Hayward AquaRite">
-          <span class="ideal">Leave blank if you don't have an SWG — salt recommendations only appear when this is set</span>
+          <span class="ideal">Leave blank if you don't have an SWG; salt recommendations only appear when this is set</span>
         </div>
         <div class="field">
           <label>Filter Type</label>
@@ -1231,7 +1231,7 @@
         </div>
       </div>
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
-        <button id="settings-upgrade-btn" class="btn" style="background:rgba(162,155,254,0.2);border-color:rgba(162,155,254,0.4);color:#a29bfe;font-weight:700;font-size:0.82rem;display:none" onclick="showUpgradePrompt()">Upgrade to Pro — $4.99</button>
+        <button id="settings-upgrade-btn" class="btn" style="background:rgba(162,155,254,0.2);border-color:rgba(162,155,254,0.4);color:#a29bfe;font-weight:700;font-size:0.82rem;display:none" onclick="showUpgradePrompt()">Upgrade to Pro: $4.99</button>
         <button class="btn btn-secondary" style="font-size:0.78rem" onclick="restoreFromSettings(this)">Restore Purchase</button>
       </div>
     </div>
@@ -1402,7 +1402,7 @@ function onProStatusUpdate(val, errorMsg) {
   // Reset restore button if it was in "Restoring..." state
   document.querySelectorAll('button[disabled]').forEach(btn => {
     if (btn.textContent === 'Restoring...' || btn.textContent === 'Processing...') {
-      btn.textContent = btn.textContent === 'Restoring...' ? 'Restore Purchase' : 'Unlock Pro — $4.99';
+      btn.textContent = btn.textContent === 'Restoring...' ? 'Restore Purchase' : 'Unlock Pro: $4.99';
       btn.disabled = false;
     }
   });
@@ -1429,7 +1429,7 @@ function showUpgradePrompt() {
         Get detailed dosing guidance, explanations, trend analysis, full history with charts, smart reminders, and more.
       </div>
       ${hasNativeBridge ? `
-        <button class="btn" style="width:100%;margin-bottom:0.5rem;background:rgba(162,155,254,0.2);border-color:rgba(162,155,254,0.4);color:#a29bfe;font-weight:700" onclick="window.webkit.messageHandlers.purchasePro.postMessage('');this.textContent='Processing...';this.disabled=true">Unlock Pro — $4.99</button>
+        <button class="btn" style="width:100%;margin-bottom:0.5rem;background:rgba(162,155,254,0.2);border-color:rgba(162,155,254,0.4);color:#a29bfe;font-weight:700" onclick="window.webkit.messageHandlers.purchasePro.postMessage('');this.textContent='Processing...';this.disabled=true">Unlock Pro: $4.99</button>
         <button class="btn btn-secondary" style="width:100%;font-size:0.78rem;margin-bottom:0.3rem" onclick="window.webkit.messageHandlers.restorePurchases.postMessage('');this.textContent='Restoring...';this.disabled=true">Restore Purchase</button>
       ` : `
         <button class="btn" style="width:100%;margin-bottom:0.5rem;background:rgba(162,155,254,0.2);border-color:rgba(162,155,254,0.4);color:#a29bfe;font-weight:700" onclick="document.getElementById('upgrade-modal').remove()">Coming Soon</button>
@@ -1822,7 +1822,7 @@ function validateForm() {
   if (hardErrors.length) {
     warnEl.style.display = 'block';
     warnEl.innerHTML = `<div style="background:rgba(255,71,87,0.1);border:1px solid rgba(255,71,87,0.35);border-radius:10px;padding:0.75rem 1rem">
-      <div style="font-weight:700;font-size:0.82rem;color:var(--danger);margin-bottom:0.4rem">🚫 Cannot save — please fix:</div>
+      <div style="font-weight:700;font-size:0.82rem;color:var(--danger);margin-bottom:0.4rem">🚫 Cannot save. Please fix:</div>
       ${hardErrors.map(e => `<div style="font-size:0.8rem;color:var(--text);padding:0.15rem 0">• ${e}</div>`).join('')}
     </div>`;
     return false;
@@ -1831,7 +1831,7 @@ function validateForm() {
   if (warnings.length) {
     warnEl.style.display = 'block';
     warnEl.innerHTML = `<div style="background:rgba(255,170,0,0.1);border:1px solid rgba(255,170,0,0.3);border-radius:10px;padding:0.75rem 1rem">
-      <div style="font-weight:700;font-size:0.82rem;color:var(--warn);margin-bottom:0.4rem">⚠️ Unusual values — double-check before saving:</div>
+      <div style="font-weight:700;font-size:0.82rem;color:var(--warn);margin-bottom:0.4rem">⚠️ Unusual values: double-check before saving:</div>
       ${warnings.map(w => `<div style="font-size:0.8rem;color:var(--muted);padding:0.15rem 0">• ${w}</div>`).join('')}
       <div style="margin-top:0.75rem;display:flex;gap:0.5rem">
         <button class="btn btn-primary" style="font-size:0.78rem;padding:0.5rem 1rem" onclick="saveReadingConfirmed()">Save Anyway</button>
@@ -1848,8 +1848,8 @@ function validateForm() {
   const hasPH  = document.getElementById('log-ph').value !== '';
   const hasTA  = document.getElementById('log-ta').value !== '';
 
-  if (hasFC && !hasCYA) depWarnings.push('CYA not entered — FC target range will use a default (1–3 ppm) instead of a CYA-adjusted range. Dosing recommendations may be inaccurate.');
-  if ((hasPH && !hasTA) || (!hasPH && hasTA)) depWarnings.push('pH and Alkalinity work together — entering both gives more accurate treatment order and dosing.');
+  if (hasFC && !hasCYA) depWarnings.push('CYA not entered. FC target range will use a default (1–3 ppm) instead of a CYA-adjusted range. Dosing recommendations may be inaccurate.');
+  if ((hasPH && !hasTA) || (!hasPH && hasTA)) depWarnings.push('pH and Alkalinity work together, and entering both gives more accurate treatment order and dosing.');
 
   if (depWarnings.length) {
     document.getElementById('dep-warning-list').innerHTML = depWarnings.map(w => `<p style="margin-bottom:0.5rem">• ${w}</p>`).join('');
@@ -2407,7 +2407,7 @@ function detectTrends() {
         msg: `${p.msg} (${p.dir === 'down' ? '−' : '+'}${change}${unit} over last ${vals.length} readings)`,
         bad: p.bad,
         delta,
-        swgNote: p.key === 'ph' && p.dir === 'up' ? 'Normal for SWG — electrolysis raises pH over time.' : null,
+        swgNote: p.key === 'ph' && p.dir === 'up' ? 'Normal for SWG: electrolysis raises pH over time.' : null,
       });
     }
   });
@@ -2481,10 +2481,10 @@ function buildInsights() {
     const phDrift = phVals[phVals.length-1] - phVals[0];
     if (phDrift > 0.3) insights.push({ icon:'📈', type:'warn',
       title:'pH rising consistently',
-      msg:`pH has risen ${phDrift.toFixed(1)} units over your last ${phVals.length} readings. This is normal SWG behavior — electrolysis produces hydroxide ions that raise pH. Consider a regular weekly acid dose.` });
+      msg:`pH has risen ${phDrift.toFixed(1)} units over your last ${phVals.length} readings. This is normal SWG behavior: electrolysis produces hydroxide ions that raise pH. Consider a regular weekly acid dose.` });
     if (phDrift < -0.3) insights.push({ icon:'📉', type:'warn',
       title:'pH dropping',
-      msg:`pH has dropped ${Math.abs(phDrift).toFixed(1)} units over your last ${phVals.length} readings. Low pH accelerates equipment corrosion. Check TA — low alkalinity can cause pH to drift down.` });
+      msg:`pH has dropped ${Math.abs(phDrift).toFixed(1)} units over your last ${phVals.length} readings. Low pH accelerates equipment corrosion. Check TA, since low alkalinity can cause pH to drift down.` });
   }
 
   // CYA creep
@@ -2494,7 +2494,7 @@ function buildInsights() {
     const cyaMax = R('cya').max;
     if (cyaDrift > 10) insights.push({ icon:'⚠️', type:'warn',
       title:'CYA trending higher',
-      msg:`CYA has risen ~${Math.round(cyaDrift)} ppm over recent readings. High CYA reduces chlorine effectiveness. If CYA exceeds ${cyaMax} ppm, a partial drain and refill is the only fix. Common cause: chlorine tablets (trichlor) add CYA with every dose — consider switching to liquid chlorine.` });
+      msg:`CYA has risen ~${Math.round(cyaDrift)} ppm over recent readings. High CYA reduces chlorine effectiveness. If CYA exceeds ${cyaMax} ppm, a partial drain and refill is the only fix. Common cause: chlorine tablets (trichlor) add CYA with every dose. Consider switching to liquid chlorine.` });
   }
 
   // FC stability
@@ -2519,7 +2519,7 @@ function buildInsights() {
     const saltDrift = saltVals[saltVals.length-1] - saltVals[0];
     if (saltDrift < -200) insights.push({ icon:'🧂', type:'info',
       title:'Salt slowly decreasing',
-      msg:`Salt has dropped ~${Math.abs(Math.round(saltDrift))} ppm over recent readings — likely from backwashing, splash-out, or rain dilution. Monitor and top up when it approaches 2700 ppm.` });
+      msg:`Salt has dropped ~${Math.abs(Math.round(saltDrift))} ppm over recent readings, likely from backwashing, splash-out, or rain dilution. Monitor and top up when it approaches 2700 ppm.` });
   }
 
   // Chemical usage estimate
@@ -2535,7 +2535,7 @@ function buildInsights() {
     const allCorrosive = lsiVals.every(v => v < R('lsi').min);
     if (allScaling) insights.push({ icon:'🪨', type:'warn',
       title:'LSI consistently scale-forming',
-      msg:'Your water has been scale-forming for multiple readings in a row. Check calcium hardness and pH — both contribute to high LSI. Scale buildup on heater elements and plumbing is likely.' });
+      msg:'Your water has been scale-forming for multiple readings in a row. Check calcium hardness and pH, which both contribute to high LSI. Scale buildup on heater elements and plumbing is likely.' });
     if (allCorrosive) insights.push({ icon:'⚗️', type:'warn',
       title:'LSI consistently corrosive',
       msg:'Your water has been corrosive for multiple readings. This slowly damages plaster, grout, metal fittings, and pool equipment. Raise pH and/or calcium hardness.' });
@@ -2548,7 +2548,7 @@ function buildInsights() {
 function retestStepHTML(msg) {
   return `<div style="display:flex;align-items:center;gap:0.6rem;padding:0.6rem 0.75rem;margin:0.4rem 0;background:rgba(0,212,255,0.05);border-radius:8px;border:1px dashed rgba(0,212,255,0.25)">
     <span style="font-size:1rem;flex-shrink:0">⏱</span>
-    <span style="font-size:0.78rem;color:var(--muted)"><strong style="color:var(--accent)">Retest</strong> — ${msg || 'wait 4–6 hrs, then retest before continuing'}</span>
+    <span style="font-size:0.78rem;color:var(--muted)"><strong style="color:var(--accent)">Retest</strong>: ${msg || 'wait 4–6 hrs, then retest before continuing'}</span>
   </div>`;
 }
 
@@ -2563,15 +2563,15 @@ function buildTimeAlerts(last) {
 
   if (days >= 10) {
     alerts.push({ icon: '🚨', severity: 'critical',
-      msg: `Last test was ${days} days ago — you're overdue. Water chemistry can shift significantly in a week.`,
+      msg: `Last test was ${days} days ago. You're overdue. Water chemistry can shift significantly in a week.`,
       tip: 'Test your water today. Chlorine, pH, and alkalinity are the priority.' });
   } else if (days >= 7) {
     alerts.push({ icon: '⏰', severity: 'warn',
-      msg: `Last test was ${days} days ago — time to retest.`,
+      msg: `Last test was ${days} days ago. Time to retest.`,
       tip: 'Weekly testing keeps problems small. Test today if possible.' });
   } else if (days >= 5) {
     alerts.push({ icon: '📅', severity: 'info',
-      msg: `Last test was ${days} days ago — consider testing soon.`,
+      msg: `Last test was ${days} days ago. Consider testing soon.`,
       tip: 'Approaching the weekly mark. A quick test prevents surprises.' });
   }
 
@@ -2615,8 +2615,8 @@ function trendSummaryHTML(trends) {
     return `<div style="display:flex;align-items:center;gap:0.5rem;padding:0.4rem 0;font-size:0.78rem;border-bottom:1px solid var(--border)">
       <span style="color:${color};font-weight:700;font-size:0.9rem;width:1.2rem;text-align:center">${arrow}</span>
       <div style="flex:1">
-        <span style="color:var(--text);font-weight:600">${t.label}</span>
-        <span style="color:var(--muted)"> — ${t.delta > 0 ? 'trending up' : 'trending down'}</span>
+        <span style="color:var(--text);font-weight:600">${t.label}:</span>
+        <span style="color:var(--muted)">${t.delta > 0 ? 'trending up' : 'trending down'}</span>
         ${t.swgNote ? `<div style="font-size:0.68rem;color:var(--muted);font-style:italic">${t.swgNote}</div>` : ''}
       </div>
     </div>`;
@@ -2668,7 +2668,7 @@ function renderDashboard() {
   if (hasCritical) {
     statusBg    = 'linear-gradient(135deg, rgba(255,71,87,0.15), rgba(255,71,87,0.05))';
     statusIcon  = '🚨';
-    statusTitle = 'Critical — Fix Now';
+    statusTitle = 'Critical: Fix Now';
     statusMsg   = 'One or more parameters need immediate attention.';
   } else if (hasHigh) {
     statusBg    = 'linear-gradient(135deg, rgba(255,170,0,0.15), rgba(255,170,0,0.05))';
@@ -2679,7 +2679,7 @@ function renderDashboard() {
     statusBg    = 'linear-gradient(135deg, rgba(253,203,110,0.12), rgba(253,203,110,0.04))';
     statusIcon  = '🔧';
     statusTitle = 'Minor Adjustments';
-    statusMsg   = 'Pool is mostly balanced — a few small tweaks recommended.';
+    statusMsg   = 'Pool is mostly balanced. A few small tweaks recommended.';
   } else {
     statusBg    = 'linear-gradient(135deg, rgba(46,213,115,0.15), rgba(46,213,115,0.05))';
     statusIcon  = '✅';
@@ -2812,7 +2812,7 @@ function renderDashboard() {
   const fcLow = last.fc != null && last.fc < dashFcR.min;
   const swgGuidance = fcLow ? `
     <div style="background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.2);border-radius:10px;padding:0.75rem 1rem;margin-bottom:0.75rem;font-size:0.8rem">
-      <div style="font-weight:700;color:var(--accent);margin-bottom:0.25rem">⚡ SWG Tip — Try this first</div>
+      <div style="font-weight:700;color:var(--accent);margin-bottom:0.25rem">⚡ SWG Tip: Try this first</div>
       <div style="color:var(--muted);line-height:1.6">Before adding liquid chlorine, try <strong style="color:var(--text)">increasing your SWG output by 10–20%</strong> and running the pump for an extra 2 hours per day for 3–5 days. Retest before adding chemicals.</div>
     </div>` : '';
 
@@ -2894,7 +2894,7 @@ function renderDashboard() {
     <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.25rem 1.5rem;margin-top:1.25rem">
       ${isPro() && score < 100 && scoreComps.some(c => c.tip) ? `
       <div>
-        <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.4rem">Score Breakdown — How to reach 100</div>
+        <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.4rem">Score Breakdown: How to reach 100</div>
         <div style="display:flex;flex-direction:column;gap:0.3rem">
           ${scoreComps.map(c => `
           <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.78rem">
@@ -2923,7 +2923,7 @@ function renderDashboard() {
           <span style="font-size:0.6rem;color:var(--muted);margin-left:auto">Tap to expand</span>
         </div>
         <div id="hsim-panel" style="display:none;margin-top:0.5rem;padding:0.75rem;background:var(--bg2);border-radius:10px;border:1px solid var(--border)">
-          <div style="font-size:0.68rem;color:var(--muted);margin-bottom:0.6rem">See how changes affect your score based on your last reading. Adjust the 3 values you can directly control — Combined Chlorine and LSI are calculated automatically from your other readings.</div>
+          <div style="font-size:0.68rem;color:var(--muted);margin-bottom:0.6rem">See how changes affect your score based on your last reading. Adjust the 3 values you can directly control. Combined Chlorine and LSI are calculated automatically from your other readings.</div>
           <div style="display:flex;flex-direction:column;gap:0.6rem">
             <div>
               <div style="display:flex;justify-content:space-between;font-size:0.72rem;margin-bottom:0.2rem">
@@ -2984,8 +2984,8 @@ function renderDashboard() {
     <div style="margin-top:1.25rem;padding:0.6rem 1rem;background:rgba(162,155,254,0.08);border:1px solid rgba(162,155,254,0.2);border-radius:10px;display:flex;align-items:center;gap:0.6rem;cursor:pointer" onclick="showUpgradePrompt()">
       <span style="flex-shrink:0">🔒</span>
       <div style="font-size:0.8rem;color:#a29bfe">
-        <strong>Trend Intelligence</strong>
-        <span style="color:var(--muted)"> — Upgrade to Pro to see patterns, drift alerts, and insights across your readings</span>
+        <strong>Trend Intelligence:</strong>
+        <span style="color:var(--muted)">Upgrade to Pro to see patterns, drift alerts, and insights across your readings</span>
       </div>
     </div>` : ''}
   `;
@@ -3717,10 +3717,10 @@ function renderMaintenance() {
 
   const proNoteHTML = isPro()
     ? `<div style="margin-top:0.5rem;font-size:0.72rem;color:var(--muted)">🔔 Turn on <strong style="color:var(--text)">Remind</strong> for any task to get a push notification when it's due (iOS app required).</div>`
-    : `<div style="margin-top:1rem;padding:0.6rem 1rem;background:rgba(162,155,254,0.08);border:1px solid rgba(162,155,254,0.2);border-radius:10px;display:flex;align-items:center;gap:0.6rem;cursor:pointer" onclick="showUpgradePrompt()"><span style="flex-shrink:0">🔒</span><div style="font-size:0.8rem;color:#a29bfe"><strong>Pro</strong> <span style="color:var(--muted)">— Customize each task's interval + get a push reminder when any task is due (iOS app required)</span></div></div>`;
+    : `<div style="margin-top:1rem;padding:0.6rem 1rem;background:rgba(162,155,254,0.08);border:1px solid rgba(162,155,254,0.2);border-radius:10px;display:flex;align-items:center;gap:0.6rem;cursor:pointer" onclick="showUpgradePrompt()"><span style="flex-shrink:0">🔒</span><div style="font-size:0.8rem;color:#a29bfe"><strong>Pro:</strong> <span style="color:var(--muted)">Customize each task's interval + get a push reminder when any task is due (iOS app required)</span></div></div>`;
 
   const filterNote = visible.length === 0
-    ? `<div class="empty-state"><div class="icon">🔧</div>No tasks — configure your filter type and SWG in Settings</div>`
+    ? `<div class="empty-state"><div class="icon">🔧</div>No tasks. Configure your filter type and SWG in Settings</div>`
     : taskHTML;
 
   let pressureCardHTML = '';
@@ -3733,7 +3733,7 @@ function renderMaintenance() {
       const diff = Number(current) - Number(baseline);
       let sc, st;
       if (diff >= 8)      { sc = 'var(--danger)'; st = 'Time to backwash'; }
-      else if (diff >= 5) { sc = 'var(--warn)';   st = 'Getting high — backwash soon'; }
+      else if (diff >= 5) { sc = 'var(--warn)';   st = 'Getting high, backwash soon'; }
       else                { sc = 'var(--good)';   st = 'OK'; }
       psiStatusHTML = `<div style="font-size:0.78rem;font-weight:600;color:${sc};margin-top:0.5rem">${st} (${diff >= 0 ? '+' : ''}${diff.toFixed(1)} psi above baseline)</div>`;
     } else if (baseline === '') {
