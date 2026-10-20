@@ -174,7 +174,9 @@ All manual, outside the repo, unless noted.
 - The 4 on-hold calculators briefly had the methodology link (5b53f18 → reverted in 88a180b, Sep 20). Treat them as untouched.
 - Homepage got a trust strip (ff2e446) — neither treatment nor control.
 
-**Deferred — held past Oct 17 (new decline); re-decide after the Oct 24 report.** Trust-line rollout is dropped from this list per the read: blog "Related reading" (54) / "Keep reading" (30) methodology links; homepage directional FAQ schema; homepage links to desert-pools/ and spa/ hubs; missing calculators on the homepage grid (dry-acid, pool-closing, pool-opening, water-replacement, chlorine-cost, chlorine-usage, overnight-chlorine-loss-test); audit Part 2 (page-type citation-vs-click reformatting); trust-line rollout to remaining informational pages; page consolidation batch (see Page Consolidation Plan).
+**Deferred — held past Oct 17 (new decline); re-decide after the Oct 24 report.** Trust-line rollout is dropped from this list per the read: blog "Related reading" (54) / "Keep reading" (30) methodology links; homepage directional FAQ schema; homepage links to desert-pools/ and spa/ hubs; missing calculators on the homepage grid (dry-acid, pool-closing, pool-opening, water-replacement, chlorine-cost, chlorine-usage, overnight-chlorine-loss-test); audit Part 2 (page-type citation-vs-click reformatting); trust-line rollout to remaining informational pages; page consolidation batch (see Page Consolidation Plan). Sitewide footer link to `/updates` (What's New page, live Oct 19 and linked only from download.html until then).
+
+**What's New page (`/updates`) routine:** on each App Store / Play approval, add a dated entry (anchor `#ios-X-Y`), rewrite the store notes in plain language (no "subscription" wording for Pro, no reporter initials), roll entries older than ~5 releases into the month summaries, and bump `dateModified` in the page JSON-LD and `lastmod` in sitemap.xml.
 
 ---
 
