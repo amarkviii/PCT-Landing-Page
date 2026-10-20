@@ -410,7 +410,10 @@ Warnings 14→11: the Oct 13 "Slow page" is gone, so it was transient as expecte
 - **Backlink profile:** DR 6, UR 6. 478 backlinks (586 all time), of which 118 followed and 360 nofollow. 422 referring domains (522 all time), of which 66 followed and 356 nofollow. All 478 links come from pages with UR < 10.
 - **Organic:** 3 keywords (2 in the top 3), 55 traffic (US 38 / CA 18), all informational. Banner: Ahrefs flags SERP-data inconsistencies from Google changes since Sep 29.
 - **AI responses (new index):** 290 in total — Copilot 167 (35 pages), ChatGPT 60 (30), Perplexity 35 (14), AI Overviews 21 (12), AI Mode 5 (3), Gemini 2 (2). Copilot leads, which fits the Bing/Copilot CYA pickup on the Watch List. Baseline for weekly tracking.
-- **Site Explorer crawl:** 152 pages, of which 138 × 200, 11 × 3xx, **3 × 404**. Site Audit shows 0 errors, so these are probably old/retired URLs Ahrefs still knows about (external links or history), not broken internal links. Low priority: check Site Explorer → Pages → Crawled pages (filter 404) after Oct 17, and 301 any that have backlinks.
+- **Site Explorer crawl:** 152 pages, of which 138 × 200, 11 × 3xx, **3 × 404**. Site Audit shows 0 errors, so these are probably old/retired URLs Ahrefs still knows about (external links or history), not broken internal links. **Checked Oct 20 (Crawled pages, 404 filter); none has external backlinks:**
+  - `/blog/pool-chemistry-during-heat-wave`: Ahrefs first seen Aug 11, re-crawled ~Oct 18, 0 backlinks. The slug never existed in this repo; the real page is `/blog/pool-chemistry-heat-wave`. Most likely a guessed or AI-cited URL. **Queued for after Oct 24:** one `_redirects` line, 301 to the real page. Harmless, no page edit.
+  - `/Pool`: first seen Sep 12, 0 backlinks, never a real URL. Ignore.
+  - `/cdn-cgi/l/email-protection`: Cloudflare email-obfuscation artifact, last crawled Jul 7. Live `mailto:` links on /features, /terms-website and /privacy-website are plain (no obfuscation) as of Oct 20, so it's stale. Ignore.
 
 **Oct 6 vs Sep 29** (Overview PDF only; 154 = 146 internal + 8 resources; 152 × 2xx, 4 × 3xx; 3,402 links found, 2,959 crawled, 424 uncrawled, 19 blocked by robots.txt). The PDF drops the +/− signs on the Change column, so direction below is inferred from the Sep 29 counts:
 
