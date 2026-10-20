@@ -1,6 +1,6 @@
 ---
 name: seo-priorities-and-status
-description: "Oct 17: Week 11 of the Google collapse. NEW step-down Oct 7–8 (daily impr 46–88 → 21–60, median 34; L7 11 clicks / 345 impr page-level, property −31%), concentrated in pool-startup-chemicals-checklist, pool-water-green-but-chlorine-is-high, what-causes-high-combined-chlorine. Possible link to the end of the September 2026 spam update (Sep 24–Oct 8). Trust-line read: no divergence (Likely) — not rolling it out; external authority/backlinks are the lever. Deferred Oct 19 batch held one more week; re-read Oct 24. iOS 28d conversion 3.61% (series low). Last site changes: Sep 23 meta/og fixes (032a034, 9cb2183)."
+description: "Oct 17: Week 11 of the Google collapse. NEW step-down Oct 7–8 (daily impr 46–88 → 21–60, median 34; L7 11 clicks / 345 impr page-level, property −31%), concentrated in pool-startup-chemicals-checklist, pool-water-green-but-chlorine-is-high, what-causes-high-combined-chlorine. Possible link to the end of the September 2026 spam update (Sep 24–Oct 8). Trust-line read: no divergence (Likely) — not rolling it out; external authority/backlinks are the lever. Deferred Oct 19 batch held one more week; re-read Oct 24. iOS 28d conversion 3.61% (series low). Last site changes: Oct 15 em-dash sweep (135 pages, punctuation only, no titles) and Oct 19 /updates page (9f66342). Oct 20 Ahrefs: health 100, 0 errors; 205 notices are mostly change tracking from the Oct 15 sweep."
 metadata: 
   node_type: memory
   type: project
@@ -378,7 +378,22 @@ Conversion = first-time downloads ÷ unique-device impressions. 7-day conversion
 | Sep 22 | 100 | 146 | 0 | 18 | 76 | 94 |
 | Sep 29 | 100 | 151 | 0 | 13 | 35 | 48 |
 | Oct 6 | 100 | 154 | 0 | 13 | 19 | 32 |
-| **Oct 13** | **100** | **154** | **0** | **14** | **14** | **28** |
+| Oct 13 | 100 | 154 | 0 | 14 | 14 | 28 |
+| **Oct 20** | **100** | **152** | **0** | **11** | **205** | **216** |
+
+**Oct 20 vs Oct 13** (Overview PDF only; 152 = 144 internal + 8 resources; 153 × 2xx, 1 × 3xx (was 4); 3,418 links found, 2,973 crawled, 426 uncrawled, 19 blocked by robots.txt; TTFB 131 fast / 6 medium / 2 slow / 1 >500 ms). New this week: **AI Discoverability Score 96** (beta; bot access 100, machine readability 72). Notices jumped 14→205, but almost all of it is change tracking from our own Oct 15 em-dash sweep, not defects:
+
+| Issue | Count | Change vs Oct 13 | Status |
+|-------|-------|--------|--------|
+| Changed pages not submitted to IndexNow | 88 | New | Notice. Pages edited in the Oct 15 sweep. Punctuation only, so not worth a mass IndexNow push. Let normal recrawl pick them up. |
+| Meta description changed | 78 | New | Notice. The sweep changed 79 meta-description lines (em dash → colon/comma/sentence). Wording otherwise identical. Titles untouched (0 changed). |
+| H1 tag changed | 17 | New | Notice. The sweep changed 18 H1 lines, e.g. muriatic "…to Your Pool — Calculator" → "…to Your Pool: Calculator". |
+| Meta description too long | 2 | +1 | Warning. Caused by the Oct 15 sweep. New one is **`/blog/how-to-lower-calcium-hardness`** (161 chars, Ahrefs). The sweep turned "refill — how to calculate…" into "refill. Here's how to calculate…" (157→161). Not on hold, 0 Ahrefs traffic, so a one-line trim is safe. The other is still `muriatic-acid-calculator` (178; was 175 before the sweep; protected, leave it). Ahrefs' cutoff looks like >160: `/updates` (158) and `how-to-kill-pool-algae` (~159, also lengthened by the sweep) aren't flagged. |
+| Article page missing Article schema | 12 | New | Notice. **Ignore: Ahrefs page-type classifier, not a defect.** Issue page (Oct 20): `/explained/`, 9 blog hubs (chlorine, lsi, cloudy-water, alkalinity, testing, calcium, pool-maintenance, desert-pools, ph) and 2 tools (`overnight-chlorine-loss-test`, `pool-chemical-addition-order`). Ahrefs labels them "Article" (Guide/How-to) from content. Their schema is identical to siblings that weren't flagged: algae/spa hubs also have only BreadcrumbList, and `pool-shock-calculator` has the same FAQPage+Breadcrumb as the two flagged tools. `/explained/` already has CollectionPage and is still flagged, so adding CollectionPage to the hubs wouldn't clear it. Article schema on listing/calculator pages would be inaccurate markup, so don't add it. 0 organic traffic on all 12. |
+| FAQ page missing FAQPage schema | 1 | New | Notice. URL not in the Overview; pull from the issue page. Low priority. |
+| Page has only one dofollow incoming internal link | 3 | +1 | Notice. Possibly `/updates` (linked only from `/download`). Unconfirmed: pull from the issue page. |
+
+Warnings 14→11: the Oct 13 "Slow page" is gone, so it was transient as expected. No errors, crawl footprint steady. The Article/FAQ checks look like new Ahrefs check types (likely tied to the AI Discoverability beta), not regressions.
 
 **Oct 13 vs Oct 6** (Overview PDF only; 154 = 146 internal + 8 resources; 152 × 2xx, 4 × 3xx; 3,402 links found, 2,959 crawled, 424 uncrawled, 19 blocked by robots.txt — crawl footprint identical to Oct 6). "What's new" lists only 2 issues:
 
@@ -558,5 +573,8 @@ Read: Google counts **~7 pool-industry sites** (saltwaterpoolanswers, calculated
   - All Sep 20–21 edited pages submitted to GSC + Bing.
 - **Sep 22:** Notes moved into the repo; `*.md` excluded from deploy (dc90f84, ab52ac9).
 - **Sep 23:** /methodology meta 161→148 chars + og:image/twitter:image (032a034). Meta trims on low-cya-in-pool, pool-closing-chemicals-checklist, what-is-lsi (9cb2183).
+- **Oct 15:** Em-dash sweep across 135 HTML files (c3c33c2…6c1512d): explained/, tools/, every blog section, top-level pages, demo. Punctuation only: 79 meta descriptions, 18 H1s and JSON-LD descriptions reworded around the dash. **No titles changed**, no dateModified or sitemap lastmod bumps, not submitted to GSC/Bing/IndexNow. Touched the trust-line pages, the 4 on-hold calculators (meta + H1) and two of the three Oct 7–8 dropped pages. Made during the hold, so it's a minor confound for the Oct 24 read; a punctuation change is unlikely to move rankings.
+- **Oct 19:** `/updates` What's New page (dated app release notes) + sitemap, llms.txt, link from /download (9f66342).
+- **Oct 20:** how-to-lower-calcium-hardness meta 161→144 (fixes the Ahrefs "too long" warning from the Oct 15 sweep). Same text in meta, og, twitter and JSON-LD. Not submitted to GSC/Bing.
 
 **Optional, low priority:** soften the spa hub's "CYA management is critical" line or add a scope note ("spa guidance follows CDC recommendations"); og:image on the 6 legal/about pages.
