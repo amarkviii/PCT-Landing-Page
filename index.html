@@ -36,7 +36,7 @@ gtag('config','G-S8JT1DELF6');
 {"@context":"https://schema.org","@type":"Organization","name":"PoolChem Tracker","url":"https://www.poolchemtracker.com","logo":"https://www.poolchemtracker.com/Logo/logo-256.webp","sameAs":["https://apps.apple.com/app/id6762652630","https://bsky.app/profile/poolchemtracker.com"],"contactPoint":{"@type":"ContactPoint","email":"support@poolchemtracker.com","contactType":"customer support"}}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What should free chlorine be in a pool?","acceptedAnswer":{"@type":"Answer","text":"The ideal free chlorine (FC) level depends on your cyanuric acid (CYA). At CYA 30, aim for 3–5 ppm. At CYA 50, aim for 5–7 ppm. The rule of thumb is FC should be at least 7.5% of your CYA level."}},{"@type":"Question","name":"What is the ideal pool pH?","acceptedAnswer":{"@type":"Answer","text":"Keep pH between 7.4 and 7.8, with 7.5–7.6 being the sweet spot. Below 7.2, water becomes corrosive and irritates skin and eyes. Above 7.8, chlorine loses effectiveness and calcium can precipitate out, causing cloudy water and scale."}},{"@type":"Question","name":"Why is my pool cloudy even though chlorine is high?","acceptedAnswer":{"@type":"Answer","text":"High chlorine with cloudy water usually means high CYA is locking up your chlorine, or high pH/alkalinity is causing minerals to precipitate. Your FC reading looks fine, but the effective chlorine may be too low. Check CYA first."}},{"@type":"Question","name":"What is LSI?","acceptedAnswer":{"@type":"Answer","text":"The Langelier Saturation Index measures water balance — whether your water will corrode surfaces or form scale. It combines pH, calcium hardness, alkalinity, and temperature into a single score. A balanced pool has an LSI between -0.3 and +0.3."}},{"@type":"Question","name":"How much chlorine should I add to my pool?","acceptedAnswer":{"@type":"Answer","text":"It depends on your pool volume, current FC level, and target FC (which is set by your CYA). As a rough guide, 1 oz of liquid chlorine (12.5%) raises FC by about 1 ppm per 1,000 gallons. Use the free chlorine dose calculator for your exact amount."}},{"@type":"Question","name":"How often should I test my pool water?","acceptedAnswer":{"@type":"Answer","text":"2–3 times per week during swim season, weekly in the off-season. Test in the morning for the most accurate baseline — UV breaks down chlorine throughout the day. Always test after heavy rain, pool parties, or adding chemicals."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What should free chlorine be in a pool?","acceptedAnswer":{"@type":"Answer","text":"The ideal FC depends on your CYA. At CYA 30, aim for 3–5 ppm. At CYA 50, aim for 5–7 ppm. The rule of thumb: FC should be at least 7.5% of your CYA."}},{"@type":"Question","name":"Why is my pool cloudy even though chlorine is high?","acceptedAnswer":{"@type":"Answer","text":"Usually high CYA is locking up your chlorine, or high pH/alkalinity is causing precipitation. FC looks fine, but effective chlorine is too low. Check CYA first."}},{"@type":"Question","name":"What is the ideal pool pH?","acceptedAnswer":{"@type":"Answer","text":"Keep pH between 7.4 and 7.8, with 7.5–7.6 as the sweet spot. Below 7.2 the water becomes corrosive. Above 7.8, chlorine loses most of its effectiveness."}},{"@type":"Question","name":"How much chlorine should I add?","acceptedAnswer":{"@type":"Answer","text":"It depends on your pool volume, current FC, and your CYA-based target. As a rough guide, 1 oz of 12.5% liquid raises FC by ~1 ppm per 1,000 gallons."}},{"@type":"Question","name":"What is LSI?","acceptedAnswer":{"@type":"Answer","text":"The Langelier Saturation Index tells you whether your water is balanced, corrosive, or scaling, even when pH looks fine. It combines pH, calcium, alkalinity, and temperature."}},{"@type":"Question","name":"How often should I test my pool?","acceptedAnswer":{"@type":"Answer","text":"2–3 times per week during swim season, weekly in the off-season. Test in the morning, because UV burns off chlorine throughout the day. Always retest after rain, a pool party, or adding chemicals."}}]}
 </script>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -722,6 +722,48 @@ gtag('config','G-S8JT1DELF6');
         <p>Multiple things out of range? Get a step-by-step workflow: estimated doses, suggested order, wait times between steps.</p>
         <span class="calc-link">Get my plan &rarr;</span>
       </a>
+      <a href="tools/dry-acid-calculator" class="tool-card">
+        <div class="tool-icon">&#x1F504;</div>
+        <h4>Dry Acid Calculator</h4>
+        <p>Convert between dry acid (sodium bisulfate) and muriatic acid doses.</p>
+        <span class="calc-link">Calculate &rarr;</span>
+      </a>
+      <a href="tools/pool-opening-calculator" class="tool-card">
+        <div class="tool-icon">&#x2600;&#xFE0F;</div>
+        <h4>Pool Opening Calculator</h4>
+        <p>Your spring shopping list: shock, pH, alkalinity, calcium, and CYA doses for your pool.</p>
+        <span class="calc-link">Calculate &rarr;</span>
+      </a>
+      <a href="tools/pool-closing-calculator" class="tool-card">
+        <div class="tool-icon">&#x2744;&#xFE0F;</div>
+        <h4>Pool Closing Calculator</h4>
+        <p>Winterizing chemical amounts for your pool size and current readings.</p>
+        <span class="calc-link">Calculate &rarr;</span>
+      </a>
+      <a href="tools/water-replacement-calculator" class="tool-card">
+        <div class="tool-icon">&#x1F30A;</div>
+        <h4>Water Replacement Calculator</h4>
+        <p>How much to drain and refill to fix CYA, calcium, or salt.</p>
+        <span class="calc-link">Calculate &rarr;</span>
+      </a>
+      <a href="tools/pool-chlorine-usage-calculator" class="tool-card">
+        <div class="tool-icon">&#x1F4C5;</div>
+        <h4>Chlorine Usage Calculator</h4>
+        <p>How much liquid chlorine your pool uses per week, and what it costs per month.</p>
+        <span class="calc-link">Calculate &rarr;</span>
+      </a>
+      <a href="tools/chlorine-cost-calculator" class="tool-card">
+        <div class="tool-icon">&#x1F4B2;</div>
+        <h4>Chlorine Cost Calculator</h4>
+        <p>Liquid vs tablets vs cal-hypo: the real seasonal cost, including CYA buildup.</p>
+        <span class="calc-link">Calculate &rarr;</span>
+      </a>
+      <a href="tools/overnight-chlorine-loss-test" class="tool-card">
+        <div class="tool-icon">&#x1F319;</div>
+        <h4>Overnight Chlorine Loss Test</h4>
+        <p>Enter dusk and dawn FC readings for a pass/fail verdict on hidden algae.</p>
+        <span class="calc-link">Calculate &rarr;</span>
+      </a>
     </div>
     <a href="tools/" class="section-more">See all tools &rarr;</a>
   </div>
@@ -840,6 +882,22 @@ gtag('config','G-S8JT1DELF6');
           <span class="hub-callout-label">Guide series</span>
           <h4>Pool algae</h4>
           <p>Kill green, mustard, and black algae, and stop it from coming back.</p>
+        </div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a href="blog/desert-pools/" class="hub-callout">
+        <div class="hub-callout-text">
+          <span class="hub-callout-label">Guide series</span>
+          <h4>Desert pools</h4>
+          <p>Calcium creep, evaporation, hard fill water, and when to drain in hot, dry climates.</p>
+        </div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a href="blog/spa/" class="hub-callout">
+        <div class="hub-callout-text">
+          <span class="hub-callout-label">Guide series</span>
+          <h4>Spa &amp; hot tub</h4>
+          <p>Chlorine vs bromine, target ranges, how to shock, and when to change the water.</p>
         </div>
         <span class="arrow">&rarr;</span>
       </a>

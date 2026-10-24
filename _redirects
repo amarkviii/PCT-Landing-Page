@@ -9,6 +9,7 @@
 
 # Legacy dead URLs
 /pool-dose-calculator /tools/ 301
+/blog/pool-chemistry-during-heat-wave /blog/pool-chemistry-heat-wave 301
 
 # Renamed download assets (spaces -> hyphens)
 /downloads/pool%20chem%20reference%20card.pdf /downloads/pool-chem-reference-card.pdf 301
